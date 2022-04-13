@@ -22,9 +22,16 @@
 
 <body>
 
-	<div class ="footer">
-	footer
-	</div>
+<footer>
+<hr>
+<div id="copy">Donabit Footer<br>
+Contact mail:donabit@db.com
+</div>
+<div id="social">
+<img src="../images/Instagram.png" width="33" height="33" alt="Instagram">
+<img src="../images/twitter.png" width="34" height="34" alt="Twitter">
+</div>
+</footer>
 	
 </body>
 </html>

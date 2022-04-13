@@ -1,18 +1,31 @@
 @charset "UTF-8";
 
- .carousel_first {
+.carousel-container{
+  width: 1500px;
+  margin: 50px auto;
+  border: 0px solid #000;
+  overflow: hidden;
+  position: relative;
+}
+.carousel-slide{
   display: flex;
-  margin:0 auto; 
-  width: auto;
-  height: 500px;
-  background-color: #01A9DB;
-  border: 1px solid black;
-  
-  font-size:60px;
-  text-align:right;
+  width: 100%;
+  height: 450px;
+}
+#prevBtn{
+  position:absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0%, -50%);
 }
 
-
+#nextBtn{
+  position:absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0%, -50%);
+}
+  
  .challenge{
   display: flex;
   margin:0 auto;
@@ -35,4 +48,37 @@
   
   font-size:60px;
   text-align:right;
+}
+
+/* 캐러셀 끝 */
+
+* {
+
+  box-sizing: border-box;
+} 
+
+.grid-init {
+  max-width: 3000px;
+  margin: auto; 
+  background-color: lightsteelblue; 
+  padding: 10px; 
+}
+
+.box-init { 
+  font-size: larger; 
+  color: #fff; 
+  border-radius: 5px; 
+  background-color: #2196f3; 
+  border: 1px solid black; 
+  padding: 10px;
+ 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.grid { 
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
