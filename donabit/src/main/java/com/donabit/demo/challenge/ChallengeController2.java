@@ -19,6 +19,8 @@ public class ChallengeController2 {
 	@RequestMapping("/admin")
 	public void adminchallege() {}
 	
+	@RequestMapping("/make-a-challenge")
+	public void makeachallenge() {}
 	
 	@PostMapping("/adminresult")
 	public ModelAndView adminresult(ChallengeDTO2 dto) {
