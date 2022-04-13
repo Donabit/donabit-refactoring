@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -26,10 +27,11 @@ public class ChallengeController {
 	}
 	
 	@GetMapping("challengedetail/{chnum}")
-	public ModelAndView challengelistdatail() {
+	public ModelAndView challengelistdatail(@RequestParam int chnumdetail) {
 		ModelAndView mv = new ModelAndView();
 		List<ChallengeDTO> list = service.challengelist();
 		mv.addObject("challengelist", list);
+		mv.addObject("chnumdetail", chnumdetail);
 		mv.setViewName("challengedetail"); 
 		return mv; 
 	

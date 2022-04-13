@@ -26,6 +26,7 @@
 				<h2 style="display:inline"><a href="http://localhost:8089/morningcheck">morningcheck   /</a></h2>
 				<h2 style="display:inline"><a href="http://localhost:8089/main">main /</a></h2>
 				<h2 style="display:inline"><a href="http://localhost:8089/admin">admin</a></h2>
+				<h2 style="display:inline"><a href="http://localhost:8089/make-a-challenge">admin</a></h2>
 			</div>
 			<div class="section">
 				<div class="containerflex">
@@ -41,7 +42,6 @@
 								<div>기부조건 : ${dto.checknum } / ${dto.chdonate }</div>
 								<div>개인성공조건 : ${dto.chsuccess } </div>
 								<div>이미지 :${dto.chimg }</div>
-								<a href="/challengedetail/${dto.chnum }"> ${dto.chnum }번 상세페이지</a>
 								<form action="/challengedetail/${dto.chnum }" method="get">
 								
 								<input type="submit" value="${dto.chnum }번 상세페이지">

@@ -23,16 +23,21 @@
 
 <body>
 	<c:forEach items="${challengelist }" var="dto">
-		<div>챌린지 번호 : ${dto.chnum }</div>
-		<div>챌린지 명 : ${dto.chname }</div>
-		<div>기부조건 : ${dto.checknum } / ${dto.chdonate }</div>
-		<div>개인성공조건 : ${dto.chsuccess }</div>
-		<div>이미지 :${dto.chimg }</div>
-		<div>경험치 : ${dto.chexp}</div>
-		<div>최대모집 : ${dto.chmaxp}</div>
-		<div>chsdate ${dto.chsdate}</div>
-		<div>chedate ${dto.chedate}</div>
+		<c:if test="${dto.chnum == chnumdetail}">
+			<div>챌린지 번호 : ${dto.chnum }</div>
+			<div>챌린지 명 : ${dto.chname }</div>
+			<div>기부조건 : ${dto.checknum } / ${dto.chdonate }</div>
+			<div>개인성공조건 : ${dto.chsuccess }</div>
+			<div>이미지 :${dto.chimg }</div>
+			<div>경험치 : ${dto.chexp}</div>
+			<div>최대모집 : ${dto.chmaxp}</div>
+			<div>chsdate ${dto.chsdate}</div>
+			<div>chedate ${dto.chedate}</div>
+		</c:if>
 	</c:forEach>
+
+
+
 </body>
 
 </html>
