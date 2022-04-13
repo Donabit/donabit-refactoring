@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import donabit.challenge.ChallengeDTO;
+
 @Service("checkservice")
 public class CheckServiceImpl implements CheckService {
 	
@@ -36,10 +38,8 @@ public class CheckServiceImpl implements CheckService {
 	
 	@Override
 	public List<CheckDTO> checklist() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.checklist();
 	}
-	
 }
 
 	
