@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+ .carousel_first {
+  display: flex;
+  margin:0 auto; 
+  width: auto;
+  height: 500px;
+  background-color: #01A9DB;
+  border: 1px solid black;
+  
+  font-size:60px;
+  text-align:right;
+}
+
+
+ .challenge{
+  display: flex;
+  margin:0 auto;
+  width: 1500px;
+  height: 600px;
+  background-color: #01A9DB;
+  border: 1px solid black;
+  
+  font-size:60px;
+  text-align:right;
+}
+
+.carousel_second {
+  display: flex;
+  margin:0 auto;
+  width: auto;
+  height: 200px;
+  background-color: #01A9DB;
+  border: 1px solid black;
+  
+  font-size:60px;
+  text-align:right;
+}

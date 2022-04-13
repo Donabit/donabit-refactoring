@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="donabit.challenge.ChallengeDAO">
+	
+	
+	<select id="challengelist" resultType="challengedto">
+	select challenge.chnum, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, count(checknum) as checknum 
+	 from donabit.challenge 
+	 left join donabit.checks 
+	 on challenge.chnum = checks.chnum 
+	 group by challenge.chnum
+	</select>
+
+</mapper>

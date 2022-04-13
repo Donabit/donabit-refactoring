@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+
+/* https: //grid.layoutit.com/?id=yHpidry */
+/*그리드 속성*/
+.container {
+    display: grid;
+    grid-template-columns: 100px 1370px 100px;
+    grid-template-rows: 100px 700px;
+    gap: 0px 0px;
+    grid-auto-flow: row dense;
+    justify-items: stretch;
+    grid-template-areas:
+        "header header header"
+        ". section .";
+    justify-content: center;
+    background-color: rgb(252, 242, 187);
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+   grid-template-columns: 100px 700px 100px;
+  }
+}
+
+.header {
+    grid-area: header;
+    background-color: rgb(207, 253, 153);
+}
+
+.section {
+    grid-area: section;
+    background-color: rgb(174, 225, 245);
+}
+
+/*section 내부 flexbox 속성*/
+.containerflex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-content: flex-start;
+    background-color: rgb(163, 154, 247);
+    margin: 10px;
+    padding: 10px;
+}
+
+.item {
+    display: flex;
+    background-color: rgb(199, 255, 194);
+    width: 640px;
+    margin: 5px 5px 5px;
+    padding: 5px;
+}
+
+.chimg {
+    background-color: rgb(238, 161, 191);
+    width: 200px;
+    height: 180px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.chdetail {
+    background-color: rgb(238, 161, 191);
+    width: 270px;
+    margin-left: 5px;
+}
+
+.chdetail2 {
+    background-color: rgb(238, 161, 191);
+    width: 150px;
+    margin-left: 5px;
+}
