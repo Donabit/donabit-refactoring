@@ -20,18 +20,11 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 
-<body>
-
 <footer>
-<hr>
-<div id="copy">Donabit Footer<br>
-Contact mail:donabit@db.com
-</div>
-<div id="social">
-<img src="../images/Instagram.png" width="33" height="33" alt="Instagram">
-<img src="../images/twitter.png" width="34" height="34" alt="Twitter">
+	<div class="footer_container">
+	<div class="footA"> Donabit </div>
+	<div class="footB"> Copyright © Donabit All Rights Reserved. </div>
 </div>
 </footer>
-	
-</body>
+
 </html>

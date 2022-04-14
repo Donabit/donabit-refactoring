@@ -1,88 +1,4 @@
 @charset "UTF-8";
- 
-.mainbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background-color: white;
-}
-
-.mainbar_logo {
-    position: relative;
-    left: 400px;
-	display:grid;
-	grid-template-columns: 600px 1fr;
-	text-align: center;
-}
-
-.mainbar_menu {
-	position: relative;
-    right: 200px;
-	display: flex;
-	list-style: none;
-	padding-left: 0;
-}
-
-.mainbar_menu li {
-	padding: 8px 12px;
-}
-
-.mainbar_menu li:hover {
-	font-style: normal;
-	text-decoration:none;
-	color: #996666;
-	font-weight:bold;
-}
-
-.mainbar_login {
-	position: relative;
-    right: 900px;
-	display: flex;
-	list-style: none;
-	padding-left: 0;
-}
-
-.mainbar_login li {
-	padding: 8px 12px;
-}
-
-.mainbar_login li:hover {
-	font-style: normal;
-	text-decoration:none;
-	color: #996666;
-	font-weight:bold;
-}
-
-@media screen and (max-width: 800px) {
-	.mainbar {
-	flex-direction: column;
-	align-items: flex-start;
-	padding: 8px 24px;
-	}
-	
-	.mainbar_menu {
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
-	}
-	
-	.mainbar_menu li {
-	width: 100%;
-	text-align: center;
-	}
-	
-		.mainbar_login {
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
-	}
-	
-		.mainbar_login li {
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
-	}
-}
 
 a:link {
     text-decoration: none;
@@ -100,3 +16,81 @@ a:hover {
 a:active {
     text-decoration: none;
 }
+ 
+ * { 
+ margin: 0;
+ padding: 0;
+ }
+ 
+ header { 
+ background-color: white; 
+ } 
+ 
+ .header_container { 
+ display: flex; 
+ align-items: center; 
+ max-width: 1500px; 
+ margin-left: auto; 
+ margin-right: auto; 
+ height: 65px;
+ } 
+ 
+ .logo_container {
+ display: block; 
+ margin: 5px 150px;
+ } 
+ 
+/*  .logo_container a { 
+ font-size: 30px; 
+ font-weight: 500; 
+ text-decoration: none; 
+ text-align: center; 
+ color: rgba(0,0,0,1); 
+ }  */
+ 
+ .nav_container { 
+ display: flex; 
+ flex: 1; 
+ justify-content: space-between; 
+ align-items: center; 
+ } 
+ 
+ .menu_container { 
+ align-content: flex-start; 
+ margin-left: 100px; 
+ } 
+ 
+ .menu_container .menu, .login { 
+ list-style: none; 
+ display: flex; 
+ } 
+ 
+ .menu_title { 
+ display: block; 
+ margin: 20px; 
+ font-size: 15px; 
+ text-decoration: none;
+ color: rgba(0,0,0,1); 
+ 
+ font-family: 'Nanum Pen Script';
+
+ }
+ 
+ .menu_index { 
+ display: block; 
+ margin: 10px 0; 
+ padding: 0 15px; 
+ text-decoration: 
+ none; 
+ color: rgba(0,0,0,1); 
+ } 
+ 
+ .menu_1, .menu_2, .menu_3, .menu_4 { 
+ display: block; 
+ cursor: pointer; 
+ } 
+ 
+ .login_container { 
+ align-content: flex-end; 
+ margin-right: 50px; 
+ }

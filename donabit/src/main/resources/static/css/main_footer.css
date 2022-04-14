@@ -1,13 +1,25 @@
 @charset "UTF-8";
 
-.footer {
-  display: flex;
-  margin:0 auto;
-  width: auto;
-  height: 200px;
-  background-color: green;
-  border: 1px solid black;
-  
-  font-size:60px;
-  text-align:right;
+footer {
+    background-color: #222222;
+}
+
+.footer_container { 
+	padding-top: 35px; 
+	padding-bottom: 35px; 
+	display: block; 
+	cursor: default; 
+	text-align: center; 
+	color: rgba(255, 255, 255, 1); 
+	background-color: rgba(25, 25, 25, 1);
+}
+	
+.footer_container .footA { 
+	font-size: 25px; 
+	margin-top: 20px; 
+	margin-bottom: 10px;
+}
+	
+.footer_container .footB { 
+	font-size: 15px;
 }

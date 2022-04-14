@@ -1,17 +1,27 @@
 @charset "UTF-8";
 
 .carousel-container{
-  width: 1500px;
-  margin: 50px auto;
+  max-width: 100%;
+  margin: auto;
   border: 0px solid #000;
   overflow: hidden;
   position: relative;
+
 }
+
 .carousel-slide{
-  display: flex;
-  width: 100%;
+  max-width: auto;
   height: 450px;
+  display: flex;
+
 }
+
+.carousel-slide img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 #prevBtn{
   position:absolute;
   top: 50%;
@@ -25,60 +35,208 @@
   right: 0;
   transform: translate(0%, -50%);
 }
-  
- .challenge{
-  display: flex;
-  margin:0 auto;
-  width: 1500px;
-  height: 600px;
-  background-color: #01A9DB;
-  border: 1px solid black;
-  
-  font-size:60px;
-  text-align:right;
-}
 
-.carousel_second {
-  display: flex;
-  margin:0 auto;
-  width: auto;
-  height: 200px;
-  background-color: #01A9DB;
-  border: 1px solid black;
-  
-  font-size:60px;
-  text-align:right;
+.h1 {
+	display: center;
 }
 
 /* 캐러셀 끝 */
 
-* {
-
-  box-sizing: border-box;
-} 
-
-.grid-init {
-  max-width: 3000px;
-  margin: auto; 
-  background-color: lightsteelblue; 
-  padding: 10px; 
+.div_motto {
+	margin-top: 100px;
+	margin-bottom: 100px;
+	text-align: center;
 }
 
-.box-init { 
-  font-size: larger; 
-  color: #fff; 
-  border-radius: 5px; 
-  background-color: #2196f3; 
-  border: 1px solid black; 
-  padding: 10px;
- 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
+p.result1,p.result2{
+	display: inline-block;
+	font-size:30px;
+	height:24px;
+	line-height: 24px;
+	border-right: 1px solid #fff;
+	padding-right: 2px;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 5px;
+	
+	font-family: 'Nanum Pen Script';
+	font-weight: bold;
+
 }
 
-.grid { 
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr;
+p.cursor {
+	animation: cursor 0.4s infinite;}
+
+@keyframes cursor{ 
+      0%{border-right: 1px solid #fff} 
+      50%{border-right: 1px solid #000} 
+      100%{border-right: 1px solid #fff} 
+    }
+
+/* 섹션 motto 끝 */  
+
+.jb-wrap img {
+	width: 100%;
+	vertical-align: middle;
 }
+.d-text {
+	padding: 5px 10px;
+	background-color: green;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate( -50%, -50% );
+}
+
+.parent{
+	width: auto;
+    margin: 5px auto;
+    display: flex;
+    
+    position: relative;
+
+    margin-bottom: 50px;
+}
+
+.first {
+    border: 1px solid red;
+    flex:1;
+    width:50px;
+    height:250px;
+    box-sizing: border-box;
+    
+    text-align: center;
+    font-family: 'Nanum Pen Script';
+	font-weight: bold;
+	
+	
+	vertical-align: middle;
+}
+
+.second{
+    border: 1px solid green;
+    flex:1;
+    margin: 0px 5%;
+    width:50px;
+    height:250px;
+    box-sizing: border-box;
+    
+    text-align: center;
+    font-family: 'Nanum Pen Script';
+	font-weight: bold;
+}
+
+.third{
+    border: 1px solid blue;
+    flex:1;
+    width:50px;
+    height:250px;
+    box-sizing: border-box;
+    
+    text-align: center;
+    font-family: 'Nanum Pen Script';
+	font-weight: bold;
+}
+
+/* 섹션 ch1 끝 */
+
+.fourth {
+    border: 1px solid red;
+    flex:1;
+    width:50px;
+    height:250px;
+    box-sizing: border-box;
+    
+    text-align: center;
+    font-family: 'Nanum Pen Script';
+	font-weight: bold;
+}
+
+.fifth{
+    border: 1px solid green;
+    flex:1;
+    margin: 0px 5%;
+    width:50px;
+    height:250px;
+    box-sizing: border-box;
+    
+    text-align: center;
+    font-family: 'Nanum Pen Script';
+	font-weight: bold;
+}
+
+.sixth{
+    border: 1px solid blue;
+    flex:1;
+    width:50px;
+    height:250px;
+    box-sizing: border-box;
+    
+    text-align: center;
+    font-family: 'Nanum Pen Script';
+	font-weight: bold;
+}
+
+/* 섹션 ch2 끝 */
+
+h1.notice {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+/* 섹션 notice 끝 */
+
+@keyframes scroll {
+	 0% {
+		 transform: translateX(0);
+	}
+	 100% {
+		 transform: translateX(calc(-250px * 7));
+	}
+}
+ .slider {
+	 background: white;
+	 box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	 height: 100px;
+	 margin: auto;
+	 overflow: hidden;
+	 position: relative;
+	 max-width: auto;
+}
+ .slider::before, .slider::after {
+	 background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+	 content: "";
+	 height: 100px;
+	 position: absolute;
+	 width: 200px;
+	 z-index: 2;
+}
+ .slider::after {
+	 right: 0;
+	 top: 0;
+	 transform: rotateZ(180deg);
+}
+ .slider::before {
+	 left: 0;
+	 top: 0;
+}
+ .slider .slide-track {
+	 animation: scroll 40s linear infinite;
+	 display: flex;
+	 width: calc(250px * 14);
+}
+ .slider .slide {
+	 height: 100px;
+	 width: 250px;
+}
+
+/* 하단 슬라이드 끝 */
+
+hr.four {
+	width: 1000px;
+	margin:0 auto;
+
+}
+
+/* h 수평선 끝 */
