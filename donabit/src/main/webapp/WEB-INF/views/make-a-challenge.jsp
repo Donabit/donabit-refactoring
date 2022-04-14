@@ -68,6 +68,10 @@
             width: 22em;
         }
 
+		input[type=file] {
+			display: block;
+		}
+		
         textarea {
             width: 22em;
             height: 5em;
@@ -105,6 +109,12 @@
             background-color: lightgray;
         }
 
+		#uploadImage {
+			display: inline-block;
+			background-color: whitesmoke;
+			width: 18em;
+			height: 10em;
+		}
     </style>
 </head>
 <body>
@@ -142,35 +152,42 @@
                     <div class="admin_make_challenge">
                         <label for="chimg" class="admin_make_challenge_label">챌린지 이미지</label>
                         <div class="admin_make_challenge_input">
-                            <input type="file" name="chimg" accept="image/*">
+                        	<img src="img/upload_default.png" alt="default image for upload" id="uploadImage">
                             <span class="admin_make_challenge_info">(이미지 파일만 업로드 가능합니다.)</span>
+                            <input type="file" name="chimg" accept="image/*" id="uploadInput">
                         </div>
                     </div>
                     <div class="admin_make_challenge">
                         <label for="chsdate" class="admin_make_challenge_label">챌린지 시작일/만료일</label>
                         <div class="admin_make_challenge_input">
-                            <input type="date" name="chsdate"><input type="date" name="chsdate">
+                            <input type="date" name="chsdate"><input type="date" name="chedate">
                             <span class="admin_make_challenge_info">(만료일은 시작일보다 이전일 수 없습니다.)</span>
                         </div>
                     </div>
                     <div class="admin_make_challenge">
                         <label for="chexp" class="admin_make_challenge_label">챌린지 제공 경험치(1회)</label>
                         <div class="admin_make_challenge_input">
-                            <input type="number" name="chexp">
+                            <input type="radio" name="chexp" id="chexp10" value="10" checked><label for="chexp10">10exp</label>
+                            <input type="radio" name="chexp" id="chexp15" value="15"><label for="chexp15">15exp</label>
+                            <input type="radio" name="chexp" id="chexp20" value="20"><label for="chexp20">20exp</label>
                             <span class="admin_make_challenge_info">(개인별 챌린지가 1회 성공할 때 제공될 경험치를 선택해주세요.)</span>
                         </div>
                     </div>
                     <div class="admin_make_challenge">
                         <label for="chsuccess" class="admin_make_challenge_label">챌린지 개인별 목표 횟수</label>
                         <div class="admin_make_challenge_input">
-                            <input type="number" name="chsuccess">
+                            <input type="radio" name="chsuccess" id="chsuccess30" value="30" checked><label for="chsuccess30">30회</label>
+                            <input type="radio" name="chsuccess" id="chsuccess66" value="66"><label for="chsuccess66">66회</label>
+                            <input type="radio" name="chsuccess" id="chsuccess100" value="100"><label for="chsuccess100">100회</label>
                             <span class="admin_make_challenge_info">(챌린지의 개인별 목표 횟수를 선택해 주세요.)</span>
                         </div>
                     </div>
                     <div class="admin_make_challenge">
                         <label for="chmaxp" class="admin_make_challenge_label">챌린지 모집 인원</label>
                         <div class="admin_make_challenge_input">
-                            <input type="number" name="chmaxp">
+                            <input type="radio" name="chmaxp" id="chmaxp20" value="20" checked><label for="chmaxp20">20명</label>
+                            <input type="radio" name="chmaxp" id="chmaxp50" value="50"><label for="chmaxp50">50명</label>
+                            <input type="radio" name="chmaxp" id="chmaxp100" value="100"><label for="chmaxp100">100명</label>
                             <span class="admin_make_challenge_info">(챌린지의 모집 인원을 선택해 주세요.)</span>
                         </div>
                     </div>
@@ -204,6 +221,17 @@
             </form>
         </div>
     </main>
+    
+    <script type="text/javascript">
+	const uploadInput = document.getElementById('uploadInput');
+		uploadInput.addEventListener('change', (e) => {
+	    	const uploadImage = document.getElementById('uploadImage');
+	    	uploadImage.src = URL.createObjectURL(event.target.files[0]);
+	    	uploadImage.onload = function() {
+	    		URL.revokeObjectURL(uploadImage.src) 
+	    	}
+    	});
+    </script>
 
 </body>
 </html>
