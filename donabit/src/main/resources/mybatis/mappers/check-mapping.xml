@@ -4,13 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="check.CheckDAO">
-<select id="checklist" resultType="checkdto">
-	select checktitle, checkdesc, checkimg from checks
-</select>
-<insert id="insertCheck" parameterType="checkdto">
-	insert into checks(nickname, chnum, checknum, checktime, checktitle, checkdesc, checkimg)
-	values(#{nickname}, #{chnum}, #{checknum}, #{checktime}, #{checktitle}, #{checkdesc}, #{checkimg.originalFilename})  
-</insert>
+	<select id="checklist" resultType="checkdto">
+		select checktitle, checkdesc, checkimg as checkimg2 from checks
+	</select>
 	
-
+	<insert id="insertCheck" parameterType="checkdto">
+		insert into checks(nickname, chnum, checknum, checktime, checktitle, checkdesc, checkimg)
+		values(#{nickname}, #{chnum}, #{checknum}, now(), #{checktitle}, #{checkdesc}, #{checkimg2})  
+	</insert>
 </mapper>

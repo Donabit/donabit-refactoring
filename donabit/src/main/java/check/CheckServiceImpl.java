@@ -4,6 +4,7 @@ package check;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,14 +21,17 @@ public class CheckServiceImpl implements CheckService {
 	CheckDAO dao;
 
 	@Override
-	public int insertCheck(CheckDTO dto) {
-		return dao.insertCheck(dto);
+	public void insertCheck(CheckDTO dto) {
+		String renameFilename = UUID.randomUUID().toString().substring(0, 4) + dto.getCheckimg().getOriginalFilename();
+		dto.setCheckimg2(renameFilename);
+		dao.insertCheck(dto);
+		fileupload(dto.getCheckimg(),renameFilename);
 	}
 
-	@Override
-	public void fileupload(MultipartFile mpf) {
-		String path= "C:\\Users\\YooSeungAh\\upload\\";
-		File uploadFile = new File(path + mpf.getOriginalFilename());
+	private void fileupload(MultipartFile mpf, String renameFilename) {
+		String path= "C:/checkimage/";
+		
+		File uploadFile = new File(path + renameFilename);
 		try {
 			mpf.transferTo(uploadFile);
 		} catch (IllegalStateException | IOException e) {
