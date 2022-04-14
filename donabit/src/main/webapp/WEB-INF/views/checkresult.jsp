@@ -21,7 +21,7 @@
 <c:if test="${result == 1 }">
 	<c:forEach items="${checklist}" var="check">
 	<div class="container">
-		<img src="/checkimage/${check.checkimg2}" height="200px" width="auto">
+		<img src="/checkimage/${check.checkimg2}" height="200px" width="auto"><br>
 		 ${check.checktitle}<br>
 		 ${check.checkdesc}<br>
 		 

@@ -5,11 +5,11 @@
   
 <mapper namespace="check.CheckDAO">
 	<select id="checklist" resultType="checkdto">
-		select checktitle, checkdesc, checkimg as checkimg2 from checks
+		SELECT checktitle, checkdesc, checkimg AS checkimg2 FROM checks ORDER BY checktime DESC
 	</select>
 	
 	<insert id="insertCheck" parameterType="checkdto">
-		insert into checks(nickname, chnum, checknum, checktime, checktitle, checkdesc, checkimg)
-		values(#{nickname}, #{chnum}, #{checknum}, now(), #{checktitle}, #{checkdesc}, #{checkimg2})  
+		INSERT INTO checks(nickname, chnum, checknum, checktime, checktitle, checkdesc, checkimg)
+		VALUES(#{nickname}, #{chnum}, #{checknum}, now(), #{checktitle}, #{checkdesc}, #{checkimg2})  
 	</insert>
 </mapper>

@@ -23,7 +23,7 @@
 <div class="checkform_container">
 	<h1>파일 전송 폼</h1>
 	<hr>
-	<form action="/checkresult" method="post" enctype="multipart/form-data">
+	<form action="/check" method="post" enctype="multipart/form-data">
 		닉네임:<input type=text name="nickname"> <br>
 		<input type=hidden name="chnum" value="2">
 		체크번호:<input type=text name="checknum"> <br>
