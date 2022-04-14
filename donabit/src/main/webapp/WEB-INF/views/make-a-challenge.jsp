@@ -81,6 +81,14 @@
             margin-right: 1em;
             width: 10em;
         }
+        
+        .radioBtns {
+        	padding: 1em 1em 1em 0;
+        }
+        
+        .radioLabel {
+        	padding-left: 0.5em;
+        }
 
         .admin_make_challenge_btn {
             padding: 0.8em 1.6em;
@@ -160,41 +168,41 @@
                     <div class="admin_make_challenge">
                         <label for="chsdate" class="admin_make_challenge_label">챌린지 시작일/만료일</label>
                         <div class="admin_make_challenge_input">
-                            <input type="date" name="chsdate"><input type="date" name="chedate">
-                            <span class="admin_make_challenge_info">(만료일은 시작일보다 이전일 수 없습니다.)</span>
+                            <input type="date" name="chsdate" id="chsdate"><input type="date" name="chedate" id="chedate" disabled>
+                            <span class="admin_make_challenge_info">(만료일은 시작일 입력시 활성화됩니다.)</span>
                         </div>
                     </div>
                     <div class="admin_make_challenge">
                         <label for="chexp" class="admin_make_challenge_label">챌린지 제공 경험치(1회)</label>
                         <div class="admin_make_challenge_input">
-                            <input type="radio" name="chexp" id="chexp10" value="10" checked><label for="chexp10">10exp</label>
-                            <input type="radio" name="chexp" id="chexp15" value="15"><label for="chexp15">15exp</label>
-                            <input type="radio" name="chexp" id="chexp20" value="20"><label for="chexp20">20exp</label>
+                            <span class="radioBtns"><input type="radio" name="chexp" id="chexp10" value="10" checked><label for="chexp10" class="radioLabel">10exp</label></span>
+                            <span class="radioBtns"><input type="radio" name="chexp" id="chexp15" value="15"><label for="chexp15" class="radioLabel">15exp</label></span>
+                            <span class="radioBtns"><input type="radio" name="chexp" id="chexp20" value="20"><label for="chexp20" class="radioLabel">20exp</label></span>
                             <span class="admin_make_challenge_info">(개인별 챌린지가 1회 성공할 때 제공될 경험치를 선택해주세요.)</span>
                         </div>
                     </div>
                     <div class="admin_make_challenge">
                         <label for="chsuccess" class="admin_make_challenge_label">챌린지 개인별 목표 횟수</label>
                         <div class="admin_make_challenge_input">
-                            <input type="radio" name="chsuccess" id="chsuccess30" value="30" checked><label for="chsuccess30">30회</label>
-                            <input type="radio" name="chsuccess" id="chsuccess66" value="66"><label for="chsuccess66">66회</label>
-                            <input type="radio" name="chsuccess" id="chsuccess100" value="100"><label for="chsuccess100">100회</label>
+                            <span class="radioBtns"><input type="radio" name="chsuccess" id="chsuccess30" value="30" checked><label for="chsuccess30" class="radioLabel">30회</label></span>
+                            <span class="radioBtns"><input type="radio" name="chsuccess" id="chsuccess66" value="66"><label for="chsuccess66" class="radioLabel">66회</label></span>
+                            <span class="radioBtns"><input type="radio" name="chsuccess" id="chsuccess100" value="100"><label for="chsuccess100" class="radioLabel">100회</label></span>
                             <span class="admin_make_challenge_info">(챌린지의 개인별 목표 횟수를 선택해 주세요.)</span>
                         </div>
                     </div>
                     <div class="admin_make_challenge">
                         <label for="chmaxp" class="admin_make_challenge_label">챌린지 모집 인원</label>
                         <div class="admin_make_challenge_input">
-                            <input type="radio" name="chmaxp" id="chmaxp20" value="20" checked><label for="chmaxp20">20명</label>
-                            <input type="radio" name="chmaxp" id="chmaxp50" value="50"><label for="chmaxp50">50명</label>
-                            <input type="radio" name="chmaxp" id="chmaxp100" value="100"><label for="chmaxp100">100명</label>
+                            <span class="radioBtns"><input type="radio" name="chmaxp" id="chmaxp20" value="20" checked><label for="chmaxp20" class="radioLabel">20명</label></span>
+                            <span class="radioBtns"><input type="radio" name="chmaxp" id="chmaxp50" value="50"><label for="chmaxp50" class="radioLabel">50명</label></span>
+                            <span class="radioBtns"><input type="radio" name="chmaxp" id="chmaxp100" value="100"><label for="chmaxp100" class="radioLabel">100명</label></span>
                             <span class="admin_make_challenge_info">(챌린지의 모집 인원을 선택해 주세요.)</span>
                         </div>
                     </div>
                     <div class="admin_make_challenge">
                         <label for="chdonate" class="admin_make_challenge_label">챌린지 전체 성공 횟수<br>(기부 조건)</label>
                         <div class="admin_make_challenge_input">
-                            <input type="text" name="chdonate">
+                            <input type="text" name="chdonate" id="chdonate" value="600" readonly>
                             <span class="admin_make_challenge_info">(개인별 목표 횟수 및 모집 인원을 입력하면 자동으로 입력됩니다.)</span>
                         </div>
                     </div>
@@ -206,7 +214,7 @@
                         </div>
                     </div>
                     <div class="admin_make_challenge">
-                        <label for="donatepay" class="admin_make_challenge_label">기부금액</label>
+                        <label for="donatepay" class="admin_make_challenge_label">기부금액(원)</label>
                         <div class="admin_make_challenge_input">
                             <input type="text" name="donatepay">
                             <span class="admin_make_challenge_info">(숫자만 입력해 주세요.)</span>
@@ -223,14 +231,55 @@
     </main>
     
     <script type="text/javascript">
+    //이미지 업로드 미리보기
 	const uploadInput = document.getElementById('uploadInput');
-		uploadInput.addEventListener('change', (e) => {
-	    	const uploadImage = document.getElementById('uploadImage');
-	    	uploadImage.src = URL.createObjectURL(event.target.files[0]);
-	    	uploadImage.onload = function() {
-	    		URL.revokeObjectURL(uploadImage.src) 
-	    	}
-    	});
+	uploadInput.addEventListener('change', (e) => {
+    	const uploadImage = document.getElementById('uploadImage');
+    	uploadImage.src = URL.createObjectURL(event.target.files[0]);
+    	uploadImage.onload = function() {
+    		URL.revokeObjectURL(uploadImage.src) 
+    	}
+   	});
+	
+	//달력 시작일 > 오늘, 만료일 > 시작일(활성화 포함)
+	const chsdate = document.getElementById('chsdate');
+	const chedate = document.getElementById('chedate');
+		
+	function getToday(){
+		const date = new Date();
+		const year = date.getFullYear();
+		const month = ("0" + (1 + date.getMonth())).slice(-2);
+		const day = ("0" + date.getDate()).slice(-2);
+		return year + "-" + month + "-" + day;
+	}
+
+	chsdate.min = getToday();
+	
+	chsdate.addEventListener('change', (event) => {
+		chedate.disabled = false;
+		chedate.min = event.target.value;
+	});
+    
+	//성공횟수 자동 입력
+	const chmaxp = document.getElementsByName('chmaxp');
+	const chsuccess = document.getElementsByName('chsuccess');
+	const chdonate = document.getElementById('chdonate');
+	
+	chsuccess.forEach(sitem => sitem.addEventListener('click', function(sevent){
+		chdonate.value = chmaxp[0].value * sevent.target.value;
+		chmaxp.forEach(pitem => pitem.addEventListener('click', function(pevent){
+			chdonate.value = sevent.target.value * pevent.target.value;			
+		}))
+	}))
+	
+	chmaxp.forEach(pitem => pitem.addEventListener('click', function(pevent){
+		chdonate.value = chsuccess[0].value * pevent.target.value;
+		chsuccess.forEach(sitem => sitem.addEventListener('click', function(sevent){
+			chdonate.value = sevent.target.value * pevent.target.value;			
+		}))
+	}))
+
+	
     </script>
 
 </body>

@@ -24,7 +24,7 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 	public void fileUpload(MultipartFile mpf) {
 		String path = "/Users/bigchan/upload/";
 		String path2 = "D:\\donabitimage/";
-		File uploadFile = new File(path2 + mpf.getOriginalFilename());
+		File uploadFile = new File(path + mpf.getOriginalFilename());
 		try {
 			mpf.transferTo(uploadFile);
 		} catch (IllegalStateException | IOException e) {
