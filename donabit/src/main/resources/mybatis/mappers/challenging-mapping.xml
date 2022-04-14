@@ -7,6 +7,6 @@
 	
  	<insert id="insertChallenge" parameterType="ChallengeDTO2">
 	 	INSERT INTO challenge(chname, chdesc, chimg, chsuccess, chdonate, chexp, chmaxp, chsdate, chedate, donatepay, donateco) 
-	 	VALUES(#{chname}, #{chdesc}, #{chimg.originalFilename}, #{chsuccess}, #{chdonate}, #{chexp}, #{chmaxp}, #{chsdate}, #{chedate}, #{donatepay}, #{donateco})
+	 	VALUES(#{chname}, #{chdesc}, #{chimgname}, #{chsuccess}, #{chdonate}, #{chexp}, #{chmaxp}, #{chsdate}, #{chedate}, #{donatepay}, #{donateco})
 	</insert>
 </mapper>

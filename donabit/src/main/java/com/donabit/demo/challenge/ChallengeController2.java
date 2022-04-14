@@ -25,9 +25,7 @@ public class ChallengeController2 {
 	@PostMapping("/adminresult")
 	public ModelAndView adminresult(ChallengeDTO2 dto) {
 		ModelAndView mv = new ModelAndView();
-		service.fileUpload(dto.getChimg());
-		int result = service.insertChallenge(dto);
-		mv.addObject("result", result);
+		service.insertChallenge(dto);
 		mv.addObject("challenge", dto);
 		mv.setViewName("adminresult");
 		return mv;

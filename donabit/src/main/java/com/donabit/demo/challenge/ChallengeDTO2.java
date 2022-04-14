@@ -4,7 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class ChallengeDTO2 {
 	int chnum, chsuccess, chdonate, chexp, chmaxp, donatepay;
-	String chname, chdesc, chsdate, chedate, donateco;
+	String chname, chdesc, chsdate, chedate, donateco, chimgname;
 	MultipartFile chimg;
 	public int getChnum() {
 		return chnum;
@@ -77,6 +77,12 @@ public class ChallengeDTO2 {
 	}
 	public void setDonateco(String donateco) {
 		this.donateco = donateco;
+	}
+	public String getChimgname() {
+		return chimgname;
+	}
+	public void setChimgname(String chimgname) {
+		this.chimgname = chimgname;
 	}
 	
 	

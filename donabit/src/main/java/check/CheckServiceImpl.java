@@ -21,11 +21,11 @@ public class CheckServiceImpl implements CheckService {
 	CheckDAO dao;
 
 	@Override
-	public void insertCheck(CheckDTO dto) {
+	public int insertCheck(CheckDTO dto) {
 		String renameFilename = UUID.randomUUID().toString().substring(0, 4) + dto.getCheckimg().getOriginalFilename();
 		dto.setCheckimg2(renameFilename);
-		dao.insertCheck(dto);
 		fileupload(dto.getCheckimg(),renameFilename);
+		return dao.insertCheck(dto);
 	}
 
 	private void fileupload(MultipartFile mpf, String renameFilename) {

@@ -25,10 +25,8 @@ public class CheckController {
 	@PostMapping("/checkresult")
 	public ModelAndView checkresult(CheckDTO dto) { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
 		ModelAndView mv = new ModelAndView(); 
-		
-		service.insertCheck(dto);
-		
-		int result = 0;
+				
+		int result = service.insertCheck(dto);
 		List<CheckDTO> list = service.checklist();
 		
 		mv.addObject("result", result); //"변수이름", "변수에 넣을 데이터"

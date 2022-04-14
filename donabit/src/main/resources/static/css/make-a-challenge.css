@@ -1,0 +1,101 @@
+@charset "UTF-8";
+* {
+          margin: 0;
+          padding: 0;
+}
+
+.admin_main_container {
+    padding: 2em;
+    height: 66em;
+    background-color: whitesmoke;
+    overflow: hidden;
+}
+
+.admin_make_challenge_table {
+    display: table;
+    width: 100%;
+}
+
+.admin_make_challenge {
+    display: table-row;
+}
+
+.admin_make_challenge_label {
+    font-weight: 500;
+    width: 14em;
+}
+
+.admin_make_challenge_label, .admin_make_challenge_input {
+    display: table-cell;
+    border-bottom: 1px solid lightgray;
+    padding: 1em 1em 1em 0.5em;
+    vertical-align: top;
+}
+
+.admin_make_challenge_info {
+    font-size: small;
+    color: gray;
+    padding-left: 3em;
+    vertical-align: top;
+}
+
+input[type=text], input[type=number], input[type=file] {
+    width: 22em;
+}
+
+input[type=file] {
+	display: block;
+}
+
+textarea {
+    width: 22em;
+    height: 5em;
+    resize: none;
+}
+
+input[type=date]:first-child {
+    margin-right: 1em;
+    width: 10em;
+}
+
+.radioBtns {
+	padding: 1em 1em 1em 0;
+}
+
+.radioLabel {
+	padding-left: 0.5em;
+}
+
+.admin_make_challenge_btn {
+    padding: 0.8em 1.6em;
+    margin: 2em 1em;
+    border-radius: 0.5em;
+    border: 0;
+    cursor: pointer;
+    box-shadow: 2px 2px rgb(176, 176, 176);
+}
+
+.admin_make_challenge_btn_container {
+    text-align: center;
+    border-radius: 1em;
+}
+
+.admin_make_challenge_btn:first-child {
+    background-color: #FF85B3;
+    color: white;
+}
+
+.admin_make_challenge_btn:first-child:hover {
+    background-color: #ff5596;
+}
+
+.admin_make_challenge_btn:last-child:hover {
+    background-color: lightgray;
+}
+
+#uploadImage {
+	display: inline-block;
+	background-color: whitesmoke;
+	width: 18em;
+	height: 10em;
+}

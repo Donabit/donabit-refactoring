@@ -7,134 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donabit 관리자 페이지</title>
+    <script src="js/make-a-challenge.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="css/make-a-challenge.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .admin_sidebar {
-            float: left;
-            height: 70em;
-            width: 320px;
-            background-color: darkgrey;
-            
-        }
-
-        .admin_sidebar_list {
-            padding: 1em;
-        }
-
-        .admin_sidebar_list:hover {
-            background-color: dimgray;
-        }
-
-        .admin_main_container {
-            padding: 2em;
-            height: 66em;
-            background-color: whitesmoke;
-            overflow: hidden;
-        }
         
-        .admin_make_challenge_table {
-            display: table;
-            width: 100%;
-        }
-        
-        .admin_make_challenge {
-            display: table-row;
-        }
-        
-        .admin_make_challenge_label {
-            font-weight: 500;
-            width: 14em;
-        }
-        
-        .admin_make_challenge_label, .admin_make_challenge_input {
-            display: table-cell;
-            border-bottom: 1px solid lightgray;
-            padding: 1em 1em 1em 0.5em;
-            vertical-align: top;
-        }
-
-        .admin_make_challenge_info {
-            font-size: small;
-            color: gray;
-            padding-left: 3em;
-            vertical-align: top;
-        }
-        
-        input[type=text], input[type=number], input[type=file] {
-            width: 22em;
-        }
-
-		input[type=file] {
-			display: block;
-		}
-		
-        textarea {
-            width: 22em;
-            height: 5em;
-        }
-
-        input[type=date]:first-child {
-            margin-right: 1em;
-            width: 10em;
-        }
-        
-        .radioBtns {
-        	padding: 1em 1em 1em 0;
-        }
-        
-        .radioLabel {
-        	padding-left: 0.5em;
-        }
-
-        .admin_make_challenge_btn {
-            padding: 0.8em 1.6em;
-            margin: 2em 1em;
-            border-radius: 0.5em;
-            border: 0;
-            cursor: pointer;
-            box-shadow: 2px 2px rgb(176, 176, 176);
-        }
-
-        .admin_make_challenge_btn_container {
-            text-align: center;
-            border-radius: 1em;
-        }
-
-        .admin_make_challenge_btn:first-child {
-            background-color: #FF85B3;
-            color: white;
-        }
-
-        .admin_make_challenge_btn:first-child:hover {
-            background-color: #ff5596;
-        }
-
-        .admin_make_challenge_btn:last-child:hover {
-            background-color: lightgray;
-        }
-
-		#uploadImage {
-			display: inline-block;
-			background-color: whitesmoke;
-			width: 18em;
-			height: 10em;
-		}
     </style>
 </head>
 <body>
-    <ul class="admin_sidebar">
-        <h1>로고</h1>
-        <li class="admin_sidebar_list">챌린지 만들기</li>
-        <li class="admin_sidebar_list">챌린지 리스트</li>
-        <li class="admin_sidebar_list">회원 리스트</li>
-        <li class="admin_sidebar_list">신고 내역</li>
-        <li class="admin_sidebar_list">User Custom Challenge</li>
-        <li class="admin_sidebar_list">CS(Chatbot)</li>
-    </ul>
+    <%@ include file="/WEB-INF/views/admin-sidebar.jsp" %>
     <main class="admin_main_container">
         <div class="admin_main_contents">
             <h2 class="admin_main_header">챌린지 만들기 &#x1F6E0</h2>
@@ -153,7 +33,7 @@
                     <div class="admin_make_challenge">
                         <label for="chdesc" class="admin_make_challenge_label">챌린지 설명</label>
                         <div class="admin_make_challenge_input">
-                            <textarea name="chdesc"></textarea>
+                            <textarea name="chdesc" id="chdesc"></textarea>
                             <span class="admin_make_challenge_info">(100자 이내로 작성해 주세요.)</span>
                         </div>
                     </div>
@@ -229,58 +109,6 @@
             </form>
         </div>
     </main>
-    
-    <script type="text/javascript">
-    //이미지 업로드 미리보기
-	const uploadInput = document.getElementById('uploadInput');
-	uploadInput.addEventListener('change', (e) => {
-    	const uploadImage = document.getElementById('uploadImage');
-    	uploadImage.src = URL.createObjectURL(event.target.files[0]);
-    	uploadImage.onload = function() {
-    		URL.revokeObjectURL(uploadImage.src) 
-    	}
-   	});
-	
-	//달력 시작일 > 오늘, 만료일 > 시작일(활성화 포함)
-	const chsdate = document.getElementById('chsdate');
-	const chedate = document.getElementById('chedate');
-		
-	function getToday(){
-		const date = new Date();
-		const year = date.getFullYear();
-		const month = ("0" + (1 + date.getMonth())).slice(-2);
-		const day = ("0" + date.getDate()).slice(-2);
-		return year + "-" + month + "-" + day;
-	}
-
-	chsdate.min = getToday();
-	
-	chsdate.addEventListener('change', (event) => {
-		chedate.disabled = false;
-		chedate.min = event.target.value;
-	});
-    
-	//성공횟수 자동 입력
-	const chmaxp = document.getElementsByName('chmaxp');
-	const chsuccess = document.getElementsByName('chsuccess');
-	const chdonate = document.getElementById('chdonate');
-	
-	chsuccess.forEach(sitem => sitem.addEventListener('click', function(sevent){
-		chdonate.value = chmaxp[0].value * sevent.target.value;
-		chmaxp.forEach(pitem => pitem.addEventListener('click', function(pevent){
-			chdonate.value = sevent.target.value * pevent.target.value;			
-		}))
-	}))
-	
-	chmaxp.forEach(pitem => pitem.addEventListener('click', function(pevent){
-		chdonate.value = chsuccess[0].value * pevent.target.value;
-		chsuccess.forEach(sitem => sitem.addEventListener('click', function(sevent){
-			chdonate.value = sevent.target.value * pevent.target.value;			
-		}))
-	}))
-
-	
-    </script>
-
+ 
 </body>
 </html>

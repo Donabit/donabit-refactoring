@@ -2,6 +2,7 @@ package com.donabit.demo.challenge;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,19 +18,21 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 	
 	@Override
 	public int insertChallenge(ChallengeDTO2 dto) {
+		String renameFilename = UUID.randomUUID().toString().substring(0, 4) + dto.getChimg().getOriginalFilename();
+		dto.setChimgname(renameFilename);
+		fileUpload(dto.getChimg(), renameFilename);
 		return dao.insertChallenge(dto);
 	}
 
-	@Override
-	public void fileUpload(MultipartFile mpf) {
+	
+	private void fileUpload(MultipartFile mpf, String renameFilename) {
 		String path = "/Users/bigchan/upload/";
 		String path2 = "D:\\donabitimage/";
-		File uploadFile = new File(path + mpf.getOriginalFilename());
+		File uploadFile = new File(path + renameFilename);
 		try {
 			mpf.transferTo(uploadFile);
 		} catch (IllegalStateException | IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
 }

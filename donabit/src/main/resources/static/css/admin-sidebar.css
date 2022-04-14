@@ -1,0 +1,16 @@
+@charset "UTF-8";
+.admin_sidebar {
+    float: left;
+    height: 70em;
+    width: 320px;
+    background-color: darkgrey;
+    
+}
+
+.admin_sidebar_list {
+    padding: 1em;
+}
+
+.admin_sidebar_list:hover {
+    background-color: dimgray;
+}
