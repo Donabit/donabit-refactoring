@@ -13,5 +13,13 @@
 	 on challenge.chnum = checks.chnum 
 	 group by challenge.chnum
 	</select>
+	
+	<select id="challcount" resultType="challengedto">
+	select challenge.chnum, count(challenging.nickname) as nickname, challenging.chnum as chnum2, personalpf  
+	from donabit.challenge  
+	left join donabit.challenging 
+	on challenge.chnum = challenging.chnum  
+	GROUP BY challenge.chnum;
+	</select>
 
 </mapper>

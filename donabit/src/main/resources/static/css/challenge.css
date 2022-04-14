@@ -72,3 +72,7 @@
     width: 150px;
     margin-left: 5px;
 }
+
+progress {
+    width: 80%;
+}

@@ -16,4 +16,11 @@ public class ChallengeServiceImpl implements ChallengeService {
 		return dao.challengelist();
 	}
 
+	@Override
+	public List<ChallengeDTO> challcount() {
+		return dao.challcount();
+	}
+	
+	
+
 }

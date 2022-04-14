@@ -1,7 +1,7 @@
 package donabit.challenge;
 
 public class ChallengeDTO {
-	String chnum, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum;
+	String chnum, chnum2, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum, nickname, personalpf;
 	
 	public ChallengeDTO() {}
 
@@ -19,6 +19,16 @@ public class ChallengeDTO {
 		this.chsdate = chsdate;
 		this.chedate = chedate;
 		this.checknum = checknum;
+	}
+	
+	
+
+	public ChallengeDTO(String chnum, String chnum2, String nickname, String personalpf) {
+		super();
+		this.chnum = chnum;
+		this.chnum2 = chnum2;
+		this.nickname = nickname;
+		this.personalpf = personalpf;
 	}
 
 	public String getChnum() {
@@ -107,6 +117,30 @@ public class ChallengeDTO {
 
 	public void setChecknum(String checknum) {
 		this.checknum = checknum;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getPersonalpf() {
+		return personalpf;
+	}
+
+	public void setPersonalpf(String personalpf) {
+		this.personalpf = personalpf;
+	}
+
+	public String getChnum2() {
+		return chnum2;
+	}
+
+	public void setChnum2(String chnum2) {
+		this.chnum2 = chnum2;
 	}
 
 	
