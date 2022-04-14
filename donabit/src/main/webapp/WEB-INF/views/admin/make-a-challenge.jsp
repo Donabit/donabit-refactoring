@@ -7,21 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donabit 관리자 페이지</title>
-    <script src="js/make-a-challenge.js" defer></script>
-    <link rel="stylesheet" type="text/css" href="css/make-a-challenge.css">
-    <style>
-        
-    </style>
+    <script src="../js/make-a-challenge.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="../css/make-a-challenge.css">
 </head>
 <body>
-    <%@ include file="/WEB-INF/views/admin-sidebar.jsp" %>
+    <%@ include file="/WEB-INF/views/admin/admin-sidebar.jsp" %>
     <main class="admin_main_container">
         <div class="admin_main_contents">
             <h2 class="admin_main_header">챌린지 만들기 &#x1F6E0</h2>
             <br>
             <hr style="border: 1px solid black;">
             <br>
-            <form class="admin_make_challenge_form" action="/adminresult" method="post" enctype="multipart/form-data">
+            <form class="admin_make_challenge_form" action="/admin/make-a-challenge" method="post" enctype="multipart/form-data">
                 <div class="admin_make_challenge_table">
                     <div class="admin_make_challenge">
                         <label for="chname" class="admin_make_challenge_label">챌린지 이름</label>
@@ -40,7 +37,7 @@
                     <div class="admin_make_challenge">
                         <label for="chimg" class="admin_make_challenge_label">챌린지 이미지</label>
                         <div class="admin_make_challenge_input">
-                        	<img src="img/upload_default.png" alt="default image for upload" id="uploadImage">
+                        	<img src="../img/upload_default.png" alt="default image for upload" id="uploadImage">
                             <span class="admin_make_challenge_info">(이미지 파일만 업로드 가능합니다.)</span>
                             <input type="file" name="chimg" accept="image/*" id="uploadInput">
                         </div>

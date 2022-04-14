@@ -1,4 +1,16 @@
 @charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.admin_main_container {
+    padding: 2em;
+    height: 66em;
+    background-color: whitesmoke;
+    overflow: hidden;
+}
+
 .admin_sidebar {
     float: left;
     height: 70em;

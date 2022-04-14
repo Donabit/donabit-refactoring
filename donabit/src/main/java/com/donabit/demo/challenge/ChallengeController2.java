@@ -3,6 +3,7 @@ package com.donabit.demo.challenge;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,20 +15,26 @@ public class ChallengeController2 {
 	@Autowired
 	@Qualifier("ChallengeService2")
 	ChallengeService2 service;
-	
-	
+		
 	@RequestMapping("/admin")
 	public void adminchallege() {}
+		
+	@RequestMapping("/admin/challenge-list")
+	public void challenglist() {
+		
+	}
 	
-	@RequestMapping("/make-a-challenge")
+	@GetMapping("/admin/make-a-challenge")
 	public void makeachallenge() {}
 	
-	@PostMapping("/adminresult")
-	public ModelAndView adminresult(ChallengeDTO2 dto) {
+	@PostMapping("/admin/make-a-challenge")
+	public ModelAndView makeachallenge(ChallengeDTO2 dto) {
 		ModelAndView mv = new ModelAndView();
 		service.insertChallenge(dto);
 		mv.addObject("challenge", dto);
-		mv.setViewName("adminresult");
+		mv.setViewName("redirect:/admin/challenge-list");
 		return mv;
 	}
+	
+	
 }

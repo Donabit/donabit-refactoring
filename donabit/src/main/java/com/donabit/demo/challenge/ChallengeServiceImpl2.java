@@ -2,6 +2,7 @@ package com.donabit.demo.challenge;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,12 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 		} catch (IllegalStateException | IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+
+	@Override
+	public List<ChallengeDTO2> selectChallenge() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
