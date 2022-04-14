@@ -31,9 +31,8 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="header">
-			<h2 style="display: inline">
+<%@ include file="/WEB-INF/views/main_header.jsp" %>
+<h2 style="display: inline">
 				<a href="http://localhost:8089/morningcheck">morningcheck /</a>
 			</h2>
 			<h2 style="display: inline">
@@ -45,6 +44,10 @@
 			<h2 style="display: inline">
 				<a href="http://localhost:8089/make-a-challenge">admin</a>
 			</h2>
+	<div class="container">
+	
+		<div class="header">
+			
 		</div>
 		<div class="section">
 			<div class="containerflex">
@@ -98,8 +101,11 @@
 				</c:forEach>
 
 			</div>
+			<%@ include file="/WEB-INF/views/main_footer.jsp" %>
 		</div>
+		
 	</div>
+	
 </body>
 
 </html>
