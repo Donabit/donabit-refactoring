@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+.container {
+  -webkit-animation: color-change-3x 10s linear infinite alternate both;
+  animation: color-change-3x 10s linear infinite alternate both;
+  display: grid;
+  grid-template-columns: 200px 400px 400px 200px;
+  grid-template-rows: 140px 400px 413px 100px 200px;
+  gap: 0px 0px;
+  grid-auto-flow: row dense;
+  justify-content: center;
+  justify-items: stretch;
+  grid-template-areas:
+    "head head head head"
+    ". img info ."
+    ". description description ."
+    ". button button ."
+    ". footer footer .";
+}
+
+@-webkit-keyframes color-change-3x {
+  0% {
+    background: #f7dee8;
+  }
+
+  100% {
+    background: #d1f8e5;
+  }
+}
+
+@keyframes color-change-3x {
+  0% {
+    background: #cfdcf8;
+  }
+
+  100% {
+    background: #fce2e2;
+  }
+}
+
+
+.head {
+  background-color: rgb(247, 242, 173);
+  grid-area: head;
+}
+
+.img {
+  background-color: rgb(196, 250, 183);
+  grid-area: img;
+}
+
+.info {
+  background-color: rgb(171, 233, 248);
+  grid-area: info;
+}
+
+.description {
+  background-color: rgb(198, 252, 249);
+  grid-area: description;
+}
+
+.button {
+  background-color: rgb(247, 213, 173);
+  grid-area: button;
+}
+
+.footer {
+  background-color: rgb(171, 240, 157);
+  grid-area: footer;
+}

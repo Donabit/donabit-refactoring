@@ -1,4 +1,4 @@
 $(function () {
 
-    $("div").css("border", "1px solid #999");
+    //$("div").css("border", "1px solid #999");
 });

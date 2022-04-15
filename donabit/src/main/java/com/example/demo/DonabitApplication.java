@@ -19,7 +19,8 @@ import donabit.challenge.ChallengeDAO;
 @MapperScan(basePackageClasses = ChallengeDAO2.class)
 @ComponentScan(basePackageClasses = ChallengeController.class)
 @MapperScan(basePackageClasses = ChallengeDAO.class)
-
+@ComponentScan(basePackageClasses = CheckController.class)
+@MapperScan(basePackageClasses = CheckDAO.class)
 public class DonabitApplication {
 
 	public static void main(String[] args) {

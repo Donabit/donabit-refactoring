@@ -1,6 +1,5 @@
 package donabit.challenge;
 
-import java.io.File;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +31,12 @@ public class ChallengeController {
 	public ModelAndView challengelistdatail(@RequestParam int chnumdetail) {
 		ModelAndView mv = new ModelAndView();
 		List<ChallengeDTO> list = service.challengelist();
+		List<ChallengeDTO> list2 = service.challcount();
+		mv.addObject("challcount", list2);
 		mv.addObject("challengelist", list);
 		mv.addObject("chnumdetail", chnumdetail);
 		mv.setViewName("challengedetail"); 
 		return mv; 
-	
 	}
+	
 }
