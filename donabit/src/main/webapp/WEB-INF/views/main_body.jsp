@@ -89,7 +89,7 @@ jQuery(function($) {
         <div class="fourth">네 번째 챌린지</div>
         <div class="fifth">다섯 번째 챌린지</div>
         <div class="sixth">여섯 번째 챌린지</div>
-    </div>
+    </div>1
 
 </section>
 
