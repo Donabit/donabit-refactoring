@@ -39,8 +39,13 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 
 
 	@Override
-	public List<ChallengeDTO2> selectChallenge() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ChallengeDTO2> selectChallenge(int index, int count) {
+		return dao.selectChallenge(index, count);
+	}
+
+
+	@Override
+	public int selectChallengeCount() {
+		return dao.selectChallengeCount();
 	}
 }

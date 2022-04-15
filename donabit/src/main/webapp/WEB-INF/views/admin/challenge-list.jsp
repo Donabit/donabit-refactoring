@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,9 +9,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donabit 관리자 페이지</title>
     <style>
+		.page_num_container {
+			margin: 1em auto;
+			text-align: center;
+		}
+		
+		.page_num {
+			padding: 1em;
+		}
 
-
+		.admin_challenge_list {
+			display: flex;		
+		}
+		
+		.admin_challenge_list_info {
+			flex: 1 1 200px;
+			padding: 1em;
+		}
+		
     </style>
+    <script type="text/javascript">
+       	function goPost(page) {
+			let form = document.createElement('form');
+    		let input = document.createElement('input');
+    		input.type = 'hidden';
+    		input.name = 'page';
+    		input.value = page;
+    		
+    		form.appendChild(input);
+    		form.action = "/admin/challenge-list";
+    		form.method = "POST";
+    		document.body.appendChild(form);
+    		form.submit();
+	    }
+
+    
+    </script>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/admin/admin-sidebar.jsp" %>
@@ -20,14 +54,35 @@
             <br>
             <hr style="border: 1px solid black;">
             <br>
-            <div style="border: 1px solid black">
-	            <img src="../img/logo_m.png" alt="이미지">
-	            <div>챌린지명, 챌린지 설명, 기간(남은 일수)</div>
-	            <div>참여 인원 : 00/00(00%), 완료 인원 : 00/00(00%), 달성률 00%, 기부처, 기부 금액</div>
-	            <div>삭제 버튼</div>
             </div>
-
-            
+           	<c:forEach items="${list}" var="dto">
+				<form class="admin_challenge_list" style="border: 1px solid black" action="remove-challenge" method="post">
+					<div class="admin_challenge_list_info">
+						<img src="/images/${dto.chimgname}" alt="challenge image" width="320px" height="200px">
+					</div>
+					<div class="admin_challenge_list_info">
+						<input type="hidden" name="chnum" value="${dto.chnum}">
+						<h3>챌린지명 : ${dto.chname}</h3>
+						<h3>챌린지 설명</h3>
+						<p>${dto.chdesc}</p>
+					</div>
+					<div class="admin_challenge_list_info">
+						<h3>참여 인원 : 00/${dto.chmaxp}</h3>
+						<h3>완료 인원 : 00/${dto.chmaxp}</h3>
+						<h3>달성률 : 00%</h3>
+						<h3>기부처 : ${dto.donateco}</h3>
+						<h3>기부 금액 : <fmt:formatNumber value="${dto.donatepay}" pattern="###,###"/></h3>
+					</div>
+					<div class="admin_challenge_list_info">
+						<button type="submit">삭제하기</button>
+					</div>
+				</form>
+			</c:forEach>
+ 
+        <div class="page_num_container">
+        	<c:forEach begin="1" end="${pageNum}" var="i">
+        		<a href="javascript:goPost('${i}')"><span class="page_num">${i}</span></a>
+        	</c:forEach>
         </div>
     </main>
  

@@ -1,5 +1,11 @@
 package com.donabit.demo.challenge;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -19,11 +25,24 @@ public class ChallengeController2 {
 	@RequestMapping("/admin")
 	public void adminchallege() {}
 		
-	@RequestMapping("/admin/challenge-list")
-	public void challenglist() {
-		
+	@GetMapping("/admin/challenge-list")
+	public ModelAndView challengelist() {
+		return challengelist(1);
 	}
 	
+	@PostMapping("/admin/challenge-list")
+	public ModelAndView challengelist(@RequestParam int page) {
+		ModelAndView mv = new ModelAndView();
+		int objPerPage = 3;
+		int total = service.selectChallengeCount();
+		int pageNum = (total % objPerPage == 0) ? total / objPerPage : total / objPerPage + 1;
+		List<ChallengeDTO2> list = service.selectChallenge((page - 1) * objPerPage, objPerPage);
+		mv.addObject("pageNum", pageNum);
+		mv.addObject("list", list);
+		mv.setViewName("/admin/challenge-list");
+		return mv;
+	}
+		
 	@GetMapping("/admin/make-a-challenge")
 	public void makeachallenge() {}
 	
@@ -34,6 +53,15 @@ public class ChallengeController2 {
 		mv.addObject("challenge", dto);
 		mv.setViewName("redirect:/admin/challenge-list");
 		return mv;
+	}
+	
+	@PostMapping("/admin/remove-challenge")
+	public String removechallenge(HttpServletResponse res, @RequestParam String chnum) throws IOException {
+		res.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = res.getWriter();
+		out.println("<script>confirm('정말로 삭제하시겠습니까? 챌린지 번호 : " + chnum + "')</script>");
+		out.flush();
+		return "redirect:/admin/challenge-list";
 	}
 	
 	

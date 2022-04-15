@@ -18,6 +18,10 @@ public class MyWebConfig implements WebMvcConfigurer {
 		.addResourceHandler("/checkimage/**") //아래의 경로를 부를때 사용
 		.addResourceLocations("file:///C:/checkimage/"); //경로지정
 		
+		registry
+		.addResourceHandler("/images/**") //아래의 경로를 부를때 사용
+		.addResourceLocations("file:/Users/bigchan/upload/"); //경로지정
+		
 	}
 
 }

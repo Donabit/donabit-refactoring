@@ -9,4 +9,12 @@
 	 	INSERT INTO challenge(chname, chdesc, chimg, chsuccess, chdonate, chexp, chmaxp, chsdate, chedate, donatepay, donateco) 
 	 	VALUES(#{chname}, #{chdesc}, #{chimgname}, #{chsuccess}, #{chdonate}, #{chexp}, #{chmaxp}, #{chsdate}, #{chedate}, #{donatepay}, #{donateco})
 	</insert>
+	
+	<select id="selectChallenge" resultType="ChallengeDTO2">
+		SELECT chnum, chname, chdesc, chimg as chimgname, chsuccess, chdonate, chexp, chmaxp, chsdate, chedate, donatepay, donateco FROM challenge	limit #{index}, #{count}
+	</select>
+	
+	<select id="selectChallengeCount" resultType="int">
+		SELECT count(*) FROM challenge	
+	</select>
 </mapper>

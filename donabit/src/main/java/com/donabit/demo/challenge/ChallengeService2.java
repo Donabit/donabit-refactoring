@@ -4,5 +4,6 @@ import java.util.List;
 
 public interface ChallengeService2 {
 	int insertChallenge(ChallengeDTO2 dto);
-	List<ChallengeDTO2> selectChallenge();
+	List<ChallengeDTO2> selectChallenge(int index, int count);
+	int selectChallengeCount();
 }
