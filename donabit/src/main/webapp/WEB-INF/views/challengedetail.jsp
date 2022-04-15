@@ -17,56 +17,60 @@
 			});
 		</script>
 		<link rel="stylesheet" href="../css/challengedetail.css">
+		<link rel="stylesheet" type="text/css" href="../css/main_header.css">
 		<script src="js/challenge.js" type="text/javascript"></script>
 		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	</head>
 
 	<body>
-<%@ include file="/WEB-INF/views/main_header.jsp" %>
-		<c:forEach items="${challengelist }" var="dto">
-			<c:if test="${dto.chnum == chnumdetail}">
-				<div class="container">
-					<div class="head">헤더</div>
-					<div class="img">
-						<img src="/image/${dto.chimg }" height="100%" width="auto">
-					</div>
-					<div class="info">
-						<div>챌린지 번호 : ${dto.chnum }</div>
-						<div>챌린지 명 : ${dto.chname }</div>
-						<div>
-							기부조건 : ${dto.checknum } / ${dto.chdonate }
-							<div>
-								<progress value="${dto.checknum }" max="${dto.chdonate }"></progress>
-							</div>
+		<%@ include file="/WEB-INF/views/main_header.jsp" %>
+			<c:forEach items="${challengelist }" var="dto">
+				<c:if test="${dto.chnum == chnumdetail}">
+					<div class="container">
+						<div class="head"></div>
+						<div class="img">
+							<img src="/image/${dto.chimg }" height="100%" width="auto">
 						</div>
-						<div>개인성공조건 : ${dto.chsuccess }</div>
-						<div>이미지 :${dto.chimg }</div>
-						<div>경험치 : ${dto.chexp}</div>
-						<c:forEach items="${challcount }" var="dto2">
-
-							<c:if test="${dto.chnum == dto2.chnum}">
+						<div class="info">
+							<div>챌린지 번호 : ${dto.chnum }</div>
+							<div>챌린지 명 : ${dto.chname }</div>
+							<div>
+								기부조건 : ${dto.checknum } / ${dto.chdonate }
 								<div>
-									최대모집 : ${dto2.nickname }/ ${dto.chmaxp}
-									<div>
-										<progress value="${dto2.nickname }" max="${dto.chmaxp}"></progress>
-									</div>
+									<progress value="${dto.checknum }" max="${dto.chdonate }"></progress>
 								</div>
-							</c:if>
+							</div>
+							<div>개인성공조건 : ${dto.chsuccess }</div>
+							<div>이미지 :${dto.chimg }</div>
+							<div>경험치 : ${dto.chexp}</div>
+							<c:forEach items="${challcount }" var="dto2">
 
-						</c:forEach>
-						<div>chsdate ${dto.chsdate}</div>
-						<div>chedate ${dto.chedate}</div>
+								<c:if test="${dto.chnum == dto2.chnum}">
+									<div>
+										최대모집 : ${dto2.nickname }/ ${dto.chmaxp}
+										<div>
+											<progress value="${dto2.nickname }" max="${dto.chmaxp}"></progress>
+										</div>
+									</div>
+								</c:if>
+
+							</c:forEach>
+							<div>chsdate ${dto.chsdate}</div>
+							<div>chedate ${dto.chedate}</div>
+
+						</div>
+						<div class="description">${dto.chdesc }</div>
+						<div class="button">
+							<form action="/challengedetail/${dto.chnum }" method="post">
+								<input type="submit" value="참여하기">
+								<input type="hidden" name="chnumdetail" value="${dto.chnum }">
+							</form>
+						</div>
+						<div class="footer"></div>
 
 					</div>
-					<div class="description">설명</div>
-					<div class="button">
-						<form>
-							<input type="button" value="기부하기" onclick="donate()">
-						</form>
-					</div>
-					<div class="footer"></div>
-				</div>
-			</c:if>
-		</c:forEach>
+					<%@ include file="/WEB-INF/views/main_footer.jsp" %>
+				</c:if>
+			</c:forEach>
 
 	</html>
