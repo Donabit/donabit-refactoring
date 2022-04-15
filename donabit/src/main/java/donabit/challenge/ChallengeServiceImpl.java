@@ -20,6 +20,11 @@ public class ChallengeServiceImpl implements ChallengeService {
 	public List<ChallengeDTO> challcount() {
 		return dao.challcount();
 	}
+
+	@Override
+	public int insertChallengingAjax(String chnumajax) {
+		return dao.insertChallengingAjax(chnumajax);
+	}
 	
 	
 

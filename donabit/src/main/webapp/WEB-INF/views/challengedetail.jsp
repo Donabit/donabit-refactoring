@@ -6,18 +6,35 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
-		<script src="jquery-3.6.0.min.js"></script>
+
+		<script src="../jquery-3.6.0.min.js"></script>
 		<style>
 		</style>
 		<script type="text/javascript">
 			$(document).ready(function () {
-				$(function () {
-
+				$("#participate").on('click', function () {
+					$.ajax({
+						url: "/participate", // 호출할 주소
+						data: { 'chnumajax': $("#chnumajax").val() }, // 넘길 데이터
+						type: 'post',
+						dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+						success: function (list) { // 결과 받기
+							console.log(list);
+							console.log(list[0].chnum);
+							$("#participate").css("background-color", "red");
+							$("#participate").after("<progress id='zzz' value='${dto2.nickname }' max='${dto.chmaxp}''></progress>")
+						},// 요청 완료 시
+						error: function (jqXHR) {
+							alert("failed");
+						}// 요청 실패.
+					});
+				
 				});
 			});
 		</script>
 		<link rel="stylesheet" href="../css/challengedetail.css">
 		<link rel="stylesheet" type="text/css" href="../css/main_header.css">
+		<link rel="stylesheet" type="text/css" href="../css/main_footer.css">
 		<script src="js/challenge.js" type="text/javascript"></script>
 		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	</head>
@@ -49,7 +66,7 @@
 									<div>
 										최대모집 : ${dto2.nickname }/ ${dto.chmaxp}
 										<div>
-											<progress value="${dto2.nickname }" max="${dto.chmaxp}"></progress>
+											<progress id="zzz" value="${dto2.nickname }" max="${dto.chmaxp}"></progress>
 										</div>
 									</div>
 								</c:if>
@@ -61,10 +78,8 @@
 						</div>
 						<div class="description">${dto.chdesc }</div>
 						<div class="button">
-							<form action="/challengedetail/${dto.chnum }" method="post">
-								<input type="submit" value="참여하기">
-								<input type="hidden" name="chnumdetail" value="${dto.chnum }">
-							</form>
+							<button id="participate" type="button">참여하기</button>
+							<input type="hidden" id="chnumajax" name="chnumajax" value="${dto.chnum}">
 						</div>
 						<div class="footer"></div>
 

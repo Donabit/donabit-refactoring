@@ -45,16 +45,23 @@ public class ChallengeController {
 		return mv;
 	}
 
-	// test
-	@PostMapping("challenge2")
+	@PostMapping("participate")
 	@ResponseBody
-	public String aaa(String name) {
-		if (name.equals("ajax")) {
-			return "{\"같음\" : \"ajax\"}";
-		}else {
-			return "{\"다름\" : \"ajax2\"}";
-		}
-
+	public List<ChallengeDTO> chnumajax(String chnumajax) {
+		System.out.println(chnumajax);
+		service.insertChallengingAjax(chnumajax);
+		List<ChallengeDTO> list = service.challengelist();
+		return list;
 	}
-
+	
+	/*
+	 * // test
+	 * 
+	 * @PostMapping("challenge3")
+	 * 
+	 * @ResponseBody public String aaa(String name) { if (name.equals("ajax")) {
+	 * return "{\"같음\" : \"ajax\"}"; }else { return "{\"다름\" : \"ajax2\"}"; }
+	 * 
+	 * }
+	 */
 }

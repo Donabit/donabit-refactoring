@@ -21,5 +21,9 @@
 	on challenge.chnum = challenging.chnum  
 	GROUP BY challenge.chnum;
 	</select>
+	
+	<insert id="insertChallengingAjax" parameterType="String">
+	 	INSERT INTO challenging(nickname, chnum) VALUES('ccc', #{chnumajax})
+	</insert>
 
 </mapper>

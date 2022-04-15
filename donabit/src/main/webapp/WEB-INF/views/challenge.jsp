@@ -12,9 +12,8 @@
 			$(document).ready(function () {
 				$("#bbbb").on('click', function () {
 
-
 					$.ajax({
-						url: "challenge2", // 호출할 주소
+						url: "/participate", // 호출할 주소
 						data: {
 							name: 'ajax'
 						}, // 넘길 데이터
@@ -31,6 +30,11 @@
 					});
 				});
 			});
+
+
+
+
+
 		</script>
 		<link rel="stylesheet" href="css/challenge.css">
 		<script src="js/challenge.js" type="text/javascript"></script>
@@ -48,27 +52,28 @@
 
 	<body>
 
-		<h1></h1>
-		<input class="inputsearch" id="aaaa" onkeyup="serchFunction();" type="text" size="20">
-		<button class="btnsearch" id="bbbb" onclick="serchFunction();" type="button">검색</button>
-
 		<%@ include file="/WEB-INF/views/main_header.jsp" %>
-			<h2 style="display: inline">
-				<a href="http://localhost:8089/checkmorning">checkmorning /</a>
-			</h2>
-			<h2 style="display: inline">
-				<a href="http://localhost:8089/main">main /</a>
-			</h2>
-			<h2 style="display: inline">
-				<a href="http://localhost:8089/admin/make-a-challenge">make-a-challenge
-					/</a>
-			</h2>
-			<h2 style="display: inline">
-				<a href="http://localhost:8089/admin/challenge-list">challenge-list</a>
-			</h2>
+
 			<div class="container">
 
-				<div class="header"></div>
+				<div class="header">
+					<h2 style="display: inline">
+						<a href="http://localhost:8089/checkmorning">checkmorning /</a>
+					</h2>
+					<h2 style="display: inline">
+						<a href="http://localhost:8089/main">main /</a>
+					</h2>
+					<h2 style="display: inline">
+						<a href="http://localhost:8089/admin/make-a-challenge">make-a-challenge
+							/</a>
+					</h2>
+					<h2 style="display: inline">
+						<a href="http://localhost:8089/admin/challenge-list">challenge-list</a>
+					</h2>
+					<h1></h1>
+					<input class="inputsearch" id="aaaa" onkeyup="serchFunction();" type="text" size="20">
+					<button class="btnsearch" id="bbbb" onclick="serchFunction();" type="button">검색</button>
+				</div>
 				<div class="section">
 					<div class="containerflex">
 
@@ -92,8 +97,8 @@
 									<div>개인성공조건 : ${dto.chsuccess }</div>
 									<div>이미지 :${dto.chimg }</div>
 									<form action="/challengedetail/${dto.chnum }" method="post">
-										<input type="submit" value="${dto.chnum }번 상세페이지"> <input type="hidden"
-											name="chnumdetail" value="${dto.chnum }">
+										<input type="submit" value="${dto.chnum }번 상세페이지">
+										<input type="hidden" name="chnumdetail" value="${dto.chnum }">
 									</form>
 
 
@@ -121,10 +126,10 @@
 						</c:forEach>
 
 					</div>
-					<%@ include file="/WEB-INF/views/main_footer.jsp" %>
 				</div>
 
 			</div>
+			<%@ include file="/WEB-INF/views/main_footer.jsp" %>
 
 	</body>
 
