@@ -18,6 +18,9 @@ public class MemberController {
 	@Qualifier("memberservice")
 	MemberService service;
 	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
 
 /*	
 	@RequestMapping(value="/insertmember", method= RequestMethod.GET)
@@ -53,7 +56,13 @@ public class MemberController {
 	@RequestMapping(value="/joinresult", method= RequestMethod.POST)
 	public ModelAndView joinresult(MemberDTO dto) {
 		//dto.setId(request.getParameter(id)
+		String rawPassword=dto.getPassword();
+		String encPassword=bCryptPasswordEncoder.encode(rawPassword);
+		dto.setPassword(encPassword);
+
 		int result = service.insertmember(dto); //id, email, phone 중복 불가능
+				
+		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("result", result); //int
 		mv.setViewName("joinresult");
