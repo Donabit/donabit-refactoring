@@ -1,8 +1,63 @@
 @charset "UTF-8";
-.container {
-  display: grid; 
-  grid-template-columns: 100px 100px 100px; 
-  grid-template-rows: 100px 100px 100px; 
-  gap: 0px 0px; 
 
+
+.containerflex {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+  align-content: flex-start;
 }
+.item {
+  flex: 0 0 auto;
+  margin: 10px;
+  border: 1px solid darkgray;
+}
+
+.detail {
+	background-color:gainsboro
+}
+
+/*업로드폼*/
+#checkimg {
+	visibility: hidden;
+}
+ .check_table {
+    display: table;
+    width: 100%;
+}
+
+.check {
+    display: table-row;
+}
+
+
+.check_label, .check_input {
+    display: table-cell;
+    border-bottom: 1px solid lightgray;
+    padding: 1em 1em 1em 0.5em;
+    vertical-align: top;
+}
+
+textarea {
+    width: 22em;
+    height: 5em;
+    resize: none;
+}
+
+
+.upload_btn {
+    background-color: #94DAFF;
+    color: white;
+    padding: 0.8em 1.6em;
+    margin: 2em 1em;
+    border-radius: 0.5em;
+    border: 0;
+    cursor: pointer;
+    box-shadow: 2px 2px rgb(176, 176, 176);
+}
+
+.upload_btn:hover {
+    background-color: #7BD1FF;
+}
+

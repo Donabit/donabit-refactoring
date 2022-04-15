@@ -19,19 +19,58 @@
 <link rel="stylesheet" href="css/check.css">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
-<body>
-<div class="checkform_container">
-	<h1>파일 전송 폼</h1>
-	<hr>
-	<form action="/check" method="post" enctype="multipart/form-data">
-		닉네임:<input type=text name="nickname"> <br>
-		<input type=hidden name="chnum" value="2">
-		체크번호:<input type=text name="checknum"> <br>
-		제목:<input type=text name="checktitle"> <br>
-		설명:<input type=text name="checkdesc"><br>
-		이미지:<input type=file name="checkimg" ><br>
-		<input type=submit value="파일전송">	
+<body>  
+	<form action="/checkmorninglist" method="post" enctype="multipart/form-data">		
+	<div class="checkform_container">
+			<div class=check_table>
+				<input type=hidden name="chnum" value="2">
+				
+				<div class=check>
+					<label for=nickname class=check_label>닉네임</label>
+					<div class="check_input">
+						<input type=text id=nickname name="nickname"> <br>
+					</div>
+				</div>
+					
+				<div class=check>
+					<label for=checknum class=check_label>체크번호</label>
+					<div class="check_input">
+						<input type=text id=checknum name="checknum" > <br>
+					</div>
+				</div>
+					
+				<div class=check>
+					<label for=checktitle class=check_label>제목</label>
+					<div class="check_input">
+						<input type=text id=checktitle name="checktitle"> <br>
+					</div>
+				</div>
+					
+				<div class=check>
+					<label for=checkdesc class=check_label>설명</label>
+					<div class="check_input">
+						<textarea id=checkdesc name="checkdesc" ></textarea>
+					</div>
+				</div>
+					
+				<div class=check>
+					<div class="check_label">
+						<label for=checkimg class=check_label>이미지</label>
+					</div>
+					<div class="check_input">
+						<input type=file id=checkimg name="checkimg"><br>
+					</div>
+				</div>
+					
+	
+				<button class=upload_btn type=submit>업로드</button>	
+			
+						
+			</div>
+		</div>
 	</form>
-</div>
+</div> 
+
+
 </body>
 </html>

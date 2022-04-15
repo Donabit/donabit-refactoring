@@ -23,15 +23,12 @@ public class CheckController {
 	@RequestMapping("/checkmorning")
 	public void checkmorning() {}
 		
-	@GetMapping("/check")
-	public void checkresult() {}
+	@GetMapping("/checkmorninglist")
+	public void checkmorninglist() {}
 	
 	
-	@RequestMapping("/checklist")
-	public void checklist() {}
-	
-	@PostMapping("/check")
-	public ModelAndView checkresult(CheckDTO dto) { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
+	@PostMapping("/checkmorninglist")
+	public ModelAndView checkmorning(CheckDTO dto) { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
 		ModelAndView mv = new ModelAndView(); 
 				
 		int result = service.insertCheck(dto);
@@ -39,9 +36,10 @@ public class CheckController {
 		
 		mv.addObject("result", result); //"변수이름", "변수에 넣을 데이터"
 		mv.addObject("checklist", list);
-		mv.setViewName("checkresult"); // 뷰 이름 지정, jsp 이름
+		mv.setViewName("checkmorninglist"); // 뷰 이름 지정, jsp 이름
 		return mv; // jsp 보냄
 	}
+
 	
 	
 }
