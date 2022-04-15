@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="joinlogin.MemberDAO" >
+
+
+<insert id="insertmember" parameterType="memberdto">
+insert into member(email, nickname, password, phone, enabled)
+values(#{email}, #{nickname}, #{password}, #{phone}, 1)
+</insert>
+
+<!-- <update id="updatemember" parameterType="memberdto">
+update member
+set phone=#{phone}
+where email=#{email}
+
+</update>
+
+<delete id="deletemember" parameterType="String">
+delete from member where email=#{i}
+</delete> -->
+
+
+
+</mapper>
+
+
+
+
+
+

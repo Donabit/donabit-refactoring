@@ -12,6 +12,8 @@ import check.CheckController;
 import check.CheckDAO;
 import donabit.challenge.ChallengeController;
 import donabit.challenge.ChallengeDAO;
+import joinlogin.MemberController;
+import joinlogin.MemberDAO;
 
 @SpringBootApplication
 @ComponentScan //빈으로 등록 될 준비를 마친 클래스들을 스캔하여, 빈으로 등록해주는 것
@@ -21,6 +23,8 @@ import donabit.challenge.ChallengeDAO;
 @MapperScan(basePackageClasses = ChallengeDAO.class)
 @ComponentScan(basePackageClasses = CheckController.class)
 @MapperScan(basePackageClasses = CheckDAO.class)
+@ComponentScan(basePackageClasses = MemberController.class)
+@MapperScan(basePackageClasses = MemberDAO.class)
 public class DonabitApplication {
 
 	public static void main(String[] args) {

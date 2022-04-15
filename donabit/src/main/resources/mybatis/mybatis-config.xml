@@ -8,6 +8,7 @@
 	<typeAlias type="com.donabit.demo.challenge.ChallengeDTO2" alias="ChallengeDTO2"/>
 	<typeAlias type="donabit.challenge.ChallengeDTO" alias="challengedto"/>
 	<typeAlias type="check.CheckDTO" alias="checkdto"/>
+	<typeAlias type="joinlogin.MemberDTO" alias="memberdto"/>
 </typeAliases>
 
 
