@@ -75,117 +75,158 @@ p.cursor {
 
 /* 섹션 motto 끝 */  
 
-.jb-wrap img {
-	width: 100%;
-	vertical-align: middle;
-}
-.d-text {
-	padding: 5px 10px;
-	background-color: green;
-	text-align: center;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate( -50%, -50% );
-}
-
-.parent{
-	width: auto;
-    margin: 5px auto;
-    display: flex;
-    
-    position: relative;
-
-    margin-bottom: 50px;
+.Ch_container_1 {  display: grid;
+  grid-template-columns: 350px 350px 350px;
+  grid-template-rows: 250px;
+  gap: 20px 50px;
+  grid-auto-flow: row dense;
+  justify-content: center;
+  align-content: center;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-areas:
+    "Ch1 Ch2 Ch3";
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-.first {
-    border: 1px solid red;
-    flex:1;
-    width:50px;
-    height:250px;
-    box-sizing: border-box;
-    
-    text-align: center;
-    font-family: 'Nanum Pen Script';
-	font-weight: bold;
-	
-	
-	vertical-align: middle;
+.Ch1 { grid-area: Ch1;
+border:1px dotted #F0F
 }
 
-.second{
-    border: 1px solid green;
-    flex:1;
-    margin: 0px 5%;
-    width:50px;
-    height:250px;
-    box-sizing: border-box;
-    
-    text-align: center;
-    font-family: 'Nanum Pen Script';
-	font-weight: bold;
+.Ch2 { grid-area: Ch2;
+border:1px dotted #F0F
 }
 
-.third{
-    border: 1px solid blue;
-    flex:1;
-    width:50px;
-    height:250px;
-    box-sizing: border-box;
-    
-    text-align: center;
-    font-family: 'Nanum Pen Script';
-	font-weight: bold;
+.Ch3 { grid-area: Ch3;
+border:1px dotted #F0F
 }
+
+.Ch_container_2 {  display: grid;
+  grid-template-columns: 350px 350px 350px;
+  grid-template-rows: 250px;
+  gap: 15px 50px;
+  grid-auto-flow: row dense;
+  justify-content: center;
+  align-content: center;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-areas:
+    "Ch4 Ch5 Ch6";
+  margin-top: 50px;
+  margin-bottom: 150px;
+}
+
+.Ch4 { grid-area: Ch4;
+border:1px dotted #F0F
+}
+
+.Ch5 { grid-area: Ch5;
+border:1px dotted #F0F
+}
+
+.Ch6 { grid-area: Ch6;
+border:1px dotted #F0F
+}
+
 
 /* 섹션 ch1 끝 */
 
-.fourth {
-    border: 1px solid red;
-    flex:1;
-    width:50px;
-    height:250px;
-    box-sizing: border-box;
-    
-    text-align: center;
-    font-family: 'Nanum Pen Script';
-	font-weight: bold;
+.notice {
+	margin-bottom: 100px;
 }
-
-.fifth{
-    border: 1px solid green;
-    flex:1;
-    margin: 0px 5%;
-    width:50px;
-    height:250px;
-    box-sizing: border-box;
-    
-    text-align: center;
-    font-family: 'Nanum Pen Script';
-	font-weight: bold;
-}
-
-.sixth{
-    border: 1px solid blue;
-    flex:1;
-    width:50px;
-    height:250px;
-    box-sizing: border-box;
-    
-    text-align: center;
-    font-family: 'Nanum Pen Script';
-	font-weight: bold;
-}
-
-/* 섹션 ch2 끝 */
 
 h1.notice {
 	text-align: center;
-	margin-bottom: 50px;
+	margin-bottom: 20px;
+	font-size: 40px;
+	
+	position: relative;
+	right: 395px;
+}
+
+p.notice_body {
+	text-align: center;
+	font-size: 14px;
+	font-family: 'Nanum Pen Script';
+	
+	position: relative;
+	right: 435px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+hr.notice_body {
+	width: 1110px;
+	margin:0 auto;
+	height: 1px;
 }
 
 /* 섹션 notice 끝 */
+
+h1.ads {
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 40px;
+	
+	position: relative;
+	right: 290px;
+}
+
+p.ads {
+	text-align: left;
+	font-size: 18px;
+	font-family: 'Nanum Pen Script';
+	
+	position: relative;
+	left: 710px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/* 섹션 ads 끝 */
+
+button.tuto{
+  background:#FF85B3;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:40px;
+  font-size:1.2em;
+  padding:0 1em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  left: 710px;
+}
+button.tuto:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+button.tuto:before,button.tuto:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+button.tuto:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button.tuto:hover:before,button.tuto:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+/* 버튼 끝 */
 
 @keyframes scroll {
 	 0% {
@@ -203,6 +244,7 @@ h1.notice {
 	 overflow: hidden;
 	 position: relative;
 	 max-width: auto;
+	 margin-top: 150px;
 }
  .slider::before, .slider::after {
 	 background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
@@ -234,8 +276,10 @@ h1.notice {
 /* 하단 슬라이드 끝 */
 
 hr.four {
-	width: 1000px;
+	width: 1110px;
 	margin:0 auto;
+	height: 1px;
+	border: solid 1px;
 
 }
 

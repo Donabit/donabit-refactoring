@@ -71,34 +71,83 @@ jQuery(function($) {
 <hr class="three">
 <br>
 
-<section class = ch1>
+<section class = Ch001>
 
-	<div class="parent">
-        <div class="first"><img src="img/ch_1.png"></div>
-        <div class="d-text"><p>첫 번째 챌린지</p></div>
-        
-        <div class="second"><img src="img/ch_1.png"></div>
-        <div class="third">세 번째 챌린지</div>
-    </div>
-    
-</section>
-
-<section class = ch2>
-
-	<div class="parent">
-        <div class="fourth">네 번째 챌린지</div>
-        <div class="fifth">다섯 번째 챌린지</div>
-        <div class="sixth">여섯 번째 챌린지</div>
-    </div>1
+<div class="Ch_container_1">
+  <div class="Ch1"></div>
+  챌린지 명:
+  <br>
+  참여 인원:
+  <div class="Ch2"></div>
+  챌린지 명:
+  <br>
+  참여 인원:
+  <div class="Ch3"></div>
+  챌린지 명:
+  <br>
+  참여 인원:
+</div>
 
 </section>
 
-<hr class = "four">
-<br>
+<section class = Ch002>
+
+<div class="Ch_container_2">
+  <div class="Ch4"></div>
+  챌린지 명:
+  <br>
+  참여 인원:
+  <div class="Ch5"></div>
+  챌린지 명:
+  <br>
+  참여 인원:
+  <div class="Ch6"></div>
+  챌린지 명:
+  <br>
+  참여 인원:
+</div>
+
+</section>
 
 <section class = notice>
 
-<h1 class = notice>공지사항 구현중</h1>
+<h1 class = notice>Recent Our Notice</h1>
+<hr class = "four">
+
+<p class = notice_body>
+1 번째 공지사항:&nbsp&nbsp&nbsp&nbsp작성자:&nbsp2022.04.15 <br>
+</p>
+<hr class = "notice_body">
+
+<p class = notice_body>
+2 번째 공지사항:&nbsp&nbsp&nbsp&nbsp작성자:&nbsp2022.04.15 <br>
+</p>
+<hr class = "notice_body">
+
+<p class = notice_body>
+3 번째 공지사항:&nbsp&nbsp&nbsp&nbsp작성자:&nbsp2022.04.15 <br>
+</p>
+<hr class = "notice_body">
+
+<p class = notice_body>
+4 번째 공지사항:&nbsp&nbsp&nbsp&nbsp작성자:&nbsp2022.04.15 <br>
+</p>
+<hr class = "notice_body">
+
+<p class = notice_body>
+5 번째 공지사항:&nbsp&nbsp&nbsp&nbsp작성자:&nbsp2022.04.15 <br>
+</p>
+<hr class = "notice_body">
+
+</section>
+
+<section class=ads>
+
+<h1 class=ads>Many hands make light work</h1>
+<p class=ads>저희가 추구하는 방향성이 궁금하신가요?<br>
+튜토리얼을 통해 누구나 실천할 수 있는 선한 영향력을 확인해보세요</p>
+<br>
+<button class=tuto type="button" onclick="location.href='tutorial.jsp'">튜토리얼!</button>
 
 </section>
 	
