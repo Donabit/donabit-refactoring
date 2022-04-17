@@ -2,13 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 	<!DOCTYPE html>
 	<html>
-	<!-- 추가 -->
-
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<script src="jquery-3.6.0.min.js"></script>
 		<script type="text/javascript">
+		//location.href="http://localhost:8089/challenge"
 			$(document).ready(function () {
 				$("#bbbb").on('click', function () {
 
@@ -96,7 +95,8 @@
 
 									<div>개인성공조건 : ${dto.chsuccess }</div>
 									<div>이미지 :${dto.chimg }</div>
-									<form action="/challengedetail/${dto.chnum }" method="post">
+									<form action="/challengedetail/${dto.chnum }" method="get">
+					
 										<input type="submit" value="${dto.chnum }번 상세페이지">
 										<input type="hidden" name="chnumdetail" value="${dto.chnum }">
 									</form>

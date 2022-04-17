@@ -1,10 +1,6 @@
 package donabit.challenge;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,6 +18,7 @@ public class ChallengeController {
 	@Qualifier("challengeservice")
 	ChallengeService service;
 
+	//챌린지리스트 페이지
 	@RequestMapping("/challenge")
 	public ModelAndView challengelist() { // Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
 		ModelAndView mv = new ModelAndView();
@@ -33,7 +30,8 @@ public class ChallengeController {
 		return mv; // jsp 보냄
 	}
 
-	@PostMapping("challengedetail/{chnum}")
+	//챌린지리스트에서 챌린지상세페이지 클릭 시 각 chnum 별로 넘어감
+	@GetMapping("challengedetail/{chnum}")
 	public ModelAndView challengelistdatail(@RequestParam int chnumdetail) {
 		ModelAndView mv = new ModelAndView();
 		List<ChallengeDTO> list = service.challengelist();
@@ -45,12 +43,25 @@ public class ChallengeController {
 		return mv;
 	}
 
+	//챌린지 상세페이지에서 ajax 요청
 	@PostMapping("participate")
 	@ResponseBody
-	public List<ChallengeDTO> chnumajax(String chnumajax) {
+	public List<ChallengeDTO> chnumajax(String chnumajax, String nicknameajax) {
 		System.out.println(chnumajax);
+		System.out.println(nicknameajax);
 		service.insertChallengingAjax(chnumajax);
-		List<ChallengeDTO> list = service.challengelist();
+		List<ChallengeDTO> list = service.challengedetaillist(chnumajax, nicknameajax);
+		return list;
+	}
+	
+	//챌린지 상세페이지에서 ajax 요청(취소하기)
+	@PostMapping("cancel")
+	@ResponseBody
+	public List<ChallengeDTO> chnumajax2(String chnumajax, String nicknameajax) {
+		System.out.println(chnumajax);
+		System.out.println(nicknameajax);
+		service.deleteChallengingAjax(chnumajax, nicknameajax);
+		List<ChallengeDTO> list = service.challengedetaillist2(chnumajax);
 		return list;
 	}
 	

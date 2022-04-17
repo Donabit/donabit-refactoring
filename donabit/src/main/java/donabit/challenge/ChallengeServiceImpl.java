@@ -3,7 +3,6 @@ package donabit.challenge;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service("challengeservice")
@@ -24,6 +23,21 @@ public class ChallengeServiceImpl implements ChallengeService {
 	@Override
 	public int insertChallengingAjax(String chnumajax) {
 		return dao.insertChallengingAjax(chnumajax);
+	}
+
+	@Override
+	public List<ChallengeDTO> challengedetaillist(String chnumajax , String nicknameajax) {
+		return 	dao.challengedetaillist(chnumajax, nicknameajax);
+	}
+
+	@Override
+	public int deleteChallengingAjax(String chnumajax, String nicknameajax) {
+		return dao.deleteChallengingAjax(chnumajax, nicknameajax);
+	}
+
+	@Override
+	public List<ChallengeDTO> challengedetaillist2(String chnumajax) {
+		return 	dao.challengedetaillist2(chnumajax);
 	}
 	
 	

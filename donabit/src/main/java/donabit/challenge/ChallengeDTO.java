@@ -1,14 +1,15 @@
 package donabit.challenge;
 
 public class ChallengeDTO {
-	String chnum, chnum2, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum, nickname, personalpf;
+	String chnum, chnum2, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum, nickname, nickname2, personalpf;
 	
 	public ChallengeDTO() {}
 
-	public ChallengeDTO(String chnum, String chname, String chdonate, String chdesc, String chimg, String chsuccess,
-			String chexp, String chmaxp, String chsdate, String chedate, String checknum) {
+	public ChallengeDTO(String chnum, String chnum2, String chname, String chdonate, String chdesc, String chimg, String chsuccess, String chexp,
+			String chmaxp, String chsdate, String chedate, String checknum, String nickname, String nickname2, String personalpf) {
 		super();
 		this.chnum = chnum;
+		this.chnum2 = chnum2;
 		this.chname = chname;
 		this.chdonate = chdonate;
 		this.chdesc = chdesc;
@@ -19,9 +20,10 @@ public class ChallengeDTO {
 		this.chsdate = chsdate;
 		this.chedate = chedate;
 		this.checknum = checknum;
+		this.nickname = nickname;
+		this.nickname2 = nickname2;
+		this.personalpf = personalpf;
 	}
-	
-	
 
 	public ChallengeDTO(String chnum, String chnum2, String nickname, String personalpf) {
 		super();
@@ -37,6 +39,14 @@ public class ChallengeDTO {
 
 	public void setChnum(String chnum) {
 		this.chnum = chnum;
+	}
+
+	public String getChnum2() {
+		return chnum2;
+	}
+
+	public void setChnum2(String chnum2) {
+		this.chnum2 = chnum2;
 	}
 
 	public String getChname() {
@@ -127,20 +137,20 @@ public class ChallengeDTO {
 		this.nickname = nickname;
 	}
 
+	public String getNickname2() {
+		return nickname2;
+	}
+
+	public void setNickname2(String nickname2) {
+		this.nickname2 = nickname2;
+	}
+
 	public String getPersonalpf() {
 		return personalpf;
 	}
 
 	public void setPersonalpf(String personalpf) {
 		this.personalpf = personalpf;
-	}
-
-	public String getChnum2() {
-		return chnum2;
-	}
-
-	public void setChnum2(String chnum2) {
-		this.chnum2 = chnum2;
 	}
 
 	
