@@ -12,4 +12,5 @@ public interface ChallengeService2 {
 	int selectChallengingMemberCount(int chnum);
 	int selectSuccessMemberCount(int chnum);
 	int selectCheckCount(int chnum);
+	int deleteChallenge(int chnum); 
 }

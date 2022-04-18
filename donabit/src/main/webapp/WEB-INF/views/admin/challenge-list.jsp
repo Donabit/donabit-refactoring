@@ -46,8 +46,27 @@
     		document.body.appendChild(form);
     		form.submit();
 	    }
+		
+       	
+       	function confirmRemove(chname, chnum){
+       		let result = confirm("정말로 삭제하시겠습니까? 챌린지명: " + chname);
+       		if(result == true){
+       			let form = document.createElement('form');
+       			let input = document.createElement('input');
+       			input.type = 'hidden';
+       			input.name = 'chnum';
+       			input.value = chnum;
+       			
+        		form.appendChild(input);
+       			form.action = "/admin/remove-challenge";
+        		form.method = "POST";
+        		document.body.appendChild(form);
+        		form.submit();
+       		} else {
+       			alert('취소되었습니다.');
+       		}
+       	}
 
-    
     </script>
 </head>
 <body>
@@ -60,12 +79,11 @@
             <br>
             </div>
            	<c:forEach items="${list}" var="dto" varStatus="status">
-       			<form class="admin_challenge_list" style="border: 1px solid black" action="remove-challenge" method="post">
+       			<form class="admin_challenge_list" style="border: 1px solid black" action="javascript:confirmRemove('${dto.chname}', ${dto.chnum})">
 					<div class="admin_challenge_list_info">
 						<img src="/images/${dto.chimgname}" alt="challenge image" width="320px" height="200px">
 					</div>
 					<div class="admin_challenge_list_info">
-						<input type="hidden" name="chnum" value="${dto.chnum}">
 						<h3>챌린지명 : ${dto.chname}</h3>
 						<h3>챌린지 설명</h3>
 						<p>${dto.chdesc}</p>
@@ -78,7 +96,7 @@
 						<h3>기부 금액 : <fmt:formatNumber value="${dto.donatepay}" pattern="###,###"/></h3>
 					</div>
 					<div class="admin_challenge_list_info">
-						<button type="submit">삭제하기</button>
+						<button id="deleteBtn">삭제하기</button>
 					</div>
 				</form>
 			</c:forEach>

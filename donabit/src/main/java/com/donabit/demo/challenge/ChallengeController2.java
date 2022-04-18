@@ -73,11 +73,8 @@ public class ChallengeController2 {
 	}
 	
 	@PostMapping("/admin/remove-challenge")
-	public String removechallenge(HttpServletResponse res, @RequestParam String chnum) throws IOException {
-		res.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = res.getWriter();
-		out.println("<script>confirm('정말로 삭제하시겠습니까? 챌린지 번호 : " + chnum + "')</script>");
-		out.flush();
+	public String removechallenge(HttpServletResponse res, @RequestParam int chnum) throws IOException {
+		service.deleteChallenge(chnum);
 		return "redirect:/admin/challenge-list";
 	}
 	

@@ -74,4 +74,10 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 	public int selectCheckCount(int chnum) {
 		return dao.selectCheckCount(chnum);
 	}
+
+
+	@Override
+	public int deleteChallenge(int chnum) {
+		return dao.deleteChallenge(chnum);
+	}
 }
