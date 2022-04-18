@@ -14,91 +14,96 @@
 		<link rel="stylesheet" type="text/css" href="../css/main_footer.css">
 		<script src="js/challenge.js" type="text/javascript"></script>
 		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-		<script src="../jquery-3.6.0.min.js"></script>
-		<style>
-		</style>
-		<script type="text/javascript">
-		
-			//spring security - ajax post 방식으로 요청시 추가
-			var token = $("meta[name='_csrf']").attr("content");
-			var header = $("meta[name='_csrf_header']").attr("content");
-			$(document).ajaxSend(function(e, xhr, options) {
-			    xhr.setRequestHeader(header, token);
-			});
-		
-			
-			$(document).ready(function () {
-				$(document).on("click", "#participatebtn", function() {
-				//$("#participatebtn").click(function () {
-					$.ajax({
-						url: "/participate", // 호출할 주소
-						data: { 'chnumajax': $("#chnumajax").val(), 'nicknameajax':$("#nicknameajax").val() }, // 넘길 데이터
-						type: 'post',
-						dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
-						success: function (list) { // 결과 받기
-							console.log(list);
-							console.log(list[0].chnum);
-							console.log(list[0].nickname);
-							var chmaxp = list[0].chmaxp;
-							var nickname2 = list[0].nickname2;
-							$('#participatebtn').remove();
-							$('#recruitprog').remove();
-							$('#recruitdivin').remove();
-							$("#participate").prepend("<button id ='cancelbtn' type='button'>참여취소</button>");
-							$("#divprog").prepend("<progress id='recruitprog2' value='"+ nickname2 +"' max='"+ chmaxp +"'></progress>");
-							$("#recruitdiv").prepend("<div id = recruitdivin2 >최대모집 : "+ nickname2 +"/ "+ chmaxp +"</div>");
-							$("#zzz").load("/challengedetail.jsp");
-							alert("참여완료");
-								
+			<script src="../jquery-3.6.0.min.js"></script>
+			<style>
+			</style>
+			<script type="text/javascript">
+
+				//spring security - ajax post 방식으로 요청시 추가
+				var token = $("meta[name='_csrf']").attr("content");
+				var header = $("meta[name='_csrf_header']").attr("content");
+				$(document).ajaxSend(function (e, xhr, options) {
+					xhr.setRequestHeader(header, token);
+				});
+
+
+				$(document).ready(function () {
+					$(document).on("click", "#participatebtn", function () {
+						//$("#participatebtn").click(function () {
+						$.ajax({
+							url: "/participate", // 호출할 주소
+							data: { 'chnumajax': $("#chnumajax").val(), 'nicknameajax': $("#nicknameajax").val() }, // 넘길 데이터
+							type: 'post',
+							dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+							success: function (list) { // 결과 받기
+								console.log(list);
+								console.log(list[0].chnum);
+								console.log(list[0].nickname);
+								var chmaxp = list[0].chmaxp;
+								var nickname2 = list[0].nickname2;
+								$('#participatebtn').remove();
+								$('#recruitprog').remove();
+								$('#recruitdivin').remove();
+								$("#participate").prepend("<button id ='cancelbtn' type='button'>참여취소</button>");
+								$("#divprog").prepend("<progress id='recruitprog2' value='" + nickname2 + "' max='" + chmaxp + "'></progress>");
+								$("#recruitdiv").prepend("<div id = recruitdivin2 >최대모집 : " + nickname2 + "/ " + chmaxp + "</div>");
+								$("#zzz").load("/challengedetail.jsp");
+								alert("참여완료");
+
 							},// success
 							error: function (jqXHR) {
 								alert("failed");
 							}// error
 						});// ajax
 					});//participatebtn click
-				
-					
-				$(document).on("click", "#cancelbtn", function() {
-					$.ajax({
-						url: "/cancel", // 호출할 주소
-						data: { 'chnumajax': $("#chnumajax").val(), 'nicknameajax':$("#nicknameajax").val() }, // 넘길 데이터
-						type: 'post',
-						dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
-						success: function (list) { // 결과 받기
-							console.log('취소');
-							console.log(list);
-							console.log(list[0].chnum);
-							var chnum = list[0].chnum;
-							var chmaxp = list[0].chmaxp;
-							var nickname2 = list[0].nickname2;
-							
-							$('#cancelbtn').remove();
-							$('#recruitprog2').remove();
-							$('#recruitdivin2').remove();
-							$('#chnumajax').remove();
-							$("#participate").prepend("<button id='participatebtn' type='button'>참여하기</button>");
-							if(nickname2 == null){
-							$("#recruitdiv").prepend("<div id = recruitdivin >최대모집 : 0/ "+ chmaxp +"</div>");
-							}else{
-								$("#recruitdiv").prepend("<div id = recruitdivin >최대모집 : "+ nickname2 +"/ "+ chmaxp +"</div>");
-							}
-							$("#divprog").prepend("<progress id='recruitprog' value='"+ nickname2 +"' max='"+ chmaxp +"'></progress>");
-							$("#participate").prepend("<input type='hidden' id='chnumajax' name='chnumajax' value='"+ chnum +"'>");
-							// 
-							alert("취소완료");
+
+
+					$(document).on("click", "#cancelbtn", function () {
+						var con_test = confirm("주의, 해당 챌린지 경험치 리셋, 취소하시겠습니까?");
+						if(con_test == true){				
+						$.ajax({
+							url: "/cancel", // 호출할 주소
+							data: { 'chnumajax': $("#chnumajax").val(), 'nicknameajax': $("#nicknameajax").val() }, // 넘길 데이터
+							type: 'post',
+							dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+							success: function (list) { // 결과 받기
+								console.log('취소');
+								console.log(list);
+								console.log(list[0].chnum);
+								var chnum = list[0].chnum;
+								var chmaxp = list[0].chmaxp;
+								var nickname2 = list[0].nickname2;
+
+								$('#cancelbtn').remove();
+								$('#recruitprog2').remove();
+								$('#recruitdivin2').remove();
+								$('#chnumajax').remove();
+								$("#participate").prepend("<button id='participatebtn' type='button'>참여하기</button>");
+								if (nickname2 == null) {
+									$("#recruitdiv").prepend("<div id = recruitdivin >최대모집 : 0/ " + chmaxp + "</div>");
+								} else {
+									$("#recruitdiv").prepend("<div id = recruitdivin >최대모집 : " + nickname2 + "/ " + chmaxp + "</div>");
+								}
+								$("#divprog").prepend("<progress id='recruitprog' value='" + nickname2 + "' max='" + chmaxp + "'></progress>");
+								$("#participate").prepend("<input type='hidden' id='chnumajax' name='chnumajax' value='" + chnum + "'>");
+								// 
+								alert("취소완료");
 							},// success
 							error: function (jqXHR) {
 								alert("failed");
 							}// error
 						});// ajax
+						}// confirm true
+						else if(con_test == false){
+						}// confirm false
 					});// cancelbtn click
-					
+
 				});// ready
-				
-				
-				
-		</script>
-		
+
+
+
+			</script>
+
 	</head>
 
 	<body>
@@ -126,11 +131,26 @@
 
 								<c:if test="${dto.chnum == dto2.chnum}">
 									<div>
-										<div id = recruitdiv >
-											<div id = recruitdivin >최대모집 : ${dto2.nickname }/ ${dto.chmaxp}</div>
+										<div id=recruitdiv>
+											<c:if test="${challnickname == 1}">
+												<div id=recruitdivin2>최대모집 : ${dto2.nickname }/ ${dto.chmaxp}</div>
+											</c:if>
+											<c:if test="${challnickname == 0}">
+												<div id=recruitdivin>최대모집 : ${dto2.nickname }/ ${dto.chmaxp}</div>
+											</c:if>
+
 										</div>
 										<div id=divprog>
-											<progress id="recruitprog" value="${dto2.nickname }" max="${dto.chmaxp}"></progress>
+											<c:if test="${challnickname == 1}">
+												<progress id="recruitprog2" value="${dto2.nickname }"
+													max="${dto.chmaxp}"></progress>
+
+											</c:if>
+											<c:if test="${challnickname == 0}">
+												<progress id="recruitprog" value="${dto2.nickname }"
+													max="${dto.chmaxp}"></progress>
+											</c:if>
+
 										</div>
 									</div>
 								</c:if>
@@ -141,16 +161,34 @@
 
 						</div>
 						<div class="description">${dto.chdesc }</div>
-						
-				
+
 						<div class="button" id="divbutton">
-						<div id="participate">
-							<button id="participatebtn" type="button">참여하기</button>
-							<input type="hidden" id="chnumajax" name="chnumajax" value="${dto.chnum}">
-							<!-- 추후 session -->
-							<input type="hidden" id="nicknameajax" name="nicknameajax" value="ccc">
+							<div id="participate">
+								<c:if test="${challnickname == 1}">
+									<button id='cancelbtn' type='button'>참여취소</button>
+								</c:if>
+								<c:forEach items="${challcount }" var="dto2">
+									<c:if test="${dto.chnum == dto2.chnum}">
+										<c:if test="${challnickname == 0}">
+											<c:if test="${dto2.nickname == dto.chmaxp}">
+												<button id="participatebtnx" type="button">최대인원 참여 불가능</button>
+											</c:if>
+											<c:if test="${dto2.nickname < dto.chmaxp}">
+												<button id="participatebtn" type="button">참여하기</button>
+											</c:if>
+										</c:if>
+									</c:if>
+								</c:forEach>
+								<!-- <button id="participatebtn" type="button">참여하기</button> -->
+								<input type="hidden" id="chnumajax" name="chnumajax" value="${dto.chnum}">
+								<!-- 추후 session -->
+								<input type="hidden" id="nicknameajax" name="nicknameajax" value="ccc">
+							</div>
 						</div>
-						</div>
+
+
+
+
 						<div class="footer"></div>
 
 					</div>

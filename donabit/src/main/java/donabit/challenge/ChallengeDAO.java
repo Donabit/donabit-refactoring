@@ -13,6 +13,7 @@ import com.donabit.demo.challenge.ChallengeDTO2;
 public interface ChallengeDAO {
 	public List<ChallengeDTO> challengelist();
 	public List<ChallengeDTO> challcount();
+	public int challnickname(int chnumdetail);
 	public List<ChallengeDTO> challengedetaillist(String chnumajax, String nicknameajax);
 	public List<ChallengeDTO> challengedetaillist2(String chnumajax);
 	int deleteChallengingAjax(String chnumajax, String nicknameajax);

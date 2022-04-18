@@ -21,6 +21,12 @@ public class ChallengeServiceImpl implements ChallengeService {
 	}
 
 	@Override
+	public int challnickname(int chnumdetail) {
+		
+		return dao.challnickname(chnumdetail);
+	}
+
+	@Override
 	public int insertChallengingAjax(String chnumajax) {
 		return dao.insertChallengingAjax(chnumajax);
 	}

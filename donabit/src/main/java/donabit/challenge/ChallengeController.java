@@ -29,15 +29,18 @@ public class ChallengeController {
 		mv.setViewName("challenge"); // 뷰 이름 지정, jsp 이름
 		return mv; // jsp 보냄
 	}
-
+	
 	//챌린지리스트에서 챌린지상세페이지 클릭 시 각 chnum 별로 넘어감
 	@GetMapping("challengedetail/{chnum}")
 	public ModelAndView challengelistdatail(@RequestParam int chnumdetail) {
 		ModelAndView mv = new ModelAndView();
 		List<ChallengeDTO> list = service.challengelist();
 		List<ChallengeDTO> list2 = service.challcount();
-		mv.addObject("challcount", list2);
+		int result = service.challnickname(chnumdetail);
+		System.out.println(result);
 		mv.addObject("challengelist", list);
+		mv.addObject("challcount", list2);
+		mv.addObject("challnickname", result);
 		mv.addObject("chnumdetail", chnumdetail);
 		mv.setViewName("challengedetail");
 		return mv;

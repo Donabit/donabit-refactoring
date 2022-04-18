@@ -112,6 +112,9 @@
 										<c:if test="${dto.chnum == dto2.chnum}">
 											<div>
 												최대모집 : ${dto2.nickname }/ ${dto.chmaxp}
+												<c:if test="${dto2.nickname == dto.chmaxp}">
+													<div>**최대인원 참여 불가능**</div>
+												</c:if>
 												<div>
 													<progress value="${dto2.nickname }" max="${dto.chmaxp}"></progress>
 												</div>

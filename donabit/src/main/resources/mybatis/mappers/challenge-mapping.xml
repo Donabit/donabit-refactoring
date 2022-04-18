@@ -23,6 +23,29 @@
 		on challenge.chnum = challenging.chnum
 		GROUP BY challenge.chnum;
 	</select>
+	
+	
+	<select id="challnickname" resultType="int">
+	
+	<!-- SELECT * FROM donabit.challenging; -->
+	
+	<!--  SELECT challenging.nickname FROM donabit.challenging where challenging.nickname in ('ccc') and challenging.chnum in (#{chnumdetail});-->
+<!-- 	SELECT challenge.chnum, challenging.nickname 
+        FROM donabit.challenge 
+        left join donabit.challenging 
+        on challenge.chnum = challenging.chnum; -->
+		
+		<!-- select challenge.chnum, challenging.nickname
+        from donabit.challenge 
+        left join donabit.challenging 
+        on challenge.chnum = challenging.chnum; -->
+        
+        SELECT count(*) 
+        FROM donabit.challenging 
+        where challenging.nickname 
+        in ('ccc') and challenging.chnum like #{chnumdetail};
+	</select>
+	
 
 	<select id="challengedetaillist" resultType="challengedto">
 		SELECT challenging.nickname, challenging.chnum, challenge.chmaxp,

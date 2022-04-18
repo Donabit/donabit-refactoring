@@ -5,6 +5,7 @@ import java.util.List;
 public interface ChallengeService {
 	public List<ChallengeDTO> challengelist();
 	public List<ChallengeDTO> challcount();
+	public int challnickname(int chnumdetail);
 	public List<ChallengeDTO> challengedetaillist(String chnumajax, String nicknameajax);
 	public List<ChallengeDTO> challengedetaillist2(String chnumajax);
 	public int deleteChallengingAjax(String chnumajax, String nicknameajax);
