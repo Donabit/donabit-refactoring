@@ -13,12 +13,16 @@
 </script>
 <link rel="stylesheet" href="css/check.css">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<script src="https://kit.fontawesome.com/b81e22d1de.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="containerflex">
-    	<div class="plusbutton">
-    	plus
+    	<div class="item">
+    		<div clss= "plusbutton">
+		  		<span style="color:#94DAFF">
+		  			<i class="fa fa-solid fa-plus fa-8x fa-fw" aria-hidden="true"></i>
+		  		</span>
+    		</div>
     	</div>
 		  <c:if test="${result == 1 }">
 				<c:forEach items="${checklist}" var="check">
