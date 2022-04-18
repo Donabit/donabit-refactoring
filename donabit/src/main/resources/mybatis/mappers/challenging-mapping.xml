@@ -14,7 +14,23 @@
 		SELECT chnum, chname, chdesc, chimg as chimgname, chsuccess, chdonate, chexp, chmaxp, chsdate, chedate, donatepay, donateco FROM challenge	limit #{index}, #{count}
 	</select>
 	
+	<select id="selectChallengingMemberCount" parameterType="int" resultType="int">
+		SELECT count(*) FROM challenging WHERE chnum = #{chnum};
+	</select>
+	
+	<select id="selectSuccessMemberCount" parameterType="int" resultType="int">
+		SELECT count(*) FROM challenging WHERE personalpf = 1 AND chnum = #{chnum};
+	</select>
+	
 	<select id="selectChallengeCount" resultType="int">
 		SELECT count(*) FROM challenge	
+	</select>
+	
+	<select id="selectCheckCount" parameterType="int" resultType="int">
+		SELECT count(*) FROM checks WHERE chnum = #{chnum};
+	</select>
+	
+	<select id="selectMember" resultType="memberdto">
+		SELECT * FROM member
 	</select>
 </mapper>

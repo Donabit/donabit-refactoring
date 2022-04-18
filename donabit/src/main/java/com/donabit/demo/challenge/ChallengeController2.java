@@ -2,6 +2,7 @@ package com.donabit.demo.challenge;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import joinlogin.MemberDTO;
 
 @Controller
 public class ChallengeController2 {
@@ -33,12 +36,26 @@ public class ChallengeController2 {
 	@PostMapping("/admin/challenge-list")
 	public ModelAndView challengelist(@RequestParam int page) {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> challengingMemberCountList = new ArrayList<Integer>();
+		List<Integer> successMemberCountList = new ArrayList<Integer>();
+		List<Integer> checkCountList = new ArrayList<Integer>();
 		int objPerPage = 3;
 		int total = service.selectChallengeCount();
 		int pageNum = (total % objPerPage == 0) ? total / objPerPage : total / objPerPage + 1;
 		List<ChallengeDTO2> list = service.selectChallenge((page - 1) * objPerPage, objPerPage);
+		for(ChallengeDTO2 i : list) {
+			int challengingMember = service.selectChallengingMemberCount(i.getChnum());
+			int successMember = service.selectSuccessMemberCount(i.getChnum());
+			int checkCount = service.selectCheckCount(i.getChnum());
+			challengingMemberCountList.add(challengingMember);
+			successMemberCountList.add(successMember);
+			checkCountList.add(checkCount);
+		}
 		mv.addObject("pageNum", pageNum);
 		mv.addObject("list", list);
+		mv.addObject("challengingMember", challengingMemberCountList);
+		mv.addObject("successMember", successMemberCountList);
+		mv.addObject("checkCount", checkCountList);
 		mv.setViewName("/admin/challenge-list");
 		return mv;
 	}
@@ -62,6 +79,14 @@ public class ChallengeController2 {
 		out.println("<script>confirm('정말로 삭제하시겠습니까? 챌린지 번호 : " + chnum + "')</script>");
 		out.flush();
 		return "redirect:/admin/challenge-list";
+	}
+	
+	@GetMapping("/admin/member-list")
+	public ModelAndView memberlist() {
+		ModelAndView mv = new ModelAndView();
+		List<MemberDTO> list = service.selectMember();
+		
+		return mv;
 	}
 	
 	

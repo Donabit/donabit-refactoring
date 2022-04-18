@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,10 +16,6 @@
 		.page_num {
 			padding: 1em;
 		}
-		
-		.page_num:hover {
-			color: olive;
-		}
 
 		.admin_challenge_list {
 			display: flex;		
@@ -32,35 +27,18 @@
 		}
 		
     </style>
-    <script type="text/javascript">
-       	function goPost(page) {
-			let form = document.createElement('form');
-    		let input = document.createElement('input');
-    		input.type = 'hidden';
-    		input.name = 'page';
-    		input.value = page;
-    		
-    		form.appendChild(input);
-    		form.action = "/admin/challenge-list";
-    		form.method = "POST";
-    		document.body.appendChild(form);
-    		form.submit();
-	    }
-
-    
-    </script>
 </head>
 <body>
     <%@ include file="/WEB-INF/views/admin/admin-sidebar.jsp" %>
     <main class="admin_main_container">
         <div class="admin_main_contents">
-            <h2 class="admin_main_header">챌린지 리스트 &#x1F4CB</h2>
+            <h2 class="admin_main_header">회원 리스트 &#x1F64B</h2>
             <br>
             <hr style="border: 1px solid black;">
             <br>
             </div>
-           	<c:forEach items="${list}" var="dto" varStatus="status">
-       			<form class="admin_challenge_list" style="border: 1px solid black" action="remove-challenge" method="post">
+           	<c:forEach items="${list}" var="dto">
+				<form class="admin_challenge_list" style="border: 1px solid black" action="remove-challenge" method="post">
 					<div class="admin_challenge_list_info">
 						<img src="/images/${dto.chimgname}" alt="challenge image" width="320px" height="200px">
 					</div>
@@ -71,9 +49,9 @@
 						<p>${dto.chdesc}</p>
 					</div>
 					<div class="admin_challenge_list_info">
-						<h3>참여 인원 : ${challengingMember[status.index]}/${dto.chmaxp}</h3>
-						<h3>완료 인원 : ${successMember[status.index]}/${dto.chmaxp}</h3>
-						<h3>달성률 : <fmt:formatNumber value="${checkCount[status.index] / dto.chmaxp}" type="percent"/></h3>
+						<h3>참여 인원 : 00/${dto.chmaxp}</h3>
+						<h3>완료 인원 : 00/${dto.chmaxp}</h3>
+						<h3>달성률 : 00%</h3>
 						<h3>기부처 : ${dto.donateco}</h3>
 						<h3>기부 금액 : <fmt:formatNumber value="${dto.donatepay}" pattern="###,###"/></h3>
 					</div>

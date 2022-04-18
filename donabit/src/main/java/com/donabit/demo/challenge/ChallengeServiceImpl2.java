@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import joinlogin.MemberDTO;
+
 @Service("ChallengeService2")
 public class ChallengeServiceImpl2 implements ChallengeService2 {
 	
@@ -47,5 +49,29 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 	@Override
 	public int selectChallengeCount() {
 		return dao.selectChallengeCount();
+	}
+
+
+	@Override
+	public List<MemberDTO> selectMember() {
+		return dao.selectMember();
+	}
+
+
+	@Override
+	public int selectChallengingMemberCount(int chnum) {
+		return dao.selectChallengingMemberCount(chnum);
+	}
+
+
+	@Override
+	public int selectSuccessMemberCount(int chnum) {
+		return dao.selectSuccessMemberCount(chnum);
+	}
+
+
+	@Override
+	public int selectCheckCount(int chnum) {
+		return dao.selectCheckCount(chnum);
 	}
 }
