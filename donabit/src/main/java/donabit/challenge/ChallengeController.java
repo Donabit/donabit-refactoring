@@ -12,11 +12,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import check.CheckDTO;
+import check.CheckService;
+
 @Controller
 public class ChallengeController {
 	@Autowired
 	@Qualifier("challengeservice")
 	ChallengeService service;
+	
+	@Autowired
+	@Qualifier("checkservice")
+	CheckService service2;
+	
+	
 
 	//챌린지리스트 페이지
 	@RequestMapping("/challenge")
@@ -67,6 +76,17 @@ public class ChallengeController {
 		List<ChallengeDTO> list = service.challengedetaillist2(chnumajax);
 		return list;
 	}
+	
+	//인증 커뮤니티
+	@GetMapping("/checkcommunity")
+	public ModelAndView checkmorninglist() { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
+		ModelAndView mv = new ModelAndView(); 
+		List<CheckDTO> list = service2.checklist();
+		mv.addObject("checklist", list);
+		mv.setViewName("ch-community"); // 뷰 이름 지정, jsp 이름
+		return mv; // jsp 보냄
+	}
+
 	
 	/*
 	 * // test

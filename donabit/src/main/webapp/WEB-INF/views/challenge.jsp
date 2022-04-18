@@ -67,7 +67,13 @@
 							/</a>
 					</h2>
 					<h2 style="display: inline">
-						<a href="http://localhost:8089/admin/challenge-list">challenge-list</a>
+						<a href="http://localhost:8089/admin/challenge-list">challenge-list /</a>
+					</h2>
+					<h2 style="display: inline">
+						<a href="http://localhost:8089/checkmorninglist">checkmorninglist /</a>
+					</h2>
+					<h2 style="display: inline">
+						<a href="http://localhost:8089/checkcommunity">checkcommunity</a>
 					</h2>
 					<h1></h1>
 					<input class="inputsearch" id="aaaa" onkeyup="serchFunction();" type="text" size="20">

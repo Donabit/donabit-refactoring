@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+/*업로드리스트*/
+.containerflex {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+  align-content: flex-start;
+  border: gainsboro;
+  background-color: rgb(255, 211, 200);
+}
+
+.item {
+  width: 300px;
+  height: 400px;
+  margin: 10px;
+  position: relative;
+  background-color: rgb(236, 229, 201);
+}
+
+.checkdesc {
+  background-color: rgb(200, 235, 193);
+}
+
+.title {
+  background-color: rgb(175, 204, 238);
+}
+
+.divbtn {
+  background-color: rgb(223, 187, 240);
+}
