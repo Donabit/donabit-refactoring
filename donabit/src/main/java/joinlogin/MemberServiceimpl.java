@@ -1,5 +1,6 @@
 package joinlogin;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -29,5 +30,17 @@ public class MemberServiceimpl implements MemberService {
 		
 		return dao.member(email);
 	}
+
+	/*
+	@Override
+	public PrincipalDetails getUserById(String email) {
+		PrincipalDetails users = sqlSession.selectOne(namespace+"getUserById",email);
+		return users;
+	}
+	
+	*/
+	
+	
+	
 
 }

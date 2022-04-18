@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,9 +48,23 @@
 
 		<div class="login_container">
 		<ul class="login">
+		
+<sec:authorize access="isAnonymous()">		
 	<li class="menu_login">
-	<a class="menu_title" href="/login.jsp">로그인</a></li>
-	<li class="menu_join"><a class="menu_title" href="/join.jsp">회원가입</a></li> 
+		<a class="menu_title" href="/loginform">로그인</a></li>
+	<li class="menu_join"><a class="menu_title" href="/joinform">회원가입</a></li> 
+</sec:authorize>
+	
+<sec:authorize access="hasRole('ROLE_USER')">
+	<a class="menu_title" href="/logout">로그아웃</a></li>
+	<li class="menu_mypage"><a class="menu_title" href="/mypage">마이페이지</a></li> 
+</sec:authorize>
+	
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+	<a class="menu_title" href="/logout">로그아웃</a></li>
+	<li class="menu_mypage"><a class="menu_title" href="/admin">관리자페이지</a></li>
+</sec:authorize>
+	
 </ul>
 </div>
 </div>

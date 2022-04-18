@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="container">
-	<form action="/loginform" method="post">
+	<form action="/loginProc" method="post">
 		<div class="form-group">
 			<label for="email">Email</label> 
 			<input type="text" class="form-control" placeholder="Enter email" id="email" name="email">
@@ -27,11 +27,11 @@
 			<input type="password" class="form-control" placeholder="Enter password" id="password" name="password">
 		</div>
 		
-		<div class="form-group form-check">
+		<!-- <div class="form-group form-check">
 			<label class="form-check-label"> 
 			<input class="form-check-input" type="checkbox" name="remember"> Remember me
 			</label>
-		</div>
+		</div> -->
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
 		<button class="btn btn-primary">로그인</button>
 	</form>
