@@ -20,25 +20,22 @@ public class CheckController {
 	CheckService service;
 	
 	//뷰의 요청경로 지정
-	@GetMapping("/checkmorning")
+	@GetMapping("/checkmorningform")
 	public void checkmorning() {}
 		
-	@PostMapping("/checkmorning")
+	@PostMapping("/checkmorningform")
 	public ModelAndView checkmorning(CheckDTO dto) {
-		ModelAndView mv = new ModelAndView();
-		int result = service.insertCheck(dto);
-		mv.addObject("result", result); //"변수이름", "변수에 넣을 데이터"
-		mv.setViewName("checkmorninglist"); // 뷰 이름 지정, jsp 이름
-		return mv; // jsp 보냄
+		service.insertCheck(dto);
+		return checkmorninglist();
 	}
 	
 	
-	@GetMapping("/checkmorninglist")
+	@GetMapping("/checkmorning")
 	public ModelAndView checkmorninglist() { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
 		ModelAndView mv = new ModelAndView(); 
 		List<CheckDTO> list = service.checklist();
 		mv.addObject("checklist", list);
-		mv.setViewName("checkmorninglist"); // 뷰 이름 지정, jsp 이름
+		mv.setViewName("checkmorning"); // 뷰 이름 지정, jsp 이름
 		return mv; // jsp 보냄
 	}
 
