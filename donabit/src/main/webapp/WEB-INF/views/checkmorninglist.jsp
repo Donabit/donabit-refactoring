@@ -16,9 +16,10 @@
 
 </head>
 <body>
-	  <h1> 인증 내역</h1>
-	  <hr>
     <div class="containerflex">
+    	<div class="plusbutton">
+    	plus
+    	</div>
 		  <c:if test="${result == 1 }">
 				<c:forEach items="${checklist}" var="check">
 				  	<div class="item">
@@ -26,9 +27,9 @@
 							<img src="/checkimage/${check.checkimg2}" height="300px" width="300px"><br>
 				  		</div>
 				  		<div class="detail">
-					 		${check.checktime}<br>
-							${check.checktitle}<br>
-							${check.checkdesc}
+							${check.checkdesc} <br>
+							<br>
+							<b>${check.checktitle}</b> &nbsp&nbsp<small>${check.checktime}</small>
 						</div>
 				  	</div>
 				</c:forEach>

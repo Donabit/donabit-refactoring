@@ -19,10 +19,9 @@
 <link rel="stylesheet" href="css/check.css">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
-<body>  
-	<form action="/checkmorninglist" method="post" enctype="multipart/form-data">		
-	<div class="checkform_container">
-			<div class=check_table>
+<body>
+	<div class="check_container">
+				<form action="/checkmorninglist" method="post" enctype="multipart/form-data">		
 				<input type=hidden name="chnum" value="2">
 				
 				<div class=check>
@@ -58,19 +57,15 @@
 						<label for=checkimg class=check_label>이미지</label>
 					</div>
 					<div class="check_input">
-						<input type=file id=checkimg name="checkimg"><br>
+						<input type=file id=checkimg name="checkimg" accept="image/*" onchange="loadFile(this)"><br>
 					</div>
 				</div>
 					
-	
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
 				<button class=upload_btn type=submit>업로드</button>	
 			
-						
+							
+				</form>
 			</div>
-		</div>
-	</form>
-</div> 
-
-
 </body>
 </html>

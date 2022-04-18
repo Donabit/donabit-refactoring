@@ -1,31 +1,49 @@
 @charset "UTF-8";
 
-
+/*업로드리스트*/
 .containerflex {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: start;
   align-content: flex-start;
+  border: gainsboro;
+}
+
+.img{
+	
 }
 .item {
   flex: 0 0 auto;
   margin: 10px;
-  border: 1px solid darkgray;
 }
 
-.detail {
-	background-color:gainsboro
+.plusbutton {
+	flex: 0 0 auto;
+  margin: 10px;
 }
+
 
 /*업로드폼*/
-#checkimg {
-	visibility: hidden;
+.check_container{
+	width: 30em;
+    height:300px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-11em;
+    margin-top:-150px;
+	display: table;
 }
- .check_table {
+
+/* #checkimg {
+	visibility: hidden;
+} */
+
+/*  .check_table {
     display: table;
     width: 100%;
-}
+} */
 
 .check {
     display: table-row;
@@ -38,6 +56,8 @@
     padding: 1em 1em 1em 0.5em;
     vertical-align: top;
 }
+
+
 
 textarea {
     width: 22em;
@@ -55,6 +75,8 @@ textarea {
     border: 0;
     cursor: pointer;
     box-shadow: 2px 2px rgb(176, 176, 176);
+    position: absolute;
+	left: 75%;
 }
 
 .upload_btn:hover {
