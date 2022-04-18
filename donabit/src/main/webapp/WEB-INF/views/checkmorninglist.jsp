@@ -18,13 +18,12 @@
 <body>
     <div class="containerflex">
     	<div class="item">
-    		<div clss= "plusbutton">
+    		<div class= "plusbutton">
 		  		<span style="color:#94DAFF">
-		  			<i class="fa fa-solid fa-plus fa-8x fa-fw" aria-hidden="true"></i>
+		  			<i class="fa fa-solid fa-plus fa-8x"></i>
 		  		</span>
     		</div>
     	</div>
-		  <c:if test="${result == 1 }">
 				<c:forEach items="${checklist}" var="check">
 				  	<div class="item">
 				  		<div class="img">
@@ -36,8 +35,7 @@
 							<b>${check.checktitle}</b> &nbsp&nbsp<small>${check.checktime}</small>
 						</div>
 				  	</div>
-				</c:forEach>
-		</c:if>		
+				</c:forEach>	
 		</div>
 </body>
 </html>

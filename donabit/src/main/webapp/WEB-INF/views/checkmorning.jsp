@@ -5,9 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>미라클모닝 인증페이지</title>
+<script src="../js/check.js" defer></script>
 <script src="resources/jquery-3.6.0.min.js"></script>
-
- <script src="mybatis_spring.js" defer></script>
 <link rel="stylesheet" href="css/check.css">
 
 
@@ -21,7 +20,7 @@
 </head>
 <body>
 	<div class="check_container">
-				<form action="/checkmorninglist" method="post" enctype="multipart/form-data">		
+				<form action="/checkmorning" method="post" enctype="multipart/form-data">		
 				<input type=hidden name="chnum" value="2">
 				
 				<div class=check>
@@ -57,7 +56,9 @@
 						<label for=checkimg class=check_label>이미지</label>
 					</div>
 					<div class="check_input">
-						<input type=file id=checkimg name="checkimg" accept="image/*" onchange="loadFile(this)"><br>
+						<img src="../img/upload_default.png" alt="default image for upload" id="uploadImage"><br>
+						<small>(이미지 파일만 업로드 가능합니다)</small><br>
+						<input type=file id=uploadInput name="checkimg" accept="image/*">
 					</div>
 				</div>
 					

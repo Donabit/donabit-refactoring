@@ -10,37 +10,30 @@
   border: gainsboro;
 }
 
-
 .item {
  width:300px;
  height:400px;
  margin:10px;
+ position: relative;
 }
 
-.fa{	
-vertical-align: middle;
+.plusbutton{
+	position: absolute;
+  top: 40%;
+  left: 50%;
+  margin: -50px 0 0 -50px;
+	
 }
 
 /*업로드폼*/
 .check_container{
-	width: 30em;
-    height:300px;
-    position:absolute;
-    left:50%;
-    top:50%;
-    margin-left:-11em;
-    margin-top:-150px;
+	width: 1000px;
+    height: 300px;
+   	position: absolute;
+	left: 40%;
 	display: table;
 }
 
-/* #checkimg {
-	visibility: hidden;
-} */
-
-/*  .check_table {
-    display: table;
-    width: 100%;
-} */
 
 .check {
     display: table-row;
@@ -73,10 +66,16 @@ textarea {
     cursor: pointer;
     box-shadow: 2px 2px rgb(176, 176, 176);
     position: absolute;
-	left: 75%;
+	left: 40%;
 }
 
 .upload_btn:hover {
     background-color: #7BD1FF;
 }
 
+#uploadImage {
+	display: inline-block;
+	background-color: whitesmoke;
+	width: 10em;
+	height: 10em;
+}
