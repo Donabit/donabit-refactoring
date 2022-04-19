@@ -17,7 +17,7 @@ import donabit.challenge.ChallengeDTO;
 public class CheckServiceImpl implements CheckService {
 	
 	@Autowired
-	@Qualifier("checkdao")
+	@Qualifier("checkdao")//이름정함
 	CheckDAO dao;
 
 	@Override
@@ -44,6 +44,28 @@ public class CheckServiceImpl implements CheckService {
 	public List<CheckDTO> checklist() {
 		return dao.checklist();
 	}
+
+	@Override
+	public int selectcountchallenge() {
+		return dao.selectcountchallenge();
+	}
+
+	@Override
+	public int selectchsuccess() {
+		return dao.selectchsuccess();
+	}
+
+	@Override
+	public int updatepersonalpf() {
+		return dao.updatepersonalpf();
+	}
+
+	@Override
+	public int selectchecktime() {
+		return dao.selectchecktime();
+	}
+	
+	
 }
 
 	

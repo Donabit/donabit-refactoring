@@ -12,4 +12,24 @@
 		INSERT INTO checks(nickname, chnum, checknum, checktime, checktitle, checkdesc, checkimg)
 		VALUES(#{nickname}, #{chnum}, #{checknum}, now(), #{checktitle}, #{checkdesc}, #{checkimg2})  
 	</insert>
+	
+	<!-- <select id="selectcountchallenge" resultType="int" parameterType="checkdto">
+		SELECT COUNT(*) FROM checks WHERE nickname=#{nickname} AND chnum=#{chnum};
+	</select> -->
+	
+	<select id="selectcountchallenge" resultType="int">
+		SELECT COUNT(*) FROM checks WHERE nickname=1 AND chnum=2;
+	</select>
+	
+	<select id="selectchsuccess" resultType="int">
+		SELECT chsuccess FROM challenge WHERE chnum=2;
+	</select>
+	
+	<update id="updatepersonalpf" parameterType="int">
+		UPDATE challenging SET personalpf=1 WHERE chnum=2;
+	</update>
+	
+	<select id="selectchecktime" resultType="int">
+		SELECT COUNT(*) FROM checks WHERE chnum=2 AND DATE(checktime)=DATE(now());
+	</select>
 </mapper>

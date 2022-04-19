@@ -24,21 +24,22 @@
 				<div class=check>
 					<label for=checknum class=check_label>체크번호</label>
 					<div class="check_input">
-						<input type=text id=checknum name="checknum" > <br>
+						<input type=text id=checknum name="checknum" value="${result}"> <br>
 					</div>
 				</div>
+				
 					
 				<div class=check>
 					<label for=checktitle class=check_label>제목</label>
 					<div class="check_input">
-						<input type=text id=checktitle name="checktitle"> <br>
+						<input type=text id=checktitle name="checktitle" maxlength='15' placeholder="최대 15글자(공백포함)"> <br>
 					</div>
 				</div>
 					
 				<div class=check>
 					<label for=checkdesc class=check_label>설명</label>
 					<div class="check_input">
-						<textarea id=checkdesc name="checkdesc" ></textarea>
+						<textarea id=checkdesc name="checkdesc" maxlength='65'  placeholder="최대 65글자(공백포함)" ></textarea>
 					</div>
 				</div>
 					

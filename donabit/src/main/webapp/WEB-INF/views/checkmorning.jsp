@@ -26,9 +26,9 @@
 							<img src="/checkimage/${check.checkimg2}" height="300px" width="300px"><br>
 				  		</div>
 				  		<div class="detail">
+							<b>${check.checktitle}</b>
 							${check.checkdesc} <br>
-							<br>
-							<b>${check.checktitle}</b> &nbsp&nbsp<small>${check.checktime}</small>
+							<small>${check.checktime}</small>
 						</div>
 				  	</div>
 				</c:forEach>	
