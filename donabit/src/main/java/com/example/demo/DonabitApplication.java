@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+import com.donabit.board.BoardController;
+import com.donabit.board.BoardDAO;
 import com.donabit.demo.challenge.ChallengeController2;
 import com.donabit.demo.challenge.ChallengeDAO2;
 
@@ -25,6 +27,8 @@ import joinlogin.MemberDAO;
 @MapperScan(basePackageClasses = CheckDAO.class)
 @ComponentScan(basePackageClasses = MemberController.class)
 @MapperScan(basePackageClasses = MemberDAO.class)
+@ComponentScan(basePackageClasses = BoardController.class)
+@MapperScan(basePackageClasses = BoardDAO.class)
 public class DonabitApplication {
 
 	public static void main(String[] args) {

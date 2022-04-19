@@ -3,8 +3,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+<head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판 등록 페이지</title>
+
+<script src="resources/jquery-3.6.0.min.js"></script>
+ <script src="mybatis_spring.js" defer></script>
+ 
+<link rel="stylesheet" type="text/css" href="#.css">
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		//jquery code
+	});
+</script>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+</head>
 </head>
 <body>
 
@@ -22,7 +36,8 @@
         <label>Writer</label>
         <input name="writer">
     </div>
-    <button class="btn">등록</button>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+    <button type="submit" class="btn">등록</button>
 </form>
 
 </body>
