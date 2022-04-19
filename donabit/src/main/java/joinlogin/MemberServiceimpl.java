@@ -30,6 +30,24 @@ public class MemberServiceimpl implements MemberService {
 		
 		return dao.member(email);
 	}
+	
+	
+	//회원 수정 탈퇴
+
+	@Override
+	public int updatemember(MemberDTO dto) {
+		return  dao.updatemember(dto);
+	}
+
+	@Override
+	public int passwordmodify(MemberDTO dto) {
+		return dao.passwordmodify(dto);
+	}
+
+	@Override
+	public int deletemember(String email) {
+		return dao.deletemember(email);
+	}
 
 	/*
 	@Override
@@ -39,6 +57,7 @@ public class MemberServiceimpl implements MemberService {
 	}
 	
 	*/
+	
 	
 	
 	

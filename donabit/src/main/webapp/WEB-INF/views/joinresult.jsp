@@ -18,5 +18,7 @@
 <c:if test="${result == 1}">
 	<h1>정상 회원가입 완료</h1>
 </c:if>
+
+<a href="/loginform">로그인 하러가기</a>
 </body>
 </html>

@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<%@ include file="/WEB-INF/views/main_header.jsp" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,11 +15,11 @@
 
 </head>
 <body>
-<h3>${principal.memberdto.nickname}님 환영합니다.</h3>
+<c:if test="${result == 1}">
+	<h1>정상 회원정보수정 완료</h1>
+	정보가 수정되었으니 다시 로그인해주셔야 합니다.
+</c:if>
 
-<a href="/updateform">회원정보 수정하기</a>
-<a href="/passwordmodify">비밀번호 변경하기</a>
-
-
+<a href="/logout"> 메인페이지로 </a>
 </body>
 </html>

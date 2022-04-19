@@ -10,16 +10,24 @@ insert into member(email, nickname, password, phone, enabled)
 values(#{email}, #{nickname}, #{password}, #{phone}, 1)
 </insert>
 
-<!-- <update id="updatemember" parameterType="memberdto">
-update member
-set phone=#{phone}
-where email=#{email}
 
+<update id="updatemember" parameterType="memberdto">
+update member
+set phone=#{phone}, nickname=#{nickname}
+where email=#{email}
 </update>
+
+<update id="passwordmodify" parameterType="memberdto">
+update member
+set password=#{password}
+where email=#{email}
+</update>
+
 
 <delete id="deletemember" parameterType="String">
 delete from member where email=#{i}
-</delete> -->
+</delete> 
+
 
 <select id="findByUsername" parameterType="String" resultType="joinlogin.MemberDTO">
 select * from member where email=#{email};

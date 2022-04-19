@@ -17,6 +17,22 @@ public class PrincipalDetails implements UserDetails{
 		this.memberdto = memberdto;
 	}
 	
+	
+	
+
+	public MemberDTO getMemberdto() {
+		return memberdto;
+	}
+
+
+
+
+	public void setMemberdto(MemberDTO memberdto) {
+		this.memberdto = memberdto;
+	}
+
+
+
 
 	@Override
 	public String getPassword() {		
