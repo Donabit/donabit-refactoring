@@ -21,7 +21,7 @@
 
 </head>
 
-<style>
+<!-- <style>
 <style type="text/css">
 .input_wrap{
 	padding: 5px 20px;
@@ -59,21 +59,27 @@ textarea{
 	padding-left : 80px;
 	margin-top : 50px;
 }
+
+#delete_btn{
+    background-color: #f3e3e7;
+}
 </style>
+ -->
 
 <body>
 <h1>조회 페이지</h1>
+	<form id="modifyForm" action="/board/modify" method="post">
 	<div class="input_wrap">
 		<label>게시판 번호</label>
 		<input name="bno" readonly="readonly" value='${pageInfo.bno}' >
 	</div>
 	<div class="input_wrap">
 		<label>게시판 제목</label>
-		<input name="title" readonly="readonly" value='${pageInfo.title}' >
+		<input name="title" value='${pageInfo.title}' >
 	</div>
 	<div class="input_wrap">
 		<label>게시판 내용</label>
-		<textarea rows="3" name="content" readonly="readonly">${pageInfo.content}</textarea>
+		<textarea rows="3" name="content">${pageInfo.content}</textarea>
 	</div>
 	<div class="input_wrap">
 		<label>게시판 작성자</label>
@@ -85,27 +91,68 @@ textarea{
 	</div>
 	
 	<div class="btn_wrap">
-		<a class="btn" id="list_btn">목록 페이지</a> 
-		<a class="btn" id="modify_btn">수정 하기</a>
-	</div>
+		<a class="btn" id="list_btn">목록 페이지</a>
+
+		
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        <a class="btn" id="modify_btn">수정 완료</a>
+        
+    	</div>
+		</form>
+        
+        <form id="deleteForm" action="/board/delete" method="post">
+	        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	        <input name="bno" readonly="readonly" type="hidden" value='${pageInfo.bno}' >
+	        <a class="btn" id="delete_btn">삭제</a>
+        </form>
+        
+        
+        
+        <a class="btn" id="cancel_btn">수정 취소</a>
     
 	<form id="infoForm" action="/board/modify" method="get">
 	<input type="hidden" id="bno" name="bno" value='${pageInfo.bno}'>
 	</form>
 	
+	
+	<form action="/modfiy" method="GET"> 
+	
+		<input type="text" name="bno">
+		<input type="submit" value="전송">
+		
+		<button type="submit"></button>
+		
+	</form>
+	 
 <script>
-	let form = $("#infoForm");
-	
+
+	let form = $("#infoForm");        // 게시물 이동 form (리스트 페이지 이동, 조회 페이지 이동)
+	let mForm = $("#modifyForm");    // 게시물 데이터 수정 form
+	let dForm = $("#deleteForm");
+
+	/* 목록 페이지 이동 버튼 */
 	$("#list_btn").on("click", function(e){
-		form.find("#bno").remove();
-		form.attr("action", "/board/list");
-		form.submit();
-	});
-	
+    form.find("#bno").remove();
+    form.attr("action", "/board/list");
+    form.submit();
+});
+
+	/* 수정 하기 버튼 */
 	$("#modify_btn").on("click", function(e){
-		form.attr("action", "/board/modify");
-		form.submit();
-	});	
+    mForm.submit();
+});
+
+	/* 취소 버튼 */
+	$("#cancel_btn").on("click", function(e){
+    form.attr("action", "/board/get");
+    form.submit();
+});  
+	
+	/* 삭제 버튼 */
+    $("#delete_btn").on("click", function(e){
+        dForm.submit();
+    });
+	
 </script>
 
 </body>

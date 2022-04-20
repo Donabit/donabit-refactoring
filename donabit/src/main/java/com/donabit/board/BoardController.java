@@ -21,12 +21,12 @@ public class BoardController {
 	
 	private static final Logger log = LoggerFactory.getLogger(BoardController.class);
 
-	/* 게시판 목록 페이지 접속 */
+	/* 게시물 목록 페이지 접속 */
 	@GetMapping("/list")
 	 // => @RequestMapping(value="list", method=RequestMethod.GET)
 	    public void boardListGET(Model model) {
 	        
-	        log.info("게시판 목록 페이지 진입");
+	        log.info("게시물 목록 페이지 진입");
 	        
 	        model.addAttribute("list", service.getList());
 	        
@@ -36,7 +36,7 @@ public class BoardController {
 	 // => @RequestMapping(value="enroll", method=RequestMethod.GET)
 	    public void boardEnrollGET() {
 	        
-	        log.info("게시판 등록 페이지 진입");
+	        log.info("게시물 등록 페이지 진입");
 	        
 	    }
 	    
@@ -62,5 +62,49 @@ public class BoardController {
 	        model.addAttribute("pageInfo", service.getPage(bno));
 	        
 	    }
+	    
+	    /* 수정 페이지 이동 */
+	    @GetMapping("/modify")
+	    public void boardModifyGET(int bno, Model model) {
+	        
+	        model.addAttribute("pageInfo", service.getPage(bno));
+	        
+	    }
+	    
+	    /* 페이지 수정 */
+	    @PostMapping("/modify")
+	    public String boardModifyPOST(BoardDTO dto, RedirectAttributes rttr) {
+	        
+	        service.modify(dto);
+	        
+	        rttr.addFlashAttribute("result", "modify success");
+	        
+	        return "redirect:/board/list";
+	        
+	    }
+	    
+	    /* 페이지 삭제 */
+	    @PostMapping("/delete")
+	    public String boardDeletePOST(int bno, RedirectAttributes rttr) {
+	        
+	        service.delete(bno);
+	        
+	        rttr.addFlashAttribute("result", "delete success");
+	        
+	        return "redirect:/board/list";
+	    }
+	    
+		/* 게시물 목록 페이지 접속 */
+		
+		 // => @RequestMapping(value="list", method=RequestMethod.GET)
+		    public String noticeListGET(Model model) {
+		        
+		        log.info("게시물 목록 페이지 진입");
+		        
+		        model.addAttribute("list", service.getList());
+		        
+		        return "main_body.jsp";
+		        
+		    }
 	
 }

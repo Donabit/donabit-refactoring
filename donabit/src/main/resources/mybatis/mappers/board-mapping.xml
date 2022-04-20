@@ -5,14 +5,14 @@
   
   <mapper namespace="com.donabit.board.BoardDAO">
  
-     <!-- 게시판 등록 -->
+     <!-- 게시물 등록 -->
     <insert id="enroll" parameterType="boarddto">
         
         insert into board(title, content, writer, regdate) values (#{title}, #{content}, #{writer}, now())
         
     </insert>
     
-        <!-- 게시판 목록 -->
+        <!-- 게시물 목록 -->
     <select id="getList" resultType="boarddto">
     
         select * from board
@@ -25,6 +25,27 @@
         select * from board where bno = #{bno}
     
     </select>
+    
+        <!-- 게시물 수정 -->
+    <update id="modify">
+        
+        update board set title = #{title}, content = #{content} where bno = #{bno}
+
+    </update>
+    
+    <!-- 게시물 삭제 -->
+    <delete id="delete">
+    
+        delete from board where bno = #{bno}
+    
+    </delete>
+    
+        <!-- 공지사항 -->
+    <!-- <select id="getNotice" resultType="boarddto">
+    
+        select * from board
+    
+    </select> -->
  
   </mapper>
   

@@ -83,11 +83,11 @@
             <tr>
                 <td>${list.bno}</td>
                 <td>    
-                    <a class="move" href='<c:out value="${list.bno}"/>'>
-        				<c:out value="${list.title}"/>
+                    <a class="move" href='${list.bno}'>
+        				${list.title}
     				</a>
                 </td>
-                <td>${list.title}</td>
+
                 <td>${list.writer}</td>
                 <td>${list.regdate}</td>
                 
@@ -114,6 +114,14 @@ $(document).ready(function(){
         
         if(result === "enrol success"){
             alert("등록이 완료되었습니다.");
+        }
+        
+        if(result === "modify success"){
+            alert("수정이 완료되었습니다.");
+        }
+        
+        if(result === "delete success"){
+            alert("삭제가 완료되었습니다.");
         }
         
     }    

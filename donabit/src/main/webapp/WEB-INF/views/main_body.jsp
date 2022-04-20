@@ -114,30 +114,18 @@ jQuery(function($) {
 <h1 class = notice>Recent Our Notice</h1>
 <hr class = "four">
 
-<p class = notice_body>
-1 번째 공지사항:&nbsp&nbsp&nbsp&nbsp작성자:&nbsp2022.04.15 <br>
-</p>
-<hr class = "notice_body">
 
-<p class = notice_body>
-2 번째 공지사항:&nbsp&nbsp&nbsp&nbsp작성자:&nbsp2022.04.15 <br>
-</p>
-<hr class = "notice_body">
+		<c:forEach items="${list}" var="list">
 
-<p class = notice_body>
-3 번째 공지사항:&nbsp&nbsp&nbsp&nbsp작성자:&nbsp2022.04.15 <br>
-</p>
-<hr class = "notice_body">
+			<p class = notice_body>
+			${list.bno} 번째 공지사항: ${list.title} 작성자: ${list.writer} 날짜: ${list.regdate} <br>
+			</p>
+			<hr class = "notice_body">
 
-<p class = notice_body>
-4 번째 공지사항:&nbsp&nbsp&nbsp&nbsp작성자:&nbsp2022.04.15 <br>
-</p>
-<hr class = "notice_body">
+        </c:forEach>
 
-<p class = notice_body>
-5 번째 공지사항:&nbsp&nbsp&nbsp&nbsp작성자:&nbsp2022.04.15 <br>
-</p>
-<hr class = "notice_body">
+
+
 
 </section>
 

@@ -13,7 +13,7 @@ public class BoardServicelmpl implements BoardService {
 	@Qualifier("BoardDAO")
 	public BoardDAO dao;
 	
-	/* 게시판 등록 */
+	/* 게시물 등록 */
 	@Override
 	public int enroll(BoardDTO dto) {
 		
@@ -21,7 +21,7 @@ public class BoardServicelmpl implements BoardService {
 			
 	        }
 	
-	/* 게시판 목록 */
+	/* 게시물 목록 */
     @Override
     public List<BoardDTO> getList() {
         
@@ -33,6 +33,27 @@ public class BoardServicelmpl implements BoardService {
     public BoardDTO getPage(int bno) {
          
         return dao.getPage(bno);
+    }
+    
+    /* 게시물 수정 */
+    @Override
+    public int modify(BoardDTO dto) {
+        
+        return dao.modify(dto);
+    }
+    
+    /* 게시물 삭제 */
+    @Override
+    public int delete(int bno) {
+        
+        return dao.delete(bno);
     }    
+    
+	/* 공지사항 */
+	/*
+	 * @Override public List<BoardDTO> getNotice() {
+	 * 
+	 * return dao.getNotice(); }
+	 */
 	
 }
