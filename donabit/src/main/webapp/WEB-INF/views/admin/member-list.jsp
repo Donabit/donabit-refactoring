@@ -8,22 +8,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donabit 관리자 페이지</title>
     <style>
-		.page_num_container {
-			margin: 1em auto;
+		.admin_member_table {
+			display: table;
+			width: 100%;
+			border-collapse: collapse;
+		}
+		
+		.admin_member_table_row {
+			display: table-row;
+		}
+		
+		.admin_member_table_row:first-child {
+			font-weight: 600;
+			background-color: lightgray;
+		}
+		
+		.admin_member_table_cell {
+			display: table-cell;
+			border: 1px solid black;
 			text-align: center;
+			padding: 0.5em;
 		}
 		
-		.page_num {
-			padding: 1em;
-		}
-
-		.admin_challenge_list {
-			display: flex;		
-		}
 		
-		.admin_challenge_list_info {
-			flex: 1 1 200px;
-			padding: 1em;
+		.admin_member_searchbar_orderby {
+			float: right;
+			margin-bottom: 1em;
 		}
 		
     </style>
@@ -37,29 +47,44 @@
             <hr style="border: 1px solid black;">
             <br>
             </div>
-           	<c:forEach items="${list}" var="dto">
-				<form class="admin_challenge_list" style="border: 1px solid black" action="remove-challenge" method="post">
-					<div class="admin_challenge_list_info">
-						<img src="/images/${dto.chimgname}" alt="challenge image" width="320px" height="200px">
+            <div class="admin_member_searchbar">
+            	<span class="admin_member_result">조회 결과 : </span>
+            	<span class="admin_member_result"><b>${memberCount}</b>명 </span>
+	            <form class="admin_member_searchbar_orderby">
+	            	<label for="orderby">챌린지별 조회 : </label>
+	            	<select name="orderby">
+	            		<option value="">전체 조회</option>
+	            		<c:forEach items="${chnameList}" var="namelist">
+	            			<option value="${namelist.chnum}">${namelist.chname}</option>
+	            		</c:forEach>
+	            	</select>
+	            	<button type="submit">검색</button>
+	            </form>
+            </div>
+				<div class="admin_member_table">
+					<div class="admin_member_table_row">
+						<div class="admin_member_table_cell">닉네임</div>
+						<div class="admin_member_table_cell">이메일</div>
+						<div class="admin_member_table_cell">참여중 챌린지 수</div>
+						<div class="admin_member_table_cell">완료 챌린지 수</div>
+						<div class="admin_member_table_cell">인증 횟수</div>
+						<div class="admin_member_table_cell">누적 신고 횟수</div>
+						<div class="admin_member_table_cell">레벨</div>
+						<div class="admin_member_table_cell">권한</div>
 					</div>
-					<div class="admin_challenge_list_info">
-						<input type="hidden" name="chnum" value="${dto.chnum}">
-						<h3>챌린지명 : ${dto.chname}</h3>
-						<h3>챌린지 설명</h3>
-						<p>${dto.chdesc}</p>
-					</div>
-					<div class="admin_challenge_list_info">
-						<h3>참여 인원 : 00/${dto.chmaxp}</h3>
-						<h3>완료 인원 : 00/${dto.chmaxp}</h3>
-						<h3>달성률 : 00%</h3>
-						<h3>기부처 : ${dto.donateco}</h3>
-						<h3>기부 금액 : <fmt:formatNumber value="${dto.donatepay}" pattern="###,###"/></h3>
-					</div>
-					<div class="admin_challenge_list_info">
-						<button type="submit">삭제하기</button>
-					</div>
-				</form>
-			</c:forEach>
+		           	<c:forEach items="${list}" var="dto" varStatus="status">
+						<div class="admin_member_table_row">
+							<div class="admin_member_table_cell">${dto.nickname}</div>
+							<div class="admin_member_table_cell">${dto.email}</div>
+							<div class="admin_member_table_cell">${challengingCount[status.index]}</div>
+							<div class="admin_member_table_cell">${successCount[status.index]}</div>
+							<div class="admin_member_table_cell">${checksCount[status.index]}</div>
+							<div class="admin_member_table_cell">신고444</div>
+							<div class="admin_member_table_cell">${dto.level}</div>
+							<div class="admin_member_table_cell">${dto.auth}</div>
+						</div>
+					</c:forEach>
+				</div>
  
         <div class="page_num_container">
         	<c:forEach begin="1" end="${pageNum}" var="i">

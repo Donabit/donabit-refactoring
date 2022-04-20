@@ -20,20 +20,18 @@ import org.springframework.web.servlet.ModelAndView;
 import joinlogin.MemberDTO;
 
 @Controller
+@RequestMapping("/admin")
 public class ChallengeController2 {
 	@Autowired
 	@Qualifier("ChallengeService2")
 	ChallengeService2 service;
 		
-	@RequestMapping("/admin")
-	public void adminchallege() {}
-		
-	@GetMapping("/admin/challenge-list")
+	@GetMapping("/challenge-list")
 	public ModelAndView challengelist() {
 		return challengelist(1);
 	}
 	
-	@PostMapping("/admin/challenge-list")
+	@PostMapping("/challenge-list")
 	public ModelAndView challengelist(@RequestParam int page) {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> challengingMemberCountList = new ArrayList<Integer>();
@@ -42,7 +40,7 @@ public class ChallengeController2 {
 		int objPerPage = 3;
 		int total = service.selectChallengeCount();
 		int pageNum = (total % objPerPage == 0) ? total / objPerPage : total / objPerPage + 1;
-		List<ChallengeDTO2> list = service.selectChallenge((page - 1) * objPerPage, objPerPage);
+		List<ChallengeDTO2> list = service.selectChallengePage((page - 1) * objPerPage, objPerPage);
 		for(ChallengeDTO2 i : list) {
 			int challengingMember = service.selectChallengingMemberCount(i.getChnum());
 			int successMember = service.selectSuccessMemberCount(i.getChnum());
@@ -60,10 +58,10 @@ public class ChallengeController2 {
 		return mv;
 	}
 		
-	@GetMapping("/admin/make-a-challenge")
+	@GetMapping("/make-a-challenge")
 	public void makeachallenge() {}
 	
-	@PostMapping("/admin/make-a-challenge")
+	@PostMapping("/make-a-challenge")
 	public ModelAndView makeachallenge(ChallengeDTO2 dto) {
 		ModelAndView mv = new ModelAndView();
 		service.insertChallenge(dto);
@@ -72,17 +70,33 @@ public class ChallengeController2 {
 		return mv;
 	}
 	
-	@PostMapping("/admin/remove-challenge")
-	public String removechallenge(HttpServletResponse res, @RequestParam int chnum) throws IOException {
+	@PostMapping("/remove-challenge")
+	public String removechallenge(@RequestParam int chnum) {
 		service.deleteChallenge(chnum);
 		return "redirect:/admin/challenge-list";
 	}
 	
-	@GetMapping("/admin/member-list")
+	@GetMapping("/member-list")
 	public ModelAndView memberlist() {
 		ModelAndView mv = new ModelAndView();
+		List<Integer> challengingCountList = new ArrayList<Integer>();
+		List<Integer> successCountList = new ArrayList<Integer>();
+		List<Integer> checksCountList = new ArrayList<Integer>();
+		List<ChallengeDTO2> chnameList = service.selectChallengeName();
 		List<MemberDTO> list = service.selectMember();
-		
+		for(MemberDTO dto : list) {
+			 challengingCountList.add(service.selectChallengingCountByNickname(dto.getNickname()));
+			 successCountList.add(service.selectSuccessCountByNickname(dto.getNickname()));
+			 checksCountList.add(service.selectCheckCountByNickname(dto.getNickname()));
+		}
+		int memberCount = service.selectMemberCount();
+		mv.addObject("list", list);
+		mv.addObject("memberCount", memberCount);
+		mv.addObject("challengingCount", challengingCountList);
+		mv.addObject("successCount", successCountList);
+		mv.addObject("checksCount", checksCountList);
+		mv.addObject("chnameList", chnameList);
+		mv.setViewName("/admin/member-list");
 		return mv;
 	}
 	

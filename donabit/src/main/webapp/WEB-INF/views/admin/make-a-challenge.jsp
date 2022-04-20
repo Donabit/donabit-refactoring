@@ -23,7 +23,7 @@
                     <div class="admin_make_challenge">
                         <label for="chname" class="admin_make_challenge_label">챌린지 이름</label>
                         <div class="admin_make_challenge_input">
-                            <input type="text" name="chname">
+                            <input type="text" name="chname" pattern="^[a-zA-Z0-9가-힣]+$" maxlength="10">
                             <span class="admin_make_challenge_info">(한글, 영문, 숫자 10자 이내로 작성해 주세요.)</span>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                     <div class="admin_make_challenge">
                         <label for="donatepay" class="admin_make_challenge_label">기부금액(원)</label>
                         <div class="admin_make_challenge_input">
-                            <input type="text" name="donatepay">
+                            <input type="text" name="donatepay" pattern="^[0-9]+$">
                             <span class="admin_make_challenge_info">(숫자만 입력해 주세요.)</span>
                         </div>
                     </div>
@@ -103,6 +103,7 @@
                     <button class="admin_make_challenge_btn" type="reset">취소</button>
                 </div>
 
+                	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             </form>
         </div>
     </main>

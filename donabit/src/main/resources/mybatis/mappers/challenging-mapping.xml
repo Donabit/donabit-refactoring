@@ -10,8 +10,20 @@
 	 	VALUES(#{chname}, #{chdesc}, #{chimgname}, #{chsuccess}, #{chdonate}, #{chexp}, #{chmaxp}, #{chsdate}, #{chedate}, #{donatepay}, #{donateco})
 	</insert>
 	
-	<select id="selectChallenge" resultType="ChallengeDTO2">
+	<select id="selectChallengePage" resultType="ChallengeDTO2">
 		SELECT chnum, chname, chdesc, chimg as chimgname, chsuccess, chdonate, chexp, chmaxp, chsdate, chedate, donatepay, donateco FROM challenge	limit #{index}, #{count}
+	</select>
+	
+	<select id="selectChallengeName" resultType="ChallengeDTO2">
+		SELECT chnum, chname FROM challenge
+	</select>
+	
+	<select id="selectChallengingCountByNickname" parameterType="String" resultType="int">
+		SELECT count(*) FROM challenging WHERE personalpf = 0 AND nickname LIKE #{nickname};
+	</select>
+	
+	<select id="selectSuccessCountByNickname" parameterType="String" resultType="int">
+		SELECT count(*) FROM challenging WHERE personalpf = 1 AND nickname LIKE #{nickname};
 	</select>
 	
 	<select id="selectChallengingMemberCount" parameterType="int" resultType="int">
@@ -30,8 +42,16 @@
 		SELECT count(*) FROM checks WHERE chnum = #{chnum}
 	</select>
 	
+	<select id="selectCheckCountByNickname" parameterType="String" resultType="int">
+		SELECT count(*) FROM checks WHERE nickname LIKE #{nickname}
+	</select>
+	
 	<select id="selectMember" resultType="memberdto">
-		SELECT * FROM member
+		SELECT * FROM member ORDER BY auth
+	</select>
+	
+	<select id="selectMemberCount" resultType="int">
+		SELECT count(*) FROM member
 	</select>
 	
 	<delete id="deleteChallenge" parameterType="int">

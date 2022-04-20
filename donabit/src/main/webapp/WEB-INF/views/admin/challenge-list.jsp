@@ -23,7 +23,8 @@
 		}
 
 		.admin_challenge_list {
-			display: flex;		
+			display: flex;
+			border-bottom: 1px solid black;		
 		}
 		
 		.admin_challenge_list_info {
@@ -40,7 +41,13 @@
     		input.name = 'page';
     		input.value = page;
     		
+    		let inputToken = document.createElement('input');
+    		inputToken.type = 'hidden';
+    		inputToken.name = '${_csrf.parameterName}';
+    		inputToken.value = '${_csrf.token}';
+
     		form.appendChild(input);
+    		form.appendChild(inputToken);
     		form.action = "/admin/challenge-list";
     		form.method = "POST";
     		document.body.appendChild(form);
@@ -48,16 +55,26 @@
 	    }
 		
        	
-       	function confirmRemove(chname, chnum){
+       	function confirmRemove(chname, chnum, chmember){
        		let result = confirm("정말로 삭제하시겠습니까? 챌린지명: " + chname);
        		if(result == true){
+       			if(chmember >= 1){
+       				alert('참여 인원이 1명 이상일 경우, 삭제할 수 없습니다.');
+       				return;
+       			}
        			let form = document.createElement('form');
        			let input = document.createElement('input');
        			input.type = 'hidden';
        			input.name = 'chnum';
        			input.value = chnum;
        			
+       			let inputToken = document.createElement('input');
+        		inputToken.type = 'hidden';
+        		inputToken.name = '${_csrf.parameterName}';
+        		inputToken.value = '${_csrf.token}';
+        		
         		form.appendChild(input);
+        		form.appendChild(inputToken);
        			form.action = "/admin/remove-challenge";
         		form.method = "POST";
         		document.body.appendChild(form);
@@ -78,8 +95,9 @@
             <hr style="border: 1px solid black;">
             <br>
             </div>
+            <div class="admin_challenge_container">
            	<c:forEach items="${list}" var="dto" varStatus="status">
-       			<form class="admin_challenge_list" style="border: 1px solid black" action="javascript:confirmRemove('${dto.chname}', ${dto.chnum})">
+       			<form class="admin_challenge_list" action="javascript:confirmRemove('${dto.chname}', ${dto.chnum}, ${challengingMember[status.index]})">
 					<div class="admin_challenge_list_info">
 						<img src="/images/${dto.chimgname}" alt="challenge image" width="320px" height="200px">
 					</div>
@@ -100,7 +118,7 @@
 					</div>
 				</form>
 			</c:forEach>
- 
+ 			</div>
         <div class="page_num_container">
         	<c:forEach begin="1" end="${pageNum}" var="i">
         		<a href="javascript:goPost('${i}')"><span class="page_num">${i}</span></a>

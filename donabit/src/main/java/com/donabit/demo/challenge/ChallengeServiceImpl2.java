@@ -41,8 +41,8 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 
 
 	@Override
-	public List<ChallengeDTO2> selectChallenge(int index, int count) {
-		return dao.selectChallenge(index, count);
+	public List<ChallengeDTO2> selectChallengePage(int index, int count) {
+		return dao.selectChallengePage(index, count);
 	}
 
 
@@ -79,5 +79,35 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 	@Override
 	public int deleteChallenge(int chnum) {
 		return dao.deleteChallenge(chnum);
+	}
+
+
+	@Override
+	public int selectMemberCount() {
+		return dao.selectMemberCount();
+	}
+
+
+	@Override
+	public List<ChallengeDTO2> selectChallengeName() {
+		return dao.selectChallengeName();
+	}
+
+
+	@Override
+	public int selectChallengingCountByNickname(String nickname) {
+		return dao.selectChallengingCountByNickname(nickname);
+	}
+
+
+	@Override
+	public int selectSuccessCountByNickname(String nickname) {
+		return dao.selectSuccessCountByNickname(nickname);
+	}
+
+
+	@Override
+	public int selectCheckCountByNickname(String nickname) {
+		return dao.selectCheckCountByNickname(nickname);
 	}
 }
