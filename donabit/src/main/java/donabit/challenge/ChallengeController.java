@@ -1,9 +1,14 @@
 package donabit.challenge;
 
+import java.security.Principal;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import check.CheckDTO;
 import check.CheckService;
+import joinlogin.MemberDTO;
+import joinlogin.PrincipalDetails;
 
 @Controller
 public class ChallengeController {
@@ -77,16 +84,35 @@ public class ChallengeController {
 		return list;
 	}
 	
+	@PostMapping("likes")
+	@ResponseBody
+	public int likes(String nickname, String checkid) {
+		System.out.println(checkid + "= checkid");
+		System.out.println(nickname + "= nickname");
+		service.insertlikes(nickname, checkid);
+		return 1;
+	}
+	
 	//인증 커뮤니티
 	@GetMapping("/checkcommunity")
-	public ModelAndView checkmorninglist() { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
+	public ModelAndView checkmorninglist(Authentication authentication) { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
 		ModelAndView mv = new ModelAndView(); 
-		//List<CheckDTO> list = service2.checklist();
-		//mv.addObject("checklist", list);
+		List<ChallengeDTO> list = service.checklist2();
+		if(authentication != null) {
+			PrincipalDetails userDetails = (PrincipalDetails) authentication.getPrincipal();
+			String nickname = userDetails.getMemberdto().getNickname();
+			System.out.println(nickname); 
+			List<ChallengeDTO> list2 = service.selecttoggle(nickname);
+			mv.addObject("toggle", list2);
+		}
+		
+		mv.addObject("checklist", list);
 		mv.setViewName("ch-community"); // 뷰 이름 지정, jsp 이름
 		return mv; // jsp 보냄
 	}
 
+	  
+	
 	
 	/*
 	 * // test

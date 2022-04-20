@@ -45,6 +45,21 @@ public class ChallengeServiceImpl implements ChallengeService {
 	public List<ChallengeDTO> challengedetaillist2(String chnumajax) {
 		return 	dao.challengedetaillist2(chnumajax);
 	}
+
+	@Override
+	public List<ChallengeDTO> selecttoggle(String nickname) {
+		return 	dao.selecttoggle(nickname);
+	}
+
+	@Override
+	public int insertlikes(String nickname, String checkid) {
+		return dao.insertlikes(nickname, checkid);
+	}
+
+	@Override
+	public List<ChallengeDTO> checklist2() {
+		return dao.checklist2();
+	}
 	
 	
 

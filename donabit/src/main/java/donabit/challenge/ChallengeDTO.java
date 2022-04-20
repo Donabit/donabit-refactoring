@@ -1,12 +1,13 @@
 package donabit.challenge;
 
 public class ChallengeDTO {
-	String chnum, chnum2, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum, nickname, nickname2, personalpf;
+	String chnum, chnum2, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum, nickname, nickname2, personalpf, checkid, like, report,checktitle, checkdesc, checkimg2, checktime;
 	
 	public ChallengeDTO() {}
 
 	public ChallengeDTO(String chnum, String chnum2, String chname, String chdonate, String chdesc, String chimg, String chsuccess, String chexp,
-			String chmaxp, String chsdate, String chedate, String checknum, String nickname, String nickname2, String personalpf) {
+			String chmaxp, String chsdate, String chedate, String checknum, String nickname, String nickname2, String personalpf, String checkid,
+			String like, String report) {
 		super();
 		this.chnum = chnum;
 		this.chnum2 = chnum2;
@@ -23,7 +24,16 @@ public class ChallengeDTO {
 		this.nickname = nickname;
 		this.nickname2 = nickname2;
 		this.personalpf = personalpf;
+		this.checkid = checkid;
+		this.like = like;
+		this.report = report;
 	}
+
+
+
+
+
+
 
 	public ChallengeDTO(String chnum, String chnum2, String nickname, String personalpf) {
 		super();
@@ -151,6 +161,72 @@ public class ChallengeDTO {
 
 	public void setPersonalpf(String personalpf) {
 		this.personalpf = personalpf;
+	}
+
+
+
+	public String getLike() {
+		return like;
+	}
+
+
+
+	public void setLike(String like) {
+		this.like = like;
+	}
+
+
+
+	public String getReport() {
+		return report;
+	}
+
+
+
+	public void setReport(String report) {
+		this.report = report;
+	}
+
+
+	public String getCheckid() {
+		return checkid;
+	}
+
+
+	public void setCheckid(String checkid) {
+		this.checkid = checkid;
+	}
+
+	public String getChecktitle() {
+		return checktitle;
+	}
+
+	public void setChecktitle(String checktitle) {
+		this.checktitle = checktitle;
+	}
+
+	public String getCheckdesc() {
+		return checkdesc;
+	}
+
+	public void setCheckdesc(String checkdesc) {
+		this.checkdesc = checkdesc;
+	}
+
+	public String getCheckimg2() {
+		return checkimg2;
+	}
+
+	public void setCheckimg2(String checkimg2) {
+		this.checkimg2 = checkimg2;
+	}
+
+	public String getChecktime() {
+		return checktime;
+	}
+
+	public void setChecktime(String checktime) {
+		this.checktime = checktime;
 	}
 
 	

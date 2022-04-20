@@ -10,4 +10,7 @@ public interface ChallengeService {
 	public List<ChallengeDTO> challengedetaillist2(String chnumajax);
 	public int deleteChallengingAjax(String chnumajax, String nicknameajax);
 	public int insertChallengingAjax(String chnumajax);
+	public List<ChallengeDTO> selecttoggle(String nickname);
+	int insertlikes(String nickname, String checkid);
+	public List<ChallengeDTO> checklist2();
 }

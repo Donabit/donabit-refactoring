@@ -7,71 +7,103 @@
 
 
 	<select id="challengelist" resultType="challengedto">
-		select challenge.chnum, chname, chdonate, chdesc, chimg, chsuccess, chexp,
-		chmaxp, chsdate, chedate, count(checknum) as checknum
+		select challenge.chnum,
+		chname, chdonate, chdesc, chimg, chsuccess, chexp,
+		chmaxp, chsdate,
+		chedate, count(checknum) as checknum
 		from donabit.challenge
-		left join donabit.checks
+		left join
+		donabit.checks
 		on challenge.chnum = checks.chnum
-		group by challenge.chnum
+		group by
+		challenge.chnum
 	</select>
 
 	<select id="challcount" resultType="challengedto">
-		select challenge.chnum, count(challenging.nickname) as nickname,
-		challenging.chnum as chnum2, personalpf
+		select challenge.chnum,
+		count(challenging.nickname) as nickname,
+		challenging.chnum as chnum2,
+		personalpf
 		from donabit.challenge
 		left join donabit.challenging
-		on challenge.chnum = challenging.chnum
+		on
+		challenge.chnum = challenging.chnum
 		GROUP BY challenge.chnum;
 	</select>
-	
-	
+
+
 	<select id="challnickname" resultType="int">
-	
-	<!-- SELECT * FROM donabit.challenging; -->
-	
-	<!--  SELECT challenging.nickname FROM donabit.challenging where challenging.nickname in ('ccc') and challenging.chnum in (#{chnumdetail});-->
-<!-- 	SELECT challenge.chnum, challenging.nickname 
-        FROM donabit.challenge 
-        left join donabit.challenging 
-        on challenge.chnum = challenging.chnum; -->
-		
-		<!-- select challenge.chnum, challenging.nickname
-        from donabit.challenge 
-        left join donabit.challenging 
-        on challenge.chnum = challenging.chnum; -->
-        
-        SELECT count(*) 
-        FROM donabit.challenging 
-        where challenging.nickname 
-        in ('ccc') and challenging.chnum like #{chnumdetail};
+
+		<!-- SELECT * FROM donabit.challenging; -->
+
+		<!-- SELECT challenging.nickname FROM donabit.challenging where challenging.nickname 
+			in ('ccc') and challenging.chnum in (#{chnumdetail}); -->
+		<!-- SELECT challenge.chnum, challenging.nickname FROM donabit.challenge 
+			left join donabit.challenging on challenge.chnum = challenging.chnum; -->
+
+		<!-- select challenge.chnum, challenging.nickname from donabit.challenge 
+			left join donabit.challenging on challenge.chnum = challenging.chnum; -->
+
+		SELECT count(*)
+		FROM donabit.challenging
+		where challenging.nickname
+		in
+		('ccc') and challenging.chnum like #{chnumdetail};
 	</select>
-	
+
+	<select id="checklist2" resultType="challengedto">
+		SELECT checkid, checktitle, checkdesc, checkimg AS checkimg2, checktime FROM checks ORDER BY checktime DESC
+	</select>
 
 	<select id="challengedetaillist" resultType="challengedto">
-		SELECT challenging.nickname, challenging.chnum, challenge.chmaxp,
-		(select count(challenging.chnum) from donabit.challenging where
-		challenging.chnum like #{chnumajax} GROUP BY challenging.chnum)as nickname2
+		SELECT
+		challenging.nickname, challenging.chnum, challenge.chmaxp,
+		(select
+		count(challenging.chnum) from donabit.challenging where
+		challenging.chnum like #{chnumajax} GROUP BY challenging.chnum)as
+		nickname2
 		FROM donabit.challenging
 		join donabit.challenge
-		on challenge.chnum = challenging.chnum
+		on
+		challenge.chnum = challenging.chnum
 		WHERE challenging.nickname
-		LIKE #{nicknameajax} and challenging.chnum LIKE #{chnumajax};
+		LIKE
+		#{nicknameajax} and challenging.chnum LIKE #{chnumajax};
 	</select>
-	
+
 	<select id="challengedetaillist2" resultType="challengedto">
-		SELECT challenge.chnum, challenge.chmaxp, 
-(select count(challenging.chnum) from donabit.challenging where challenging.chnum like #{chnumajax} GROUP BY challenging.chnum)as nickname2
-FROM donabit.challenge  
-left join donabit.challenging
-on challenge.chnum = challenging.chnum WHERE challenge.chnum LIKE #{chnumajax} GROUP BY challenge.chnum;
+		SELECT
+		challenge.chnum, challenge.chmaxp,
+		(select count(challenging.chnum)
+		from donabit.challenging where
+		challenging.chnum like #{chnumajax}
+		GROUP BY challenging.chnum)as
+		nickname2
+		FROM donabit.challenge
+		left join
+		donabit.challenging
+		on challenge.chnum = challenging.chnum WHERE
+		challenge.chnum LIKE
+		#{chnumajax} GROUP BY challenge.chnum;
 	</select>
 
 	<insert id="insertChallengingAjax" parameterType="String">
-		INSERT INTO challenging(nickname, chnum) VALUES('ccc', #{chnumajax})
+		INSERT INTO
+		challenging(nickname, chnum, personalpf) VALUES('ccc', #{chnumajax},
+		0)
 	</insert>
-	
+
 	<delete id="deleteChallengingAjax" parameterType="String">
-		delete from donabit.challenging where challenging.nickname = #{nicknameajax} and challenging.chnum = #{chnumajax}
+		delete from
+		donabit.challenging where challenging.nickname = #{nicknameajax} and
+		challenging.chnum = #{chnumajax}
 	</delete>
 
+	<select id="selecttoggle" resultType="challengedto">
+		SELECT * FROM donabit.toggle where likes like #{nickname};
+	</select>
+
+	<insert id="insertlikes" parameterType="String">
+		INSERT INTO toggle(likes, checkid) VALUES(#{nickname}, #{checkid});
+	</insert>
 </mapper>

@@ -16,6 +16,9 @@ public interface ChallengeDAO {
 	public int challnickname(int chnumdetail);
 	public List<ChallengeDTO> challengedetaillist(String chnumajax, String nicknameajax);
 	public List<ChallengeDTO> challengedetaillist2(String chnumajax);
+	public List<ChallengeDTO> selecttoggle(String nickname);
 	int deleteChallengingAjax(String chnumajax, String nicknameajax);
 	int insertChallengingAjax(String chnumajax);
+	int insertlikes(String nickname, String checkid);
+	public List<ChallengeDTO> checklist2();
 }
