@@ -32,6 +32,15 @@ public class MemberServiceimpl implements MemberService {
 	}
 	
 	
+	
+	@Override
+	public String pwcheck(String email) throws Exception {
+		return dao.pwcheck(email);
+	}
+	
+	
+	
+	
 	//회원 수정 탈퇴
 
 	@Override
@@ -43,11 +52,27 @@ public class MemberServiceimpl implements MemberService {
 	public int passwordmodify(MemberDTO dto) {
 		return dao.passwordmodify(dto);
 	}
+	
 
 	@Override
 	public int deletemember(String email) {
 		return dao.deletemember(email);
 	}
+	
+	
+	//검증
+
+	@Override
+	public int emailchk(MemberDTO dto) throws Exception {		
+		return dao.emailchk(dto);
+	}
+
+	@Override
+	public int nickchk(MemberDTO dto) throws Exception {
+		return dao.nickchk(dto);
+	}
+
+	
 
 	/*
 	@Override

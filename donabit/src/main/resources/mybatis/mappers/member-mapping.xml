@@ -17,6 +17,11 @@ set phone=#{phone}, nickname=#{nickname}
 where email=#{email}
 </update>
 
+<select id="pwcheck" resultType="String">
+select password from member where email = #{email}
+</select>
+
+
 <update id="passwordmodify" parameterType="memberdto">
 update member
 set password=#{password}
@@ -24,14 +29,30 @@ where email=#{email}
 </update>
 
 
-<delete id="deletemember" parameterType="String">
-delete from member where email=#{i}
+<delete id="deletemember">
+delete from member where email=#{email};
 </delete> 
 
 
 <select id="findByUsername" parameterType="String" resultType="joinlogin.MemberDTO">
 select * from member where email=#{email};
 </select>
+
+
+<!-- 이메일 중복 체크 -->
+<select id="emailchk" resultType="int">
+  SELECT COUNT(*) FROM member
+  WHERE email = #{email}
+</select>
+
+<!-- 닉네임 중복 체크 -->
+<select id="nickchk" resultType="int">
+  SELECT COUNT(*) FROM member
+  WHERE nickname = #{nickname}
+</select>
+ 
+
+
 
 
 </mapper>

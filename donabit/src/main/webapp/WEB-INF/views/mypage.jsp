@@ -17,10 +17,33 @@
 
 </head>
 <body>
-<h3>${principal.memberdto.nickname}님 환영합니다.</h3>
 
-<a href="/updateform">회원정보 수정하기</a>
-<a href="/passwordmodify">비밀번호 변경하기</a>
+<div class="profilebox">
+	<div class="profile-wrapper">
+		<img src="/img/caticon1.jpg">		
+	</div>
+	<div class="nick-level">
+	<h1>${principal.memberdto.nickname}</h1>
+	<h3>Level : </h3>
+	</div>
+	
+	<ul class="m-list">
+	<li>
+	<a href="/updateform">회원정보 수정하기</a><br>
+	</li>
+	<li>
+	<a href="/passwordmodifyform">비밀번호 변경하기</a><br>
+	</li>
+	<li>
+	<a href="/deleteview">회원 탈퇴하기</a>
+	</li>	
+	</ul>
+	
+</div>
+
+
+
+
 
 
 </body>

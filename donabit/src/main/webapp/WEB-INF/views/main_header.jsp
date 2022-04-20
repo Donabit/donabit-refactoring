@@ -29,7 +29,7 @@
 <header> 
 	<div class="header_container">
 		<div class="logo_container">
-		<a href="./main.jsp"><img src="/img/logo_m.png"></a>
+		<a href="./main"><img src="/img/logo_m.png"></a>
 
 </div>
 	<div class="nav_container" id="nav_menu">

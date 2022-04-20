@@ -2,11 +2,13 @@ package joinlogin;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
@@ -45,6 +47,26 @@ public class MemberController {
 		return mv;
 	}
 */	
+	
+	//회원가입 검증
+	// 이메일 중복 체크
+		 @ResponseBody
+		 @RequestMapping(value="/emailchk", method = RequestMethod.POST)
+		 public int emailchk(MemberDTO dto) throws Exception {
+		      int result = service.emailchk(dto);
+		      return result;
+		  }
+		 
+		    // 닉네임 중복 체크
+		 @ResponseBody
+		 @RequestMapping(value="/nickchk", method = RequestMethod.POST)
+		 public int nickchk(MemberDTO dto) throws Exception {
+		    int result = service.nickchk(dto);
+		    return result;
+		  }  
+	
+	
+	
 	@GetMapping("/loginform")
 	public String loginform() {
 		return "loginform";
@@ -64,6 +86,37 @@ public class MemberController {
 	@RequestMapping(value="/joinresult", method= RequestMethod.POST)
 	public ModelAndView joinresult(MemberDTO dto) {
 		//dto.setId(request.getParameter(id)
+		
+	/*
+	  	int check1 = service.emailchk(dto);
+	 
+		int check2 = service.nickchk(dto);
+		
+		try {
+				if(check1 ==1 || check2==1) {
+					return "redirect:/joinform";
+			}else if (check1 ==0 && check2==0){
+		String rawPassword=dto.getPassword();
+		String encPassword=bCryptPasswordEncoder.encode(rawPassword);
+		dto.setPassword(encPassword);
+
+		int result = service.insertmember(dto);
+				
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("result", result); //int
+		mv.setViewName("joinresult");
+			
+			}
+			
+		}catch(Exception e) {
+			throw new Exception();
+		}
+		return mv;
+		
+	*/	
+		
+		
 		String rawPassword=dto.getPassword();
 		String encPassword=bCryptPasswordEncoder.encode(rawPassword);
 		dto.setPassword(encPassword);
@@ -85,6 +138,7 @@ public class MemberController {
 	
 	
 	//회원수정 탈퇴
+	
 	@RequestMapping(value="/updateform", method= RequestMethod.GET)
 	public String updateform(String email) {
 		return "updateform"; // 주소 이름 수정 폼
@@ -101,9 +155,20 @@ public class MemberController {
 	}
 	
 	
-	@RequestMapping(value="/passwordmodify", method= RequestMethod.GET)
-	public String passwordmodify(String email) {
-		return "passwordmodify"; 
+	@RequestMapping(value="/passwordmodifyform", method= RequestMethod.GET)
+	public String passwordmodifyform(String email) {
+		return "passwordmodifyform"; 
+	}
+	
+	@RequestMapping(value="/pwcheck" , method=RequestMethod.POST)
+	@ResponseBody
+	public int pwcheck(PrincipalDetails memberdto, Authentication auth, @RequestParam("memberPw") String pw) throws Exception{
+		memberdto = (PrincipalDetails)auth.getPrincipal();
+		String memberPw = memberdto.getPassword();
+		if(!bCryptPasswordEncoder.matches(pw, memberPw)) {
+			return 0;
+		}
+		return 1;
 	}
 
 	@RequestMapping(value="/passwordmodify", method= RequestMethod.POST)
@@ -119,43 +184,29 @@ public class MemberController {
 		mv.setViewName("passwordmodifyresult");
 		return mv;
 	}
-	
-	
-/*	 @GetMapping("passwordmodify")
-	    public void getPrevModify(Authentication auth) {
 
-	    }
 
-	 @PostMapping("passwordmodify")
-	   public String postPrevModify(Authentication auth, @RequestParam("password") String pw, RedirectAttributes rttr) {
-	       MemberDTO dto = (MemberDTO)auth.getPrincipal();
-	       String password = dto.getPassword();
-	       if(bCryptPasswordEncoder.matches(pw, password)) {
-	           return "redirect:/passwordmodifysuccess";
-	        }
-	       else {
-	           rttr.addFlashAttribute("msg", "비밀번호를 다시 확인해 주세요.");
-	           return "redirect:/passwordmodify";
-	        }
-	    }
 	
-*/	
-	
-	/*
-	@RequestMapping(value="/deleteconform", method= RequestMethod.GET)
-	public String deleteconform(String email) {
-		return "deleteconform"; // 탈퇴확인
-	}
-	*/
-	@RequestMapping("/deleteresult")
-	public String deleteresult(String email) {
-		int result = service.deletemember(email);
+	  @RequestMapping(value="/deleteview", method=RequestMethod.GET)
+		public String deleteView() throws Exception{
+			return "deleteview";
+		}
+	    	    
+	    
+	    @RequestMapping(value="/deletemember", method=RequestMethod.POST)
+		public String deletemember(String email, RedirectAttributes rttr, HttpSession session)throws Exception{
+	    	int result = service.deletemember(email);
+	    	
+	    	if(result == 1) {
+	    		//session.invalidate();
+	    		//rttr.addFlashAttribute("msg", "이용해주셔서 감사합니다.");
+	    		return "redirect:/logout";
+	    	}
+			return "redirect:/main";
+		}
 		
-		if(result == 1) {
-			return "deleteresult";//컨트롤러 url매핑 메소드 호출(회원리스트)			
-		}		
-		return "redirect:/main";//컨트롤러 url매핑 메소드 호출
-	}
+	
+	   
 
 }
 

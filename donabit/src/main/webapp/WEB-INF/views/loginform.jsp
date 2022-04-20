@@ -19,12 +19,12 @@
 	<form action="/loginProc" method="post">
 		<div class="form-group">
 			<label for="email">Email</label> 
-			<input type="text" class="form-control" placeholder="Enter email" id="email" name="email">
+			<input type="text" class="form-control" placeholder="Enter email" id="email" name="email" required>
 		</div>
 				
 		<div class="form-group">
 			<label for="password">Password</label> 
-			<input type="password" class="form-control" placeholder="Enter password" id="password" name="password">
+			<input type="password" class="form-control" placeholder="Enter password" id="password" name="password" required>
 		</div>
 		
 		<!-- <div class="form-group form-check">
