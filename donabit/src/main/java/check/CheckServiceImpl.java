@@ -41,13 +41,13 @@ public class CheckServiceImpl implements CheckService {
 	}
 	
 	@Override
-	public List<CheckDTO> checklist() {
-		return dao.checklist();
+	public List<CheckDTO> checklist(String nickname, String chnum) {
+		return dao.checklist(nickname, chnum);
 	}
 
 	@Override
-	public int selectcountchallenge() {
-		return dao.selectcountchallenge();
+	public int selectcountcheck(String nickname, String chnum) {
+		return dao.selectcountcheck(nickname, chnum);
 	}
 
 	@Override
@@ -61,8 +61,8 @@ public class CheckServiceImpl implements CheckService {
 	}
 
 	@Override
-	public int selectchecktime() {
-		return dao.selectchecktime();
+	public int selectchecktime(String nickname, String chnum) {
+		return dao.selectchecktime(nickname, chnum);
 	}
 	
 	

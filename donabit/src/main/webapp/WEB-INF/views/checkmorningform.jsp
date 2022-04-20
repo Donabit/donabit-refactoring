@@ -8,27 +8,16 @@
 <script src="../js/check.js" defer></script>
 <link rel="stylesheet" href="css/check.css">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="/WEB-INF/views/main_header.jsp" %>
 </head>
 <body>
 	<div class="check_container">
 				<form action="/checkmorningform" method="post" enctype="multipart/form-data">		
-				<input type=hidden name="chnum" value="2">
 				
-				<div class=check>
-					<label for=nickname class=check_label>닉네임</label>
-					<div class="check_input">
-						<input type=text id=nickname name="nickname"> <br>
-					</div>
-				</div>
-					
-				<div class=check>
-					<label for=checknum class=check_label>체크번호</label>
-					<div class="check_input">
-						<input type=text id=checknum name="checknum" value="${result}"> <br>
-					</div>
-				</div>
+				<input type=hidden name="chnum" value="${param.chnum}">
+				<input type=hidden id=nickname name="nickname" value="${principal.memberdto.nickname}"> 
+				<input type=hidden id=checknum name="checknum" value="${result}">
 				
-					
 				<div class=check>
 					<label for=checktitle class=check_label>제목</label>
 					<div class="check_input">

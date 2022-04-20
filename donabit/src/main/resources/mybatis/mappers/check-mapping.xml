@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="check.CheckDAO">
-	<select id="checklist" resultType="checkdto">
-		SELECT checktitle, checkdesc, checkimg AS checkimg2, checktime FROM checks ORDER BY checktime DESC
+	<select id="checklist" resultType="checkdto" parameterType="String">
+		SELECT checkid, checktitle, checkdesc, checkimg AS checkimg2, checktime FROM checks WHERE nickname LIKE #{nickname} AND chnum=#{chnum} ORDER BY checktime DESC; 
 	</select>
 	
 	<insert id="insertCheck" parameterType="checkdto">
@@ -17,8 +17,8 @@
 		SELECT COUNT(*) FROM checks WHERE nickname=#{nickname} AND chnum=#{chnum};
 	</select> -->
 	
-	<select id="selectcountchallenge" resultType="int">
-		SELECT COUNT(*) FROM checks WHERE nickname=1 AND chnum=2;
+	<select id="selectcountcheck" resultType="int" parameterType="String"> <!-- 닉네임 변수 받기 -->
+		SELECT COUNT(*) FROM checks WHERE nickname LIKE #{nickname} AND chnum=#{chnum};
 	</select>
 	
 	<select id="selectchsuccess" resultType="int">
@@ -29,7 +29,7 @@
 		UPDATE challenging SET personalpf=1 WHERE chnum=2;
 	</update>
 	
-	<select id="selectchecktime" resultType="int">
-		SELECT COUNT(*) FROM checks WHERE chnum=2 AND DATE(checktime)=DATE(now());
+	<select id="selectchecktime" resultType="int" parameterType="String"> <!-- 여기도 수정 닉네임 필요 -->
+		SELECT COUNT(*) FROM checks WHERE nickname LIKE #{nickname} AND DATE(checktime)=DATE(now()) AND chnum=#{chnum};
 	</select>
 </mapper>

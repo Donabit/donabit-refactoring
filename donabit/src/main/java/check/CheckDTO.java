@@ -3,7 +3,7 @@ package check;
 import org.springframework.web.multipart.MultipartFile;
 
 public class CheckDTO {
-	String nickname, checktime, checktitle, checkdesc, checkimg2;
+	String nickname, checktime, checktitle, checkdesc, checkimg2, checkid;
 	int chnum, checknum;
 	MultipartFile checkimg;
 	
@@ -54,6 +54,12 @@ public class CheckDTO {
 	}
 	public void setCheckimg(MultipartFile checkimg) {
 		this.checkimg = checkimg;
+	}
+	public String getCheckid() {
+		return checkid;
+	}
+	public void setCheckid(String checkid) {
+		this.checkid = checkid;
 	}
 	
 	

@@ -81,8 +81,8 @@ public class ChallengeController {
 	@GetMapping("/checkcommunity")
 	public ModelAndView checkmorninglist() { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
 		ModelAndView mv = new ModelAndView(); 
-		List<CheckDTO> list = service2.checklist();
-		mv.addObject("checklist", list);
+		//List<CheckDTO> list = service2.checklist();
+		//mv.addObject("checklist", list);
 		mv.setViewName("ch-community"); // 뷰 이름 지정, jsp 이름
 		return mv; // jsp 보냄
 	}

@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository("checkdao")
 public interface CheckDAO {
 	 int insertCheck(CheckDTO dto);
-	 List<CheckDTO> checklist();
-	 int selectcountchallenge();
+	 List<CheckDTO> checklist(String nickname, String chnum);
+	 int selectcountcheck(String nickname, String chnum);
 	 int selectchsuccess();
 	 int updatepersonalpf();
-	 int selectchecktime();
+	 int selectchecktime(String nickname, String chnum);
 }
