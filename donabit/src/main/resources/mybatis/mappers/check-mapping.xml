@@ -18,7 +18,7 @@
 	</select> -->
 	
 	<select id="selectcountcheck" resultType="int" parameterType="String"> <!-- 닉네임 변수 받기 -->
-		SELECT COUNT(*) FROM checks WHERE nickname LIKE #{nickname} AND chnum=#{chnum};
+		SELECT count(*) FROM checks WHERE nickname LIKE #{nickname} AND chnum=#{chnum};
 	</select>
 	
 	<select id="selectchsuccess" resultType="int">

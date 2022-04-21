@@ -22,6 +22,7 @@ import joinlogin.PrincipalDetails;
 
 @Controller
 public class CheckController {
+	
 	@Autowired
 	@Qualifier("checkservice")
 	CheckService service;
@@ -78,6 +79,9 @@ public class CheckController {
 		return mv; // jsp 보냄
 	}
 
+	
+	//@GetMapping("/checkmorningform2")
+	//public void checkMorningForm() {}
 	
 	
 }

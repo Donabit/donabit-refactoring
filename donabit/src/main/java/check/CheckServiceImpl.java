@@ -64,7 +64,8 @@ public class CheckServiceImpl implements CheckService {
 	public int selectchecktime(String nickname, String chnum) {
 		return dao.selectchecktime(nickname, chnum);
 	}
-	
+
+
 	
 }
 

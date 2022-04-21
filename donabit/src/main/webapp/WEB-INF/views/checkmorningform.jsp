@@ -9,10 +9,17 @@
 <link rel="stylesheet" href="css/check.css">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/main_header.jsp" %>
+<script type="text/javascript">
+            window.onload = function(){
+                document.getElementById("clickme").onclick = function(){
+          			document.getElementById("checkmorningform").submit();
+                }
+            }
+</script>
 </head>
 <body>
 	<div class="check_container">
-				<form action="/checkmorningform" method="post" enctype="multipart/form-data">		
+				<form action="/checkmorningform" method="post" enctype="multipart/form-data" id="checkmorningform">		
 				
 				<input type=hidden name="chnum" value="${param.chnum}">
 				<input type=hidden id=nickname name="nickname" value="${principal.memberdto.nickname}"> 
@@ -44,7 +51,7 @@
 				</div>
 					
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
-				<button class=upload_btn type=submit>업로드</button>	
+				<button class=upload_btn id="clickme">업로드</button>	
 			
 							
 				</form>

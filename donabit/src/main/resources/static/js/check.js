@@ -7,3 +7,5 @@
     		URL.revokeObjectURL(uploadImage.src) 
     	}
    	});
+
+ 
