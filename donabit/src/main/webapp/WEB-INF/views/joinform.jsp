@@ -9,7 +9,7 @@
 <meta name="_csrf_header" content="${_csrf.headerName}">
 
 <title>회원가입 페이지</title>
-<script src="../jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/joinform.css">
 <script type="text/javascript">
 //spring security - ajax post 방식으로 요청시 추가
 var token = $("meta[name='_csrf']").attr("content");
@@ -20,7 +20,23 @@ $(document).ajaxSend(function (e, xhr, options) {
 
 	$(document).ready(function(){
 		
-		 $("#submit").on("click", function(){
+		 $("#btn_submit").on("click", function(){
+			 
+			 if(!$("#email_id").val()){
+				   alert("이메일을 입력해주세요.");
+			        $("#email_id").focus();
+			        return false;
+			      } 
+			 if(!$("#email_domain").val()){
+			        alert("이메일 도메인을 입력해주세요.");
+			        $("#email_domain").focus();
+			        return false;
+			      } 
+			 if(!$("#nickname").val()){
+			        alert("닉네임을 입력해주세요.");
+			        $("#nickname").focus();
+			        return false;
+			      } 
 		     
 		      if($("#password").val() != $("#password2").val()){
 		          alert("비밀번호가 서로 다릅니다. 비밀번호를 확인해 주세요."); 
@@ -28,20 +44,52 @@ $(document).ajaxSend(function (e, xhr, options) {
 		          return false; 
 		      }
 		      
-		      if($("input[name='checked_email']").val()==''){
+		      if(!$("input[name='checked_email']").val()){
 		          alert('이메일중복 확인을 해주세요.');
 		          $("input[name='checked_email']").eq(0).focus();
 		          return false;
 		      	}
 		      
-		      if($("input[name='checked_nick']").val()==''){
+		      if(!$("input[name='checked_nick']").val()){
 		          alert('닉네임중복 확인을 해주세요.');
 		          $("input[name='checked_nick']").eq(0).focus();
 		          return false;
 		      	}
+		      
+		     
 		     
 		    });
 		  })
+		  
+		  		//이메일 직접입력
+		function selectEmail(ele){ 
+			var $ele = $(ele); 
+			var $email_domain = $('input[name=email_domain]'); 
+			// '1'인 경우 직접입력 
+			if($ele.val() == "1"){ 
+				$email_domain.attr('readonly', false); 
+				$email_domain.val(''); 
+			} else {
+				$email_domain.attr('readonly', true); 
+				$email_domain.val($ele.val()); 
+				
+			} 
+		}
+		
+		//이메일 db로 합치기
+		
+		
+	 function emailmerge() {
+		
+		var email_id =$("#email_id").val();
+		var email_domain =$("#email_domain").val();
+		var email ="";
+		 
+		  email = email_id+"@"+email_domain;
+		  $("#email").val(email);  
+		  
+		  
+		 };
 		  
 		  function fn_nickchk(){
 		    $.ajax({
@@ -64,6 +112,7 @@ $(document).ajaxSend(function (e, xhr, options) {
 		  };
 		  
 		function fn_emailchk(){
+			emailmerge();
 		    $.ajax({
 		      url : "/emailchk",
 		      type : "post",
@@ -84,6 +133,7 @@ $(document).ajaxSend(function (e, xhr, options) {
 		  };
 
 
+			
 		  
 		
 </script>
@@ -91,23 +141,56 @@ $(document).ajaxSend(function (e, xhr, options) {
 
 </head>
 <body>
-<h1> Join Us !! </h1>
+
+<div class="wrapper">
+  <div class="title"><h1 style="font-size: 30px;"> Join Us !! </h1></div>
 <hr/>
+
 <form action="/joinresult" method="post">
 <input type="hidden" name="checked_email" value="">
 <input type="hidden" name="checked_nick" value="">
- 아이디(이메일 형식):<input type=text id=email name=email required>
+
+<div class="email">
+<input type="text" id="email_id" title="이메일 아이디" placeholder="아이디(E-mail)" maxlength="18" value="" required /> @ 
+<input type="text" id="email_domain" name="email_domain" title="이메일 도메인" placeholder="이메일 도메인" value="" maxlength="18" required/> 
+<select name="select_email" onChange="selectEmail(this)">
+    <option value="">-선택-</option>
+    <option value="naver.com">naver.com</option>
+    <option value="gmail.com">gmail.com</option>
+    <option value="daum.net">daum.net</option>
+    <option value="nate.com">nate.com</option>
+    <option value="1">직접입력</option>
+</select>
+  <input type="hidden" id="email" name="email"  >
+    
   <button class="emailchk" type="button" id="emailchk" onclick="fn_emailchk();" value="N">중복확인</button>  
- <br>
- 닉네임:<input type=text id=nickname name=nickname required>
+ 
+</div>
+ 
+
+ <div class="nickname">
+ <input type=text id=nickname name=nickname placeholder="닉네임" required>
  <button class="nickchk" type="button" id="nickchk" onclick="fn_nickchk();" value="N">중복확인</button>
- <br>
- 비밀번호:<input type=password id=password name=password required><br>
- 비밀번호 확인:<input type=password id=password2 name=password2 required><br>
- 휴대폰번호:<input type=text name=phone ><br>
+ </div>
+
+<div class="password"> 
+<input type=password id=password name=password placeholder="비밀번호" required><br>
+<input type=password id=password2 name=password2 placeholder="비밀번호확인" required><br>
+</div>
+<div class="phone">
+<input type=text name=phone placeholder="휴대폰번호(선택입력)"><br>
+</div>
+
+<div class="line">
+            <hr/>
+</div>
+<div class="button">
  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
- <input type=submit id="submit" value=회원가입 > &nbsp; <a href="/main">취소</a>
+ <input type=submit id="btn_submit" value=회원가입 > <a href="/main"><button id="cancle" type="button">취소</button></a> 
+</div> 
+ 
  </form>
  
+ </div>
 </body>
 </html>

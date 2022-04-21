@@ -12,7 +12,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Donabit Main</title>
-<script src="resources/static/jquery-3.6.0.min.js"></script>
+<script src="/jquery-3.6.0.min.js"></script>
 <script src="mybatis_spring.js" defer></script>
 <link rel="stylesheet" type="text/css" href="css/main_header.css">
 
@@ -21,11 +21,13 @@
 
 	});
 </script>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 </head>
 
 <body> 
+
 <header> 
 	<div class="header_container">
 		<div class="logo_container">
@@ -39,13 +41,13 @@
 	<li class="menu_1"><a class="menu_title" href="tutorial.jsp">튜토리얼</a>
 </li>
 
-	<li class="menu_2"><a class="menu_title" href="challenge.jsp">챌린지</a>
+	<li class="menu_2"><a class="menu_title" href="/challenge">챌린지</a>
 </li>
 
 	<li class="menu_3"><a class="menu_title" href="community.jsp">커뮤니티</a>
 </li>
 
-	<li class="menu_4"><a class="menu_title" href="notice.jsp"> 공지사항 </a>
+	<li class="menu_4"><a class="menu_title" href="/notice"> 공지사항 </a>
 </li>
 
 </ul>
