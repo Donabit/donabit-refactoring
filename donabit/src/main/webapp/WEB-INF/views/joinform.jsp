@@ -161,7 +161,7 @@ $(document).ajaxSend(function (e, xhr, options) {
     <option value="nate.com">nate.com</option>
     <option value="1">직접입력</option>
 </select>
-  <input type="hidden" id="email" name="email"  >
+  <input type="hidden" id="email" name="email" >
     
   <button class="emailchk" type="button" id="emailchk" onclick="fn_emailchk();" value="N">중복확인</button>  
  
@@ -186,7 +186,7 @@ $(document).ajaxSend(function (e, xhr, options) {
 </div>
 <div class="button">
  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
- <input type=submit id="btn_submit" value=회원가입 > <a href="/main"><button id="cancle" type="button">취소</button></a> 
+ <button id="btn_submit" type=submit >회원가입</button> <a href="/main"><button id="cancle" type="button">취소</button></a> 
 </div> 
  
  </form>

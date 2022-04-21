@@ -1,8 +1,52 @@
 @charset "UTF-8";
 
-body {
+.wrapper {
 	
-	
-
-	
+	margin: 0 auto;
+    justify-content: center;
+    padding: 10px;
+	width: 45%;
+    border: 2px dotted #FF85B3;
+	border-radius:10%;
 }
+
+div {
+    padding-top: 4px;
+    padding-bottom: 8px;
+}
+
+.title {
+    text-align: center;
+    font-weight: 700;
+}
+
+
+input{
+    border: 1px dotted pink;
+    border-radius: 3px;
+    line-height: 35px;
+    font-size: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.nickname input {
+    width: 80%;
+}
+
+.password input {
+    width: 90%;
+}
+
+.phone input{
+	width: 90%;
+}
+
+.email select{
+	padding:7px; 
+	vertical-align:middle
+}
+
+
+
+
