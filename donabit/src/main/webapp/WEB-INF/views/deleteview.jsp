@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <meta name="_csrf" content="${_csrf.token}">
 <meta name="_csrf_header" content="${_csrf.headerName}">
-<title>Insert title here</title>
-<script src="../jquery-3.6.0.min.js"></script>
+<title>회원탈퇴</title>
+<link rel="stylesheet" type="text/css" href="css/deleteview.css">
 <script type="text/javascript">
 
 //spring security - ajax post 방식으로 요청시 추가
@@ -58,18 +58,28 @@ $(document).ajaxSend(function (e, xhr, options) {
 
 </head>
 <body>
-
+<div class="wrapper">
+  <div class="title"><h1 style="font-size: 30px;"> 회원탈퇴 </h1></div>
+<hr/>
+<br>
   <form action="/deletemember" method="post" id="deleteForm" name="deleteForm">
   <input type="hidden" id="email" name="email" value="${principal.memberdto.email}">
-                <p class="lead">회원탈퇴를 하려면 비밀번호를 입력해주세요.</p>
-                <div class="form-group">
+                <h3>회원탈퇴를 하려면 비밀번호를 입력해주세요.</h3>
+               <br>
+                <div class="password"> 
                     <input type="password" id = "memberPw" name="memberPw" placeholder="비밀번호 입력" />
                 </div>
+                 <br>
+				  <hr/>
+				  <br>
+				 <div class="buttons-wrapper">
                  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
-                <button type="button" id="deletemember" name="deletemember" >회원탈퇴</button> <a href="/mypage">취소</a>
-  
+                <div class="buttons-left"><button type="button" id="deletemember" name="deletemember" class="btn-gradient small" >회원탈퇴</button></div>
+                 <div class="buttons-right"><a href="/mypage"><button id="cancle" type="button" class="btn-gradient small">취소</button></a></div>
+  		</div>
+  		
     </form>
 
-
+</div>
 </body>
 </html>

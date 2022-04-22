@@ -26,23 +26,23 @@
 	</div>
 	<div class="nick-level">
 	<h1>${principal.memberdto.nickname}</h1>
-	<h3>Level : </h3>
+	<h4>Level : ${principal.memberdto.level}</h4>
 	</div>
 	
 	<div class="listContainer">
 	<a href="/updateform" class="setting">
         <div class="sicon"><img class="imgicon" src="/img/pig.svg"></div>
-        <div class="stext">회원정보 수정하기<span class="circle"></span></div>
+        <div class="stext"><p>회원정보 수정하기</p><span class="circle"></span></div>
         <div class="sright"><img class="imgicon" src="/img/setting.jpg"></div>
     </a>
     <a href="/passwordmodifyform" class="setting">
        <div class="sicon"><img class="imgicon" src="/img/pig.svg"></div>
-        <div class="stext">비밀번호 변경하기<span class="circle"></span></div>
+        <div class="stext"><p>비밀번호 변경하기</p><span class="circle"></span></div>
         <div class="sright"><img class="imgicon" src="/img/setting.jpg"></div>
     </a>
     <a href="/deleteview" class="setting">
       <div class="sicon"><img class="imgicon" src="/img/pig.svg"></div>
-        <div class="stext">회원 탈퇴하기<span class="circle"></span></div>
+        <div class="stext"><p>회원 탈퇴하기</p><span class="circle"></span></div>
         <div class="sright"><img class="imgicon" src="/img/setting.jpg"></div>
     </a>
 	
@@ -50,8 +50,8 @@
 	
 </div>
 <div class="challenge-box">
-    참여중인 챌린지 <div class="challenge-ing"> <a href="/challenge"><button class="go-challenge">챌린지 하러가기</button></a> </div>
-    획득한 뱃지 <div class="challenge-badge"> <button class="badge">뱃지 모으러가기</button> </div>
+    <p>참여중인 챌린지</p> <div class="challenge-ing"> <a href="/challenge"><button class="go-challenge">챌린지 하러가기</button></a> </div>
+    <p>획득한 뱃지</p> <div class="challenge-badge"> <button class="badge">뱃지 모으러가기</button> </div>
 </div>
 
 

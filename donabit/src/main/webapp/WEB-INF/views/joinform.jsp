@@ -143,8 +143,9 @@ $(document).ajaxSend(function (e, xhr, options) {
 <body>
 
 <div class="wrapper">
-  <div class="title"><h1 style="font-size: 30px;"> Join Us !! </h1></div>
+  <div class="title"><h1 style="font-size: 40px;"> Join Us !! </h1></div>
 <hr/>
+<br>
 
 <form action="/joinresult" method="post">
 <input type="hidden" name="checked_email" value="">
@@ -163,14 +164,14 @@ $(document).ajaxSend(function (e, xhr, options) {
 </select>
   <input type="hidden" id="email" name="email" >
     
-  <button class="emailchk" type="button" id="emailchk" onclick="fn_emailchk();" value="N">중복확인</button>  
+  <button name="emailchk" type="button" id="emailchk" onclick="fn_emailchk();" value="N" class="btn-gradient mini">중복확인</button>  
  
 </div>
  
 
  <div class="nickname">
  <input type=text id=nickname name=nickname placeholder="닉네임" required>
- <button class="nickchk" type="button" id="nickchk" onclick="fn_nickchk();" value="N">중복확인</button>
+ <button name="nickchk" type="button" id="nickchk" onclick="fn_nickchk();" value="N" class="btn-gradient mini">중복확인</button>
  </div>
 
 <div class="password"> 
@@ -181,12 +182,14 @@ $(document).ajaxSend(function (e, xhr, options) {
 <input type=text name=phone placeholder="휴대폰번호(선택입력)"><br>
 </div>
 
-<div class="line">
-            <hr/>
-</div>
-<div class="button">
+<br>
+ <hr/>
+
+<br>
+<div class="buttons-wrapper">
  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
- <button id="btn_submit" type=submit >회원가입</button> <a href="/main"><button id="cancle" type="button">취소</button></a> 
+ <div class="buttons-left"><button id="btn_submit" type=submit class="btn-gradient small" >회원가입</button> </div>
+ <div class="buttons-right"><a href="/main"><button id="cancle" type="button" class="btn-gradient small">취소</button></a></div>
 </div> 
  
  </form>

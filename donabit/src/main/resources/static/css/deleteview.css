@@ -36,25 +36,16 @@ input{
 }
 
 .email input {
-	width: 20%;
+	width: 95%;
 }
 
-.nickname input {
-    width: 75%;
-}
 
 .password input {
-    width: 90%;
+    width: 95%;
+    text-align:center;
 }
 
-.phone input{
-	width: 90%;
-}
 
-.email select{
-	padding:7px; 
-	vertical-align:middle
-}
 
 
 .btn-gradient { 
@@ -118,6 +109,11 @@ hr {
 	border-bottom : white;
 }
 
-h1{
+h1, h3, h5{
+	
 	color:#fc5192;
+}
+
+h3{
+	text-align:center;
 }

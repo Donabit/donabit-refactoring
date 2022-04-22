@@ -1,13 +1,10 @@
 @charset "UTF-8";
 
 .wrapper {
-	position : absolute;
-	left:25%; 
-	top:25%;
-	margin: 0 auto;
-    justify-content: center;
+	
+	margin: 5em auto 0 auto;
     padding: 10px;
-	width: 45%;
+	width: 20%;
 	
 	border: 2px dotted #FF85B3;
 	border-radius:10%;
@@ -26,7 +23,6 @@ div {
 
 
 input{
-	
     border: 1px dotted pink;
     border-radius: 3px;
     line-height: 35px;
@@ -36,25 +32,16 @@ input{
 }
 
 .email input {
-	width: 20%;
+	text-align: center;
+	width: 95%;
 }
 
-.nickname input {
-    width: 75%;
-}
 
 .password input {
-    width: 90%;
+	text-align: center;
+    width: 95%;
 }
 
-.phone input{
-	width: 90%;
-}
-
-.email select{
-	padding:7px; 
-	vertical-align:middle
-}
 
 
 .btn-gradient { 
@@ -87,10 +74,6 @@ input{
   	font-size: 14px;
 }
 
-.btn-gradient.mini {
-	padding: 4px 12px;  
-  	font-size: 12px;
-}
 
 
 .buttons-wrapper {

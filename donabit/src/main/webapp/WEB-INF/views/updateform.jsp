@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <meta name="_csrf" content="${_csrf.token}">
 <meta name="_csrf_header" content="${_csrf.headerName}">
-<title>Insert title here</title>
-<script src="../jquery-3.6.0.min.js"></script>
+<title>회원정보수정</title>
+<link rel="stylesheet" type="text/css" href="css/updateform.css">
 <script type="text/javascript">
 
 //spring security - ajax post 방식으로 요청시 추가
@@ -46,14 +46,33 @@ $(document).ajaxSend(function (e, xhr, options) {
 
 </head>
 <body>
+<div class="wrapper">
+  <div class="title"><h1 style="font-size: 30px;"> 회원정보수정 </h1></div>
+<hr/>
+<br>
 <form action="memberupdate" method="post">
- 회원아이디:<input type=text name=email value="${principal.memberdto.email}" readonly="readonly"><br>
- 변경할 닉네임:<input type=text value="${principal.memberdto.nickname}" id=nickname name=nickname >
- <button class="nickchk" type="button" id="nickchk" onclick="fn_nickchk();" value="N">중복확인</button>
+
+<div class="email">
+ <h5>회원아이디</h5><input type=text name=email value="${principal.memberdto.email}" readonly="readonly"><br>
+</div>
+
+ <div class="nickname">
+ <h5>변경할 닉네임</h5><input type=text value="${principal.memberdto.nickname}" id=nickname name=nickname >
+ <button name="nickchk" type="button" id="nickchk" onclick="fn_nickchk();" value="N" class="btn-gradient mini">중복확인</button>
+ </div>
+ <div class="phone">
+ <h5>변경할 휴대폰번호</h5><input type=text value="${principal.memberdto.phone}" name=phone ><br>
+ </div>
  <br>
- 변경할 휴대폰번호:<input type=text value="${principal.memberdto.phone}" name=phone ><br>
+  <hr/>
+  <br>
+ <div class="buttons-wrapper">
  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
- <input type=submit value=회원정보수정  > &nbsp; <a href="/mypage">취소</a>
+ <div class="buttons-left"><button id="btn_submit" type=submit class="btn-gradient small" >수정하기</button> </div>
+ <div class="buttons-right"><a href="/mypage"><button id="cancle" type="button" class="btn-gradient small">취소</button></a></div>
+ </div>
+ 
  </form>
+ </div>
 </body>
 </html>

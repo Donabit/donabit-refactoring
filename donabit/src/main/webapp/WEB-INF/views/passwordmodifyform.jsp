@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <meta name="_csrf" content="${_csrf.token}">
 <meta name="_csrf_header" content="${_csrf.headerName}">
-<title>Insert title here</title>
-<script src="../jquery-3.6.0.min.js"></script>
+<title>비밀번호수정</title>
+<link rel="stylesheet" type="text/css" href="css/passwordmodifyform.css">
 <script type="text/javascript">
 
 //spring security - ajax post 방식으로 요청시 추가
@@ -74,14 +74,38 @@ $(document).ajaxSend(function (e, xhr, options) {
 
 </head>
 <body>
+<div class="wrapper">
+  <div class="title"><h1 style="font-size: 30px;"> 비밀번호변경 </h1></div>
+<hr/>
+<br>
 <form action="passwordmodify" method="post" id="passwordmodifyForm" name="passwordmodifyForm">
- 회원아이디:<input type=text name=email value="${principal.memberdto.email}" readonly="readonly"><br>
- 기존 암호:<input type=password id=memberPw name=memberPw required><br>
- 변경할 암호:<input type=password id=password name=password ><br>
- 변경할 암호 확인:<input type=password id=password2 name=password2 ><br>
+ 
+<div class="email">
+ <h5>회원아이디</h5><input type=text name=email value="${principal.memberdto.email}" readonly="readonly"><br>
+</div>
+<div class="password"> 
+ <h5>기존 비밀번호</h5><input type=password id=memberPw name=memberPw required><br>
+ </div>
+ <div class="password"> 
+ <h5>변경할 비밀번호</h5><input type=password id=password name=password ><br>
+ </div>
+<div class="password">  
+ <h5>변경할 비밀번호 확인</h5><input type=password id=password2 name=password2 ><br>
+ </div>
+ 
+  <br>
+  <hr/>
+  <br>
+ <div class="buttons-wrapper">
  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
-<!--  <input type=submit value=비밀번호수정1 >  -->
- <button type="button" id="passwordmodify" name="passwordmodify" >비밀번호수정</button> &nbsp; <a href="/mypage">취소</a>
+
+ <div class="buttons-left"><button type="button" id="passwordmodify" name="passwordmodify" class="btn-gradient small">수정하기</button> </div>
+ <div class="buttons-right"><a href="/mypage"><button id="cancle" type="button" class="btn-gradient small">취소</button></a></div>
+ </div>
+ 
  </form>
+ 
+ </div>
 </body>
 </html>
+
