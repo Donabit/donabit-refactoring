@@ -63,6 +63,8 @@ textarea {
   flex-direction: row;
   justify-content: start;
   align-content: flex-start;
+  	position: absolute;
+	left: 10%;
 }
 
 .item {

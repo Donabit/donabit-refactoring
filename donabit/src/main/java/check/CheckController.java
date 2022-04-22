@@ -80,8 +80,6 @@ public class CheckController {
 	}
 
 	
-	//@GetMapping("/checkmorningform2")
-	//public void checkMorningForm() {}
-	
+
 	
 }

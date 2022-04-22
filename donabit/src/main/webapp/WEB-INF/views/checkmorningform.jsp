@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
+<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="principal"/>
+</sec:authorize>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,18 +13,21 @@
 <script src="../js/check.js" defer></script>
 <link rel="stylesheet" href="css/check.css">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="/WEB-INF/views/main_header.jsp" %>
-<script type="text/javascript">
-            window.onload = function(){
-                document.getElementById("clickme").onclick = function(){
-          			document.getElementById("checkmorningform").submit();
-                }
-            }
+
+
+ <script type="text/javascript">
+            function reload(){
+            	document.getElementById("checkmorningform").submit();
+          			close();
+		           /*  window.open("about:blank", "_self").close(); //자식창 close
+		            this.window.opener.location.reload(); //새로고침 */
+          	};
+       
 </script>
 </head>
 <body>
 	<div class="check_container">
-				<form action="/checkmorningform" method="post" enctype="multipart/form-data" id="checkmorningform">		
+				<form action="/checkmorningform" method="post" enctype="multipart/form-data" id="checkmorningform" return false;>		
 				
 				<input type=hidden name="chnum" value="${param.chnum}">
 				<input type=hidden id=nickname name="nickname" value="${principal.memberdto.nickname}"> 
@@ -50,8 +58,9 @@
 					</div>
 				</div>
 					
-				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
-				<button class=upload_btn id="clickme">업로드</button>	
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 				
+				 <button class=upload_btn id="clickme" onclick="reload()" >업로드</button>
+				<!-- <a href="#"  class=upload_btn id="clickme" onclick="document.getElementById('checkmorningform').submit();"> 업로드 </a> -->
 			
 							
 				</form>
