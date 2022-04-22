@@ -49,15 +49,25 @@ public class ChallengeController {
 	
 	//챌린지리스트에서 챌린지상세페이지 클릭 시 각 chnum 별로 넘어감
 	@GetMapping("challengedetail/{chnum}")
-	public ModelAndView challengelistdatail(@RequestParam int chnumdetail) {
+	public ModelAndView challengelistdatail(@RequestParam int chnumdetail, Authentication authentication) {
 		ModelAndView mv = new ModelAndView();
+		//닉네임 세션 가져오기
+		if(authentication != null) {
+			PrincipalDetails userDetails = (PrincipalDetails) authentication.getPrincipal();
+			String nickname = userDetails.getMemberdto().getNickname();
+			System.out.println(nickname +"가 로그인 중");
+			int result = service.challnickname(nickname, chnumdetail);
+			System.out.println(result +"= 로그인한 닉네임이 해당챌린지에 참여하고 있는지");
+			mv.addObject("challnickname", result);
+			mv.addObject("nickname", nickname);
+		}else {
+			int result = 2; //로그아웃 상태
+			mv.addObject("challnickname", result);
+		}
 		List<ChallengeDTO> list = service.challengelist();
 		List<ChallengeDTO> list2 = service.challcount();
-		int result = service.challnickname(chnumdetail);
-		System.out.println(result);
 		mv.addObject("challengelist", list);
 		mv.addObject("challcount", list2);
-		mv.addObject("challnickname", result);
 		mv.addObject("chnumdetail", chnumdetail);
 		mv.setViewName("challengedetail");
 		return mv;
@@ -85,6 +95,7 @@ public class ChallengeController {
 		return list;
 	}
 	
+	//////////////////////////////////좋아요//////////////////////////////////////
 	//좋아요 클릭 ajax
 	@GetMapping("likesbefore")
 	@ResponseBody
@@ -96,33 +107,77 @@ public class ChallengeController {
 	}
 	
 	//좋아요 해제 ajax
-		@GetMapping("likesafter")
-		@ResponseBody
-		public List<ChallengeDTO> likesafter(String nickname, String checkid) {
-			System.out.println(nickname + " 유저가" + checkid + "번 게시물의 좋아요를 해제");
-			service.deletelikes(nickname, checkid);
-			List<ChallengeDTO> list = service.checklist2();
-			return list;
-		}
+	@GetMapping("likesafter")
+	@ResponseBody
+	public List<ChallengeDTO> likesafter(String nickname, String checkid) {
+		System.out.println(nickname + " 유저가" + checkid + "번 게시물의 좋아요를 해제");
+		service.deletelikes(nickname, checkid);
+		List<ChallengeDTO> list = service.checklist2();
+		return list;
+	}
 	
-		@GetMapping("totallikebefore")
+	//좋아요 수 before ajax
+	@GetMapping("totallikebefore")
+	@ResponseBody
+	public int totallikebefore(String checkid) {
+		System.out.println(checkid);
+		int totallike = service.totallike(checkid) + 1;
+		System.out.println(totallike +"좋아요 개수");
+		return totallike;
+	}
+		
+	//좋아요 수 after ajax
+	@GetMapping("totallikeafter")
+	@ResponseBody
+	public int totallikeafter(String checkid) {
+		System.out.println(checkid);
+		int totallike = service.totallike(checkid) - 1;
+		System.out.println(totallike +"좋아요 개수");
+		return totallike;
+	}
+	/////////////////////////////////////////////////////////////////////
+	//신고 클릭 ajax
+	@GetMapping("singobefore")
+	@ResponseBody
+	public List<ChallengeDTO> singobefore(String nickname, String checkid) {
+		System.out.println(nickname + " 유저가" + checkid + "번 게시물의 신고를 누름");
+		service.insertsingo(nickname, checkid);
+		List<ChallengeDTO> list2 = service.checklist2();
+		return list2;
+	}
+	
+	//신고 해제 ajax
+	
+	@GetMapping("singoafter")
+	@ResponseBody 
+	public List<ChallengeDTO> singoafter(String nickname, String checkid) { 
+		System.out.println(nickname + " 유저가" + checkid + "번 게시물의 신고 해제");
+		service.deletesingo(nickname, checkid); 
+		List<ChallengeDTO> list2 = service.checklist2();
+		return list2; 
+	}
+	 
+	
+	//신고 수 before ajax
+	@GetMapping("totalsingobefore")
+	@ResponseBody
+	public int totalsingobefore(String checkid) {
+		System.out.println(checkid);
+		int totalsingo = service.totalsingo(checkid) + 1;
+		System.out.println(totalsingo +"좋아요 개수");
+		return totalsingo;
+	}
+	
+	//좋아요 수 after ajax
+		@GetMapping("totalsingoafter")
 		@ResponseBody
-		public int totallikebefore(String checkid) {
+		public int totalsingoafter(String checkid) {
 			System.out.println(checkid);
-			int totallike = service.totallike(checkid) + 1;
-			System.out.println(totallike +"좋아요 개수");
-			return totallike;
+			int totalsingo = service.totalsingo(checkid) - 1;
+			System.out.println(totalsingo +"좋아요 개수");
+			return totalsingo;
 		}
 		
-		
-		@GetMapping("totallikeafter")
-		@ResponseBody
-		public int totallikeafter(String checkid) {
-			System.out.println(checkid);
-			int totallike = service.totallike(checkid) - 1;
-			System.out.println(totallike +"좋아요 개수");
-			return totallike;
-		}
 	//인증 커뮤니티
 	@GetMapping("/checkcommunity")
 	public ModelAndView checkmorninglist(Authentication authentication) { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
@@ -130,19 +185,31 @@ public class ChallengeController {
 		List<ChallengeDTO> list = service.checklist2();
 		List<Integer> mylikeresult = new ArrayList<Integer>();
 		List<Integer> totallike = new ArrayList<Integer>();
+		List<Integer> singoresult = new ArrayList<Integer>();
+		List<Integer> totalsingo = new ArrayList<Integer>();
 		
 		//if문 내부는 로그인을 한 상태일때
 		if(authentication != null) {
+			//닉네임 세션 가져오기
 			PrincipalDetails userDetails = (PrincipalDetails) authentication.getPrincipal();
 			String nickname = userDetails.getMemberdto().getNickname();
-			System.out.println(nickname); 
+			System.out.println(nickname);
+			//좋아요가 있다면 1 아니면 0 => 리스트에 저장
 			for(ChallengeDTO data: list) {
 				mylikeresult.add(service.selecttoggle(nickname, data.getCheckid()));
 				System.out.println(nickname + "가 로그인 중/" + data.getCheckid() +"=챌린지인증고유번호");
 			}
+			//좋아요 콘솔창 출력테스트
 			for(Integer i : mylikeresult) { 
-			    System.out.println(nickname+"가  "+i+"=하트누려면1 / 아니면0");
+			    System.out.println(nickname+"가  "+i+"= 하트누려면 1/ 아니면0");
 			}
+			//////////////////////////////////////////////////////////////////////////////////////
+			//신고가 있다면 1 아니면 0 => 리스트에 저장
+			for(ChallengeDTO data: list) {
+				singoresult.add(service.selectsingo(nickname, data.getCheckid()));
+				System.out.println(nickname + "가 로그인 중/" + data.getCheckid() +"=챌린지인증고유번호");
+			}
+			mv.addObject("singo", singoresult);
 			mv.addObject("toggle", mylikeresult);
 		}
 		
@@ -152,24 +219,17 @@ public class ChallengeController {
 		for(Integer i : totallike) { 
 		    System.out.println(i+"= 각 인증게시물의 전체 좋아요 수");
 		}
+		for(ChallengeDTO data: list) {
+			totalsingo.add(service.totalsingo(data.getCheckid()));
+		}
+		for(Integer i : totalsingo) { 
+		    System.out.println(i+"= 각 인증게시물의 전체 신고 수");
+		}
 		
+		mv.addObject("totalsingo", totalsingo);
 		mv.addObject("totallike", totallike);
 		mv.addObject("checklist", list);
 		mv.setViewName("ch-community"); // 뷰 이름 지정, jsp 이름
 		return mv; // jsp 보냄
 	}
-
-	  
-	
-	
-	/*
-	 * // test
-	 * 
-	 * @PostMapping("challenge3")
-	 * 
-	 * @ResponseBody public String aaa(String name) { if (name.equals("ajax")) {
-	 * return "{\"같음\" : \"ajax\"}"; }else { return "{\"다름\" : \"ajax2\"}"; }
-	 * 
-	 * }
-	 */
 }

@@ -21,9 +21,9 @@ public class ChallengeServiceImpl implements ChallengeService {
 	}
 
 	@Override
-	public int challnickname(int chnumdetail) {
+	public int challnickname(String nickname, int chnumdetail) {
 		
-		return dao.challnickname(chnumdetail);
+		return dao.challnickname(nickname, chnumdetail);
 	}
 
 	@Override
@@ -53,9 +53,21 @@ public class ChallengeServiceImpl implements ChallengeService {
 		return dao.selecttoggle(nickname, checkid);
 	}
 
+	
+	
+	@Override
+	public int selectsingo(String nickname, String checkid) {
+		return dao.selectsingo(nickname, checkid);
+	}
+
 	@Override
 	public int insertlikes(String nickname, String checkid) {
 		return dao.insertlikes(nickname, checkid);
+	}
+	
+	@Override
+	public int insertsingo(String nickname, String checkid) {
+		return dao.insertsingo(nickname, checkid);
 	}
 
 	@Override
@@ -67,11 +79,27 @@ public class ChallengeServiceImpl implements ChallengeService {
 	public int deletelikes(String nickname, String checkid) {
 		return dao.deletelikes(nickname, checkid);
 	}
+	
+	
+
+	@Override
+	public int deletesingo(String nickname, String checkid) {
+		return dao.deletesingo(nickname, checkid);
+	}
 
 	@Override
 	public int totallike(String checkid) {
 		return dao.totallike(checkid);
 	}
+
+	@Override
+	public int totalsingo(String checkid) {
+		return dao.totalsingo(checkid);
+	}
+
+	
+
+	
 	
 	
 

@@ -40,15 +40,6 @@
 			rel="stylesheet">
 
 		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-			<style>
-				#bb {
-					background-color: red;
-				}
-
-				#cc {
-					background-color: blue;
-				}
-			</style>
 	</head>
 
 	<body>
