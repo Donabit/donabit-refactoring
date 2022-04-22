@@ -173,10 +173,12 @@ a.more {
 	border-bottom: 1px solid black;
 	padding-top: 25px;
 	padding-bottom: 25px;
+	padding-left: 20px;
 }
 
 .notice_body_cell:last-child {
 	text-align: right;
+	padding: 20px;
 }
 
 hr.notice_body {
