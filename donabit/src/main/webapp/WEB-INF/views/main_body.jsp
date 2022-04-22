@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- <meta http-equiv="refresh" content="0.1"> -->
 <title>Donabit Main</title>
 
 <script src="https://kit.fontawesome.com/c0080566c1.js" crossorigin="anonymous"></script>
@@ -118,7 +117,7 @@ jQuery(function($) {
 		<c:forEach items="${list}" var="list">
 
 			<p class = notice_body>
-			${list.bno} 번째 공지사항: ${list.title} 작성자: ${list.writer} 날짜: ${list.regdate} <br>
+			${list.bno} 번째 공지사항: ${list.title} 작성자: ${list.writer} 날짜: ${list.regdate}<br>
 			</p>
 			<hr class = "notice_body">
 

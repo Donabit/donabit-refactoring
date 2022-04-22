@@ -21,51 +21,6 @@
 
 </head>
 
-<!-- <style>
-<style type="text/css">
-.input_wrap{
-	padding: 5px 20px;
-}
-label{
-    display: block;
-    margin: 10px 0;
-    font-size: 20px;	
-}
-input{
-	padding: 5px;
-    font-size: 17px;
-}
-textarea{
-	width: 800px;
-    height: 200px;
-    font-size: 15px;
-    padding: 10px;
-}
-.btn{
-  	display: inline-block;
-    font-size: 22px;
-    padding: 6px 12px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    font-weight: 600;
-    width: 140px;
-    height: 41px;
-    line-height: 39px;
-    text-align : center;
-    margin-left : 30px;
-    cursor : pointer;
-}
-.btn_wrap{
-	padding-left : 80px;
-	margin-top : 50px;
-}
-
-#delete_btn{
-    background-color: #f3e3e7;
-}
-</style>
- -->
-
 <body>
 <h1>조회 페이지</h1>
 	<form id="modifyForm" action="/board/modify" method="post">
@@ -115,14 +70,14 @@ textarea{
 	</form>
 	
 	
-	<form action="/modfiy" method="GET"> 
+<!-- 	<form action="/modfiy" method="GET"> 
 	
 		<input type="text" name="bno">
 		<input type="submit" value="전송">
 		
 		<button type="submit"></button>
 		
-	</form>
+	</form> -->
 	 
 <script>
 

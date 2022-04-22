@@ -138,20 +138,60 @@ border:1px dotted #F0F
 
 h1.notice {
 	text-align: center;
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 	font-size: 40px;
 	
 	position: relative;
 	right: 395px;
 }
 
+a.more {
+	position: relative;
+	right: -1780px;
+	margin-bottom: 15px;
+	font-weight: bold;
+}
+
 p.notice_body {
-	text-align: center;
-	font-size: 14px;
+	
+	font-size: 16px;
 	font-family: 'Nanum Pen Script';
 	
 	position: relative;
-	right: 435px;
+	right: -750px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+span.notice_body1 {
+	
+	font-size: 16px;
+	font-family: 'Nanum Pen Script';
+
+	position: relative;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+span.notice_body2 {
+	
+	font-size: 16px;
+	font-family: 'Nanum Pen Script';
+	
+	position: relative;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+span.notice_body3 {
+	
+	font-size: 16px;
+	font-family: 'Nanum Pen Script';
+	
+	position: relative;
 	margin: 0 auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -280,6 +320,7 @@ hr.four {
 	margin:0 auto;
 	height: 1px;
 	border: solid 1px;
+	margin-top: 5px;
 
 }
 

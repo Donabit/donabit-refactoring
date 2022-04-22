@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/board")
+
 public class BoardController {
 	@Autowired
 	@Qualifier("BoardService")
@@ -22,7 +22,7 @@ public class BoardController {
 	private static final Logger log = LoggerFactory.getLogger(BoardController.class);
 
 	/* 게시물 목록 페이지 접속 */
-	@GetMapping("/list")
+	@GetMapping("/board/list")
 	 // => @RequestMapping(value="list", method=RequestMethod.GET)
 	    public void boardListGET(Model model) {
 	        
@@ -32,7 +32,7 @@ public class BoardController {
 	        
 	    }
 	    
-	    @GetMapping("/enroll")
+	    @GetMapping("board/enroll")
 	 // => @RequestMapping(value="enroll", method=RequestMethod.GET)
 	    public void boardEnrollGET() {
 	        
@@ -40,7 +40,7 @@ public class BoardController {
 	        
 	    }
 	    
-	    @PostMapping("/enroll")
+	    @PostMapping("board/enroll")
 	    public String boardEnrollPOST(BoardDTO dto, RedirectAttributes rttr) {
 	
 	    	log.info("BoardDTO : " + dto);
@@ -56,7 +56,7 @@ public class BoardController {
 	    }
 	    
 	    /* 게시물 조회 */
-	    @GetMapping("/get")
+	    @GetMapping("board/get")
 	    public void boardGetPageGET(int bno, Model model) {
 	        
 	        model.addAttribute("pageInfo", service.getPage(bno));
@@ -64,7 +64,7 @@ public class BoardController {
 	    }
 	    
 	    /* 수정 페이지 이동 */
-	    @GetMapping("/modify")
+	    @GetMapping("board/modify")
 	    public void boardModifyGET(int bno, Model model) {
 	        
 	        model.addAttribute("pageInfo", service.getPage(bno));
@@ -72,7 +72,7 @@ public class BoardController {
 	    }
 	    
 	    /* 페이지 수정 */
-	    @PostMapping("/modify")
+	    @PostMapping("board/modify")
 	    public String boardModifyPOST(BoardDTO dto, RedirectAttributes rttr) {
 	        
 	        service.modify(dto);
@@ -84,7 +84,7 @@ public class BoardController {
 	    }
 	    
 	    /* 페이지 삭제 */
-	    @PostMapping("/delete")
+	    @PostMapping("board/delete")
 	    public String boardDeletePOST(int bno, RedirectAttributes rttr) {
 	        
 	        service.delete(bno);
@@ -94,16 +94,14 @@ public class BoardController {
 	        return "redirect:/board/list";
 	    }
 	    
-		/* 게시물 목록 페이지 접속 */
-		
+		/* 공지사항 끌어오기 */
+		@GetMapping("/main")
 		 // => @RequestMapping(value="list", method=RequestMethod.GET)
-		    public String noticeListGET(Model model) {
+		    public void NoticeListGET(Model model) {
 		        
 		        log.info("게시물 목록 페이지 진입");
 		        
 		        model.addAttribute("list", service.getList());
-		        
-		        return "main_body.jsp";
 		        
 		    }
 	
