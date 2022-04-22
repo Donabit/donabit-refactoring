@@ -94,7 +94,7 @@ public class BoardController {
 	        return "redirect:/board/list";
 	    }
 	    
-		/* 공지사항 끌어오기 */
+		/* 메인 공지사항 끌어오기 */
 		@GetMapping("/main")
 		 // => @RequestMapping(value="list", method=RequestMethod.GET)
 		    public void NoticeListGET(Model model) {

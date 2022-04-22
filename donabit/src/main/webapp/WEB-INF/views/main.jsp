@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
     
 <!DOCTYPE html>
 <html>
@@ -115,21 +116,22 @@ jQuery(function($) {
 <h1 class = notice>Recent Our Notice</h1><a class = more href="board/list">더보기</a>
 <hr class = "four">
 
+<div class = notice_body_table>
 		<c:forEach items="${list}" var="list" end = "4">
 
 			
-			<p class = notice_body>
-			<span class = notice_body1> ${list.title} </span>
-			<span class = notice_body2> ${list.writer} </span>
-			<span class = notice_body3> ${list.regdate} </span> <br>
-			</p>
+			<div class = notice_body_row>   
+                <a class= notice_body_cell href='board/get?bno=${list.bno}'> ${list.title} </a>
+				<span class = notice_body_cell> ${list.writer} </span>
+				<span class = notice_body_cell> ${list.regdate} </span>
+			</div>
 			
 			
 			
-			<hr class = "notice_body">
+			
 
-        </c:forEach>
-        
+        	</c:forEach>
+        </div>
         
 
 </section>

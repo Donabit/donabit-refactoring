@@ -147,54 +147,36 @@ h1.notice {
 
 a.more {
 	position: relative;
-	right: -1780px;
+	right: -1450px;
 	margin-bottom: 15px;
 	font-weight: bold;
 }
 
-p.notice_body {
-	
-	font-size: 16px;
-	font-family: 'Nanum Pen Script';
-	
-	position: relative;
+.notice_body_table {
+	display: table;
+	margin: 0 auto;
+	width: 1110px;
 	right: -750px;
-	margin: 0 auto;
+}
+
+.notice_body_row {
+	display: table-row;
+	font-size: 14px;
+	font-family: 'Nanum Pen Script';
+	justify-content: space-between;
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
-span.notice_body1 {
-	
-	font-size: 16px;
-	font-family: 'Nanum Pen Script';
-
-	position: relative;
-	margin: 0 auto;
-	margin-top: 20px;
-	margin-bottom: 20px;
+.notice_body_cell {
+	display: table-cell;
+	border-bottom: 1px solid black;
+	padding-top: 25px;
+	padding-bottom: 25px;
 }
 
-span.notice_body2 {
-	
-	font-size: 16px;
-	font-family: 'Nanum Pen Script';
-	
-	position: relative;
-	margin: 0 auto;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
-span.notice_body3 {
-	
-	font-size: 16px;
-	font-family: 'Nanum Pen Script';
-	
-	position: relative;
-	margin: 0 auto;
-	margin-top: 20px;
-	margin-bottom: 20px;
+.notice_body_cell:last-child {
+	text-align: right;
 }
 
 hr.notice_body {
@@ -220,7 +202,7 @@ p.ads {
 	font-family: 'Nanum Pen Script';
 	
 	position: relative;
-	left: 710px;
+	left: 400px;
 	margin: 0 auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -239,7 +221,7 @@ button.tuto{
   cursor:pointer;
   transition:800ms ease all;
   outline:none;
-  left: 710px;
+  left: 400px;
 }
 button.tuto:hover{
   background:#fff;
