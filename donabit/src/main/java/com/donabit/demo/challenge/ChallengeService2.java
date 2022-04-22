@@ -18,4 +18,7 @@ public interface ChallengeService2 {
 	int selectChallengingCountByNickname(String nickname);
 	int selectSuccessCountByNickname(String nickname);
 	int selectCheckCountByNickname(String nickname);
+	int selectReportCountByNickname(String nickname);
+	String selectChallengeNameByNumber(int chnum);
+	List<ChallengingDTO> selectMemberInfoByNumber(int chnum);
 }

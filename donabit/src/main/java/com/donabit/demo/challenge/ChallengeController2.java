@@ -1,11 +1,7 @@
 package com.donabit.demo.challenge;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import joinlogin.MemberDTO;
@@ -25,6 +20,11 @@ public class ChallengeController2 {
 	@Autowired
 	@Qualifier("ChallengeService2")
 	ChallengeService2 service;
+	
+	@GetMapping("")
+	public String admin(){
+		return "redirect:/admin/challenge-list"; 
+	}
 		
 	@GetMapping("/challenge-list")
 	public ModelAndView challengelist() {
@@ -42,9 +42,9 @@ public class ChallengeController2 {
 		int pageNum = (total % objPerPage == 0) ? total / objPerPage : total / objPerPage + 1;
 		List<ChallengeDTO2> list = service.selectChallengePage((page - 1) * objPerPage, objPerPage);
 		for(ChallengeDTO2 i : list) {
-			int challengingMember = service.selectChallengingMemberCount(i.getChnum());
-			int successMember = service.selectSuccessMemberCount(i.getChnum());
-			int checkCount = service.selectCheckCount(i.getChnum());
+			int challengingMember = service.selectChallengingMemberCount(i.chnum);
+			int successMember = service.selectSuccessMemberCount(i.chnum);
+			int checkCount = service.selectCheckCount(i.chnum);
 			challengingMemberCountList.add(challengingMember);
 			successMemberCountList.add(successMember);
 			checkCountList.add(checkCount);
@@ -78,27 +78,41 @@ public class ChallengeController2 {
 	
 	@GetMapping("/member-list")
 	public ModelAndView memberlist() {
+		return memberlist(0);
+	}
+	
+	@PostMapping("/member-list")
+	public ModelAndView memberlist(@RequestParam int chnum) {
 		ModelAndView mv = new ModelAndView();
 		List<Integer> challengingCountList = new ArrayList<Integer>();
 		List<Integer> successCountList = new ArrayList<Integer>();
 		List<Integer> checksCountList = new ArrayList<Integer>();
+		List<Integer> reportCountList = new ArrayList<Integer>();
 		List<ChallengeDTO2> chnameList = service.selectChallengeName();
 		List<MemberDTO> list = service.selectMember();
 		for(MemberDTO dto : list) {
 			 challengingCountList.add(service.selectChallengingCountByNickname(dto.getNickname()));
 			 successCountList.add(service.selectSuccessCountByNickname(dto.getNickname()));
 			 checksCountList.add(service.selectCheckCountByNickname(dto.getNickname()));
+			 reportCountList.add(service.selectReportCountByNickname(dto.getNickname()));
 		}
 		int memberCount = service.selectMemberCount();
+		String chname = service.selectChallengeNameByNumber(chnum);
+		int chmemberCount = service.selectChallengingMemberCount(chnum);
+		List<ChallengingDTO> memberInfoByNumberList = service.selectMemberInfoByNumber(chnum);
 		mv.addObject("list", list);
 		mv.addObject("memberCount", memberCount);
 		mv.addObject("challengingCount", challengingCountList);
 		mv.addObject("successCount", successCountList);
 		mv.addObject("checksCount", checksCountList);
+		mv.addObject("reportCount", reportCountList);
 		mv.addObject("chnameList", chnameList);
+		mv.addObject("chname", chname);
+		mv.addObject("chmemberCount", chmemberCount);
+		mv.addObject("memberInfoByNumber", memberInfoByNumberList);
 		mv.setViewName("/admin/member-list");
 		return mv;
 	}
 	
-	
+
 }

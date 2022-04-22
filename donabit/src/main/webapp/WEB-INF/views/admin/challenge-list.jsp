@@ -111,7 +111,7 @@
 						<h3>완료 인원 : ${successMember[status.index]}/${dto.chmaxp}</h3>
 						<h3>달성률 : <fmt:formatNumber value="${checkCount[status.index] / dto.chmaxp}" type="percent"/></h3>
 						<h3>기부처 : ${dto.donateco}</h3>
-						<h3>기부 금액 : <fmt:formatNumber value="${dto.donatepay}" pattern="###,###"/></h3>
+						<h3>기부 금액 : <fmt:formatNumber value="${dto.donatepay}" pattern="###,###"/>원</h3>
 					</div>
 					<div class="admin_challenge_list_info">
 						<button id="deleteBtn">삭제하기</button>

@@ -48,42 +48,84 @@
             <br>
             </div>
             <div class="admin_member_searchbar">
-            	<span class="admin_member_result">조회 결과 : </span>
-            	<span class="admin_member_result"><b>${memberCount}</b>명 </span>
-	            <form class="admin_member_searchbar_orderby">
-	            	<label for="orderby">챌린지별 조회 : </label>
-	            	<select name="orderby">
-	            		<option value="">전체 조회</option>
+            	<c:if test="${param.chnum > 0}">
+	            	<span class="admin_member_result">챌린지명 : <b>${chname}</b>, </span>            	
+            	</c:if>
+            	
+				<c:choose>
+					<c:when test="${param.chnum == 0 || empty param}">
+		            	<span class="admin_member_result">조회 결과 : <b>${memberCount}</b>명</span>
+					</c:when>
+					<c:otherwise>
+		            	<span class="admin_member_result">조회 결과 : <b>${chmemberCount}</b>명</span>
+					</c:otherwise>
+				</c:choose>
+
+	            <form class="admin_member_searchbar_orderby" action="/admin/member-list" method="POST">
+	            	<select name="chnum" onchange="this.form.submit()">
+	            		<option>== 챌린지별 조회하기 ==</option>
+	            		<option value="0">전체 조회</option>
 	            		<c:forEach items="${chnameList}" var="namelist">
 	            			<option value="${namelist.chnum}">${namelist.chname}</option>
 	            		</c:forEach>
 	            	</select>
-	            	<button type="submit">검색</button>
+                	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	            </form>
             </div>
 				<div class="admin_member_table">
 					<div class="admin_member_table_row">
 						<div class="admin_member_table_cell">닉네임</div>
 						<div class="admin_member_table_cell">이메일</div>
-						<div class="admin_member_table_cell">참여중 챌린지 수</div>
-						<div class="admin_member_table_cell">완료 챌린지 수</div>
+						<c:choose>
+							<c:when test="${param.chnum == 0 || empty param}">
+				            	<div class="admin_member_table_cell">참여중 챌린지 수</div>
+								<div class="admin_member_table_cell">완료 챌린지 수</div>
+							</c:when>
+							<c:otherwise>
+				            	<div class="admin_member_table_cell">참여중/완료</div>
+							</c:otherwise>
+						</c:choose>
 						<div class="admin_member_table_cell">인증 횟수</div>
 						<div class="admin_member_table_cell">누적 신고 횟수</div>
 						<div class="admin_member_table_cell">레벨</div>
-						<div class="admin_member_table_cell">권한</div>
+						<c:choose>
+							<c:when test="${param.chnum == 0 || empty param}">
+				            	<div class="admin_member_table_cell">권한</div>
+							</c:when>
+							<c:otherwise>
+							</c:otherwise>
+						</c:choose>
+						
+						
 					</div>
-		           	<c:forEach items="${list}" var="dto" varStatus="status">
-						<div class="admin_member_table_row">
-							<div class="admin_member_table_cell">${dto.nickname}</div>
-							<div class="admin_member_table_cell">${dto.email}</div>
-							<div class="admin_member_table_cell">${challengingCount[status.index]}</div>
-							<div class="admin_member_table_cell">${successCount[status.index]}</div>
-							<div class="admin_member_table_cell">${checksCount[status.index]}</div>
-							<div class="admin_member_table_cell">신고444</div>
-							<div class="admin_member_table_cell">${dto.level}</div>
-							<div class="admin_member_table_cell">${dto.auth}</div>
-						</div>
-					</c:forEach>
+					
+					
+					<c:choose>
+						<c:when test="${param.chnum == 0 || empty param}">
+							<c:forEach items="${list}" var="dto" varStatus="status">
+								<div class="admin_member_table_row">
+									<div class="admin_member_table_cell">${dto.nickname}</div>
+									<div class="admin_member_table_cell">${dto.email}</div>
+					            	<div class="admin_member_table_cell">${challengingCount[status.index]}</div>
+									<div class="admin_member_table_cell">${successCount[status.index]}</div>
+									<div class="admin_member_table_cell">${checksCount[status.index]}</div>
+									<div class="admin_member_table_cell">${reportCount[status.index]}</div>
+									<div class="admin_member_table_cell">${dto.level}</div>
+									<div class="admin_member_table_cell">${dto.auth}</div>	
+								</div>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<c:forEach items="${memberInfoByNumber}" var="memberInfo" varStatus="infoStatus">
+								<div class="admin_member_table_cell">${memberInfo.memberDTO.nickname}</div>
+								<div class="admin_member_table_cell">${memberInfo.memberDTO.email}</div>
+								<div class="admin_member_table_cell">${memberInfo.personalpf}</div>
+								<div class="admin_member_table_cell">인증 횟수</div>
+								<div class="admin_member_table_cell">누적 신고 횟수</div>
+								<div class="admin_member_table_cell">${memberInfo.memberDTO.level}</div>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
 				</div>
  
         <div class="page_num_container">

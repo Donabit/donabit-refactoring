@@ -110,4 +110,22 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 	public int selectCheckCountByNickname(String nickname) {
 		return dao.selectCheckCountByNickname(nickname);
 	}
+
+
+	@Override
+	public int selectReportCountByNickname(String nickname) {
+		return dao.selectReportCountByNickname(nickname);
+	}
+
+
+	@Override
+	public String selectChallengeNameByNumber(int chnum) {
+		return dao.selectChallengeNameByNumber(chnum);
+	}
+
+
+	@Override
+	public List<ChallengingDTO> selectMemberInfoByNumber(int chnum) {
+		return dao.selectMemberInfoByNumber(chnum);
+	}
 }
