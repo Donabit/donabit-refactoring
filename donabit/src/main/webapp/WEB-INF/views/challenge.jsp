@@ -2,12 +2,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 	<!DOCTYPE html>
 	<html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<script src="jquery-3.6.0.min.js"></script>
 		<script type="text/javascript">
-		//location.href="http://localhost:8089/challenge"
+			//location.href="http://localhost:8089/challenge"
 			$(document).ready(function () {
 				$("#bbbb").on('click', function () {
 
@@ -29,14 +30,15 @@
 					});
 				});
 			});
-
-
-
-
-
 		</script>
 		<link rel="stylesheet" href="css/challenge.css">
 		<script src="js/challenge.js" type="text/javascript"></script>
+		<script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Source+Sans+Pro&display=swap"
+			rel="stylesheet">
+
 		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 			<style>
 				#bb {
@@ -53,29 +55,16 @@
 
 		<%@ include file="/WEB-INF/views/main_header.jsp" %>
 
+			<div class="stars-wrapper">
+				<div id='stars'></div>
+				<div id='stars2'></div>
+				<div id='stars3'></div>
+			</div>
+
 			<div class="container">
 
+
 				<div class="header">
-					<h2 style="display: inline">
-						<a href="http://localhost:8089/checkmorning">checkmorning /</a>
-					</h2>
-					<h2 style="display: inline">
-						<a href="http://localhost:8089/main">main /</a>
-					</h2>
-					<h2 style="display: inline">
-						<a href="http://localhost:8089/admin/make-a-challenge">make-a-challenge
-							/</a>
-					</h2>
-					<h2 style="display: inline">
-						<a href="http://localhost:8089/admin/challenge-list">challenge-list /</a>
-					</h2>
-					<h2 style="display: inline">
-						<a href="http://localhost:8089/checkmorninglist">checkmorninglist /</a>
-					</h2>
-					<h2 style="display: inline">
-						<a href="http://localhost:8089/checkcommunity">checkcommunity</a>
-					</h2>
-					<h1></h1>
 					<input class="inputsearch" id="aaaa" onkeyup="serchFunction();" type="text" size="20">
 					<button class="btnsearch" id="bbbb" onclick="serchFunction();" type="button">검색</button>
 				</div>
@@ -87,11 +76,28 @@
 						<c:forEach items="${challengelist }" var="dto">
 							<div class="item">
 								<div class="chimg">
-									<img src="/image/${dto.chimg }" height="200px" width="auto">
+									<img class="img" src="/image/${dto.chimg }">
 								</div>
 								<div class="chdetail">
-									<div>챌린지 번호 : ${dto.chnum }</div>
-									<div>챌린지 명 : ${dto.chname }</div>
+									<div>
+										<span>${dto.chnum }</span> <span>${dto.chname }</span>
+									</div>
+
+									<div>경험치 : ${dto.chexp}</div>
+									<div>개인성공조건 : ${dto.chsuccess }</div>
+									<div>chsdate ${dto.chsdate}</div>
+									<div>chedate ${dto.chedate}</div>
+									<form action="/challengedetail/${dto.chnum }" method="get">
+
+
+										<input type="submit" value="${dto.chnum }번 상세페이지"> <input type="hidden"
+											name="chnumdetail" value="${dto.chnum }">
+									</form>
+
+
+								</div>
+								<div class="chdetail2">
+
 									<div>
 										기부조건 : ${dto.checknum } / ${dto.chdonate }
 										<div>
@@ -99,37 +105,24 @@
 										</div>
 									</div>
 
-									<div>개인성공조건 : ${dto.chsuccess }</div>
-									<div>이미지 :${dto.chimg }</div>
-									<form action="/challengedetail/${dto.chnum }" method="get">
-					
-										<input type="submit" value="${dto.chnum }번 상세페이지">
-										<input type="hidden" name="chnumdetail" value="${dto.chnum }">
-									</form>
-
-
-								</div>
-								<div class="chdetail2">
-
-									<div>경험치 : ${dto.chexp}</div>
-
 									<c:forEach items="${challcount }" var="dto2">
 
 										<c:if test="${dto.chnum == dto2.chnum}">
 											<div>
 												최대모집 : ${dto2.nickname }/ ${dto.chmaxp}
-												<c:if test="${dto2.nickname == dto.chmaxp}">
-													<div>**최대인원 참여 불가능**</div>
-												</c:if>
+
 												<div>
 													<progress value="${dto2.nickname }" max="${dto.chmaxp}"></progress>
 												</div>
+												<c:if test="${dto2.nickname == dto.chmaxp}">
+													<div>**참여불가**</div>
+												</c:if>
 											</div>
 										</c:if>
 
 									</c:forEach>
-									<div>chsdate ${dto.chsdate}</div>
-									<div>chedate ${dto.chedate}</div>
+
+
 								</div>
 							</div>
 						</c:forEach>

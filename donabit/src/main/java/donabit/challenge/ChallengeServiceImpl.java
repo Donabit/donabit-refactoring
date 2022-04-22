@@ -46,9 +46,11 @@ public class ChallengeServiceImpl implements ChallengeService {
 		return 	dao.challengedetaillist2(chnumajax);
 	}
 
+	
+
 	@Override
-	public List<ChallengeDTO> selecttoggle(String nickname) {
-		return 	dao.selecttoggle(nickname);
+	public int selecttoggle(String nickname, String checkid) {
+		return dao.selecttoggle(nickname, checkid);
 	}
 
 	@Override
@@ -59,6 +61,16 @@ public class ChallengeServiceImpl implements ChallengeService {
 	@Override
 	public List<ChallengeDTO> checklist2() {
 		return dao.checklist2();
+	}
+
+	@Override
+	public int deletelikes(String nickname, String checkid) {
+		return dao.deletelikes(nickname, checkid);
+	}
+
+	@Override
+	public int totallike(String checkid) {
+		return dao.totallike(checkid);
 	}
 	
 	

@@ -229,6 +229,12 @@ public class ChallengeDTO {
 		this.checktime = checktime;
 	}
 
+	@Override
+	public String toString() {
+		
+		return " 제목 - " + checktitle + " 고유번호 - " + checkid;
+	}
+
 	
 	
 

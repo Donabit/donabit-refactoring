@@ -1,6 +1,7 @@
 package donabit.challenge;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -40,8 +41,8 @@ public class ChallengeController {
 		ModelAndView mv = new ModelAndView();
 		List<ChallengeDTO> list = service.challengelist();
 		List<ChallengeDTO> list2 = service.challcount();
-		mv.addObject("challcount", list2);
 		mv.addObject("challengelist", list); // "변수이름", "변수에 넣을 데이터"
+		mv.addObject("challcount", list2);
 		mv.setViewName("challenge"); // 뷰 이름 지정, jsp 이름
 		return mv; // jsp 보냄
 	}
@@ -84,28 +85,75 @@ public class ChallengeController {
 		return list;
 	}
 	
-	@PostMapping("likes")
+	//좋아요 클릭 ajax
+	@GetMapping("likesbefore")
 	@ResponseBody
-	public int likes(String nickname, String checkid) {
-		System.out.println(checkid + "= checkid");
-		System.out.println(nickname + "= nickname");
+	public List<ChallengeDTO> likesbefore(String nickname, String checkid) {
+		System.out.println(nickname + " 유저가" + checkid + "번 게시물의 좋아요를 누름");
 		service.insertlikes(nickname, checkid);
-		return 1;
+		List<ChallengeDTO> list = service.checklist2();
+		return list;
 	}
 	
+	//좋아요 해제 ajax
+		@GetMapping("likesafter")
+		@ResponseBody
+		public List<ChallengeDTO> likesafter(String nickname, String checkid) {
+			System.out.println(nickname + " 유저가" + checkid + "번 게시물의 좋아요를 해제");
+			service.deletelikes(nickname, checkid);
+			List<ChallengeDTO> list = service.checklist2();
+			return list;
+		}
+	
+		@GetMapping("totallikebefore")
+		@ResponseBody
+		public int totallikebefore(String checkid) {
+			System.out.println(checkid);
+			int totallike = service.totallike(checkid) + 1;
+			System.out.println(totallike +"좋아요 개수");
+			return totallike;
+		}
+		
+		
+		@GetMapping("totallikeafter")
+		@ResponseBody
+		public int totallikeafter(String checkid) {
+			System.out.println(checkid);
+			int totallike = service.totallike(checkid) - 1;
+			System.out.println(totallike +"좋아요 개수");
+			return totallike;
+		}
 	//인증 커뮤니티
 	@GetMapping("/checkcommunity")
 	public ModelAndView checkmorninglist(Authentication authentication) { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
 		ModelAndView mv = new ModelAndView(); 
 		List<ChallengeDTO> list = service.checklist2();
+		List<Integer> mylikeresult = new ArrayList<Integer>();
+		List<Integer> totallike = new ArrayList<Integer>();
+		
+		//if문 내부는 로그인을 한 상태일때
 		if(authentication != null) {
 			PrincipalDetails userDetails = (PrincipalDetails) authentication.getPrincipal();
 			String nickname = userDetails.getMemberdto().getNickname();
 			System.out.println(nickname); 
-			List<ChallengeDTO> list2 = service.selecttoggle(nickname);
-			mv.addObject("toggle", list2);
+			for(ChallengeDTO data: list) {
+				mylikeresult.add(service.selecttoggle(nickname, data.getCheckid()));
+				System.out.println(nickname + "가 로그인 중/" + data.getCheckid() +"=챌린지인증고유번호");
+			}
+			for(Integer i : mylikeresult) { 
+			    System.out.println(nickname+"가  "+i+"=하트누려면1 / 아니면0");
+			}
+			mv.addObject("toggle", mylikeresult);
 		}
 		
+		for(ChallengeDTO data: list) {
+			totallike.add(service.totallike(data.getCheckid()));
+		}
+		for(Integer i : totallike) { 
+		    System.out.println(i+"= 각 인증게시물의 전체 좋아요 수");
+		}
+		
+		mv.addObject("totallike", totallike);
 		mv.addObject("checklist", list);
 		mv.setViewName("ch-community"); // 뷰 이름 지정, jsp 이름
 		return mv; // jsp 보냄

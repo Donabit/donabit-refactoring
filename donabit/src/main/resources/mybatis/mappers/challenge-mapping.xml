@@ -99,11 +99,19 @@
 		challenging.chnum = #{chnumajax}
 	</delete>
 
-	<select id="selecttoggle" resultType="challengedto">
-		SELECT * FROM donabit.toggle where likes like #{nickname};
+	<select id="selecttoggle" parameterType="String" resultType="int">
+		SELECT count(*) FROM donabit.toggle where likes like #{nickname} and checkid like #{checkid};
 	</select>
 
 	<insert id="insertlikes" parameterType="String">
 		INSERT INTO toggle(likes, checkid) VALUES(#{nickname}, #{checkid});
 	</insert>
+	
+	<delete id="deletelikes" parameterType="String">
+		delete from donabit.toggle where toggle.likes like #{nickname} and toggle.checkid like #{checkid};
+	</delete>
+	
+	<select id="totallike" parameterType="String" resultType="int">
+		select count(*) from donabit.toggle where checkid like #{checkid};
+	</select>
 </mapper>
