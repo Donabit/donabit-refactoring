@@ -11,7 +11,8 @@ public interface CheckDAO {
 	 int insertCheck(CheckDTO dto);
 	 List<CheckDTO> checklist(String nickname, String chnum);
 	 int selectcountcheck(String nickname, String chnum);
-	 int selectchsuccess();
-	 int updatepersonalpf();
+	 int selectchsuccess(String chnum);
+	 int updatepersonalpf(String chnum);
 	 int selectchecktime(String nickname, String chnum);
+	 int deletecheck(CheckDTO dto);
 }

@@ -12,28 +12,34 @@
  <script>
 	window.onload = function(){
 	    document.getElementById("newwin").onclick = function(){
-	        window.open("/checkmorningform?chnum=<c:out value='${param.chnum}'/>","","width=600px,height=400px,top=200px;");
+	    	var windowW = 450;  // 창의 가로 길이
+	        var windowH = 500;  // 창의 세로 길이
+	        var left = Math.ceil((window.screen.width - windowW)/2);
+	        var top = Math.ceil((window.screen.height - windowH)/2);
+	        
+	        window.open("/checkmorningform?chnum=<c:out value='${param.chnum}'/>","","top="+top+", left="+left+", height="+windowH+", width="+windowW);
 	    }
 	};
 </script> 
 </head>
 <body>
-    <div class="containerflex">
+	<div class="chname">
+		<h2>🌈 ${chname} 🌈</h2><br>
+	</div>
+    <div class="containerflex">	
     	<div class="item">
     		<div class= "plusbutton">
-			<input id="newwin" type="button" name="" value="새창열기">
-    		
-    	<%-- 	<a href="/checkmorningform?chnum=${param.chnum}">
+    		<a href="#" onclick="return false" id="newwin" type="button">
 		  		<span style="color:#94DAFF">
 		  			<i class="fa fa-solid fa-plus fa-8x"></i>
 		  		</span>
-    		</a>  --%>
+    		</a>  
     		</div>
     	</div>
 				<c:forEach items="${checklist}" var="check">
 				  	<div class="item">
 				  		<div class="img">
-							<img src="/checkimage/${check.checkimg2}" height="300px" width="300px"><br>
+							<img class="imgin" src="/checkimage/${check.checkimg2}" height="300px" width="300px" ><br>
 				  		</div>
 				  		<div class="detail">
 							<b>${check.checktitle}</b>

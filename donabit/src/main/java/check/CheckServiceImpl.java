@@ -51,19 +51,34 @@ public class CheckServiceImpl implements CheckService {
 	}
 
 	@Override
-	public int selectchsuccess() {
-		return dao.selectchsuccess();
+	public int selectchsuccess(String chnum) {
+		return dao.selectchsuccess(chnum);
 	}
 
 	@Override
-	public int updatepersonalpf() {
-		return dao.updatepersonalpf();
+	public int updatepersonalpf(String chnum) {
+		return dao.updatepersonalpf(chnum);
 	}
 
 	@Override
 	public int selectchecktime(String nickname, String chnum) {
 		return dao.selectchecktime(nickname, chnum);
 	}
+
+	@Override
+	public String selectcheckname(String chname) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int deletecheck(CheckDTO dto) {
+		return dao.deletecheck(dto);
+	}
+
+
+
+
 
 
 	

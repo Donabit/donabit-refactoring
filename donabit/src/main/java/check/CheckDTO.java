@@ -4,7 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class CheckDTO {
 	String nickname, checktime, checktitle, checkdesc, checkimg2, checkid;
-	int chnum, checknum;
+	int chnum, checknum ;
 	MultipartFile checkimg;
 	
 	public String getCheckimg2() {

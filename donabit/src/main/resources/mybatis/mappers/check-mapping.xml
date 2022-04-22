@@ -21,15 +21,19 @@
 		SELECT count(*) FROM checks WHERE nickname LIKE #{nickname} AND chnum=#{chnum};
 	</select>
 	
-	<select id="selectchsuccess" resultType="int">
-		SELECT chsuccess FROM challenge WHERE chnum=2;
+	<select id="selectchsuccess" resultType="int" parameterType="String">
+		SELECT chsuccess FROM challenge WHERE chnum=#{chnum};
 	</select>
 	
-	<update id="updatepersonalpf" parameterType="int">
-		UPDATE challenging SET personalpf=1 WHERE chnum=2;
+	<update id="updatepersonalpf" parameterType="String">
+		UPDATE challenging SET personalpf=1 WHERE chnum=#{chnum};
 	</update>
 	
 	<select id="selectchecktime" resultType="int" parameterType="String"> <!-- 여기도 수정 닉네임 필요 -->
 		SELECT COUNT(*) FROM checks WHERE nickname LIKE #{nickname} AND DATE(checktime)=DATE(now()) AND chnum=#{chnum};
 	</select>
+	
+	<delete id="deletecheck" parameterType="checkdto">
+	    DELETE FROM checks WHERE checkid = #{checkid};
+	</delete>
 </mapper>

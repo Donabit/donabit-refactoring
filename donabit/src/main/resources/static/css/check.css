@@ -3,10 +3,10 @@
 
 /*업로드폼*/
 .check_container{
-	width: 1000px;
+	width: 450px;
     height: 300px;
-   	position: absolute;
-	left: 40%;
+/*  position: absolute;
+	left: 40%; */
 	display: table;
 }
 
@@ -57,6 +57,12 @@ textarea {
 }
 
 /*업로드리스트*/
+
+.chname {
+	text-align: center;
+	color: #94DAFF;
+	font-size:40px;
+}
 .containerflex {
   display: flex;
   flex-wrap: wrap;
@@ -79,5 +85,16 @@ textarea {
   top: 40%;
   left: 50%;
   margin: -50px 0 0 -50px;
+  opacity: 0.5;
 	
+}
+
+.plusbutton:hover{
+	 opacity: 1.0;
+	
+}
+
+.imgin{ 
+	border:2px solid  #94DAFF;
+	border-radius:5px;
 }

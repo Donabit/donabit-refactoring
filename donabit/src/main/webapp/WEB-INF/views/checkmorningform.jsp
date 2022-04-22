@@ -15,19 +15,19 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
- <script type="text/javascript">
-            function reload(){
-            	document.getElementById("checkmorningform").submit();
+<!--  <script type="text/javascript">
+            function reload(event){
+            		event.form.submit();
           			close();
 		           /*  window.open("about:blank", "_self").close(); //자식창 close
 		            this.window.opener.location.reload(); //새로고침 */
           	};
        
-</script>
+</script> -->
 </head>
 <body>
 	<div class="check_container">
-				<form action="/checkmorningform" method="post" enctype="multipart/form-data" id="checkmorningform" return false;>		
+				<form action="/checkmorningform" method="post" enctype="multipart/form-data" id="checkmorningform">		
 				
 				<input type=hidden name="chnum" value="${param.chnum}">
 				<input type=hidden id=nickname name="nickname" value="${principal.memberdto.nickname}"> 
@@ -59,7 +59,7 @@
 				</div>
 					
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 				
-				 <button class=upload_btn id="clickme" onclick="reload()" >업로드</button>
+				 <button class=upload_btn id="clickme" type="submit" >업로드</button>
 				<!-- <a href="#"  class=upload_btn id="clickme" onclick="document.getElementById('checkmorningform').submit();"> 업로드 </a> -->
 			
 							
