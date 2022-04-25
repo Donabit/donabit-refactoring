@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.management.modelmbean.ModelMBeanOperationInfo;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,9 +92,16 @@ public class CheckController {
 		mv.setViewName("checkmorning"); // 뷰 이름 지정, jsp 이름
 		return mv; // jsp 보냄
 	}
-
-
 	
-
+	@PostMapping("/deletecheck")
+	public void deletecheck(HttpServletResponse response , @RequestParam int checkid) throws IOException {
+		service.deletetoggle(checkid);
+		service.deletecheck(checkid);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print("<script>history.back()</script>");
+		out.flush();
+	}
+	
 	
 }

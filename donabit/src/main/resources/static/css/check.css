@@ -52,49 +52,119 @@ textarea {
 #uploadImage {
 	display: inline-block;
 	background-color: whitesmoke;
-	width: 10em;
-	height: 10em;
+	width: 8em;
+	height: 8em;
 }
 
+
 /*업로드리스트*/
+.chname{
+	display:flex;
+	align-items: center;
+	
+}
+
+.chnamebox{
+	
+	display: inline-block;
+}
+
+.rainbow{
+	transform: rotate(90deg);
+	display: inline-block;
+}
+
+.checktitle {
+    width: 100%;
+}
 
 .chname {
 	text-align: center;
 	color: #94DAFF;
 	font-size:40px;
 }
+
 .containerflex {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: start;
+  justify-content: start; 
   align-content: flex-start;
-  	position: absolute;
-	left: 10%;
+	width: 1500px;
+	
+ 
+}
+
+.containerflexbox{
+	text-align: center;
 }
 
 .item {
- width:300px;
- height:400px;
- margin:10px;
- position: relative;
+	 width:320px;
+	 height:450px;
+	 margin:20px;
+	 position: relative;
+	 border:2px solid #94DAFF;
+	 border-radius:20px;
 }
 
-.plusbutton{
+.delete_btn{
 	position: absolute;
-  top: 40%;
+  	top: 2%;
+  	left: 90%;
+}
+
+.img{
+	 text-align:center;
+	 margin:35px 10px 10px 10px;
+}
+
+.detail {
+	align-items: center;
+	position:relative;
+	height: 120px;
+}
+
+.detail_first{
+	 margin:10px 10px 10px 10px;
+}
+
+.detail_second{
+	position:absolute;
+	bottom:0px;
+	margin:10px 10px 10px 3px;
+}
+
+.delete_btn{
+	border: 0;
+	outline: 0;
+	background-color: white;
+	opacity: 0.5;
+}
+
+.delete_btn:hover{
+	border: 0;
+	outline: 0;
+	background-color: white;
+	opacity: 1.0;
+}
+
+
+
+.plus_btn{
+position: absolute;
+  top: 45%;
   left: 50%;
-  margin: -50px 0 0 -50px;
+ margin: -50px 0 0 -50px;
   opacity: 0.5;
 	
 }
 
-.plusbutton:hover{
+.plus_btn:hover{
 	 opacity: 1.0;
 	
 }
 
 .imgin{ 
-	border:2px solid  #94DAFF;
-	border-radius:5px;
+	border-radius:20px;
 }
