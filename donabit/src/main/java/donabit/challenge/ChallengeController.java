@@ -1,15 +1,14 @@
 package donabit.challenge;
 
-import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import check.CheckDTO;
 import check.CheckService;
-import joinlogin.MemberDTO;
 import joinlogin.PrincipalDetails;
 
 @Controller
@@ -37,18 +34,23 @@ public class ChallengeController {
 
 	//챌린지리스트 페이지
 	@RequestMapping("/challenge")
-	public ModelAndView challengelist() { // Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
+	public ModelAndView challengelist() throws ParseException { // Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
 		ModelAndView mv = new ModelAndView();
 		List<ChallengeDTO> list = service.challengelist();
 		List<ChallengeDTO> list2 = service.challcount();
-		mv.addObject("challengelist", list); // "변수이름", "변수에 넣을 데이터"
+		/*
+		 * SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); Date date =
+		 * formatter.parse("2022-04-24"); for(ChallengeDTO data: list) {
+		 * System.out.println(data.getChedate()); } System.out.println(date);
+		 */
+		mv.addObject("challengelist", list); 
 		mv.addObject("challcount", list2);
-		mv.setViewName("challenge"); // 뷰 이름 지정, jsp 이름
-		return mv; // jsp 보냄
+		mv.setViewName("challenge"); 
+		return mv; 
 	}
 	
 	//챌린지리스트에서 챌린지상세페이지 클릭 시 각 chnum 별로 넘어감
-	@GetMapping("challengedetail/{chnum}")
+	@GetMapping("challenge/{chnum}")
 	public ModelAndView challengelistdatail(@RequestParam int chnumdetail, Authentication authentication) {
 		ModelAndView mv = new ModelAndView();
 		//닉네임 세션 가져오기
@@ -57,11 +59,12 @@ public class ChallengeController {
 			String nickname = userDetails.getMemberdto().getNickname();
 			System.out.println(nickname +"가 로그인 중");
 			int result = service.challnickname(nickname, chnumdetail);
-			System.out.println(result +"= 로그인한 닉네임이 해당챌린지에 참여하고 있는지");
+			System.out.println(result +" = " + nickname + "(이)가 해당챌린지에 참여하고 있는다면 1 아니면 0");
 			mv.addObject("challnickname", result);
 			mv.addObject("nickname", nickname);
 		}else {
 			int result = 2; //로그아웃 상태
+			System.out.println("로그아웃 상태");
 			mv.addObject("challnickname", result);
 		}
 		List<ChallengeDTO> list = service.challengelist();
@@ -73,24 +76,22 @@ public class ChallengeController {
 		return mv;
 	}
 
-	//챌린지 상세페이지에서 ajax 요청
-	@PostMapping("participate")
+	//챌린지 상세페이지에서 ajax 요청(참여하기)
+	@GetMapping("participate")
 	@ResponseBody
-	public List<ChallengeDTO> chnumajax(String chnumajax, String nicknameajax) {
-		System.out.println(chnumajax);
-		System.out.println(nicknameajax);
-		service.insertChallengingAjax(chnumajax);
-		List<ChallengeDTO> list = service.challengedetaillist(chnumajax, nicknameajax);
+	public List<ChallengeDTO> chnumajax(String chnumajax, String nickname) {
+		System.out.println(nickname+"(이)가 "+ chnumajax + "번 챌린지에 참여신청");
+		service.insertChallengingAjax(chnumajax, nickname);
+		List<ChallengeDTO> list = service.challengedetaillist(chnumajax, nickname);
 		return list;
 	}
 	
 	//챌린지 상세페이지에서 ajax 요청(취소하기)
-	@PostMapping("cancel")
+	@GetMapping("cancel")
 	@ResponseBody
-	public List<ChallengeDTO> chnumajax2(String chnumajax, String nicknameajax) {
-		System.out.println(chnumajax);
-		System.out.println(nicknameajax);
-		service.deleteChallengingAjax(chnumajax, nicknameajax);
+	public List<ChallengeDTO> chnumajax2(String chnumajax, String nickname) {
+		System.out.println(nickname+"(이)가 "+ chnumajax + "번 챌린지에 참여취소");
+		service.deleteChallengingAjax(chnumajax, nickname);
 		List<ChallengeDTO> list = service.challengedetaillist2(chnumajax);
 		return list;
 	}
@@ -120,9 +121,8 @@ public class ChallengeController {
 	@GetMapping("totallikebefore")
 	@ResponseBody
 	public int totallikebefore(String checkid) {
-		System.out.println(checkid);
 		int totallike = service.totallike(checkid) + 1;
-		System.out.println(totallike +"좋아요 개수");
+		System.out.println("좋아요 수 " + totallike +"개");
 		return totallike;
 	}
 		
@@ -130,9 +130,8 @@ public class ChallengeController {
 	@GetMapping("totallikeafter")
 	@ResponseBody
 	public int totallikeafter(String checkid) {
-		System.out.println(checkid);
 		int totallike = service.totallike(checkid) - 1;
-		System.out.println(totallike +"좋아요 개수");
+		System.out.println("좋아요 수 " + totallike +"개");
 		return totallike;
 	}
 	/////////////////////////////////////////////////////////////////////

@@ -14,12 +14,12 @@ public interface ChallengeDAO {
 	public List<ChallengeDTO> challengelist();
 	public List<ChallengeDTO> challcount();
 	public int challnickname(String nickname, int chnumdetail);
-	public List<ChallengeDTO> challengedetaillist(String chnumajax, String nicknameajax);
+	public List<ChallengeDTO> challengedetaillist(String chnumajax, String nickname);
 	public List<ChallengeDTO> challengedetaillist2(String chnumajax);
 	int selecttoggle(String nickname, String checkid);
 	int selectsingo(String nickname, String checkid);
-	int deleteChallengingAjax(String chnumajax, String nicknameajax);
-	int insertChallengingAjax(String chnumajax);
+	int deleteChallengingAjax(String chnumajax, String nickname);
+	int insertChallengingAjax(String chnumajax, String nickname);
 	int insertlikes(String nickname, String checkid);
 	int insertsingo(String nickname, String checkid);
 	int deletelikes(String nickname, String checkid);

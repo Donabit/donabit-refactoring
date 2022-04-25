@@ -10,7 +10,7 @@
 		select challenge.chnum,
 		chname, chdonate, chdesc, chimg, chsuccess, chexp,
 		chmaxp, chsdate,
-		chedate, count(checknum) as checknum
+		chedate, count(checknum) as checknum, donatepay, donateco
 		from donabit.challenge
 		left join
 		donabit.checks
@@ -57,7 +57,7 @@
 		challenge.chnum = challenging.chnum
 		WHERE challenging.nickname
 		LIKE
-		#{nicknameajax} and challenging.chnum LIKE #{chnumajax};
+		#{nickname} and challenging.chnum LIKE #{chnumajax};
 	</select>
 
 	<select id="challengedetaillist2" resultType="challengedto">
@@ -78,13 +78,13 @@
 
 	<insert id="insertChallengingAjax" parameterType="String">
 		INSERT INTO
-		challenging(nickname, chnum, personalpf) VALUES('ccc', #{chnumajax},
+		challenging(nickname, chnum, personalpf) VALUES(#{nickname}, #{chnumajax},
 		0)
 	</insert>
 
 	<delete id="deleteChallengingAjax" parameterType="String">
 		delete from
-		donabit.challenging where challenging.nickname = #{nicknameajax} and
+		donabit.challenging where challenging.nickname = #{nickname} and
 		challenging.chnum = #{chnumajax}
 	</delete>
 
