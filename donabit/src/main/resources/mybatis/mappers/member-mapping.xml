@@ -13,7 +13,7 @@ values(#{email}, #{nickname}, #{password}, #{phone}, 1, 0)
 
 <update id="updatemember" parameterType="memberdto">
 update member
-set phone=#{phone}, nickname=#{nickname}
+set phone=#{phone}, nickname=#{nickname}, avatar=#{avatar}
 where email=#{email}
 </update>
 

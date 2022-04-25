@@ -45,7 +45,44 @@
 <div class="boxes">
 <div class="profilebox">
 	<div class="profile-wrapper">
-		<img class=profileimg src="/img/caticon1.jpg">		
+<c:choose>
+	<c:when test = "${principal.memberdto.avatar eq 'slime' }">
+		<c:choose>
+			<c:when test = "${principal.memberdto.level eq '0'}">   
+			<img class=profileimg src="/img/slime1.jpg">	
+			</c:when>
+			<c:when test = "${principal.memberdto.level eq '1'}">   
+				<img class=profileimg src="/img/slime2.jpg">	
+			</c:when>
+			<c:when test = "${principal.memberdto.level eq '2'}">   
+				<img class=profileimg src="/img/slime3.jpg">	
+			</c:when>
+			<c:otherwise>
+				<img class=profileimg src="/img/slime3.jpg">
+			</c:otherwise>
+		</c:choose>
+	</c:when>	
+	<c:when test = "${principal.memberdto.avatar eq 'human' }">
+		<c:choose>
+			<c:when test = "${principal.memberdto.level eq '0'}">   
+			<img class=profileimg src="/img/human1.jpg">	
+			</c:when>
+			<c:when test = "${principal.memberdto.level eq '1'}">   
+				<img class=profileimg src="/img/human2.jpg">	
+			</c:when>
+			<c:when test = "${principal.memberdto.level eq '2'}">   
+				<img class=profileimg src="/img/human3.jpg">	
+			</c:when>
+			<c:otherwise>
+				<img class=profileimg src="/img/human3.jpg">
+			</c:otherwise>
+		</c:choose>
+	</c:when>	
+	<c:otherwise>
+	<img class=profileimg src="/img/test.jpg">
+	</c:otherwise>
+</c:choose>
+
 	</div>
 	<div class="nick-level">
 	<h1>${principal.memberdto.nickname}</h1>

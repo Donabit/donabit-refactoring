@@ -63,6 +63,11 @@ $(document).ajaxSend(function (e, xhr, options) {
  <div class="phone">
  <h5>변경할 휴대폰번호</h5><input type=text value="${principal.memberdto.phone}" name=phone ><br>
  </div>
+ <div class="avatar">
+ <h5>아바타 타입선택</h5>
+ <input type="radio" id=avatar1 name="avatar" value="slime"><label for="avatar1">슬라임</label>
+ <input type="radio" id=avatar2 name="avatar" value="human"><label for="avatar2">인간</label><br>
+ </div>
  <br>
   <hr/>
   <br>
