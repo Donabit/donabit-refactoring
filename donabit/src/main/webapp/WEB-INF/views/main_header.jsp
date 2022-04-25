@@ -31,7 +31,7 @@
 <header> 
 	<div class="header_container">
 		<div class="logo_container">
-		<a href="./main"><img src="/img/logo_m.png"></a>
+		<a href="http://localhost:8089/main"><img src="/img/logo_m.png"></a>
 
 </div>
 	<div class="nav_container" id="nav_menu">
@@ -44,7 +44,7 @@
 	<li class="menu_2"><a class="menu_title" href="/challenge">챌린지</a>
 </li>
 
-	<li class="menu_3"><a class="menu_title" href="community.jsp">커뮤니티</a>
+	<li class="menu_3"><a class="menu_title" href="/checkcommunity">커뮤니티</a>
 </li>
 
 	<li class="menu_4"><a class="menu_title" href="/notice"> 공지사항 </a>
@@ -77,8 +77,7 @@
 </div>
 </div>
 
-<hr class="one">
-<br>
+
 </header>
 
 <!-- <header>

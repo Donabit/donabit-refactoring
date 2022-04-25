@@ -27,18 +27,18 @@ public class ChallengeServiceImpl implements ChallengeService {
 	}
 
 	@Override
-	public int insertChallengingAjax(String chnumajax) {
-		return dao.insertChallengingAjax(chnumajax);
+	public int insertChallengingAjax(String chnumajax, String nickname) {
+		return dao.insertChallengingAjax(chnumajax, nickname);
 	}
 
 	@Override
-	public List<ChallengeDTO> challengedetaillist(String chnumajax , String nicknameajax) {
-		return 	dao.challengedetaillist(chnumajax, nicknameajax);
+	public List<ChallengeDTO> challengedetaillist(String chnumajax , String nickname) {
+		return 	dao.challengedetaillist(chnumajax, nickname);
 	}
 
 	@Override
-	public int deleteChallengingAjax(String chnumajax, String nicknameajax) {
-		return dao.deleteChallengingAjax(chnumajax, nicknameajax);
+	public int deleteChallengingAjax(String chnumajax, String nickname) {
+		return dao.deleteChallengingAjax(chnumajax, nickname);
 	}
 
 	@Override

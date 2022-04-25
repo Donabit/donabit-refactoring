@@ -33,8 +33,8 @@
 						//$("#participatebtn").click(function () {
 						$.ajax({
 							url: "/participate", // 호출할 주소
-							data: { 'chnumajax': $("#chnumajax").val(), 'nicknameajax': $("#nicknameajax").val() }, // 넘길 데이터
-							type: 'post',
+							data: { 'chnumajax': $("#chnumajax").val(), 'nickname': $("#nicknameajax").val() }, // 넘길 데이터
+							type: 'get',
 							dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
 							success: function (list) { // 결과 받기
 								console.log(list);
@@ -64,8 +64,8 @@
 						if(con_test == true){				
 						$.ajax({
 							url: "/cancel", // 호출할 주소
-							data: { 'chnumajax': $("#chnumajax").val(), 'nicknameajax': $("#nicknameajax").val() }, // 넘길 데이터
-							type: 'post',
+							data: { 'chnumajax': $("#chnumajax").val(), 'nickname': $("#nicknameajax").val() }, // 넘길 데이터
+							type: 'get',
 							dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
 							success: function (list) { // 결과 받기
 								console.log('취소');
@@ -125,6 +125,8 @@
 							<div>개인성공조건 : ${dto.chsuccess }</div>
 							<div>이미지 :${dto.chimg }</div>
 							<div>경험치 : ${dto.chexp}</div>
+							<div>기부금액 : ${dto.donatepay}</div>
+							<div>기부처 : ${dto.donateco}</div>
 							<!-- 챌린지 전체참여 인원과 참여중인 챌린지번호 리스트 -->
 							<c:forEach items="${challcount }" var="dto2">
 								<!-- 현재 챌린지 번호같은 챌린지의 전체참여 인원 -->
@@ -201,10 +203,9 @@
 										</c:if>
 									</c:if>
 								</c:forEach>
-								<!-- <button id="participatebtn" type="button">참여하기</button> -->
 								<input type="hidden" id="chnumajax" name="chnumajax" value="${dto.chnum}">
 								<!-- 추후 session -->
-								<input type="hidden" id="nicknameajax" name="nicknameajax" value="ccc">
+								<input type="hidden" id="nicknameajax" name="nicknameajax" value="${principal.memberdto.nickname}">
 							</div> <!-- 참여하기 or 참여취소 -->
 						</div> <!-- button-->
 						<div class="footer"></div>

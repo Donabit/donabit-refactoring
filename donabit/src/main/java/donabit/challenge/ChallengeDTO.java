@@ -1,13 +1,16 @@
 package donabit.challenge;
 
 public class ChallengeDTO {
-	String chnum, chnum2, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum, nickname, nickname2, personalpf, checkid, like, report,checktitle, checkdesc, checkimg2, checktime;
+	String chnum, chnum2, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum, donatepay, donateco, nickname, nickname2, personalpf, checkid, like, report,checktitle, checkdesc, checkimg2, checktime;
 	
 	public ChallengeDTO() {}
 
+	
+
+
 	public ChallengeDTO(String chnum, String chnum2, String chname, String chdonate, String chdesc, String chimg, String chsuccess, String chexp,
-			String chmaxp, String chsdate, String chedate, String checknum, String nickname, String nickname2, String personalpf, String checkid,
-			String like, String report) {
+			String chmaxp, String chsdate, String chedate, String checknum, String donatepay, String donateco, String nickname, String nickname2,
+			String personalpf, String checkid, String like, String report, String checktitle, String checkdesc, String checkimg2, String checktime) {
 		super();
 		this.chnum = chnum;
 		this.chnum2 = chnum2;
@@ -21,16 +24,19 @@ public class ChallengeDTO {
 		this.chsdate = chsdate;
 		this.chedate = chedate;
 		this.checknum = checknum;
+		this.donatepay = donatepay;
+		this.donateco = donateco;
 		this.nickname = nickname;
 		this.nickname2 = nickname2;
 		this.personalpf = personalpf;
 		this.checkid = checkid;
 		this.like = like;
 		this.report = report;
+		this.checktitle = checktitle;
+		this.checkdesc = checkdesc;
+		this.checkimg2 = checkimg2;
+		this.checktime = checktime;
 	}
-
-
-
 
 
 
@@ -232,7 +238,28 @@ public class ChallengeDTO {
 	@Override
 	public String toString() {
 		
-		return " 제목 - " + checktitle + " 고유번호 - " + checkid;
+		return  chnum + "/" + chsdate + "/" + chedate;
+	}
+
+	public String getDonatepay() {
+		return donatepay;
+	}
+
+
+
+
+	public void setDonatepay(String donatepay) {
+		this.donatepay = donatepay;
+	}
+
+
+	public String getDonateco() {
+		return donateco;
+	}
+
+
+	public void setDonateco(String donateco) {
+		this.donateco = donateco;
 	}
 
 	
