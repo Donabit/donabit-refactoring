@@ -32,6 +32,17 @@
 			padding: 1em;
 		}
 		
+		.admin_challenge_container {
+			height: 720px;
+		}
+		
+		.admin_sidebar_list:nth-child(3) {
+			background-color: #99FFCD;
+		}
+
+		a[href="challenge-list"] {
+			color: black;
+		}
     </style>
     <script type="text/javascript">
        	function goPost(page) {
@@ -94,7 +105,7 @@
             <br>
             <hr style="border: 1px solid black;">
             <br>
-            </div>
+
             <div class="admin_challenge_container">
            	<c:forEach items="${list}" var="dto" varStatus="status">
        			<form class="admin_challenge_list" action="javascript:confirmRemove('${dto.chname}', ${dto.chnum}, ${challengingMember[status.index]})">
@@ -119,10 +130,11 @@
 				</form>
 			</c:forEach>
  			</div>
-        <div class="page_num_container">
-        	<c:forEach begin="1" end="${pageNum}" var="i">
-        		<a href="javascript:goPost('${i}')"><span class="page_num">${i}</span></a>
-        	</c:forEach>
+	        <div class="page_num_container">
+	        	<c:forEach begin="1" end="${pageNum}" var="i">
+	        		<a href="javascript:goPost('${i}')"><span class="page_num">${i}</span></a>
+	        	</c:forEach>
+	        </div>
         </div>
     </main>
  

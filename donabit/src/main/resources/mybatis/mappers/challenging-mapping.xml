@@ -15,12 +15,23 @@
 		<result column="personalpf" property="personalpf" />
 		<collection property="memberDTO" resultMap="MemberDTO" />
 	</resultMap>
-
 	
-
-
-
 	
+	<resultMap type="checkdto" id="CheckDTO">
+		<result column="checkid" property="checkid" />
+		<result column="chnum" property="chnum" />
+		<result column="nickname" property="nickname" />
+		<result column="checktime" property="checktime" />
+		<result column="checktitle" property="checktitle" />
+		<result column="checkdesc" property="checkdesc" />
+		<result column="checkimg" property="checkimg2" />
+	</resultMap>
+
+	<resultMap type="reportdto" id="ReportDTO">
+		<result column="report" property="report" />
+		<collection property="checkDTO" resultMap="CheckDTO" />
+	</resultMap>
+
  	<insert id="insertChallenge" parameterType="ChallengeDTO2">
 	 	INSERT INTO challenge(chname, chdesc, chimg, chsuccess, chdonate, chexp, chmaxp, chsdate, chedate, donatepay, donateco) 
 	 	VALUES(#{chname}, #{chdesc}, #{chimgname}, #{chsuccess}, #{chdonate}, #{chexp}, #{chmaxp}, #{chsdate}, #{chedate}, #{donatepay}, #{donateco})
@@ -85,4 +96,18 @@
 	<select id="selectMemberInfoByNumber" parameterType="int" resultMap="ChallengingDTO">
 		SELECT member.nickname AS nickname, email, level, challenging.personalpf AS personalpf FROM member LEFT JOIN challenging ON member.nickname = challenging.nickname WHERE chnum = #{chnum}
 	</select>
+	
+	<select id="selectEachReportCountByNumber" parameterType="String" resultType="int">
+		SELECT count(#{nickname}) FROM checks LEFT JOIN toggle ON checks.checkid = toggle.checkid WHERE chnum = #{chnum}
+	</select>
+	
+	<select id="selectEachCheckCountByNumber" parameterType="String" resultType="int">
+		SELECT count(#{nickname}) FROM checks WHERE chnum = #{chnum}
+	</select>
+	
+	<select id="selectReportCountMore10" resultMap="ReportDTO">
+		SELECT checks.checkid AS checkid, nickname, chnum, checktime, checktitle, checkdesc, checkimg, count(toggle.report) AS report 
+		FROM donabit.checks JOIN donabit.toggle ON checks.checkid = toggle.checkid;
+	</select>
+	
 </mapper>

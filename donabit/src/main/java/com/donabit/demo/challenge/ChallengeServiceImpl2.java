@@ -31,7 +31,7 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 	private void fileUpload(MultipartFile mpf, String renameFilename) {
 		String path = "/Users/bigchan/upload/";
 		String path2 = "D:\\donabitimage/";
-		File uploadFile = new File(path2 + renameFilename);
+		File uploadFile = new File(path + renameFilename);
 		try {
 			mpf.transferTo(uploadFile);
 		} catch (IllegalStateException | IOException e) {
@@ -139,5 +139,11 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 	@Override
 	public int selectEachCheckCountByNumber(String chnum, String nickname) {
 		return dao.selectEachCheckCountByNumber(chnum, nickname);
+	}
+
+
+	@Override
+	public List<ReportDTO> selectReportCountMore10() {
+		return dao.selectReportCountMore10();
 	}
 }

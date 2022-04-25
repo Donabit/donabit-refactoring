@@ -36,6 +36,13 @@
 			margin-bottom: 1em;
 		}
 		
+		.admin_sidebar_list:nth-child(4) {
+			background-color: #94DAFF;
+		}
+
+		a[href="member-list"] {
+			color: black;
+		}
     </style>
 </head>
 <body>
@@ -49,7 +56,7 @@
             </div>
             <div class="admin_member_searchbar">
             	<c:if test="${param.chnum > 0}">
-	            	<span class="admin_member_result">챌린지명 : <b>${chname}</b>, </span>            	
+	            	<span class="admin_member_result">챌린지명 : <b>${chname}</b> / </span>            	
             	</c:if>
             	
 				<c:choose>
@@ -119,9 +126,16 @@
 							<c:forEach items="${memberInfoByNumber}" var="memberInfo" varStatus="infoStatus">
 								<div class="admin_member_table_cell">${memberInfo.memberDTO.nickname}</div>
 								<div class="admin_member_table_cell">${memberInfo.memberDTO.email}</div>
-								<div class="admin_member_table_cell">${memberInfo.personalpf}</div>
-								<div class="admin_member_table_cell">인증 횟수</div>
-								<div class="admin_member_table_cell">누적 신고 횟수</div>
+								<div class="admin_member_table_cell">
+									<c:if test="${memberInfo.personalpf == 0}">
+										참여중
+									</c:if>
+									<c:if test="${memberInfo.personalpf == 1}">
+										완료
+									</c:if>
+								</div>
+								<div class="admin_member_table_cell">${memberChecksByNumber[infoStatus.index]}</div>
+								<div class="admin_member_table_cell">${memberReportByNumber[infoStatus.index]}</div>
 								<div class="admin_member_table_cell">${memberInfo.memberDTO.level}</div>
 							</c:forEach>
 						</c:otherwise>

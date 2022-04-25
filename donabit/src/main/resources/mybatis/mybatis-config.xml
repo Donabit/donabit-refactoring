@@ -11,6 +11,8 @@
 	<typeAlias type="joinlogin.MemberDTO" alias="memberdto"/>
 	<typeAlias type="com.donabit.board.BoardDTO" alias="boarddto"/>
 	<typeAlias type="com.donabit.demo.challenge.ChallengingDTO" alias="challengingdto"/>
+	<typeAlias type="com.donabit.demo.challenge.ReportDTO" alias="reportdto"/>
+	
 	
 </typeAliases>
 

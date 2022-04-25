@@ -32,7 +32,7 @@ public class BoardController {
 	        
 	    }
 	    
-	    @GetMapping("board/enroll")
+	    @GetMapping("/admin/board-enroll")
 	 // => @RequestMapping(value="enroll", method=RequestMethod.GET)
 	    public void boardEnrollGET() {
 	        

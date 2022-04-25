@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+a, a:hover, a:link, a:visited {
+	text-decoration: none;
+}
+
 .admin_main_container {
     padding: 2em;
     height: 66em;
@@ -15,14 +19,40 @@
     float: left;
     height: 70em;
     width: 320px;
-    background-color: darkgrey;
+    background-color: lightgrey;
     
 }
 
-.admin_sidebar_list {
-    padding: 1em;
+.admin_sidebar_header {
+	text-align: center;
 }
 
-.admin_sidebar_list:hover {
-    background-color: dimgray;
+.admin_sidebar_list_links {
+	color: dimgray;
+	display: block;
+	padding: 1em 0 1em 2em;
+}
+
+.admin_sidebar_list_links:hover {
+	color: black;
+}
+
+.admin_sidebar_list:nth-child(1):hover{
+	background-color: #FF85B3;
+}
+
+.admin_sidebar_list:nth-child(2):hover{
+	background-color: #FFD36E;
+}
+
+.admin_sidebar_list:nth-child(3):hover{
+	background-color: #99FFCD;
+}
+
+.admin_sidebar_list:nth-child(4):hover{
+	background-color: #94DAFF;
+}
+
+.admin_sidebar_list:nth-child(5):hover{
+	background-color: #B983FF;
 }

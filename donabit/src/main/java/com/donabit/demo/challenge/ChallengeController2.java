@@ -100,6 +100,13 @@ public class ChallengeController2 {
 		String chname = service.selectChallengeNameByNumber(chnum);
 		int chmemberCount = service.selectChallengingMemberCount(chnum);
 		List<ChallengingDTO> memberInfoByNumberList = service.selectMemberInfoByNumber(chnum);
+		List<Integer> memberReportByNumber = new ArrayList<Integer>();
+		List<Integer> memberChecksByNumber = new ArrayList<Integer>();
+
+		for(ChallengingDTO i : memberInfoByNumberList) {
+				memberReportByNumber.add(service.selectEachReportCountByNumber(Integer.toString(chnum), i.memberDTO.getNickname()));
+				memberChecksByNumber.add(service.selectEachCheckCountByNumber(Integer.toString(chnum), i.memberDTO.getNickname()));
+		}
 		mv.addObject("list", list);
 		mv.addObject("memberCount", memberCount);
 		mv.addObject("challengingCount", challengingCountList);
@@ -110,9 +117,24 @@ public class ChallengeController2 {
 		mv.addObject("chname", chname);
 		mv.addObject("chmemberCount", chmemberCount);
 		mv.addObject("memberInfoByNumber", memberInfoByNumberList);
+		mv.addObject("memberReportByNumber", memberReportByNumber);
+		mv.addObject("memberChecksByNumber", memberChecksByNumber);
 		mv.setViewName("/admin/member-list");
 		return mv;
 	}
 	
-
+	@GetMapping("/report")
+	public ModelAndView reportlist() {
+		ModelAndView mv = new ModelAndView();
+		List<String> chnameList = new ArrayList<String>();
+		List<ReportDTO> list = service.selectReportCountMore10();
+		for(ReportDTO i : list) {
+			chnameList.add(service.selectChallengeNameByNumber(i.getCheckDTO().getChnum()));
+		}
+		mv.addObject("list", list);
+		mv.addObject("chname", chnameList);
+		mv.setViewName("/admin/report");
+		return mv;
+		
+	}
 }
