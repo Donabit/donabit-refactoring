@@ -53,6 +53,33 @@ input{
 
 
 
+.avatar {
+   width: 50%;
+}
+.avatar input[type=radio]{
+    display: none;
+}
+.avatar input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 90px;
+    border: 1px dotted rgba(255,133,179,1);
+    line-height: 24px;
+    text-align: center;
+    font-weight:bold;
+    font-size:13px;
+}
+.avatar input[type=radio]+label{
+    background-color: #fff;
+    color: rgba(255,133,179,1);
+}
+.avatar input[type=radio]:checked+label{
+    background-color: rgba(255,133,179,1);
+    color: #fff;
+}
+
+
 .btn-gradient { 
 	
 	text-decoration: none;
@@ -114,6 +141,6 @@ hr {
 	border-bottom : white;
 }
 
-h1, h5{
+h1, h5, p{
 	color:#fc5192;
 }
