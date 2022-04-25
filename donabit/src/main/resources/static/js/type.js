@@ -74,7 +74,7 @@
     var imax2 = typeing2.length;
 
     //setInterval을 이용해 반복적으로 출력 
-    var inter = setInterval(typi,150);
+    var inter = setInterval(typi,100);
     var inter2;
 
 
@@ -101,7 +101,7 @@
           setTimeout(function(){             
              resultDiv2.classList.add("cursor");
              setTimeout(function(){
-                inter2 = setInterval(typi2,150);
+                inter2 = setInterval(typi2,100); //속도
              },400);
            },300);
          },400);

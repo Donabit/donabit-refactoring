@@ -43,11 +43,10 @@ jQuery(function($) {
 
 <div class="carousel-container">
   <div class="carousel-slide">
-    <img src="img/3.png" id="lastClone">
-    <img src="img/1.png">
-    <img src="img/2.png">
-    <img src="img/3.png">
-    <img src="img/1.png" id="firstClone">
+    <img src="img/main_img_1.jpg" id="lastClone">
+    <img src="img/main_img_1.jpg">
+    <img src="img/main_img_2.png">
+    <img src="img/main_img_1.jpg" id="firstClone">
   </div>
   <button id="prevBtn"><i class="fa-solid fa-angle-left"></i></button>
   <button id="nextBtn"><i class="fa-solid fa-angle-right"></i></button>
@@ -195,6 +194,22 @@ jQuery(function($) {
 </div>
 
 <%@ include file="/WEB-INF/views/main_footer.jsp" %>
+
+<!-- Tocplus 15.1 -->
+<script type="text/javascript">
+tocplusTop=1150;
+tocplusLeft=5;
+tocplusMinimizedImage='http://kr07.tocplus007.com/img/minimized_ko.gif';
+tocplusHAlign='right';
+tocplusWidth=180;
+tocplusHeight=220;
+tocplusUserName='회원';
+tocplusFrameColor='#FF85B3';
+tocplusFloatingWindow=true;
+var tocplusHost = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%"+"3Cscript src='" + tocplusHost + "kr07.tocplus007.com/chatLoader.do?userId=donabit' type='text/javascript'"+"%"+"3E"+"%"+"3C/script"+"%"+"3E"));
+</script>
+<!-- End of Tocplus -->
 
 </body>
 </html>

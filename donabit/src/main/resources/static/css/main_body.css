@@ -6,7 +6,6 @@
   border: 0px solid #000;
   overflow: hidden;
   position: relative;
-
 }
 
 .carousel-slide{
@@ -17,12 +16,13 @@
 }
 
 .carousel-slide img{
-  max-width: 100%;
+  max-width: auto;
   height: auto;
   display: block;
 }
 
 #prevBtn{
+  font-size: 50px;
   position:absolute;
   top: 50%;
   left: 0;
@@ -30,6 +30,7 @@
 }
 
 #nextBtn{
+  font-size: 50px;
   position:absolute;
   top: 50%;
   right: 0;
@@ -58,8 +59,6 @@ p.result1,p.result2{
 	box-sizing: border-box;
 	padding: 0;
 	margin: 5px;
-	
-	font-family: 'Nanum Pen Script';
 	font-weight: bold;
 
 }
