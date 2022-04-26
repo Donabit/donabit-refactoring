@@ -41,7 +41,8 @@
 
 </head>
 <body>
-
+${level }
+${expsum }
 <div class="boxes">
 <div class="profilebox">
 	<div class="profile-wrapper">

@@ -1,36 +1,151 @@
 @charset "UTF-8";
 
 /*업로드리스트*/
+
+.container {
+	width: 1400px;
+	margin: 50px auto 100px auto;
+}
+
 .containerflex {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: start;
-  align-content: flex-start;
-  border: gainsboro;
-  background-color: rgb(255, 211, 200);
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: start;
+	align-content: flex-start
 }
 
 .item {
-  width: 300px;
-  height: 400px;
-  margin: 10px;
-  position: relative;
-  background-color: rgb(236, 229, 201);
+	border-radius: 10px;
+	width: 300px;
+	height: 470px;
+	margin: 20px;
+	position: relative;
+
+	border: solid #BDBDBD 1px;
+	box-shadow: 3px 8px 5px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+
+
+	background-image: url('../img/challenge/back2.svg');
 }
 
 .checkdesc {
-  background-color: rgb(200, 235, 193);
+	position: absolute;
+	left: 15px;
+	top: 410px;
+	font-size: 17px;
+	margin-right: 13px;
 }
 
 .title {
-  background-color: rgb(175, 204, 238);
+	position: absolute;
+	left: 15px;
+	top: 380px;
+	font-size: 17px;
+	margin-right: 13px;
+}
+
+.time {
+	position: absolute;
+	left: 180px;
+	top: 355px;
+	font-size: 12px;
 }
 
 .divbtn {
-  background-color: rgb(223, 187, 240);
-  position: absolute;
-  top:370px;
+	background-color: rgb(223, 187, 240);
+	position: absolute;
+	top: 347px;
+}
+
+.nickname {
+	position: absolute;
+	left: 50px;
+	top: 8px;
+	font-size: 18px;
+}
+
+.nicknameout {
+	height: 40px;
+}
+
+.singosu {
+	position: absolute;
+	left: 87px;
+	top: -1px;
+	font-size: 18px;
+}
+
+.singoafterbtn {
+	position: absolute;
+	left: 54px;
+	top: -3px;
+	font-size: 18px;
+}
+
+.singobeforebtn {
+	position: absolute;
+	left: 54px;
+	top: -3px;
+	font-size: 18px;
+}
+
+.likesu {
+	position: absolute;
+	left: 40px;
+	top: -1px;
+	font-size: 18px;
+}
+
+.likeafterbtn {
+	position: absolute;
+	left: 10px;
+	top: 0px;
+	font-size: 18px;
+}
+
+.likebeforebtn {
+	position: absolute;
+	left: 10px;
+	top: 0px;
+	font-size: 18px;
+}
+
+.btn1 {
+	position: absolute;
+	left: 10px;
+	top: 0px;
+	font-size: 18px;
 }
 
 
+.btn2 {
+	position: absolute;
+	left: 54px;
+	top: -3px;
+	font-size: 18px;
+}
+
+
+.avatar {
+	position: absolute;
+	left: 3px;
+	top: 0px;
+}
+
+.box {
+    width: 30px;
+    height: 30px; 
+    border-radius: 70%;
+    overflow: hidden;
+    position: absolute;
+	left: 10px;
+	top: 4px;
+	border: solid #BDBDBD 1px;
+}
+
+#coimg {
+	width: 100%;
+}

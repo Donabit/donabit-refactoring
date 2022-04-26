@@ -97,10 +97,14 @@ public class ChallengeServiceImpl implements ChallengeService {
 		return dao.totalsingo(checkid);
 	}
 
-	
+	@Override
+	public int[] selectexp(String nickname) {
+		return dao.selectexp(nickname);
+	}
 
+	@Override
+	public int[] selectlevel() {
+		return dao.selectlevel();
+	}
 	
-	
-	
-
 }

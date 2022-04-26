@@ -131,7 +131,7 @@
     left: 80px;
     top: 0px;
     font-size: 16px;
-    width:200px;
+    width: 200px;
 }
 
 .chdetail2 {
@@ -151,6 +151,7 @@
     top: 93px;
 }
 
+/*버튼*/
 .button {
     background: #f38e9f;
     /*글자색*/
@@ -163,6 +164,7 @@
     cursor: pointer;
     transition: 400ms ease all;
     outline: none;
+    text-shadow: 0.5px 0.5px 0.5px rgb(59, 59, 59);
 }
 
 .button:hover {
@@ -195,7 +197,51 @@
     transition: 800ms ease all;
 }
 
+/*========================================*/
+.button2 {
+    background: #dce743;
+    /*글자색*/
+    color: rgb(255, 255, 255);
+    border: none;
+    position: relative;
+    height: 30px;
+    font-size: 20px;
+    padding: 0 10px;
+    cursor: pointer;
+    transition: 400ms ease all;
+    outline: none;
+    text-shadow: 1px 1px 1px rgb(150, 150, 150);
+}
 
+.button2:hover {
+    background: rgb(243, 252, 179);
+    color: #cce203;
+}
+
+.button2:before,
+.button2:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #dce743;
+    transition: 400ms ease all;
+}
+
+.button2:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+.button2:hover:before,
+.button2:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+}
 
 #challenge1 {
     width: 100%;

@@ -11,10 +11,12 @@
 		chname, chdonate, chdesc, chimg, chsuccess, chexp,
 		chmaxp, chsdate,
 		chedate, count(checknum) as checknum, donatepay, donateco
-		from donabit.challenge
+		from
+		donabit.challenge
 		left join
 		donabit.checks
-		on challenge.chnum = checks.chnum
+		on challenge.chnum =
+		checks.chnum
 		group by
 		challenge.chnum
 	</select>
@@ -34,14 +36,18 @@
 
 	<select id="challnickname" resultType="int">
 		SELECT count(*)
-		FROM donabit.challenging
+		FROM
+		donabit.challenging
 		where challenging.nickname
 		in
-		(#{nickname}) and challenging.chnum like #{chnumdetail};
+		(#{nickname}) and
+		challenging.chnum like #{chnumdetail};
 	</select>
 
 	<select id="checklist2" resultType="challengedto">
-		SELECT checkid, checktitle, checkdesc, checkimg AS checkimg2, checktime FROM checks ORDER BY checktime DESC
+		SELECT nickname, checkid,
+		checktitle, checkdesc, checkimg AS checkimg2, checktime FROM checks
+		ORDER BY checktime DESC
 	</select>
 
 	<select id="challengedetaillist" resultType="challengedto">
@@ -78,7 +84,8 @@
 
 	<insert id="insertChallengingAjax" parameterType="String">
 		INSERT INTO
-		challenging(nickname, chnum, personalpf) VALUES(#{nickname}, #{chnumajax},
+		challenging(nickname, chnum, personalpf) VALUES(#{nickname},
+		#{chnumajax},
 		0)
 	</insert>
 
@@ -89,43 +96,67 @@
 	</delete>
 
 	<!-- 좋아요 select -->
-	<select id="selecttoggle" parameterType="String" resultType="int">
-		SELECT count(*) FROM donabit.toggle where likes like #{nickname} and checkid like #{checkid};
+	<select id="selecttoggle" parameterType="String"
+		resultType="int">
+		SELECT count(*) FROM donabit.toggle where likes like
+		#{nickname} and checkid like #{checkid};
 	</select>
-	
+
 	<!-- 신고 select -->
 	<select id="selectsingo" parameterType="String" resultType="int">
-		SELECT count(*) FROM donabit.toggle where report like #{nickname} and checkid like #{checkid};
+		SELECT count(*) FROM donabit.toggle where report like #{nickname} and
+		checkid like #{checkid};
 	</select>
 
 	<!-- 좋아요 insert -->
 	<insert id="insertlikes" parameterType="String">
-		INSERT INTO toggle(likes, checkid) VALUES(#{nickname}, #{checkid});
+		INSERT INTO toggle(likes,
+		checkid) VALUES(#{nickname}, #{checkid});
 	</insert>
-	
+
 	<!-- 신고 insert -->
 	<insert id="insertsingo" parameterType="String">
-		INSERT INTO toggle(report, checkid) VALUES(#{nickname}, #{checkid});
+		INSERT INTO
+		toggle(report, checkid) VALUES(#{nickname}, #{checkid});
 	</insert>
-	
+
 	<!-- 좋아요 delete -->
 	<delete id="deletelikes" parameterType="String">
-		delete from donabit.toggle where toggle.likes like #{nickname} and toggle.checkid like #{checkid};
+		delete from
+		donabit.toggle where toggle.likes like #{nickname} and toggle.checkid
+		like #{checkid};
 	</delete>
-	
+
 	<!-- 신고 delete -->
 	<delete id="deletesingo" parameterType="String">
-		delete from donabit.toggle where toggle.report like #{nickname} and toggle.checkid like #{checkid};
+		delete from
+		donabit.toggle where toggle.report like #{nickname} and toggle.checkid
+		like #{checkid};
 	</delete>
-	
+
 	<!-- 좋아요 수 -->
 	<select id="totallike" parameterType="String" resultType="int">
-		select count(*) from donabit.toggle where checkid like #{checkid} and report is null;
+		select
+		count(*) from donabit.toggle where checkid like #{checkid} and report
+		is null;
 	</select>
-	
+
 	<!-- 신고 수 -->
 	<select id="totalsingo" parameterType="String" resultType="int">
-		select count(*) from donabit.toggle where checkid like #{checkid} and likes is null;
+		select count(*) from donabit.toggle where checkid like #{checkid} and
+		likes is null;
+	</select>
+
+	<select id="selectexp" parameterType="String" resultType="int">
+		select count(checknum)*challenge.chexp
+		from donabit.checks
+		join donabit.challenge
+		on challenge.chnum = checks.chnum
+		where checks.nickname like #{nickname}
+		GROUP BY checks.chnum;
 	</select>
 	
+	<select id="selectlevel" resultType="int">
+		SELECT exp FROM donabit.level;
+	</select>
 </mapper>
