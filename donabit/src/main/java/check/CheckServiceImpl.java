@@ -67,14 +67,20 @@ public class CheckServiceImpl implements CheckService {
 
 	@Override
 	public String selectcheckname(String chname) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int deletecheck(CheckDTO dto) {
-		return dao.deletecheck(dto);
+	public int deletetoggle(int checkid) {
+		return dao.deletetoggle(checkid);
 	}
+
+	@Override
+	public int deletecheck(int checkid) {
+		return dao.deletecheck(checkid);
+	}
+
+	
 
 
 

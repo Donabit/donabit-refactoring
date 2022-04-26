@@ -12,5 +12,6 @@ public interface CheckService {
 	int updatepersonalpf(String chnum);
 	int selectchecktime(String nickname, String chnum);
 	String selectcheckname(String chname);
-	 int deletecheck(CheckDTO dto);
+	int deletetoggle(int checkid);
+	 int deletecheck(int checkid);
 }

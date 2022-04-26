@@ -14,5 +14,6 @@ public interface CheckDAO {
 	 int selectchsuccess(String chnum);
 	 int updatepersonalpf(String chnum);
 	 int selectchecktime(String nickname, String chnum);
-	 int deletecheck(CheckDTO dto);
+	 int deletetoggle(int checkid);
+	 int deletecheck(int checkid);
 }

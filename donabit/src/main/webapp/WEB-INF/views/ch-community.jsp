@@ -254,7 +254,7 @@
 					</div>
 				</c:forEach>
 			</div>
-		
+		<%@ include file="/WEB-INF/views/main_footer.jsp" %>
 	</body>
 
 	</html>

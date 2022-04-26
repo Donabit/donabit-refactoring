@@ -14,20 +14,12 @@
 <link rel="stylesheet" href="css/check.css">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-<!--  <script type="text/javascript">
-            function reload(event){
-            		event.form.submit();
-          			close();
-		           /*  window.open("about:blank", "_self").close(); //자식창 close
-		            this.window.opener.location.reload(); //새로고침 */
-          	};
-       
-</script> -->
 </head>
 <body>
+<img class="checkformtitle" src="img/logo_m.png">
+<hr>
 	<div class="check_container">
-				<form action="/checkmorningform" method="post" enctype="multipart/form-data" id="checkmorningform">		
+				<form action="/checkmorningform" method="post" enctype="multipart/form-data" id="checkmorningform" name="checkmorningform">		
 				
 				<input type=hidden name="chnum" value="${param.chnum}">
 				<input type=hidden id=nickname name="nickname" value="${principal.memberdto.nickname}"> 
@@ -36,14 +28,14 @@
 				<div class=check>
 					<label for=checktitle class=check_label>제목</label>
 					<div class="check_input">
-						<input type=text id=checktitle name="checktitle" maxlength='15' placeholder="최대 15글자(공백포함)"> <br>
+						<input type=text id=checktitle name="checktitle" maxlength='15' placeholder="최대 15글자(공백포함)" required> <br>
 					</div>
 				</div>
 					
 				<div class=check>
 					<label for=checkdesc class=check_label>설명</label>
 					<div class="check_input">
-						<textarea id=checkdesc name="checkdesc" maxlength='65'  placeholder="최대 65글자(공백포함)" ></textarea>
+						<textarea id=checkdesc name="checkdesc" maxlength='65'  placeholder="최대 65글자(공백포함)" required ></textarea>
 					</div>
 				</div>
 					
@@ -54,15 +46,14 @@
 					<div class="check_input">
 						<img src="../img/upload_default.png" alt="default image for upload" id="uploadImage"><br>
 						<small>(이미지 파일만 업로드 가능합니다)</small><br>
-						<input type=file id=uploadInput name="checkimg" accept="image/*">
+						<input type=file id=uploadInput name="checkimg" accept="image/*" required>
 					</div>
 				</div>
 					
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 				
 				 <button class=upload_btn id="clickme" type="submit" >업로드</button>
 				<!-- <a href="#"  class=upload_btn id="clickme" onclick="document.getElementById('checkmorningform').submit();"> 업로드 </a> -->
-			
-							
+
 				</form>
 			</div>
 </body>
