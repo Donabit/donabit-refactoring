@@ -289,7 +289,7 @@ button.tuto:hover:before,button.tuto:hover:after{
  .slider .slide-track {
 	 animation: scroll 40s linear infinite;
 	 display: flex;
-	 width: calc(250px * 14);
+	 width: calc(250px * 24);
 }
  .slider .slide {
 	 height: 100px;
@@ -297,6 +297,11 @@ button.tuto:hover:before,button.tuto:hover:after{
 }
 
 /* 하단 슬라이드 끝 */
+
+hr.three {
+	width: 1500px;
+	margin:0 auto;
+}
 
 hr.four {
 	width: 1110px;

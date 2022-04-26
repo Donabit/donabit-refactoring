@@ -43,16 +43,14 @@ jQuery(function($) {
 
 <div class="carousel-container">
   <div class="carousel-slide">
-    <img src="img/main_img_1.jpg" id="lastClone">
-    <img src="img/main_img_1.jpg">
+    <img src="img/main_img_1.png" id="lastClone">
+    <img src="img/main_img_1.png">
     <img src="img/main_img_2.png">
-    <img src="img/main_img_1.jpg" id="firstClone">
+    <img src="img/main_img_1.png" id="firstClone">
   </div>
   <button id="prevBtn"><i class="fa-solid fa-angle-left"></i></button>
   <button id="nextBtn"><i class="fa-solid fa-angle-right"></i></button>
 </div>
-
-<br>
 <hr class="two">
 
 <section class = motto>
@@ -170,16 +168,22 @@ jQuery(function($) {
 			<img src="img/logo_7.png" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="img/logo_1.png" height="100" width="250" alt="" />
+			<img src="img/logo_8.png" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
 			<img src="img/logo_1.png" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="img/logo_1.png" height="100" width="250" alt="" />
+			<img src="img/logo_9.png" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
-			<img src="img/logo_1.png" height="100" width="250" alt="" />
+			<img src="img/logo_10.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="img/logo_11.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="img/logo_12.png" height="100" width="250" alt="" />
 		</div>
 		<div class="slide">
 			<img src="img/logo_1.png" height="100" width="250" alt="" />
@@ -190,6 +194,37 @@ jQuery(function($) {
 		<div class="slide">
 			<img src="img/logo_3.png" height="100" width="250" alt="" />
 		</div>
+		<div class="slide">
+			<img src="img/logo_4.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="img/logo_5.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="img/logo_6.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="img/logo_7.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="img/logo_8.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="img/logo_1.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="img/logo_9.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="img/logo_10.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="img/logo_11.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="img/logo_12.png" height="100" width="250" alt="" />
+		</div>
+
 	</div>
 </div>
 
