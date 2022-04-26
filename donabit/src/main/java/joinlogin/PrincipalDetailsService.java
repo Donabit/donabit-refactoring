@@ -16,9 +16,26 @@ public class PrincipalDetailsService implements UserDetailsService{
 		
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+	
 		
-		MemberDTO principal = memberdao.findByUsername(email);				
+		System.out.println("--"+email + ":" );
+		MemberDTO principal = memberdao.findByUsername(email);
+		
+		/*
+		System.out.println("--"+email + ":" + principal+"--");
+		
 		return new PrincipalDetails(principal);
+		*/
+				
+		if(principal == null) {
+			 throw new UsernameNotFoundException("username " + email + " not found");
+			 			 
+		}
+		else {
+				
+		return new PrincipalDetails(principal);
+		}
+		
 		
 	/*	PrincipalDetails users = memberdao.getUserById(username);
 		if(users == null) {
@@ -27,6 +44,14 @@ public class PrincipalDetailsService implements UserDetailsService{
 		System.out.println("**************Found user***************");
 		System.out.println("id : " + users.getUsername());
 		return users;
+		
+		
+		
+		
+		
+		MemberDTO principal = memberdao.findByUsername(email);
+		return new PrincipalDetails(principal);
+		
 		
 		*/
 

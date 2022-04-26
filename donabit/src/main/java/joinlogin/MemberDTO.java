@@ -9,7 +9,6 @@ public class MemberDTO {
 	private String auth;
 	private int enabled;
 	
-	private String level;
 	private String avatar;
 	
 	public MemberDTO(){}
@@ -72,13 +71,7 @@ public class MemberDTO {
 		this.enabled = enabled;
 	}
 
-	public String getLevel() {
-		return level;
-	}
-
-	public void setLevel(String level) {
-		this.level = level;
-	}
+	
 
 	public String getAvatar() {
 		return avatar;
@@ -91,7 +84,7 @@ public class MemberDTO {
 	@Override
 	public String toString() {
 		return "MemberDTO [email=" + email + ", nickname=" + nickname + ", password=" + password + ", phone=" + phone
-				+ ", auth=" + auth + ", enabled=" + enabled + ", level=" + level + ", avatar=" + avatar + "]";
+				+ ", auth=" + auth + ", enabled=" + enabled + ",avatar=" + avatar + "]";
 	}
 	
 	
