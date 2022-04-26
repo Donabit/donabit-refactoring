@@ -42,6 +42,7 @@
 
 		a[href="member-list"] {
 			color: black;
+			font-weight: 600;
 		}
     </style>
 </head>
@@ -142,11 +143,6 @@
 					</c:choose>
 				</div>
  
-        <div class="page_num_container">
-        	<c:forEach begin="1" end="${pageNum}" var="i">
-        		<a href="javascript:goPost('${i}')"><span class="page_num">${i}</span></a>
-        	</c:forEach>
-        </div>
     </main>
  
 </body>

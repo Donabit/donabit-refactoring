@@ -28,5 +28,6 @@ public interface ChallengeDAO2 {
 	List<ChallengingDTO> selectMemberInfoByNumber(int chnum);
 	int selectEachReportCountByNumber(String chnum, String nickname);
 	int selectEachCheckCountByNumber(String chnum, String nickname);
-	List<ReportDTO> selectReportCountMore10();
+	List<ReportDTO> selectReportDto();
+	int selectReportCount();
 }

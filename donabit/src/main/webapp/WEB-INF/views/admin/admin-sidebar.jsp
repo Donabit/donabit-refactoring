@@ -4,7 +4,7 @@
     <div class="admin_sidebar_header"><a href="/main"><img src="/img/logo_m.png" height=100px></a></div>
     <ul>
         <li class="admin_sidebar_list">
-        	<a class="admin_sidebar_list_links" href="board-enroll">공지사항 관리</a>
+        	<a class="admin_sidebar_list_links" href="board-enroll">공지사항 등록</a>
         </li>
         <li class="admin_sidebar_list">
         	<a class="admin_sidebar_list_links" href="make-a-challenge">챌린지 만들기</a>

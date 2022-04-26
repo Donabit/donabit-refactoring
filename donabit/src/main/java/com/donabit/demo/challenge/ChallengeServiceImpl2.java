@@ -143,7 +143,13 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 
 
 	@Override
-	public List<ReportDTO> selectReportCountMore10() {
-		return dao.selectReportCountMore10();
+	public List<ReportDTO> selectReportDto() {
+		return dao.selectReportDto();
+	}
+
+
+	@Override
+	public int selectReportCount() {
+		return dao.selectReportCount();
 	}
 }

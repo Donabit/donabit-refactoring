@@ -15,21 +15,46 @@
 		}
 		
 		.page_num {
-			padding: 1em;
+			display: inline-block;
+			width: 1em;
+			height: 1em;
+			padding: 0.5em;
+			background-color: lightgray;
+			border-radius: 50%;
+			color: dimgray;
 		}
 		
 		.page_num:hover {
-			color: olive;
+			color: black;
+			background-color: #99FFCD;
 		}
 
 		.admin_challenge_list {
 			display: flex;
-			border-bottom: 1px solid black;		
+			border-bottom: 1px solid black;
+			padding: 1em 0 1em 0;		
+		}
+		
+		.admin_challenge_list h3 {
+			font-weight: 500;
+		}
+		
+		.admin_challenge_list li {
+			padding-bottom: 1em;
+		}
+		
+		.admin_challenge_list p {
+			padding-top: 0.5em;
+		}
+		
+		.admin_challenge_list_img {
+			padding-right: 2em;
 		}
 		
 		.admin_challenge_list_info {
-			flex: 1 1 200px;
-			padding: 1em;
+			flex: 1;
+			text-align: left;
+			list-style-type: '- ';
 		}
 		
 		.admin_challenge_container {
@@ -42,7 +67,26 @@
 
 		a[href="challenge-list"] {
 			color: black;
+			font-weight: 600;
 		}
+		
+		#page_num_<c:out value='${param.page}'/> {
+			color: black;
+			background-color: #99FFCD;
+		}
+		
+		.deleteBtns {
+			cursor: pointer;
+			font-size: 1em;
+			background-color: whitesmoke;
+			border: none;
+			margin-right: 1em;
+		}
+		
+		.deleteBtns:hover {
+			color: red;
+		}
+		
     </style>
     <script type="text/javascript">
        	function goPost(page) {
@@ -95,8 +139,15 @@
        		}
        	}
 
+       	onload = function(){
+	      	if("<c:out value='${param.page}'/>" == ""){
+	      		const page_num_1 = document.getElementById("page_num_1");
+	      		page_num_1.style.backgroundColor = "#99FFCD";
+	      		page_num_1.style.color = "black";
+	      	}
+       	}
     </script>
-</head>
+	<script src="https://kit.fontawesome.com/392c986039.js" crossorigin="anonymous"></script></head>
 <body>
     <%@ include file="/WEB-INF/views/admin/admin-sidebar.jsp" %>
     <main class="admin_main_container">
@@ -109,30 +160,44 @@
             <div class="admin_challenge_container">
            	<c:forEach items="${list}" var="dto" varStatus="status">
        			<form class="admin_challenge_list" action="javascript:confirmRemove('${dto.chname}', ${dto.chnum}, ${challengingMember[status.index]})">
-					<div class="admin_challenge_list_info">
+					<div class="admin_challenge_list_img">
 						<img src="/images/${dto.chimgname}" alt="challenge image" width="320px" height="200px">
 					</div>
-					<div class="admin_challenge_list_info">
-						<h3>챌린지명 : ${dto.chname}</h3>
-						<h3>챌린지 설명</h3>
-						<p>${dto.chdesc}</p>
-					</div>
-					<div class="admin_challenge_list_info">
-						<h3>참여 인원 : ${challengingMember[status.index]}/${dto.chmaxp}</h3>
-						<h3>완료 인원 : ${successMember[status.index]}/${dto.chmaxp}</h3>
-						<h3>달성률 : <fmt:formatNumber value="${checkCount[status.index] / dto.chmaxp}" type="percent"/></h3>
-						<h3>기부처 : ${dto.donateco}</h3>
-						<h3>기부 금액 : <fmt:formatNumber value="${dto.donatepay}" pattern="###,###"/>원</h3>
-					</div>
-					<div class="admin_challenge_list_info">
-						<button id="deleteBtn">삭제하기</button>
+					<ul class="admin_challenge_list_info">
+						<li>
+							<h3>챌린지명 : ${dto.chname}</h3>
+						</li>
+						<li>
+							<h3>챌린지 설명</h3>
+							<p>${dto.chdesc}</p>
+						</li>
+					</ul>
+					<ul class="admin_challenge_list_info">
+						<li>
+							<h3>참여 인원 : ${challengingMember[status.index]}/${dto.chmaxp}</h3>
+						</li>
+						<li>
+							<h3>완료 인원 : ${successMember[status.index]}/${dto.chmaxp}</h3>
+						</li>	
+						<li>
+							<h3>달성률 : <fmt:formatNumber value="${checkCount[status.index] / dto.chmaxp}" type="percent"/></h3>
+						</li>
+						<li>
+							<h3>기부처 : ${dto.donateco}</h3>
+						</li>
+						<li>
+							<h3>기부 금액 : <fmt:formatNumber value="${dto.donatepay}" pattern="###,###"/>원</h3>
+						</li>
+					</ul>
+					<div class="admin_challenge_list_x">
+						<button class="deleteBtns" id="deleteBtn" title="삭제하기"><i class="fa-solid fa-x"></i></button>
 					</div>
 				</form>
 			</c:forEach>
  			</div>
 	        <div class="page_num_container">
 	        	<c:forEach begin="1" end="${pageNum}" var="i">
-	        		<a href="javascript:goPost('${i}')"><span class="page_num">${i}</span></a>
+	        		<a href="javascript:goPost('${i}')"><span class="page_num" id="page_num_${i}">${i}</span></a>
 	        	</c:forEach>
 	        </div>
         </div>

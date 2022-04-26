@@ -106,4 +106,9 @@ input[type=date]:first-child {
 
 a[href="make-a-challenge"] {
 	color: black;
+	font-weight: 600;
+}
+
+input {
+	accent-color: #FFD36E;
 }

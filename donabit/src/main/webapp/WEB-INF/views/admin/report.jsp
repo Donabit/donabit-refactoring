@@ -46,8 +46,28 @@
 
 		a[href="report"] {
 			color: black;
+			font-weight: 600;
 		}
+		
+		.admin_report_list_header {
+			display: flex;
+			justify-content: space-between;
+		}
+		
+		#deleteBtn {
+			margin-right: 0.7em;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+		}
+		
+		#reportisZero{
+			padding-top: 15em;
+			margin: auto;
+		}
+		
     </style>
+    <script src="https://kit.fontawesome.com/392c986039.js" crossorigin="anonymous"></script>    
 </head>
 <body>
     <%@ include file="/WEB-INF/views/admin/admin-sidebar.jsp" %>
@@ -58,24 +78,34 @@
             <hr style="border: 1px solid black;">
             <br>
             
+            	<p class="admin_report_count">조회 결과 : <b>${reportCount}</b>개</p>
+            	<br>
 	            <div class="admin_report_container">
-		            <c:forEach items="${list}" var="dto" varStatus="status">
-			            	<div class="admin_report_list">
-			            		<div class="admin_report_list_header">
-			            			<p>챌린지명 : ${chname[0]}</p>
-			            		</div>
-			            		<div class="admin_report_list_imgcontainer">
-			            			<img class="admin_report_list_img" src="/images/${dto.checkDTO.checkimg2}" alt="인증이미지"/>
-			            		</div>
-			            		<div class="admin_report_list_meta">
-			            			<p>글쓴이 : ${dto.checkDTO.nickname}</p>			            		
-			            			<p>제목 : ${dto.checkDTO.checktitle}</p>
-			            			<p>설명 : ${dto.checkDTO.checkdesc}</p>
-			            			<span>${dto.checkDTO.checktime} / </span>
-			            			<span>신고 횟수 : ${dto.report}</span>
-			            		</div>
-			            	</div>
-		            </c:forEach>
+		            <c:if test="${reportCount == 0}">
+		            	<h3 id="reportisZero">신고 내역이 없습니다.</h3>
+		            </c:if>
+	            	<c:if test="${reportCount > 0}">
+			            <c:forEach items="${list}" var="dto" varStatus="status">
+				            	<div class="admin_report_list">
+				            		<form class="admin_report_list_header" action="delete-report" method="POST">
+				            			<p class="admin_report_list_chname">챌린지명 : ${chname[0]}</p>
+				            			<input type="hidden" name="checkid" value="${dto.checkDTO.checkid}" />
+				            			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				            			<span><button id="deleteBtn" title="삭제하기" onclick="delOk()"><i class="fa-solid fa-x"></i></button></span>
+				            		</form>
+				            		<div class="admin_report_list_imgcontainer">
+				            			<img class="admin_report_list_img" src="/images/${dto.checkDTO.checkimg2}" alt="인증이미지"/>
+				            		</div>
+				            		<div class="admin_report_list_meta">
+				            			<p>글쓴이 : ${dto.checkDTO.nickname}</p>			            		
+				            			<p>제목 : ${dto.checkDTO.checktitle}</p>
+				            			<p>설명 : ${dto.checkDTO.checkdesc}</p>
+				            			<span>${dto.checkDTO.checktime} / </span>
+				            			<span>신고 횟수 : ${dto.report}</span>
+				            		</div>
+				            	</div>
+			            </c:forEach>
+		            </c:if>
 	            </div>
             
             

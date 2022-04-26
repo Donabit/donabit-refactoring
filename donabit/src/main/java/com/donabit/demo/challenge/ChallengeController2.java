@@ -1,7 +1,11 @@
 package com.donabit.demo.challenge;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import check.CheckService;
 import joinlogin.MemberDTO;
 
 @Controller
@@ -21,9 +26,13 @@ public class ChallengeController2 {
 	@Qualifier("ChallengeService2")
 	ChallengeService2 service;
 	
+	@Autowired
+	@Qualifier("checkservice")
+	CheckService ckservice;
+	
 	@GetMapping("")
 	public String admin(){
-		return "redirect:/admin/challenge-list"; 
+		return "redirect:/admin/board-enroll"; 
 	}
 		
 	@GetMapping("/challenge-list")
@@ -127,14 +136,26 @@ public class ChallengeController2 {
 	public ModelAndView reportlist() {
 		ModelAndView mv = new ModelAndView();
 		List<String> chnameList = new ArrayList<String>();
-		List<ReportDTO> list = service.selectReportCountMore10();
+		List<ReportDTO> list = service.selectReportDto();
 		for(ReportDTO i : list) {
-			chnameList.add(service.selectChallengeNameByNumber(i.getCheckDTO().getChnum()));
-		}
+			if(i.getCheckDTO() != null) {
+				chnameList.add(service.selectChallengeNameByNumber(i.getCheckDTO().getChnum()));
+			}
 		mv.addObject("list", list);
 		mv.addObject("chname", chnameList);
+		mv.addObject("reportCount", service.selectReportCount());
+		}
 		mv.setViewName("/admin/report");
 		return mv;
-		
+	}
+	
+	@PostMapping("/delete-report")
+	public void deleteReport(@RequestParam int checkid, HttpServletResponse response) throws IOException {
+		ckservice.deletetoggle(checkid);
+		ckservice.deletecheck(checkid);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print("<script>history.back()</script>");
+		out.flush();
 	}
 }

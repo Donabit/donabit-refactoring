@@ -105,9 +105,14 @@
 		SELECT count(#{nickname}) FROM checks WHERE chnum = #{chnum}
 	</select>
 	
-	<select id="selectReportCountMore10" resultMap="ReportDTO">
+	<select id="selectReportDto" resultMap="ReportDTO">
 		SELECT checks.checkid AS checkid, nickname, chnum, checktime, checktitle, checkdesc, checkimg, count(toggle.report) AS report 
 		FROM donabit.checks JOIN donabit.toggle ON checks.checkid = toggle.checkid;
 	</select>
 	
+	<select id="selectReportCount" resultType="int">
+		SELECT count(DISTINCT checks.checkid) FROM checks LEFT JOIN toggle ON checks.checkid = toggle.checkid;
+	</select>
+	
 </mapper>
+	
