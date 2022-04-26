@@ -26,14 +26,19 @@
 	};
 </script>
 <script type="text/javascript">
-	function removeCheck() {
+/* 	function removeCheck() {
 		 if (confirm("정말 삭제하시겠습니까?") == true){    //확인
 		     document.deletecheck.submit();
 		 }else{   //취소
-		     return false;
+		     return ;
 		 }
 	
-		}
+		} */
+		/* function removeCheck() {
+			 if (!confirm("정말 삭제하시겠습니까?")){
+				 return false;
+			 }
+		} */
 	</script>
 </head>
 <body>
@@ -60,9 +65,11 @@
 							<form action="/deletecheck" method="post" id="deletecheck" name="deletecheck">
 								<input type="hidden" id="checkid" name="checkid" value="${check.checkid}">
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-								<button class="delete_btn" id="delete_btn" type="submit" onclick="removeCheck()">
+								
+								<button class="delete_btn" id="delete_btn" type="submit" onclick="if(!confirm('정말 삭제하시겠습니까?')){return false;}">
 									<span style="color: #94DAFF"> <i class="fa fa-solid fa-xmark fa-2x" ></i></span>
 								</button>
+								
 							</form>	
 						</div>
 						<div class="img">
