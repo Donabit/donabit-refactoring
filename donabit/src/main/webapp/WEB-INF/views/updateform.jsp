@@ -40,6 +40,18 @@ $(document).ajaxSend(function (e, xhr, options) {
 	      }
 	    })
 	  };
+	  
+	  $(function(){ 
+
+		  $(".question").click(function(){
+		    $(".modal").fadeIn();
+		  });
+		  
+		  $(".modal_content").click(function(){
+		    $(".modal").fadeOut();
+		  });
+		  
+		});
 	
 </script>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -64,9 +76,22 @@ $(document).ajaxSend(function (e, xhr, options) {
  <h5>변경할 휴대폰번호</h5><input type=text value="${principal.memberdto.phone}" name=phone ><br>
  </div>
  <div class="avatar">
- <h5>아바타 타입선택</h5>
- <input type="radio" id=avatar1 name="avatar" value="slime"><label for="avatar1">슬라임</label>
- <input type="radio" id=avatar2 name="avatar" value="human"><label for="avatar2">인간</label><br>
+<div class=quest>
+ <div class=stext><h5>아바타 타입선택</h5></div>
+ <div class="question">
+ <img class=icon src="/img/question.jpg">	
+ </div>
+ 
+ <div class="modal">
+  <div class="modal_content" 
+       title="클릭하면 창이 닫힙니다.">
+    <img src="/img/select1.png">
+  </div>
+</div>
+ 
+ </div>
+ <input type="radio" id=avatar1 name="avatar" value="human"><label for="avatar1">인간</label>
+ <input type="radio" id=avatar2 name="avatar" value="slime"><label for="avatar2">슬라임</label>
  </div>
  <br>
   <hr/>
