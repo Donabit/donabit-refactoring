@@ -80,7 +80,7 @@ ${expsum }
 		</c:choose>
 	</c:when>	
 	<c:otherwise>
-	<img class=profileimg src="/img/test.jpg">
+	<img class=profileimg src="/img/select.png">
 	</c:otherwise>
 </c:choose>
 
