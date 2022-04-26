@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+ 
+ <%@ include file="/WEB-INF/views/main_header.jsp" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,65 +11,28 @@
 
 <script src="mybatis_spring.js" defer></script>
  
-<link rel="stylesheet" type="text/css" href="#.css">
+<link rel="stylesheet" type="text/css" href="../css/boardlist.css">
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous">
 </script>
-  
-    <style>
-  a{
-  	text-decoration : none;
-  }
-  table{
- 	border-collapse: collapse;
- 	width: 1000px;    
- 	margin-top : 20px;
- 	text-align: center;
-  }
-  td, th{
-  	border : 1px solid black;
-  	height: 50px;
-  }
-  th{
-  	font-size : 17px;
-  }
-  thead{
-  	font-weight: 700;
-  }
-  .table_wrap{
-  	margin : 50px 0 0 50px;
-  }
-  .bno_width{
-  	width: 12%;
-  }
-  .writer_width{
-  	width: 20%;
-  }
-  .regdate_width{
-  	width: 15%;
-  }
-  .updatedate_width{
-  	width: 15%;
-  }
-  .top_btn{
-  	font-size: 20px;
-    padding: 6px 12px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    font-weight: 600;
-  }
-  </style>
+
   
 </head>
 
-<h1>목록페이지입니다.</h1>
+<section class="notice">
+<div class="ptitle">
+<div class="ncontainer">
+	<h3>Donabit Notice</h3>
+</div>
+</div>
 
 <div class="table_wrap">
-	<a href="/board/enroll" class="top_btn">게시판 등록</a>
-	<table>
+	<!-- <a href="/board/enroll" class="top_btn">게시판 등록</a> -->
+	<div class="ncontainer">
+	<table class="board-table">
 		<thead>
 			<tr>
 				<th class="bno_width">번호</th>
@@ -79,6 +43,7 @@
 			</tr>
 		</thead>
 		
+		<tbody>
 		<c:forEach items="${list}" var="list">
             <tr>
                 <td>${list.bno}</td>
@@ -93,11 +58,15 @@
                 
             </tr>
         </c:forEach>
-        
+      </tbody>  
 	</table>
 	<form id="moveForm" method="get">    
     </form>
+    </div>
 </div>
+</section>
+<br>
+<br>
 
 <script>
 $(document).ready(function(){
@@ -139,4 +108,5 @@ $(document).ready(function(){
 	});
 </script>
 </body>
+<%@ include file="/WEB-INF/views/main_footer.jsp" %>
 </html>

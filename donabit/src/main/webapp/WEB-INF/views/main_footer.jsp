@@ -10,7 +10,7 @@
 <script src="resources/jquery-3.6.0.min.js"></script>
  <script src="mybatis_spring.js" defer></script>
  
-<link rel="stylesheet" type="text/css" href="css/main_footer.css">
+<link rel="stylesheet" type="text/css" href="../css/main_footer.css">
 
 <script type="text/javascript">
 	$(document).ready(function(){

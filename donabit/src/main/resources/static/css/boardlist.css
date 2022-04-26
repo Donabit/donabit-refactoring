@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+table {
+  border-collapse: collapse;
+ 
+  border-spacing: 0;
+}
+section.notice {
+  padding: 80px 0;
+}
+
+.ptitle {
+  margin-bottom: 60px;
+}
+.ptitle h3 {
+  font-size: 28px;
+  color: #fc5192;
+  font-weight: 400;
+  text-align: center;
+}
+
+.bno_width {
+  background-color:#FF85B3; 
+  color:white;
+}
+
+.title_width {
+  background-color:#FF85B3; 
+  color:white;
+}
+
+.writer_width {
+	background-color:#FF85B3;
+	color:white;
+}
+
+.regdate_width {
+  background-color:#FF85B3; 
+  color:white;
+}
+
+
+
+.board-table {
+  font-size: 13px;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.board-table a {
+  color: #333;
+  display: inline-block;
+  line-height: 1.4;
+  word-break: break-all;
+  vertical-align: middle;
+}
+.board-table a:hover {
+  text-decoration: underline;
+}
+.board-table th {
+  text-align: center;
+  
+}
+
+.board-table .bno_width {
+  width: 100px;
+  text-align: center;
+}
+
+.board-table .writer_width {
+  width: 150px;
+  text-align: center;
+}
+
+
+.board-table .regdate_width {
+  width: 200px;
+}
+
+.board-table th, .board-table td {
+  padding: 14px 0;
+}
+
+.board-table tbody td {
+  border-top: 1px solid #e7e7e7;
+  text-align: center;
+}
+
+.board-table tbody th {
+  padding-left: 28px;
+  padding-right: 14px;
+  border-top: 1px solid #e7e7e7;
+  text-align: left;
+}
+
+.board-table tbody th p{
+  display: none;
+}
+
+
+/* reset */
+
+* {
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.ncontainer {
+  width: 1100px;
+  margin: 0 auto;
+}
+.blind {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+}
+
+
+
+
+
+
+/*  a{
+  	text-decoration : none;
+  }
+  table{
+ 	border-collapse: collapse;
+ 	width: 1000px;    
+ 	margin-top : 20px;
+ 	text-align: center;
+  }
+  td, th{
+  	border : 1px solid black;
+  	height: 50px;
+  }
+  th{
+  	font-size : 17px;
+  }
+  thead{
+  	font-weight: 700;
+  }
+  .table_wrap{
+  	margin : 50px 0 0 50px;
+  }
+  .bno_width{
+  	width: 12%;
+  }
+  .writer_width{
+  	width: 20%;
+  }
+  .regdate_width{
+  	width: 15%;
+  }
+  .updatedate_width{
+  	width: 15%;
+  }
+  .top_btn{
+  	font-size: 20px;
+    padding: 6px 12px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-weight: 600;
+  } */

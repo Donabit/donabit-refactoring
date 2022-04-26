@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+ <%@ include file="/WEB-INF/views/main_header.jsp" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
 
 <script src="mybatis_spring.js" defer></script>
  
-<link rel="stylesheet" type="text/css" href="#.css">
+<link rel="stylesheet" type="text/css" href="../css/boardget.css">
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
@@ -21,77 +22,60 @@
 
 </head>
 
-<style>
-<style type="text/css">
-.input_wrap{
-	padding: 5px 20px;
-}
-label{
-    display: block;
-    margin: 10px 0;
-    font-size: 20px;	
-}
-input{
-	padding: 5px;
-    font-size: 17px;
-}
-textarea{
-	width: 800px;
-    height: 200px;
-    font-size: 15px;
-    padding: 10px;
-}
-.btn{
-  	display: inline-block;
-    font-size: 22px;
-    padding: 6px 12px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    font-weight: 600;
-    width: 140px;
-    height: 41px;
-    line-height: 39px;
-    text-align : center;
-    margin-left : 30px;
-    cursor : pointer;
-}
-.btn_wrap{
-	padding-left : 80px;
-	margin-top : 50px;
-}
-</style>
-
 <body>
-<h1>조회 페이지</h1>
-	<div class="input_wrap">
-		<label>게시판 번호</label>
-		<input name="bno" readonly="readonly" value='${pageInfo.bno}' >
+<section class="notice">
+<div class="ptitle">
+<h3>Donabit Notice</h3>
+</div>
+
+<div class="wrapper">
+
+	<div class="btitle">
+		<dl>
+		<dt class="tname">제목</dt>
+		<dd style="width:400px"><input type=text name="title" readonly="readonly" value='${pageInfo.title}' ></dd>
+		</dl>
 	</div>
-	<div class="input_wrap">
-		<label>게시판 제목</label>
-		<input name="title" readonly="readonly" value='${pageInfo.title}' >
+	<div class="bwriter">
+	<dl>
+		<dt class="tname">작성자</dt>
+		<dd style="width:400px"><input type=text name="writer" readonly="readonly" value='${pageInfo.writer}' ></dd>
+	</dl>
 	</div>
-	<div class="input_wrap">
-		<label>게시판 내용</label>
+	<div class="binfo">
+		<dl>
+		<dt class="tname">번호</dt>
+		<dd><input name="bno" readonly="readonly" value='${pageInfo.bno}' ></dd>
+		</dl>
+		<dl>
+		<dt class="tname">등록일</dt>
+		<dd><input name="regdater" readonly="readonly" value='${pageInfo.regdate}' ></dd>
+		</dl>
+	</div>
+	<div class="bcontents">
+	
 		<textarea rows="3" name="content" readonly="readonly">${pageInfo.content}</textarea>
-	</div>
-	<div class="input_wrap">
-		<label>게시판 작성자</label>
-		<input name="writer" readonly="readonly" value='${pageInfo.writer}' >
-	</div>
-	<div class="input_wrap">
-		<label>게시판 등록일</label>
-		<input name="regdater" readonly="readonly" value='${pageInfo.regdate}' >
+	
 	</div>
 	
-	<div class="btn_wrap">
-		<a class="btn" id="list_btn">목록 페이지</a> 
-		<a class="btn" id="modify_btn">수정 하기</a>
+	<div class="buttons-wrapper">
+		<div class="buttons-left"><button class="btn-gradient small" id="list_btn">목록</button></div> 
+		
+		
+		<!-- <a class="btn" id="list_btn">목록</a> -->
+		<sec:authorize access="hasRole('ROLE_ADMIN')">
+		<div class="buttons-right"><button class="btn-gradient small" id="modify_btn">수정하기</button></div>
+		</sec:authorize>
+		
 	</div>
     
 	<form id="infoForm" action="/board/modify" method="get">
 	<input type="hidden" id="bno" name="bno" value='${pageInfo.bno}'>
 	</form>
+</div>
+	
+</section>
+	
 	
 <script>
 	let form = $("#infoForm");
@@ -109,4 +93,5 @@ textarea{
 </script>
 
 </body>
+<%@ include file="/WEB-INF/views/main_footer.jsp" %>
 </html>

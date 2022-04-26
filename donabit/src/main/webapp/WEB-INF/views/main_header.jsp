@@ -14,7 +14,7 @@
 <title>Donabit Main</title>
 <script src="/jquery-3.6.0.min.js"></script>
 <script src="mybatis_spring.js" defer></script>
-<link rel="stylesheet" type="text/css" href="css/main_header.css">
+<link rel="stylesheet" type="text/css" href="../css/main_header.css">
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -47,7 +47,7 @@
 	<li class="menu_3"><a class="menu_title" href="/checkcommunity">커뮤니티</a>
 </li>
 
-	<li class="menu_4"><a class="menu_title" href="/notice"> 공지사항 </a>
+	<li class="menu_4"><a class="menu_title" href="/board/list"> 공지사항 </a>
 </li>
 
 </ul>

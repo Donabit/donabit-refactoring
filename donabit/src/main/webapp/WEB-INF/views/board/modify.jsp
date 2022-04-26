@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+ <%@ include file="/WEB-INF/views/main_header.jsp" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
 
 <script src="mybatis_spring.js" defer></script>
  
-<link rel="stylesheet" type="text/css" href="#.css">
+<link rel="stylesheet" type="text/css" href="../css/boardmodify.css">
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
@@ -22,7 +23,12 @@
 </head>
 
 <body>
-<h1>조회 페이지</h1>
+<section class="notice">
+<div class="ptitle">
+<h3>Donabit Notice</h3>
+</div>
+
+<div class="wrapper">
 	<form id="modifyForm" action="/board/modify" method="post">
 	<div class="input_wrap">
 		<label>게시판 번호</label>
@@ -68,7 +74,9 @@
 	<form id="infoForm" action="/board/modify" method="get">
 	<input type="hidden" id="bno" name="bno" value='${pageInfo.bno}'>
 	</form>
-	
+
+</div>
+</section>	
 	
 <!-- 	<form action="/modfiy" method="GET"> 
 	
@@ -111,4 +119,5 @@
 </script>
 
 </body>
+<%@ include file="/WEB-INF/views/main_footer.jsp" %>
 </html>
