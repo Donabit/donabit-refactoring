@@ -25,14 +25,29 @@
 		}
 	};
 </script>
-
+<script type="text/javascript">
+/* 	function removeCheck() {
+		 if (confirm("정말 삭제하시겠습니까?") == true){    //확인
+		     document.deletecheck.submit();
+		 }else{   //취소
+		     return ;
+		 }
+	
+		} */
+		/* function removeCheck() {
+			 if (!confirm("정말 삭제하시겠습니까?")){
+				 return false;
+			 }
+		} */
+	</script>
 </head>
 <body>
 	<img class="checktitle" src="img/checktitle.svg">
 	<div class="containerflexbox">	
 		<div class="chname">
-			<h2 class="chnamebox"> &#x1F308 ${chname} </h2> <h2 class="rainbow"> &#x1F308 </h2>
-			<br>
+			<br><br>
+			<span class="rainbow1">&#x1F308</span> <h2>${chname}</h2> <span class="rainbow2"> &#x1F308 </span>
+			<br><br>
 		</div>
 		
 			<div class="containerflex">
@@ -50,22 +65,23 @@
 							<form action="/deletecheck" method="post" id="deletecheck" name="deletecheck">
 								<input type="hidden" id="checkid" name="checkid" value="${check.checkid}">
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-								<button class="delete_btn" id="delete_btn" type="submit" onclick="removeCheck()">
+								
+								<button class="delete_btn" id="delete_btn" type="submit" onclick="if(!confirm('정말 삭제하시겠습니까?')){return false;}">
 									<span style="color: #94DAFF"> <i class="fa fa-solid fa-xmark fa-2x" ></i></span>
 								</button>
+								
 							</form>	
 						</div>
 						<div class="img">
-							<img class="imgin" src="/checkimage/${check.checkimg2}"
-								height="280px" width="300px">
+							<img class="imgin" src="/checkimage/${check.checkimg2}">
 						</div>
 							
 							<div class="detail">
 								<div class="detail_first">
-									${check.checkdesc}
+									<b>${check.checktitle}</b>&nbsp;<small>${check.checktime}</small>
 								</div>
 								<div class="detail_second">
-									<b>${check.checktitle}</b>&nbsp;<small>${check.checktime}</small>
+									${check.checkdesc}
 								</div>
 							</div>
 				</div>

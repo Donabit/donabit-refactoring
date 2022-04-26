@@ -74,7 +74,7 @@ public class PrincipalDetails implements UserDetails{
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		
 	//	Collection<GrantedAuthority> collectors = new ArrayList<>();	
-	//	collectors.add(()->{return memberdto.getAuth();}); //이따 또 확인	
+	//	collectors.add(()->{return memberdto.getAuth();}); //	
 	//	return collectors;
 		
 		ArrayList<GrantedAuthority> authList = new ArrayList<GrantedAuthority>();

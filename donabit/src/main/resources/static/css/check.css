@@ -58,10 +58,25 @@ textarea {
 
 
 /*업로드리스트*/
+.rainbow1 {
+	display: inline-block;
+	font-size:1.5em;
+}
+
+.rainbow2{
+	transform: scaleX(-1);
+	display: inline-block;
+	font-size:1.5em;
+}
+
 .chname{
 	display:flex;
 	align-items: center;
-	
+	text-align: center;
+	color: #94DAFF;
+	font-size:40px;
+	width:500px;
+		margin: 0 auto;
 }
 
 .chnamebox{
@@ -69,20 +84,12 @@ textarea {
 	display: inline-block;
 }
 
-.rainbow{
-	transform: rotate(90deg);
-	display: inline-block;
-}
+
 
 .checktitle {
     width: 100%;
 }
 
-.chname {
-	text-align: center;
-	color: #94DAFF;
-	font-size:40px;
-}
 
 .containerflex {
   display: flex;
@@ -90,14 +97,10 @@ textarea {
   flex-direction: row;
   justify-content: start; 
   align-content: flex-start;
-	width: 1500px;
-	
- 
+  width:1100px;
+	margin: 0 auto;
 }
 
-.containerflexbox{
-	text-align: center;
-}
 
 .item {
 	 width:320px;
@@ -106,6 +109,8 @@ textarea {
 	 position: relative;
 	 border:2px solid #94DAFF;
 	 border-radius:20px;
+	background-color: #f0faff;
+
 }
 
 .delete_btn{
@@ -119,21 +124,21 @@ textarea {
 	 margin:35px 10px 10px 10px;
 }
 
+.imgin{
+	height : 280px; 
+	width : 300px;
+	object-fit:cover;
+}
 .detail {
 	align-items: center;
 	position:relative;
 	height: 120px;
 }
 
-.detail_first{
+.detail_first, .detail_second{
 	 margin:10px 10px 10px 10px;
 }
 
-.detail_second{
-	position:absolute;
-	bottom:0px;
-	margin:10px 10px 10px 3px;
-}
 
 .delete_btn{
 	border: 0;

@@ -6,8 +6,8 @@
 
 
 <insert id="insertmember" parameterType="memberdto">
-insert into member(email, nickname, password, phone, enabled, level)
-values(#{email}, #{nickname}, #{password}, #{phone}, 1, 0)
+insert into member(email, nickname, password, phone, enabled)
+values(#{email}, #{nickname}, #{password}, #{phone}, 1 )
 </insert>
 
 

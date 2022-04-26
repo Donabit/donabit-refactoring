@@ -41,20 +41,19 @@
 
 </head>
 <body>
-
 <div class="boxes">
 <div class="profilebox">
 	<div class="profile-wrapper">
 <c:choose>
 	<c:when test = "${principal.memberdto.avatar eq 'slime' }">
 		<c:choose>
-			<c:when test = "${principal.memberdto.level eq '0'}">   
+			<c:when test = "${level eq '1'}">   
 			<img class=profileimg src="/img/slime1.jpg">	
 			</c:when>
-			<c:when test = "${principal.memberdto.level eq '1'}">   
+			<c:when test = "${level eq '2'}">   
 				<img class=profileimg src="/img/slime2.jpg">	
 			</c:when>
-			<c:when test = "${principal.memberdto.level eq '2'}">   
+			<c:when test = "${level eq '3'}">   
 				<img class=profileimg src="/img/slime3.jpg">	
 			</c:when>
 			<c:otherwise>
@@ -64,13 +63,13 @@
 	</c:when>	
 	<c:when test = "${principal.memberdto.avatar eq 'human' }">
 		<c:choose>
-			<c:when test = "${principal.memberdto.level eq '0'}">   
+			<c:when test = "${level eq '1'}">   
 			<img class=profileimg src="/img/human1.jpg">	
 			</c:when>
-			<c:when test = "${principal.memberdto.level eq '1'}">   
+			<c:when test = "${level eq '2'}">   
 				<img class=profileimg src="/img/human2.jpg">	
 			</c:when>
-			<c:when test = "${principal.memberdto.level eq '2'}">   
+			<c:when test = "${level eq '3'}">   
 				<img class=profileimg src="/img/human3.jpg">	
 			</c:when>
 			<c:otherwise>
@@ -86,7 +85,7 @@
 	</div>
 	<div class="nick-level">
 	<h1>${principal.memberdto.nickname}</h1>
-	<h4>Level : ${principal.memberdto.level}</h4>
+	<h4>Level : ${level}</h4>
 	</div>
 	
 	<div class="listContainer">

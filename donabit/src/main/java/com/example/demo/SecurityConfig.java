@@ -60,7 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				.passwordParameter("password")
 				.loginProcessingUrl("/loginProc") //스프링 시큐리티가 해당 주소로 요청하는 로그인 가로채서 대신 로그인
 				.defaultSuccessUrl("/main")
-				//.failureUrl("/fail")
+				.failureUrl("/loginform")
 			.and()
 				.logout()
 				.logoutUrl("/logout")

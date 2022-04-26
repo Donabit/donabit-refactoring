@@ -19,4 +19,6 @@ public interface ChallengeService {
 	int deletesingo(String nickname, String checkid);
 	int totallike(String checkid);
 	int totalsingo(String checkid);
+	int[] selectexp(String nickname);
+	int[] selectlevel();
 }

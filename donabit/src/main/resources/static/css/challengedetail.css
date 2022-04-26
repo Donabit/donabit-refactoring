@@ -4,8 +4,8 @@
   -webkit-animation: color-change-3x 10s linear infinite alternate both;
   animation: color-change-3x 10s linear infinite alternate both;
   display: grid;
-  grid-template-columns: 200px 400px 400px 200px;
-  grid-template-rows: 100px 400px 413px 100px 200px;
+  grid-template-columns: 200px 400px 300px 200px;
+  grid-template-rows: 100px 400px 413px 100px 10px;
   gap: 0px 0px;
   grid-auto-flow: row dense;
   justify-content: center;
@@ -18,25 +18,8 @@
     ". footer footer .";
 }
 
-@-webkit-keyframes color-change-3x {
-  0% {
-    background: #f7dee8;
-  }
 
-  100% {
-    background: #d1f8e5;
-  }
-}
 
-@keyframes color-change-3x {
-  0% {
-    background: #cfdcf8;
-  }
-
-  100% {
-    background: #fce2e2;
-  }
-}
 
 
 .head {
@@ -62,9 +45,75 @@
 .button {
   background-color: rgb(247, 213, 173);
   grid-area: button;
+  margin : 0 auto;
 }
 
 .footer {
-  background-color: rgb(171, 240, 157);
   grid-area: footer;
+}
+
+
+/*버튼*/
+#participatebtn {
+  background: #f38e9f;
+  /*글자색*/
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 30px;
+  font-size: 20px;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: 400ms ease all;
+  outline: none;
+  text-shadow: 0.5px 0.5px 0.5px rgb(59, 59, 59);
+}
+
+#participatebtn:hover {
+  background: rgb(255, 237, 237);
+  color: #ff8599;
+}
+
+#participatebtn:before,
+#participatebtn:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #fdb3bf;
+  transition: 400ms ease all;
+}
+
+#participatebtn:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+
+#participatebtn:hover:before,
+#participatebtn:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+
+/*progress bar*/
+progress {
+    width: 90%;
+    height: 10px;
+    appearance: none;
+}
+
+progress::-webkit-progress-bar {
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+progress::-webkit-progress-value {
+    border-radius: 4px;
+    background: #484a4c;
+
+
 }
