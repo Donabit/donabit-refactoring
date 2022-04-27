@@ -91,7 +91,7 @@
 				            			<p class="admin_report_list_chname">챌린지명 : ${chname[0]}</p>
 				            			<input type="hidden" name="checkid" value="${dto.checkDTO.checkid}" />
 				            			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-				            			<span><button id="deleteBtn" title="삭제하기" onclick="delOk()"><i class="fa-solid fa-x"></i></button></span>
+				            			<span><button id="deleteBtn" title="삭제하기" onclick="if(!confirm('정말 삭제하시겠습니까?')){return false;}"><i class="fa-solid fa-x"></i></button></span>
 				            		</form>
 				            		<div class="admin_report_list_imgcontainer">
 				            			<img class="admin_report_list_img" src="/images/${dto.checkDTO.checkimg2}" alt="인증이미지"/>

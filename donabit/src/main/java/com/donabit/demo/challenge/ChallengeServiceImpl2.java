@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import donabit.challenge.ChallengeDTO;
 import joinlogin.MemberDTO;
 
 @Service("ChallengeService2")
@@ -149,7 +150,8 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 
 
 	@Override
-	public int selectReportCount() {
-		return dao.selectReportCount();
+	public List<ChallengeDTO> selectMainChallenge() {
+		return dao.selectMainChallenge();
 	}
+
 }

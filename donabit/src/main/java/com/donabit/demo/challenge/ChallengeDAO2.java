@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import donabit.challenge.ChallengeDTO;
 import joinlogin.MemberDTO;
 
 @Mapper
@@ -29,5 +30,5 @@ public interface ChallengeDAO2 {
 	int selectEachReportCountByNumber(String chnum, String nickname);
 	int selectEachCheckCountByNumber(String chnum, String nickname);
 	List<ReportDTO> selectReportDto();
-	int selectReportCount();
+	List<ChallengeDTO> selectMainChallenge();
 }

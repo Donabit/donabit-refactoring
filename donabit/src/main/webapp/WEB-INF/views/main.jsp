@@ -72,39 +72,15 @@ jQuery(function($) {
 
 <section class = Ch001>
 
-<div class="Ch_container_1">
-  <div class="Ch1"></div>
-  챌린지 명:
-  <br>
-  참여 인원:
-  <div class="Ch2"></div>
-  챌린지 명:
-  <br>
-  참여 인원:
-  <div class="Ch3"></div>
-  챌린지 명:
-  <br>
-  참여 인원:
-</div>
-
-</section>
-
-<section class = Ch002>
-
-<div class="Ch_container_2">
-  <div class="Ch4"></div>
-  챌린지 명:
-  <br>
-  참여 인원:
-  <div class="Ch5"></div>
-  챌린지 명:
-  <br>
-  참여 인원:
-  <div class="Ch6"></div>
-  챌린지 명:
-  <br>
-  참여 인원:
-</div>
+	<div class="Ch_container_1">
+	  <c:forEach items="${chlist}" var="dto" end="5">
+	  	<div style="cursor: pointer;" onclick="location.href='/challenge/${dto.chnum}?chnumdetail=${dto.chnum}'">
+			<img src="/images/${dto.chimg}" class="Ch1" width="350px" height="250px" />
+			<p>챌린지 명: ${dto.chname}</p>
+		  	<p>참여 인원: ${dto.nickname} / ${dto.chmaxp}</p>
+		</div>
+	  </c:forEach>
+	</div>
 
 </section>
 

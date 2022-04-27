@@ -8,7 +8,6 @@
 	<resultMap type="memberdto" id="MemberDTO">
 		<result column="nickname" property="nickname" />
 		<result column="email" property="email" />
-		<result column="level" property="level" />
 	</resultMap>
 
 	<resultMap type="challengingdto" id="ChallengingDTO">
@@ -31,7 +30,7 @@
 		<result column="report" property="report" />
 		<collection property="checkDTO" resultMap="CheckDTO" />
 	</resultMap>
-
+	
  	<insert id="insertChallenge" parameterType="ChallengeDTO2">
 	 	INSERT INTO challenge(chname, chdesc, chimg, chsuccess, chdonate, chexp, chmaxp, chsdate, chedate, donatepay, donateco) 
 	 	VALUES(#{chname}, #{chdesc}, #{chimgname}, #{chsuccess}, #{chdonate}, #{chexp}, #{chmaxp}, #{chsdate}, #{chedate}, #{donatepay}, #{donateco})
@@ -94,11 +93,11 @@
 	</select>
 	
 	<select id="selectMemberInfoByNumber" parameterType="int" resultMap="ChallengingDTO">
-		SELECT member.nickname AS nickname, email, level, challenging.personalpf AS personalpf FROM member LEFT JOIN challenging ON member.nickname = challenging.nickname WHERE chnum = #{chnum}
+		SELECT member.nickname AS nickname, email, challenging.personalpf AS personalpf FROM member LEFT JOIN challenging ON member.nickname = challenging.nickname WHERE chnum = #{chnum}
 	</select>
 	
 	<select id="selectEachReportCountByNumber" parameterType="String" resultType="int">
-		SELECT count(#{nickname}) FROM checks LEFT JOIN toggle ON checks.checkid = toggle.checkid WHERE chnum = #{chnum}
+		SELECT count(report) FROM checks LEFT JOIN toggle ON checks.checkid = toggle.checkid WHERE chnum = #{chnum} AND nickname LIKE #{nickname}
 	</select>
 	
 	<select id="selectEachCheckCountByNumber" parameterType="String" resultType="int">
@@ -107,11 +106,11 @@
 	
 	<select id="selectReportDto" resultMap="ReportDTO">
 		SELECT checks.checkid AS checkid, nickname, chnum, checktime, checktitle, checkdesc, checkimg, count(toggle.report) AS report 
-		FROM donabit.checks JOIN donabit.toggle ON checks.checkid = toggle.checkid;
+		FROM donabit.checks JOIN donabit.toggle ON checks.checkid = toggle.checkid GROUP BY checkid;
 	</select>
 	
-	<select id="selectReportCount" resultType="int">
-		SELECT count(DISTINCT checks.checkid) FROM checks LEFT JOIN toggle ON checks.checkid = toggle.checkid;
+	<select id="selectMainChallenge" resultType="challengedto">
+		SELECT challenge.chnum, chname, count(challenging.nickname) AS nickname, chmaxp, chimg FROM challenge JOIN challenging ON challenge.chnum = challenging.chnum GROUP BY chnum;
 	</select>
 	
 </mapper>

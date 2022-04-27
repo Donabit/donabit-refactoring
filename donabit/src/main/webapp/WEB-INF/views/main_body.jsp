@@ -70,24 +70,18 @@ jQuery(function($) {
 <hr class="three">
 <br>
 
-<section class = Ch001>
+<%-- <section class = Ch001>
 
 <div class="Ch_container_1">
-  <div class="Ch1"></div>
-  챌린지 명:
-  <br>
-  참여 인원:
-  <div class="Ch2"></div>
-  챌린지 명:
-  <br>
-  참여 인원:
-  <div class="Ch3"></div>
-  챌린지 명:
-  <br>
-  참여 인원:
+  <c:forEach items="${chlist}" var="dto">
+	  <img src="/images/${dto.chimg}" class="Ch1" />
+	  챌린지 명: ${dto.chname}
+	  <br>
+	  참여 인원: ${dto.nickname} / ${dto.chmaxp}
+  </c:forEach>
 </div>
 
-</section>
+</section> --%>
 
 <section class = Ch002>
 

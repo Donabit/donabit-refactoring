@@ -118,7 +118,7 @@
 									<div class="admin_member_table_cell">${successCount[status.index]}</div>
 									<div class="admin_member_table_cell">${checksCount[status.index]}</div>
 									<div class="admin_member_table_cell">${reportCount[status.index]}</div>
-									<div class="admin_member_table_cell">${dto.level}</div>
+									<div class="admin_member_table_cell">${levellist[status.index]}</div>
 									<div class="admin_member_table_cell">${dto.auth}</div>	
 								</div>
 							</c:forEach>
@@ -137,7 +137,7 @@
 								</div>
 								<div class="admin_member_table_cell">${memberChecksByNumber[infoStatus.index]}</div>
 								<div class="admin_member_table_cell">${memberReportByNumber[infoStatus.index]}</div>
-								<div class="admin_member_table_cell">${memberInfo.memberDTO.level}</div>
+								<div class="admin_member_table_cell">${memberInfo.level}</div>
 							</c:forEach>
 						</c:otherwise>
 					</c:choose>

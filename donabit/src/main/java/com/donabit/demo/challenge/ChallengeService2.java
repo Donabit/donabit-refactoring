@@ -2,6 +2,7 @@ package com.donabit.demo.challenge;
 
 import java.util.List;
 
+import donabit.challenge.ChallengeDTO;
 import joinlogin.MemberDTO;
 
 public interface ChallengeService2 {
@@ -24,6 +25,6 @@ public interface ChallengeService2 {
 	int selectEachReportCountByNumber(String chnum, String nickname);
 	int selectEachCheckCountByNumber(String chnum, String nickname);
 	List<ReportDTO> selectReportDto();
-	int selectReportCount();
+	List<ChallengeDTO> selectMainChallenge();
 
 }

@@ -74,19 +74,20 @@ p.cursor {
 
 /* 섹션 motto 끝 */  
 
-.Ch_container_1 {  display: grid;
-  grid-template-columns: 350px 350px 350px;
-  grid-template-rows: 250px;
-  gap: 20px 50px;
-  grid-auto-flow: row dense;
-  justify-content: center;
-  align-content: center;
-  justify-items: stretch;
-  align-items: stretch;
-  grid-template-areas:
-    "Ch1 Ch2 Ch3";
-  margin-top: 50px;
-  margin-bottom: 50px;
+.Ch_container_1 {  
+	display: grid;
+	grid-template-columns: 350px 350px 350px;
+	grid-template-rows: 330px 330px;
+	gap: 20px 50px;
+	grid-auto-flow: row dense;
+	justify-content: center;
+	align-content: center;
+	justify-items: stretch;
+	align-items: stretch;
+	grid-template-areas:
+	  "Ch1 Ch2 Ch3";
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 .Ch1 { grid-area: Ch1;

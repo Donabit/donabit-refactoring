@@ -4,6 +4,7 @@ import joinlogin.MemberDTO;
 
 public class ChallengingDTO {
 	String personalpf;
+	int level;
 	MemberDTO memberDTO;
 
 	public MemberDTO getMemberDTO() {
@@ -20,6 +21,14 @@ public class ChallengingDTO {
 
 	public void setPersonalpf(String personalpf) {
 		this.personalpf = personalpf;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
 	}
 
 	
