@@ -15,6 +15,7 @@
 	});
 </script>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
@@ -108,11 +109,22 @@
 	</div>
 	
 </div>
+
 <div class="challenge-box">
     <p>참여중인 챌린지</p> <div class="challenge-ing"> <div class="swiper-container">
 	<div class="swiper-wrapper">
+	<c:set var="today" value="<%=new java.util.Date()%>" />
 	<c:forEach items="${participate}" var="dto">
-		<div class="swiper-slide" style="cursor: pointer;" onclick="location.href='/checkmorning?chnum=${dto.chnum}';"><img src="/checkimage/${dto.chimg}"></div>
+		<fmt:parseDate var="edate" value="${dto.chedate}" pattern="yyyy-MM-dd" />
+		<!-- 오늘이 끝나는 날보다 앞일때 -->
+		<c:if test="${edate > today}">
+			<div class="swiper-slide" >
+				<div class="slidetext" style="cursor: pointer;" onclick="location.href='/checkmorning?chnum=${dto.chnum}';">				
+					<img src="/checkimage/${dto.chimg}" class="slideimg">
+					<div>${dto.chname}</div>
+				</div>
+    		 </div>
+		</c:if>
 	</c:forEach>
 	</div>
 

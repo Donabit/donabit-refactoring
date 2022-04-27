@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+.swiper-slide{
+	height:150px;
+}
+
+.slidetext{
+	background-color: white;	
+	width:200px;
+}
 .profileimg{
 	width:150px;
 	height:150px;
