@@ -1,7 +1,13 @@
 @charset "UTF-8";
 
-
-
+.menu_title:after {
+  display:block;
+  content: '';
+  border-bottom: solid 3px #ea2129;  
+  transform: scaleX(0);  
+  transition: transform 250ms ease-in-out;
+}
+.menu_title:hover:after { transform: scaleX(1); }
 
  
  * { 

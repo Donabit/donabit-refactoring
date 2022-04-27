@@ -67,7 +67,7 @@
 		<!-- /끝/오토바이 -->
 		</div>
 		
-	<a href="/main" target="_blank"><img class="btn-img" src="img/game.png"></a>
+	<a href="/main"><img class="btn-img" src="img/game.png"></a>
 	
 	<nav class="mmenu">
    <input type="checkbox" href="#" class="mmenu-open" name="mmenu-open" id="mmenu-open" />
@@ -77,12 +77,12 @@
     <span class="lines line-3"></span>
   </label>
 
-   <a href="/loginform" class="mmenu-item blue"> <i class="fa-regular fa-user"></i> </a>
-   <a href="/tutorial" class="mmenu-item green"> <i class="fa-regular fa-question"></i> </a>
+   <a href="/loginform" class="mmenu-item blue"> <i class="fa fa-user"></i> </a>
+   <a href="/tutorial" class="mmenu-item green"> <i class="fa fa-question"></i> </a>
    <a href="/challenge" class="mmenu-item orange"> <i class="fa fa-award"></i> </a>
-   <a href="/checkcommunity" class="mmenu-item red"> <i class="fa-regular fa-comments"></i> </a>
-   <a href="/board/list" class="mmenu-item purple"> <i class="fa-regular fa-bell"></i> </a>
-   <a href="#" class="mmenu-item lightblue"> <i class="fa fa-diamond"></i> </a>
+   <a href="/checkcommunity" class="mmenu-item red"> <i class="fa fa-comments"></i> </a>
+   <a href="/board/list" class="mmenu-item purple"> <i class="fa fa-bell"></i> </a>
+   <a href="/joinform" class="mmenu-item lightblue"> <i class="fa fa-right-to-bracket"></i> </a>
 </nav>
 
 		</div>
