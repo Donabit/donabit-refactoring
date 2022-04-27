@@ -80,6 +80,21 @@ public class CheckServiceImpl implements CheckService {
 		return dao.deletecheck(checkid);
 	}
 
+	@Override
+	public int mypagenicknameconn(String nickname) {
+		return dao.mypagenicknameconn(nickname);
+	}
+
+	@Override
+	public List<ChallengeDTO> mypagechnumconn(int chnum) {
+		return dao.mypagechnumconn(chnum);
+	}
+
+	@Override
+	public List<ChallengeDTO> mypagecheck(String nickname) {
+		return dao.mypagecheck(nickname);
+	}
+
 	
 
 

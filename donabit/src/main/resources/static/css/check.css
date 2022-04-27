@@ -69,14 +69,16 @@ textarea {
 	font-size:1.5em;
 }
 
+.betweenrainbow{
+	display: inline-block;
+	font-size:1.5em;
+}
 .chname{
-	display:flex;
-	align-items: center;
 	text-align: center;
 	color: #94DAFF;
 	font-size:40px;
 	width:500px;
-		margin: 0 auto;
+	margin: 0 auto;
 }
 
 .chnamebox{

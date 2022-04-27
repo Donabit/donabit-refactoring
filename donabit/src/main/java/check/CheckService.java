@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import donabit.challenge.ChallengeDTO;
+
 public interface CheckService {
 	int insertCheck(CheckDTO dto);
 	public List<CheckDTO> checklist(String nickname, String chnum);
@@ -14,4 +16,7 @@ public interface CheckService {
 	String selectcheckname(String chname);
 	int deletetoggle(int checkid);
 	 int deletecheck(int checkid);
+	 int mypagenicknameconn(String nickname);
+	 List<ChallengeDTO> mypagechnumconn(int chnum);
+	 List<ChallengeDTO> mypagecheck(String nickname);
 }

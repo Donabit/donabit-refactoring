@@ -13,11 +13,7 @@
 		VALUES(#{nickname}, #{chnum}, #{checknum}, now(), #{checktitle}, #{checkdesc}, #{checkimg2})  
 	</insert>
 	
-	<!-- <select id="selectcountchallenge" resultType="int" parameterType="checkdto">
-		SELECT COUNT(*) FROM checks WHERE nickname=#{nickname} AND chnum=#{chnum};
-	</select> -->
-	
-	<select id="selectcountcheck" resultType="int" parameterType="String"> <!-- 닉네임 변수 받기 -->
+	<select id="selectcountcheck" resultType="int" parameterType="String"> 
 		SELECT count(*) FROM checks WHERE nickname LIKE #{nickname} AND chnum=#{chnum};
 	</select>
 	
@@ -29,16 +25,27 @@
 		UPDATE challenging SET personalpf=1 WHERE chnum=#{chnum};
 	</update>
 	
-	<select id="selectchecktime" resultType="int" parameterType="String"> <!-- 여기도 수정 닉네임 필요 -->
+	<select id="selectchecktime" resultType="int" parameterType="String"> 
 		SELECT COUNT(*) FROM checks WHERE nickname LIKE #{nickname} AND DATE(checktime)=DATE(now()) AND chnum=#{chnum};
 	</select>
 	
+	<!-- 인증글 삭제 -->
 	<delete id="deletetoggle" parameterType="int">
 	    DELETE FROM toggle WHERE checkid = #{checkid};
 	</delete>
-	
 	<delete id="deletecheck" parameterType="int">
 		DELETE FROM checks WHERE checkid = #{checkid};
 	</delete>
 	
+	<!-- mypage 참여중인 챌린지 -->
+	<select id="mypagenicknameconn" resultType="int" parameterType="String">
+		SELECT chnum FROM checks WHERE nickname LIKE #{nickname};
+	</select>
+	<select id="mypagechnumconn" resultType="challengedto" parameterType="int">
+		SELECT chimg, chedate FROM challenge WHERE chnum=#{chnum};
+	</select>	
+	
+	<select id="mypagecheck" resultType="challengedto" parameterType="String">
+		SELECT challenging.chnum, chname, chedate, chimg, challenging.personalpf From challenge join challenging on challenge.chnum=challenging.chnum WHERE nickname LIKE #{nickname} and personalpf=0;
+	</select>
 </mapper>

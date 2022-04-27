@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -8,8 +9,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import check.CheckService;
+import donabit.challenge.ChallengeDTO;
 import donabit.challenge.ChallengeService;
 import joinlogin.PrincipalDetails;
 
@@ -19,6 +23,11 @@ public class MypageController {
 	@Qualifier("challengeservice")
 	ChallengeService service;
 
+	@Autowired
+	@Qualifier("checkservice")
+	CheckService checkinservice;
+	
+	
 	@RequestMapping("/mypage")
 	public String view() {
 		return "mypage";
@@ -49,6 +58,8 @@ public class MypageController {
 			}
 		}
 		System.out.println(levelresult + "=" + nickname + "의 레벨");
+		List<ChallengeDTO> participate = checkinservice.mypagecheck(nickname);
+		mv.addObject("participate", participate);
 		mv.addObject("level", levelresult);
 		mv.addObject("expsum", sum);
 		mv.setViewName("mypage");

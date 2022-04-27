@@ -111,15 +111,9 @@
 <div class="challenge-box">
     <p>참여중인 챌린지</p> <div class="challenge-ing"> <div class="swiper-container">
 	<div class="swiper-wrapper">
-		<div class="swiper-slide" style="cursor: pointer;" onclick="location.href='/challenge';"><img src="/img/logo.png"></div>
-		<div class="swiper-slide" style="cursor: pointer;" onclick="location.href='/challenge';"><img src="/img/logo.png"></div>
-		<div class="swiper-slide" style="cursor: pointer;" onclick="location.href='/challenge';"><img src="/img/logo.png"></div>
-		<div class="swiper-slide" style="cursor: pointer;" onclick="location.href='/challenge';"><img src="/img/logo.png"></div>
-		<div class="swiper-slide" style="cursor: pointer;" onclick="location.href='/challenge';"><img src="/img/logo.png"></div>
-		<div class="swiper-slide" style="cursor: pointer;" onclick="location.href='/challenge';"><img src="/img/logo.png"></div>
-		<div class="swiper-slide" style="cursor: pointer;" onclick="location.href='/challenge';"><img src="/img/logo.png"></div>
-		<div class="swiper-slide" style="cursor: pointer;" onclick="location.href='/challenge';"><img src="/img/logo.png"></div>
-		<div class="swiper-slide" style="cursor: pointer;" onclick="location.href='/challenge';"><img src="/img/logo.png"></div>
+	<c:forEach items="${participate}" var="dto">
+		<div class="swiper-slide" style="cursor: pointer;" onclick="location.href='/checkmorning?chnum=${dto.chnum}';"><img src="/checkimage/${dto.chimg}"></div>
+	</c:forEach>
 	</div>
 
 	<!-- 네비게이션 -->
