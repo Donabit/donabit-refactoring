@@ -30,7 +30,7 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 
 	
 	private void fileUpload(MultipartFile mpf, String renameFilename) {
-		String path = "/Users/bigchan/upload/";
+		String path = "/usr/mydir/donabit/chimages/";
 		String path2 = "D:\\donabitimage/";
 		File uploadFile = new File(path + renameFilename);
 		try {

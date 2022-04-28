@@ -29,7 +29,7 @@ public class CheckServiceImpl implements CheckService {
 	}
 
 	private void fileupload(MultipartFile mpf, String renameFilename) {
-		String path= "C:/checkimage/";
+		String path= "/usr/mydir/donabit/chimages/";
 		
 		File uploadFile = new File(path + renameFilename);
 		try {
