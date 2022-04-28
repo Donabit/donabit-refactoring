@@ -55,7 +55,7 @@
      
     display: inline-flex;
     
-	border: 2px dotted #FF85B3;
+	border: 2px solid #ffccdf;
 	border-radius:10%;
 }
 
@@ -168,7 +168,7 @@ h1, h3, h4, p{
 .swiper-container {
 	height: 250px;
 	width: 700px;
-	border: 1px dotted red;
+	border: 1px dotted #FF85B3;
 	border-radius: 12px;
 }
 
