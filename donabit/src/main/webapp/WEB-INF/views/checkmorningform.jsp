@@ -13,7 +13,7 @@
 <script src="../js/check.js" defer></script>
 <link rel="stylesheet" href="css/check.css">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<link rel="shorcut icon" type="image/x-icon" sizes="32x32" href="/img/favicon-32x32.png">
 </head>
 <body>
 <img class="checkformtitle" src="img/logo_m.png">

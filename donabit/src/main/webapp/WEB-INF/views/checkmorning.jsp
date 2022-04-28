@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>인증 이미지</title>
+<title>Donabit 습관을 기부하세요</title>
 <link rel="stylesheet" href="css/check.css">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="https://kit.fontawesome.com/b81e22d1de.js"

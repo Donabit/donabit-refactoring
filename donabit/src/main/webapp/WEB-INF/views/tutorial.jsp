@@ -7,23 +7,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Donabit 습관을 기부하세요</title>
-<style> img {
+<style>
+	img {
 			display:block;
 			margin:auto;
-}
-		.max-small {
-    width: auto;
-    height: auto;
-    max-width: 2000px;
-    max-height: 3000px;
-}
+	}
+	
+	.max-small {
+		margin: 3em auto;
+	    width: auto;
+	    height: auto;
+	    min-width: 1150px;
+	    min-height: 1500px;
+	}
 </style>
 </head>
 <body>
 
 <%@ include file="/WEB-INF/views/main_header.jsp" %>
 
-        <img class=max-small src="img/tutorial_1.png">
+        <img class=max-small src="img/tutorial_final.svg">
 
 <%@ include file="/WEB-INF/views/main_footer.jsp" %>
 

@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shorcut icon" type="image/x-icon" sizes="32x32" href="/img/favicon-32x32.png">
 <meta charset="UTF-8">
 <title>Donabit 관리자 페이지</title>
 <style>

@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Donabit 습관을 기부하세요</title>
-
+<link rel="shorcut icon" type="image/x-icon" sizes="32x32" href="/img/favicon-32x32.png">
 <script src="https://kit.fontawesome.com/c0080566c1.js" crossorigin="anonymous"></script>
 
 <script src="resources/jquery-3.6.0.min.js"></script>

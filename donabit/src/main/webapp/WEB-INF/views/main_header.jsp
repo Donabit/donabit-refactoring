@@ -11,11 +11,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Donabit Main</title>
+<title>Donabit 습관을 기부하세요</title>
 <script src="/jquery-3.6.0.min.js"></script>
 <script src="mybatis_spring.js" defer></script>
 <link rel="stylesheet" type="text/css" href="../css/main_header.css">
-
+<link rel="shorcut icon" type="image/x-icon" sizes="32x32" href="/img/favicon-32x32.png">
 <script type="text/javascript">
 	$(document).ready(function(){
 
@@ -33,8 +33,8 @@
 		<div class="logo_container">
 		<a href="http://localhost:8089/main"><img src="/img/logo_m.png"></a>
 
-</div>
-	<div class="nav_container" id="nav_menu">
+	</div>
+	
 	<div class="menu_container">
 		<ul class="menu">
 
@@ -75,7 +75,7 @@
 </ul>
 </div>
 </div>
-</div>
+
 
 <hr class="two">
 </header>
