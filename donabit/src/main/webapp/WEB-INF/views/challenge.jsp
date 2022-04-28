@@ -5,7 +5,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>Donabit 습관을 기부하세요</title>
 		<script src="jquery-3.6.0.min.js"></script>
 		<script type="text/javascript">
 			//location.href="http://localhost:8089/challenge"
@@ -19,6 +19,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Source+Sans+Pro&display=swap"
 			rel="stylesheet">
+		<link rel="shorcut icon" type="image/x-icon" sizes="32x32" href="/img/favicon-32x32.png">
 		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 			<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 	</head>

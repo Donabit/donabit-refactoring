@@ -31,7 +31,7 @@
 <header> 
 	<div class="header_container">
 		<div class="logo_container">
-		<a href="http://localhost:8089/main"><img src="/img/logo_m.png"></a>
+		<a href="/main"><img src="/img/logo_m.png"></a>
 
 	</div>
 	

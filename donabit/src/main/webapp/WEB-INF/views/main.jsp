@@ -73,9 +73,9 @@ jQuery(function($) {
 <section class = Ch001>
 
 	<div class="Ch_container_1">
-	  <c:forEach items="${chlist}" var="dto" end="5">
+	  <c:forEach items="${chlist}" var="dto" end="3">
 	  	<div style="cursor: pointer;" onclick="location.href='/challenge/${dto.chnum}?chnumdetail=${dto.chnum}'">
-			<img src="/images/${dto.chimg}" class="Ch1" width="350px" height="250px" />
+			<img src="/images/${dto.chimg}" class="Ch1" width="250px" height="250px" />
 			<p class="main_challenge_info"><b>챌린지 명 :</b> ${dto.chname}</p>
 		  	<p class="main_challenge_info"><b>참여 인원 :</b> ${dto.nickname} / ${dto.chmaxp}</p>
 		</div>

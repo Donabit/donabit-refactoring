@@ -8,7 +8,8 @@
 		<!--  spring security - ajax post 방식으로 요청시 추가-->
 		<meta name="_csrf" content="${_csrf.token}">
 		<meta name="_csrf_header" content="${_csrf.headerName}">
-		<title>Donabit 챌린지상세</title>
+		<title>Donabit 습관을 기부하세요</title>
+		<link rel="shorcut icon" type="image/x-icon" sizes="32x32" href="/img/favicon-32x32.png">
 		<link rel="stylesheet" href="../css/challengedetail.css">
 		<link rel="stylesheet" type="text/css" href="../css/main_header.css">
 		<link rel="stylesheet" type="text/css" href="../css/main_footer.css">

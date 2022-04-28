@@ -6,7 +6,8 @@
 		<meta charset="UTF-8">
 		<meta name="_csrf" content="${_csrf.token}">
 		<meta name="_csrf_header" content="${_csrf.headerName}">
-		<title>인증 커뮤니티</title>
+		<title>Donabit 습관을 기부하세요</title>
+		<link rel="shorcut icon" type="image/x-icon" sizes="32x32" href="/img/favicon-32x32.png">
 		<script src="../jquery-3.6.0.min.js"></script>
 		<script type="text/javascript">
 			//spring security - ajax post 방식으로 요청시 추가

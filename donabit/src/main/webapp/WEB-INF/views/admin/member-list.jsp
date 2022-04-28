@@ -126,19 +126,21 @@
 						</c:when>
 						<c:otherwise>
 							<c:forEach items="${memberInfoByNumber}" var="memberInfo" varStatus="infoStatus">
-								<div class="admin_member_table_cell">${memberInfo.memberDTO.nickname}</div>
-								<div class="admin_member_table_cell">${memberInfo.memberDTO.email}</div>
-								<div class="admin_member_table_cell">
-									<c:if test="${memberInfo.personalpf == 0}">
-										참여중
-									</c:if>
-									<c:if test="${memberInfo.personalpf == 1}">
-										완료
-									</c:if>
+								<div class="admin_member_table_row">
+									<div class="admin_member_table_cell">${memberInfo.nickname}</div>
+									<div class="admin_member_table_cell">${memberInfo.email}</div>
+									<div class="admin_member_table_cell">
+										<c:if test="${memberInfo.personalpf == 0}">
+											참여중
+										</c:if>
+										<c:if test="${memberInfo.personalpf == 1}">
+											완료
+										</c:if>
+									</div>
+									<div class="admin_member_table_cell">${memberChecksByNumber[infoStatus.index]}</div>
+									<div class="admin_member_table_cell">${memberReportByNumber[infoStatus.index]}</div>
+									<div class="admin_member_table_cell">${memberInfo.level}</div>
 								</div>
-								<div class="admin_member_table_cell">${memberChecksByNumber[infoStatus.index]}</div>
-								<div class="admin_member_table_cell">${memberReportByNumber[infoStatus.index]}</div>
-								<div class="admin_member_table_cell">${memberInfo.level}</div>
 							</c:forEach>
 						</c:otherwise>
 					</c:choose>

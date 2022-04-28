@@ -1,35 +1,64 @@
 package com.donabit.demo.challenge;
 
-import joinlogin.MemberDTO;
-
 public class ChallengingDTO {
-	String personalpf;
+	String personalpf, nickname, email;
 	int level;
-	MemberDTO memberDTO;
-
-	public MemberDTO getMemberDTO() {
-		return memberDTO;
-	}
-
-	public void setMemberDTO(MemberDTO memberDTO) {
-		this.memberDTO = memberDTO;
-	}
-
+	
 	public String getPersonalpf() {
 		return personalpf;
 	}
+
+
 
 	public void setPersonalpf(String personalpf) {
 		this.personalpf = personalpf;
 	}
 
+
+
+	public String getNickname() {
+		return nickname;
+	}
+
+
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
 	public int getLevel() {
 		return level;
 	}
 
+
+
 	public void setLevel(int level) {
 		this.level = level;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "ChallengingDTO [personalpf=" + personalpf + ", nickname=" + nickname + ", email=" + email + ", level="
+				+ level + "]";
+	}
+
+	
 
 	
 	

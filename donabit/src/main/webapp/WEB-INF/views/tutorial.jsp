@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Donabit 습관을 기부하세요</title>
+<link rel="shorcut icon" type="image/x-icon" sizes="32x32" href="/img/favicon-32x32.png">
 <style>
 	img {
 			display:block;

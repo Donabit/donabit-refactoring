@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Donabit 습관을 기부하세요</title>
+<link rel="shorcut icon" type="image/x-icon" sizes="32x32" href="/img/favicon-32x32.png">
 <link rel="stylesheet" href="css/check.css">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="https://kit.fontawesome.com/b81e22d1de.js"

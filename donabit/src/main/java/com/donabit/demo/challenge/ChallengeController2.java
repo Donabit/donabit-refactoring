@@ -115,15 +115,14 @@ public class ChallengeController2 {
 		}
 		int memberCount = service.selectMemberCount();
 		String chname = service.selectChallengeNameByNumber(chnum);
-		int chmemberCount = service.selectChallengingMemberCount(chnum);
+		int chmemberCount = service.selectChallengingMemberCount(chnum);		
 		List<ChallengingDTO> memberInfoByNumberList = service.selectMemberInfoByNumber(chnum);
 		List<Integer> memberReportByNumber = new ArrayList<Integer>();
 		List<Integer> memberChecksByNumber = new ArrayList<Integer>();
-
 		for(ChallengingDTO i : memberInfoByNumberList) {
-			i.setLevel(calcuLevel(i.getMemberDTO().getNickname()));
-			memberReportByNumber.add(service.selectEachReportCountByNumber(Integer.toString(chnum), i.getMemberDTO().getNickname()));
-			memberChecksByNumber.add(service.selectEachCheckCountByNumber(Integer.toString(chnum), i.getMemberDTO().getNickname()));
+			i.setLevel(calcuLevel(i.getNickname()));
+			memberReportByNumber.add(service.selectEachReportCountByNumber(Integer.toString(chnum), i.getNickname()));
+			memberChecksByNumber.add(service.selectEachCheckCountByNumber(Integer.toString(chnum), i.getNickname()));
 		}
 		mv.addObject("list", list);
 		mv.addObject("levellist", levelList);
@@ -165,9 +164,9 @@ public class ChallengeController2 {
 		List<ReportDTO> resultList = new ArrayList<ReportDTO>();
 		int reportCount = 0;
 		for(ReportDTO i : allReportList) {
-			if(i.getReport() >= 2) { // 신고횟수 10 이상인거만 새로운 List에 보관
+			if(i.getReport() >= 10) { // 신고횟수 10 이상인거만 새로운 List에 보관
 				resultList.add(i);
-				chnameList.add(service.selectChallengeNameByNumber(i.getCheckDTO().getChnum()));
+				chnameList.add(service.selectChallengeNameByNumber(i.getChnum()));
 			}
 		}
 		reportCount = resultList.size();

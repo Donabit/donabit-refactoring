@@ -90,18 +90,18 @@
 				            	<div class="admin_report_list">
 				            		<form class="admin_report_list_header" action="delete-report" method="POST">
 				            			<p class="admin_report_list_chname">챌린지명 : ${chname[0]}</p>
-				            			<input type="hidden" name="checkid" value="${dto.checkDTO.checkid}" />
+				            			<input type="hidden" name="checkid" value="${dto.checkid}" />
 				            			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 				            			<span><button id="deleteBtn" title="삭제하기" onclick="if(!confirm('정말 삭제하시겠습니까?')){return false;}"><i class="fa-solid fa-x"></i></button></span>
 				            		</form>
 				            		<div class="admin_report_list_imgcontainer">
-				            			<img class="admin_report_list_img" src="/images/${dto.checkDTO.checkimg2}" alt="인증이미지"/>
+				            			<img class="admin_report_list_img" src="/images/${dto.checkimg}" alt="인증이미지"/>
 				            		</div>
 				            		<div class="admin_report_list_meta">
-				            			<p>글쓴이 : ${dto.checkDTO.nickname}</p>			            		
-				            			<p>제목 : ${dto.checkDTO.checktitle}</p>
-				            			<p>설명 : ${dto.checkDTO.checkdesc}</p>
-				            			<span>${dto.checkDTO.checktime} / </span>
+				            			<p>글쓴이 : ${dto.nickname}</p>			            		
+				            			<p>제목 : ${dto.checktitle}</p>
+				            			<p>설명 : ${dto.checkdesc}</p>
+				            			<span>${dto.checktime} / </span>
 				            			<span>신고 횟수 : ${dto.report}</span>
 				            		</div>
 				            	</div>

@@ -81,32 +81,23 @@ p.cursor {
     }
 
 /* 섹션 motto 끝 */  
-
+.Ch001 {
+	margin: 7em 0;	
+}
 .Ch_container_1 {  
 	display: grid;
-	grid-template-columns: 350px 350px 350px;
-	grid-template-rows: 330px 330px;
-	gap: 20px 50px;
+	grid-template-columns: 250px 250px 250px 250px;
+	gap: 2.5em;
 	grid-auto-flow: row dense;
 	justify-content: center;
 	align-content: center;
 	justify-items: stretch;
 	align-items: stretch;
 	grid-template-areas:
-	  "Ch1 Ch2 Ch3";
-	margin-top: 50px;
-	margin-bottom: 50px;
+	  "Ch1 Ch1 Ch1 Ch1";
 }
 
 .Ch1 { grid-area: Ch1;
-border-radius: 2%;
-}
-
-.Ch2 { grid-area: Ch2;
-border-radius: 2%;
-}
-
-.Ch3 { grid-area: Ch3;
 border-radius: 2%;
 }
 

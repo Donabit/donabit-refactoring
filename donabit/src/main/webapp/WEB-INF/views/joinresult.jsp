@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Donabit 습관을 기부하세요</title>
+<link rel="shorcut icon" type="image/x-icon" sizes="32x32" href="/img/favicon-32x32.png">
 <script src="resources/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
