@@ -6,7 +6,7 @@ section.notice {
 	left:25%; 
 	top:25%;
 	margin: 0 auto;
-      
+   	height:800px;   
 	width: 45%;
   
 }
@@ -17,8 +17,8 @@ section.notice {
 	
 	
 	border: 2px dotted #FF85B3;
-	border-radius:10%;   
-	background-color:pink;
+	border-radius:2%;   
+	background-color:#ffccdf;
 	
 }
 
@@ -101,7 +101,7 @@ section.notice {
 
 .btitle dd,
 .bwriter dd {
-	width: calc(100%-50px);
+	width: calc(100%-50px);	
 }
 
 .btitle input,
@@ -188,18 +188,28 @@ input {
 
 .buttons-wrapper {
 	padding-top:20px;
+	padding-bottom:20px;
 	margin: 0 auto;
 	width: 230px;
+	height: 50px;
+
 }
 
-.buttons-left {
+.buttons-first {
 	width:100px;
 	height:50px;
 	float: left;	
 	margin: 0 10px;
 }
 
-.buttons-right{
+.buttons-second {
+	width:100px;
+	height:50px;
+	float: left;		
+	margin: 0 10px;
+}
+
+.buttons-third{
 	width:100px;
 	height:50px;
 	display: inline-block;
@@ -211,39 +221,3 @@ input {
 
 
 
-/*  .input_wrap{
-	padding: 5px 20px;
-}
-label{
-    display: block;
-    margin: 10px 0;
-    font-size: 20px;	
-}
-input{
-	padding: 5px;
-    font-size: 17px;
-}
-textarea{
-	width: 800px;
-    height: 200px;
-    font-size: 15px;
-    padding: 10px;
-}
-.btn{
-  	display: inline-block;
-    font-size: 22px;
-    padding: 6px 12px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    font-weight: 600;
-    width: 140px;
-    height: 41px;
-    line-height: 39px;
-    text-align : center;
-    margin-left : 30px;
-    cursor : pointer;
-}
-.btn_wrap{
-	padding-left : 80px;
-	margin-top : 50px;
-} */

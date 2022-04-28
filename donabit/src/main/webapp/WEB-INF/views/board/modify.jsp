@@ -30,51 +30,64 @@
 
 <div class="wrapper">
 	<form id="modifyForm" action="/board/modify" method="post">
-	<div class="input_wrap">
-		<label>게시판 번호</label>
-		<input name="bno" readonly="readonly" value='${pageInfo.bno}' >
+	
+	<div class="btitle">
+		<dl>
+		<dt class="tname">제목</dt>
+		<dd style="width:80%"><input type=text name="title" value='${pageInfo.title}' ></dd>
+		</dl>
 	</div>
-	<div class="input_wrap">
-		<label>게시판 제목</label>
-		<input name="title" value='${pageInfo.title}' >
+	<div class="bwriter">
+	<dl>
+		<dt class="tname">작성자</dt>
+		<dd style="width:80%"><input type=text name="writer" readonly="readonly" value='${pageInfo.writer}' ></dd>
+	</dl>
 	</div>
-	<div class="input_wrap">
-		<label>게시판 내용</label>
+	<div class="binfo">
+		<dl>
+		<dt class="tname">번호</dt>
+		<dd><input name="bno" readonly="readonly" value='${pageInfo.bno}' ></dd>
+		</dl>
+		<dl>
+		<dt class="tname">등록일</dt>
+		<dd><input name="regdater" readonly="readonly" value='${pageInfo.regdate}' ></dd>
+		</dl>
+	</div>
+	<div class="bcontents">
+	
 		<textarea rows="3" name="content">${pageInfo.content}</textarea>
-	</div>
-	<div class="input_wrap">
-		<label>게시판 작성자</label>
-		<input name="writer" readonly="readonly" value='${pageInfo.writer}' >
-	</div>
-	<div class="input_wrap">
-		<label>게시판 등록일</label>
-		<input name="regdater" readonly="readonly" value='${pageInfo.regdate}' >
+	
 	</div>
 	
-	<div class="btn_wrap">
-		<a class="btn" id="list_btn">목록 페이지</a>
+
+	
+	<div class="buttons-wrapper">
+		
+		<!-- <div class="buttons-first"><button class="btn-gradient small" onclick="history.back()">목록</button></div> -->
 
 		
-		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-        <a class="btn" id="modify_btn">수정 완료</a>
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" id="list" />
+        <div class="buttons-second"><button class="btn-gradient small" id="modify_btn">수정</button></div>
         
-    	</div>
 		</form>
         
         <form id="deleteForm" action="/board/delete" method="post">
 	        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	        <input name="bno" readonly="readonly" type="hidden" value='${pageInfo.bno}' >
-	        <a class="btn" id="delete_btn">삭제</a>
+	        <div class="buttons-third"><button class="btn-gradient small" id="delete_btn">삭제</button></div>
         </form>
+     	
+     </div>
         
         
-        
-        <a class="btn" id="cancel_btn">수정 취소</a>
+        <!-- <a class="btn" id="cancel_btn">수정 취소</a> -->
+    
+    
     
 	<form id="infoForm" action="/board/modify" method="get">
 	<input type="hidden" id="bno" name="bno" value='${pageInfo.bno}'>
 	</form>
-
+	
 </div>
 </section>	
 	
@@ -94,10 +107,10 @@
 	let dForm = $("#deleteForm");
 
 	/* 목록 페이지 이동 버튼 */
-	$("#list_btn").on("click", function(e){
+	 $("#list_btn").on("click", function(e){
     form.find("#bno").remove();
     form.attr("action", "/board/list");
-    form.submit();
+    form.submit(); 
 });
 
 	/* 수정 하기 버튼 */
@@ -106,10 +119,10 @@
 });
 
 	/* 취소 버튼 */
-	$("#cancel_btn").on("click", function(e){
+	/* $("#cancel_btn").on("click", function(e){
     form.attr("action", "/board/get");
     form.submit();
-});  
+});  */ 
 	
 	/* 삭제 버튼 */
     $("#delete_btn").on("click", function(e){

@@ -33,13 +33,13 @@
 	<div class="btitle">
 		<dl>
 		<dt class="tname">제목</dt>
-		<dd style="width:400px"><input type=text name="title" readonly="readonly" value='${pageInfo.title}' ></dd>
+		<dd style="width:80%"><input type=text name="title" readonly="readonly" value='${pageInfo.title}' ></dd>
 		</dl>
 	</div>
 	<div class="bwriter">
 	<dl>
 		<dt class="tname">작성자</dt>
-		<dd style="width:400px"><input type=text name="writer" readonly="readonly" value='${pageInfo.writer}' ></dd>
+		<dd style="width:80%"><input type=text name="writer" readonly="readonly" value='${pageInfo.writer}' ></dd>
 	</dl>
 	</div>
 	<div class="binfo">
