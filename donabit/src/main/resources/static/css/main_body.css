@@ -91,44 +91,16 @@ p.cursor {
 }
 
 .Ch1 { grid-area: Ch1;
-border:1px dotted #F0F
+border-radius: 2%;
 }
 
 .Ch2 { grid-area: Ch2;
-border:1px dotted #F0F
+border-radius: 2%;
 }
 
 .Ch3 { grid-area: Ch3;
-border:1px dotted #F0F
+border-radius: 2%;
 }
-
-.Ch_container_2 {  display: grid;
-  grid-template-columns: 350px 350px 350px;
-  grid-template-rows: 250px;
-  gap: 15px 50px;
-  grid-auto-flow: row dense;
-  justify-content: center;
-  align-content: center;
-  justify-items: stretch;
-  align-items: stretch;
-  grid-template-areas:
-    "Ch4 Ch5 Ch6";
-  margin-top: 50px;
-  margin-bottom: 150px;
-}
-
-.Ch4 { grid-area: Ch4;
-border:1px dotted #F0F
-}
-
-.Ch5 { grid-area: Ch5;
-border:1px dotted #F0F
-}
-
-.Ch6 { grid-area: Ch6;
-border:1px dotted #F0F
-}
-
 
 /* 섹션 ch1 끝 */
 

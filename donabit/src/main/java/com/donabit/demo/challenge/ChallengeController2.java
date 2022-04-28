@@ -165,7 +165,7 @@ public class ChallengeController2 {
 		List<ReportDTO> resultList = new ArrayList<ReportDTO>();
 		int reportCount = 0;
 		for(ReportDTO i : allReportList) {
-			if(i.getReport() >= 2) { // 신고횟수 10 이상인거만 새로운 List에 보관
+			if(i.getReport() >= 10) { // 신고횟수 10 이상인거만 새로운 List에 보관
 				resultList.add(i);
 				chnameList.add(service.selectChallengeNameByNumber(i.getCheckDTO().getChnum()));
 			}

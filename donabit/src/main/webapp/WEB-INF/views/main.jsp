@@ -76,8 +76,8 @@ jQuery(function($) {
 	  <c:forEach items="${chlist}" var="dto" end="5">
 	  	<div style="cursor: pointer;" onclick="location.href='/challenge/${dto.chnum}?chnumdetail=${dto.chnum}'">
 			<img src="/images/${dto.chimg}" class="Ch1" width="350px" height="250px" />
-			<p>챌린지 명: ${dto.chname}</p>
-		  	<p>참여 인원: ${dto.nickname} / ${dto.chmaxp}</p>
+			<p><b>챌린지 명:</b> ${dto.chname}</p>
+		  	<p><b>참여 인원:</b> ${dto.nickname} / ${dto.chmaxp}</p>
 		</div>
 	  </c:forEach>
 	</div>
