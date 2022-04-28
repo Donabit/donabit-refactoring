@@ -23,9 +23,8 @@
 .swiper-container {
 	height: 250px;
 	width: 700px;
-	border: 1px solid red;
+	border: 1px dotted red;
 	border-radius: 12px;
-	box-shadow: 0 0 20px #ccc inset;
 }
 
 .swiper-slide {
@@ -131,7 +130,7 @@
 		</div>
 
 		<div class="challenge-box">
-			<p>참여중인 챌린지</p>
+			<p><b>참여중인 챌린지</b></p>
 			<div class="challenge-ing">
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
@@ -142,8 +141,8 @@
 							<c:if test="${edate > today}">
 								<div class="swiper-slide">
 									<div class="slidetext" style="cursor: pointer;" onclick="location.href='/checkmorning?chnum=${dto.chnum}';">
-										<img src="/checkimage/${dto.chimg}" class="slideimg">
-										<div>${dto.chname}</div>
+										<div class="slidename">${dto.chname}</div>
+										<img src="/checkimage/${dto.chimg}" class="slideimg" width="150px" height="150px">
 									</div>
 								</div>
 							</c:if>
@@ -161,7 +160,7 @@
 				</div>
 			</div>
 
-			<p>획득한 뱃지</p>
+			<p><b>획득한 뱃지</b></p>
 			<div class="challenge-ing">
 				<div class="swiper-container">
 					<div class="swiper-wrapper">

@@ -5,6 +5,14 @@
 	position:relative;
 }
 
+
+.slidename{
+	position:absolute;
+	width: 50%;
+	top: 15px;
+	left: 50px;
+}
+
 #badgename{
 	position:absolute;
 	width: 50%;
@@ -15,6 +23,11 @@
 	background-color: white;	
 	width:200px;
 }
+
+.slideimg, #badgein{
+	border-radius:40%;
+}
+
 .profileimg{
 	width:150px;
 	height:150px;
