@@ -38,7 +38,7 @@
 	<div class="menu_container">
 		<ul class="menu">
 
-	<li class="menu_1"><a class="menu_title" href="tutorial.jsp">튜토리얼</a>
+	<li class="menu_1"><a class="menu_title" href="/tutorial">튜토리얼</a>
 </li>
 
 	<li class="menu_2"><a class="menu_title" href="/challenge">챌린지</a>

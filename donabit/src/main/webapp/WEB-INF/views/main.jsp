@@ -76,8 +76,8 @@ jQuery(function($) {
 	  <c:forEach items="${chlist}" var="dto" end="5">
 	  	<div style="cursor: pointer;" onclick="location.href='/challenge/${dto.chnum}?chnumdetail=${dto.chnum}'">
 			<img src="/images/${dto.chimg}" class="Ch1" width="350px" height="250px" />
-			<p><b>챌린지 명:</b> ${dto.chname}</p>
-		  	<p><b>참여 인원:</b> ${dto.nickname} / ${dto.chmaxp}</p>
+			<p class="main_challenge_info"><b>챌린지 명 :</b> ${dto.chname}</p>
+		  	<p class="main_challenge_info"><b>참여 인원 :</b> ${dto.nickname} / ${dto.chmaxp}</p>
 		</div>
 	  </c:forEach>
 	</div>
@@ -86,9 +86,9 @@ jQuery(function($) {
 
 <section class = notice>
 
-<h1 class = notice>Recent Our Notice</h1><a class = more href="board/list">더보기</a>
+<h1 class = notice>Recent Our Notice</h1>
+<br>
 <hr class = "four">
-
 <div class = notice_body_table>
 		<c:forEach items="${list}" var="list" end = "4">
 		<c:set var="regdate" value="${list.regdate}"/>
@@ -111,13 +111,21 @@ jQuery(function($) {
 </section>
 
 <section class=ads>
-
+<div>
 <h1 class=ads>Many hands make light work</h1>
-<p class=ads>저희가 추구하는 방향성이 궁금하신가요?<br>
-튜토리얼을 통해 누구나 실천할 수 있는 선한 영향력을 확인해보세요</p>
 <br>
-<button class=tuto type="button" onclick="location.href='tutorial.jsp'">튜토리얼!</button>
-
+	<div class="ads">
+		<p>저희가 추구하는 방향성이 궁금하신가요?</p>
+		<br>
+		<p>튜토리얼을 통해 누구나 실천할 수 있는 선한 영향력을 확인해보세요</p>
+	</div>
+<br>
+<br>
+<button class=tuto type="button" onclick="location.href='/tutorial'">튜토리얼!</button>
+</div>
+<div>
+<img id="tutorial_img" src="https://cdn.pixabay.com/photo/2018/05/12/11/37/team-3393037_1280.jpg" alt="튜토리얼 이미지"/>
+</div>
 </section>
 	
 <div class="slider">
@@ -208,9 +216,9 @@ jQuery(function($) {
 
 <!-- Tocplus 15.1 -->
 <script type="text/javascript">
-tocplusTop=1150;
+tocplusTop=1500;
 tocplusLeft=5;
-tocplusMinimizedImage='http://kr07.tocplus007.com/img/minimized_ko.gif';
+tocplusMinimizedImage='/img/chat.png';
 tocplusHAlign='right';
 tocplusWidth=180;
 tocplusHeight=220;

@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     <div class="admin_make_challenge">
-                        <label for="donateco" class="admin_make_challenge_label">기부처</label>
+                        <label for="donateco" class="admin_make_challenge_label">후원기업</label>
                         <div class="admin_make_challenge_input">
                             <input type="text" name="donateco">
                             <span class="admin_make_challenge_info">(법인명 또는 브랜드명을 입력해 주세요.)</span>

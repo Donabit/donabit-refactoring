@@ -25,16 +25,24 @@
   font-size: 50px;
   position:absolute;
   top: 50%;
-  left: 0;
+  left: 20px;
   transform: translate(0%, -50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: dimgray;
 }
 
 #nextBtn{
   font-size: 50px;
   position:absolute;
   top: 50%;
-  right: 0;
+  right: 20px;
   transform: translate(0%, -50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: dimgray;
 }
 
 .h1 {
@@ -102,6 +110,11 @@ border-radius: 2%;
 border-radius: 2%;
 }
 
+.main_challenge_info {
+	font-size: 1.2em;
+	padding: 0.2em 0;
+	
+}
 /* 섹션 ch1 끝 */
 
 .notice {
@@ -117,13 +130,6 @@ h1.notice {
 	right: 395px;
 }
 
-a.more {
-	position: relative;
-	right: -1450px;
-	margin-bottom: 15px;
-	font-weight: bold;
-}
-
 .notice_body_table {
 	display: table;
 	margin: 0 auto;
@@ -133,11 +139,15 @@ a.more {
 
 .notice_body_row {
 	display: table-row;
-	font-size: 14px;
-	font-family: 'Nanum Pen Script';
+	font-size: 1em;
 	justify-content: space-between;
 	margin-top: 20px;
 	margin-bottom: 20px;
+}
+
+.notice_body_cell, .notice_body_cell:active, .more, .more:active {
+	color: inherit;
+	text-decoration: none;
 }
 
 .notice_body_cell {
@@ -146,6 +156,14 @@ a.more {
 	padding-top: 25px;
 	padding-bottom: 25px;
 	padding-left: 20px;
+}
+
+.notice_body_cell:first-child{
+	padding-right: 20em;
+}
+
+.notice_body_cell:first-child:hover {
+	color: #fc5192;
 }
 
 .notice_body_cell:last-child {
@@ -161,27 +179,36 @@ hr.notice_body {
 
 /* 섹션 notice 끝 */
 
+section.ads {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	width: 1110px;
+}
+
 h1.ads {
-	text-align: center;
+
 	margin-bottom: 20px;
 	font-size: 40px;
 	
 	position: relative;
-	right: 290px;
+
 }
 
-p.ads {
+div.ads {
 	text-align: left;
 	font-size: 18px;
-	font-family: 'Nanum Pen Script';
-	
 	position: relative;
-	left: 400px;
+	text-indent: 0.5em;
 	margin: 0 auto;
-	margin-top: 20px;
-	margin-bottom: 20px;
+
 }
 
+#tutorial_img {
+	width: 400px;
+	height: 250px;
+	border-radius: 2%;
+}
 /* 섹션 ads 끝 */
 
 button.tuto{
@@ -195,7 +222,7 @@ button.tuto{
   cursor:pointer;
   transition:800ms ease all;
   outline:none;
-  left: 400px;
+
 }
 button.tuto:hover{
   background:#fff;

@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>MyPage</title>
-<link rel="stylesheet" type="text/css" href="css/mypage.css">
 <script src="resources/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -16,30 +15,11 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 
-<style type="text/css">
-.swiper-container {
-	height: 250px;
-	width: 700px;
-	border: 1px dotted red;
-	border-radius: 12px;
-}
-
-.swiper-slide {
-	text-align: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.swiper-slide img {
-	box-shadow: 0 0 5px #555;
-	max-width: 100%;
-}
-</style>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<link rel="stylesheet" type="text/css" href="css/mypage.css">
 </head>
 <body>
 	<div class="boxes">
@@ -86,7 +66,8 @@
 			</div>
 			<div class="nick-level">
 				<h1>${principal.memberdto.nickname}</h1>
-				<h4>Level : ${level}</h4>
+				<h3>Level : ${level}</h3>
+				<h4>Exp : ${expsum}</h4>
 			</div>
 
 			<div class="listContainer">
@@ -159,6 +140,7 @@
 					<div class="swiper-pagination"></div>
 				</div>
 			</div>
+		
 
 			<p><b>획득한 뱃지</b></p>
 			<div class="challenge-ing">

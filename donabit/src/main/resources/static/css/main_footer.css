@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 footer {
-    background-color: #222222;
+    background-color: dimgray;
 }
 
 .footer_container { 
@@ -11,7 +11,7 @@ footer {
 	cursor: default; 
 	text-align: center; 
 	color: rgba(255, 255, 255, 1); 
-	background-color: rgba(25, 25, 25, 1);
+	background-color: dimgray;
 }
 	
 .footer_container .footA { 

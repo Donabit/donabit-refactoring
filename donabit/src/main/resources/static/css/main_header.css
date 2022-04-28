@@ -3,7 +3,7 @@
 .menu_title:after {
   display:block;
   content: '';
-  border-bottom: solid 3px #ea2129;  
+  border-bottom: solid 3px #fc5192;  
   transform: scaleX(0);  
   transition: transform 250ms ease-in-out;
 }

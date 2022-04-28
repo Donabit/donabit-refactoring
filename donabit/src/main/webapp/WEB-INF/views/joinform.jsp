@@ -98,14 +98,17 @@ $(document).ajaxSend(function (e, xhr, options) {
 		      dataType : "json",
 		      data : {"nickname" : $("#nickname").val()},
 		      success : function(data){
-		        if(data == 1){
-		          alert("중복된 닉네임입니다.");
-		        }else if(data == 0){
-		          $("#nickchk").attr("value", "Y");
-		          alert("사용가능한 닉네임입니다.");
-		          $("input[name=checked_nick]").val('y');
-		        }else {
-		          alert("닉네임을 입력해주세요.");
+		    	  if(!$("#nickname").val()){
+		    		  alert("닉네임을 입력해주세요.");
+		    		  return false;
+		    	  } else {
+			        if(data == 1){
+			          alert("중복된 닉네임입니다.");
+			        }else if(data == 0){
+			          $("#nickchk").attr("value", "Y");
+			          alert("사용가능한 닉네임입니다.");
+			          $("input[name=checked_nick]").val('y');
+			        }		         
 		        }
 		      }
 		    })
@@ -119,14 +122,18 @@ $(document).ajaxSend(function (e, xhr, options) {
 		      dataType : "json",
 		      data : {"email" : $("#email").val()},
 		      success : function(data){
-		        if(data == 1){
-		          alert("중복된 이메일입니다.");
-		        }else if(data == 0){
-		          $("#emailchk").attr("value", "Y");
-		          alert("사용가능한 이메일입니다.");
-		          $("input[name=checked_email]").val('y');
-		        }else {
-		          alert("이메일을 입력해주세요.");
+		    	  if(!$("#email_id").val()){
+		    		  alert("이메일을 입력해주세요.");
+		    		  return false;
+		    	  } else{
+			        if(data == 1){
+			          alert("중복된 이메일입니다.");
+			        }else if(data == 0){
+			          $("#emailchk").attr("value", "Y");
+			          alert("사용가능한 이메일입니다.");
+			          $("input[name=checked_email]").val('y');
+			        }
+		          
 		        }
 		      }
 		    })

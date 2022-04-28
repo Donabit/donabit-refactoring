@@ -77,6 +77,7 @@
 	}
 	
 	.btn {
+		margin-top: 1em;
     	text-align: center;
 	}
 	
@@ -98,15 +99,15 @@
 			        </div>
 			    </div>
 			    <div class="input_row">
-			        <label class="input_cell" for="content">내용</label>
-			        <div class="input_cell">
-			        	<textarea rows="6" name="content"></textarea>
-			        </div>
-			    </div>
-			    <div class="input_row">
 			        <label class="input_cell" for="writer">작성자</label>
 			        <div class="input_cell">
 			        	<input name="writer" value="${nickname}" />
+			        </div>
+			    </div>
+			    <div class="input_row">
+			        <label class="input_cell" for="content">내용</label>
+			        <div class="input_cell">
+			        	<textarea rows="6" name="content"></textarea>
 			        </div>
 			    </div>
 		    </div>

@@ -77,7 +77,7 @@ textarea {
 	text-align: center;
 	color: #94DAFF;
 	font-size:40px;
-	width:500px;
+	width: 800px;
 	margin: 0 auto;
 }
 
@@ -115,12 +115,6 @@ textarea {
 
 }
 
-.delete_btn{
-	position: absolute;
-  	top: 2%;
-  	left: 90%;
-}
-
 .img{
 	 text-align:center;
 	 margin:35px 10px 10px 10px;
@@ -143,16 +137,19 @@ textarea {
 
 
 .delete_btn{
+	position: absolute;
+  	top: 2%;
+  	left: 90%;
 	border: 0;
 	outline: 0;
-	background-color: white;
+	background-color: transparent;
 	opacity: 0.5;
+	cursor: pointer;
 }
 
 .delete_btn:hover{
 	border: 0;
 	outline: 0;
-	background-color: white;
 	opacity: 1.0;
 }
 
@@ -174,4 +171,9 @@ position: absolute;
 
 .imgin{ 
 	border-radius:20px;
+}
+
+main {
+	height: 1200px;
+	
 }

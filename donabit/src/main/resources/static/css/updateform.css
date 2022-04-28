@@ -167,7 +167,7 @@ input{
     
 }
 
-hr {
+.wrapper hr {
 	border-top: 1.5px dotted #FF85B3;
 	border-bottom : white;
 }

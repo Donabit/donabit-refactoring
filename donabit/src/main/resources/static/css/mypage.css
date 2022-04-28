@@ -159,8 +159,34 @@
     color: rgb(185, 185, 185);
   }  
   
-h1, h4, p{
+h1, h3, h4, p{
 	color:#fc5192;
 }
 
+/* Swiper */
+.swiper-container {
+	height: 250px;
+	width: 700px;
+	border: 1px dotted red;
+	border-radius: 12px;
+}
+
+.swiper-slide {
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.swiper-slide img {
+	max-width: 100%;
+}
+
+.swiper-button-next, .swiper-button-prev {
+	display: none;
+}
+
+.swiper-pagination-bullet {
+	background: #FF85B3;
+}
 

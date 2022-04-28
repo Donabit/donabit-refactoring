@@ -9,7 +9,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="https://kit.fontawesome.com/b81e22d1de.js"
 	crossorigin="anonymous"></script>
-<%@ include file="/WEB-INF/views/main_header.jsp"%>
+
 <script>
 	window.onload = function() {
 		document.getElementById("newwin").onclick = function() {
@@ -27,6 +27,8 @@
 </script>
 </head>
 <body>
+	<%@ include file="/WEB-INF/views/main_header.jsp"%>
+	<main>
 	<img class="checktitle" src="img/checktitle.svg">
 	<div class="containerflexbox">	
 		<div class="chname">
@@ -76,6 +78,7 @@
 				
 				</div>
 			</div>
+		</main>
 	<%@ include file="/WEB-INF/views/main_footer.jsp"%>
 </body>
 </html>
