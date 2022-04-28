@@ -46,11 +46,11 @@
 									$('#participatebtn').remove();
 									$('#recruitprog').remove();
 									$('#recruitdivin').remove();
-									$("#participate").prepend("<button id ='cancelbtn' type='button'>참여취소</button>");
+									$("#participate").prepend("<button id ='cancelbtn' type='button'>참가취소</button>");
 									$("#divprog").prepend("<progress id='recruitprog2' value='" + nickname2 + "' max='" + chmaxp + "'></progress>");
 									$("#recruitdiv").prepend("<div id = recruitdivin2 > " + nickname2 + " / " + chmaxp + "</div>");
 									$("#zzz").load("/challengedetail.jsp");
-									alert("참여완료");
+									alert("참가완료");
 
 								},// success
 								error: function (jqXHR) {
@@ -61,7 +61,7 @@
 
 						//취소하기 버튼 클릭시
 						$(document).on("click", "#cancelbtn", function () {
-							var con_test = confirm("주의, 해당 챌린지 경험치 리셋, 취소하시겠습니까?");
+							var con_test = confirm("주의, 해당 챌린지의 경험치와 인증 정보가 리셋됩니다. \n취소하시겠습니까?");
 							if (con_test == true) {
 								$.ajax({
 									url: "/cancel", // 호출할 주소
@@ -80,7 +80,7 @@
 										$('#recruitprog2').remove();
 										$('#recruitdivin2').remove();
 										$('#chnumajax').remove();
-										$("#participate").prepend("<button id='participatebtn' type='button'>참여하기</button>");
+										$("#participate").prepend("<button id='participatebtn' type='button'>참가하기</button>");
 										if (nickname2 == null) {
 											$("#recruitdiv").prepend("<div id = recruitdivin > 0 / " + chmaxp + "</div>");
 										} else {
@@ -123,7 +123,7 @@
 							<div class="infotitle2">경험치</div>
 							<div class="infotitle3">모집인원</div>
 							<div class="infotitle4">후원기업</div>
-							<div class="infotitle5">기부기업</div>
+							<div class="infotitle5">기부금액</div>
 							<div class="infotitle6">기부조건</div>
 							<div class="infotitle7">참여기간</div>
 							<div id="text1"> ${dto.chname }</div>
@@ -134,7 +134,7 @@
 								</div>
 							</div>
 							<div id="text3">${dto.chsuccess }회</div>
-							<div id="text4">${dto.chexp}</div>
+							<div id="text4">${dto.chexp} Point</div>
 							<div id="text5">
 								<fmt:formatNumber value="${dto.donatepay}" pattern="#,###" />원
 							</div>
@@ -219,16 +219,20 @@
 							</div> <!-- 참여하기 or 참여취소 -->
 						</div> <!-- info -->
 						<div class="description">
-							<div class="descimg">
+						
 								<div class="descriptionin">${dto.chdesc }</div>
-							</div>
+						
+							
 						</div>
 
 						<div class="button" id="divbutton">
 
 						</div> <!-- button-->
-						<div class="footer"></div>
+						
+						<div class="footer">
+						<div class="description2" ></div ></div>
 					</div> <!-- container -->
+				
 					<%@ include file="/WEB-INF/views/main_footer.jsp" %>
 				</c:if> <!-- 챌린지 번호와 챌린지페이지 번호가 같을때 -->
 			</c:forEach> <!-- 챌린지 테이블 + 참가자수(checknum) -->

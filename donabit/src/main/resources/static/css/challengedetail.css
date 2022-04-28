@@ -5,13 +5,17 @@
 	animation: color-change-3x 10s linear infinite alternate both;
 	display: grid;
 	grid-template-columns: 200px 400px 450px 200px;
-	grid-template-rows: 200px 400px 200px 100px 10px;
+	grid-template-rows: 200px 400px auto auto auto;
 	gap: 0px 0px;
 	grid-auto-flow: row dense;
 	justify-content: center;
 	justify-items: stretch;
-	grid-template-areas: ".head head ."". img info ."
-		". description description ."". button button ."". footer footer .";
+	grid-template-areas: 
+	".head head ."
+	". img info ."
+	". description description ."
+	". button button ."
+	". footer footer .";
 }
 
 .head {
@@ -51,42 +55,49 @@
 	top: 80px;
 	font-size: 17px;
 }
+
 .infotitle2 {
 	position: absolute;
 	left: 65px;
 	top: 110px;
 	font-size: 17px;
 }
+
 .infotitle3 {
 	position: absolute;
 	left: 65px;
 	top: 140px;
 	font-size: 17px;
 }
+
 .infotitle4 {
 	position: absolute;
 	left: 65px;
 	top: 170px;
 	font-size: 17px;
 }
+
 .infotitle5 {
 	position: absolute;
 	left: 65px;
 	top: 200px;
 	font-size: 17px;
 }
+
 .infotitle6 {
 	position: absolute;
 	left: 65px;
 	top: 230px;
 	font-size: 17px;
 }
+
 .infotitle7 {
 	position: absolute;
 	left: 65px;
 	top: 260px;
 	font-size: 17px;
 }
+
 
 #text1 {
 	position: absolute;
@@ -168,15 +179,18 @@
 
 .descriptionin {
 	grid-area: description;
-	margin: 30px 30px 30px 30px;
+	margin: 20px 0px 10px 0px;
+	background: #e2e9e6;
+	padding : 30px 30px 30px 30px;
 
 }
 
-.descimg {
-	position: absolute;
-	top: 20px;
-	width: 100%;
-	background: #e2e9e6;
+.description2{
+	background-image: url('../img/challenge/detail2.svg');
+	width :850px;
+	height: 400px;
+	margin: 10px 0px 100px 0px;
+
 }
 
 .button {
