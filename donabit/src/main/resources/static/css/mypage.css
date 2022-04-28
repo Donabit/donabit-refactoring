@@ -3,20 +3,21 @@
 .swiper-slide{
 	height:150px;
 	position:relative;
+	top:20px;
 }
 
 
 .slidename{
 	position:absolute;
 	width: 50%;
-	top: 15px;
+	top: 170px;
 	left: 50px;
 }
 
 #badgename{
 	position:absolute;
 	width: 50%;
-	top: 15px;
+	top: 170px;
 }
 
 .slidetext{
