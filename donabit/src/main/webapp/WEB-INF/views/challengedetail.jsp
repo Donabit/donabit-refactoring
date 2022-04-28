@@ -133,7 +133,7 @@
 									<progress id="text2-1" value="${dto.checknum }" max="${dto.chdonate }"></progress>
 								</div>
 							</div>
-							<div id="text3">${dto.chsuccess }회</div>
+							<div id="text3">${dto.chsuccess } 회</div>
 							<div id="text4">${dto.chexp} Point</div>
 							<div id="text5">
 								<fmt:formatNumber value="${dto.donatepay}" pattern="#,###" />원
@@ -202,11 +202,12 @@
 										<!-- 로그인 유저가 해당챌린지에 참가 하지 않았다면 -->
 										<c:if test="${challnickname == 0}">
 											<!-- 참여인원 full일때 -->
-											<c:if test="${dto2.nickname == dto.chmaxp}">
+											<fmt:parseNumber value="${dto2.nickname}" var="num"/>
+											<c:if test="${num == dto.chmaxp}">
 												<button id="participatebtnx" type="button">최대인원</button>
 											</c:if>
 											<!-- 참여인원 full이 아닐때 -->
-											<c:if test="${dto2.nickname < dto.chmaxp}">
+											<c:if test="${num < dto.chmaxp}">
 												<button id="participatebtn" type="button">참가하기</button>
 											</c:if>
 										</c:if>

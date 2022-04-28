@@ -89,7 +89,8 @@
 															</div>
 														</div>
 
-														<c:if test="${dto2.nickname < dto.chmaxp}">
+														<fmt:parseNumber value="${dto2.nickname}" var="num"/>
+														<c:if test="${num < dto.chmaxp}">
 															<form class="buttonout" action="/challenge/${dto.chnum }"
 																method="get">
 																<input class="button" type="submit" value="참가하기"> <input
