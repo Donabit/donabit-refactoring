@@ -47,37 +47,6 @@ public class ChallengeController {
 		return mv; 
 	}
 	
-	@GetMapping("/test")
-	public ModelAndView test(Authentication authentication){
-		ModelAndView mv = new ModelAndView();
-		PrincipalDetails userDetails = (PrincipalDetails) authentication.getPrincipal();
-		String nickname = userDetails.getMemberdto().getNickname();
-		int[] exp = service.selectexp(nickname);
-		int[] level = service.selectlevel();
-		int levelresult = 0;
-		int sum = Arrays.stream(exp).sum();
-		System.out.println(sum +"= "+ nickname+ "경험치 총합계");
-		//경험치 구간이 level 1이하 일때
-		if( sum <= level[0]) {
-			levelresult = 1;
-		}
-		//경험치가 구간이 level 1초과 일때
-		for(int i=0; i<level.length; i++) {
-			System.out.println(level[i] + "=level배열");
-			if(level[i] < sum) {
-				if(sum  <= level[i+1]) {
-					levelresult = i+2;
-				}
-			}
-		}
-		System.out.println(levelresult +"=" + nickname + "의 레벨");
-		mv.addObject("level", levelresult);
-		mv.addObject("expsum", sum);
-		mv.setViewName("mypage");
-		return mv;
-	
-	}
-	
 	//챌린지리스트에서 챌린지상세페이지 클릭 시 각 chnum 별로 넘어감
 	@GetMapping("challenge/{chnum}")
 	public ModelAndView challengelistdatail(@RequestParam int chnumdetail, Authentication authentication) {

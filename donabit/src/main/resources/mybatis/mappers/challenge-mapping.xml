@@ -159,4 +159,14 @@
 	<select id="selectlevel" resultType="int">
 		SELECT exp FROM donabit.level;
 	</select>
+	
+	<select id="selectbadge" resultType="challengedto">
+		select checks.chnum, count(checks.chnum) as 'count', challenge.chsuccess,  challenge.chname 
+		from donabit.checks 
+		join donabit.challenge 
+		on challenge.chnum = checks.chnum  
+		where checks.nickname 
+		like #{nickname} 
+		GROUP BY checks.chnum;
+	</select>
 </mapper>

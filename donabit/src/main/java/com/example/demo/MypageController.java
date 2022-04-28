@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,7 +10,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import check.CheckService;
@@ -26,8 +26,7 @@ public class MypageController {
 	@Autowired
 	@Qualifier("checkservice")
 	CheckService checkinservice;
-	
-	
+
 	@RequestMapping("/mypage")
 	public String view() {
 		return "mypage";
@@ -49,7 +48,7 @@ public class MypageController {
 			levelresult = 1;
 		}
 		// 경험치가 구간이 level 1초과 일때
-		for (int i = 0; i < level.length; i++) {
+		for (int i = 1; i < level.length; i++) {
 			System.out.println(level[i] + "=level배열");
 			if (level[i] < sum) {
 				if (sum <= level[i + 1]) {
@@ -59,6 +58,8 @@ public class MypageController {
 		}
 		System.out.println(levelresult + "=" + nickname + "의 레벨");
 		List<ChallengeDTO> participate = checkinservice.mypagecheck(nickname);
+		List<ChallengeDTO> badge = service.selectbadge(nickname);
+		mv.addObject("badge", badge);
 		mv.addObject("participate", participate);
 		mv.addObject("level", levelresult);
 		mv.addObject("expsum", sum);

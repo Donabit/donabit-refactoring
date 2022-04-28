@@ -1,16 +1,13 @@
 package donabit.challenge;
 
 public class ChallengeDTO {
-	String chnum, chnum2, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum, donatepay, donateco, nickname, nickname2, personalpf, checkid, like, report,checktitle, checkdesc, checkimg2, checktime;
+	String chnum, chnum2, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum, donatepay, donateco, nickname, nickname2, personalpf, checkid, like, report,checktitle, checkdesc, checkimg2, checktime, count;
 	
 	public ChallengeDTO() {}
 
-	
-
-
-	public ChallengeDTO(String chnum, String chnum2, String chname, String chdonate, String chdesc, String chimg, String chsuccess, String chexp,
-			String chmaxp, String chsdate, String chedate, String checknum, String donatepay, String donateco, String nickname, String nickname2,
-			String personalpf, String checkid, String like, String report, String checktitle, String checkdesc, String checkimg2, String checktime) {
+	public ChallengeDTO(String chnum, String chnum2, String chname, String chdonate, String chdesc, String chimg, String chsuccess, String chexp, String chmaxp, String chsdate, String chedate,
+			String checknum, String donatepay, String donateco, String nickname, String nickname2, String personalpf, String checkid, String like, String report, String checktitle, String checkdesc,
+			String checkimg2, String checktime, String count) {
 		super();
 		this.chnum = chnum;
 		this.chnum2 = chnum2;
@@ -36,7 +33,13 @@ public class ChallengeDTO {
 		this.checkdesc = checkdesc;
 		this.checkimg2 = checkimg2;
 		this.checktime = checktime;
+		this.count = count;
 	}
+
+
+
+
+
 
 
 
@@ -243,6 +246,20 @@ public class ChallengeDTO {
 
 	public String getDonatepay() {
 		return donatepay;
+	}
+
+
+
+
+	public String getCount() {
+		return count;
+	}
+
+
+
+
+	public void setCount(String count) {
+		this.count = count;
 	}
 
 

@@ -180,7 +180,7 @@
 			<img id="coimg" src="img/challenge/community.svg">
 			<div class="container">
 				<div class="containerflex">
-					<c:forEach items="${checklist}" var="check" varStatus="status">
+					<c:forEach items="${checklist}" var="check" varStatus="status" end="19">
 						<div class="item">
 							<div class="nicknameout">
 								<div class="box" style="background: #ffffff;">

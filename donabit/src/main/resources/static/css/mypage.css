@@ -2,6 +2,13 @@
 
 .swiper-slide{
 	height:150px;
+	position:relative;
+}
+
+#badgename{
+	position:absolute;
+	width: 50%;
+	top: 15px;
 }
 
 .slidetext{
@@ -12,6 +19,7 @@
 	width:150px;
 	height:150px;
 	border-radius:40%;
+	
 }
 
 .boxes{
@@ -42,6 +50,7 @@
     height: 480px;
     border : 1px dotted #FF85B3;
     border-radius:20%;
+   
   }
   
 .profile-wrapper {
@@ -105,8 +114,7 @@
     margin: auto;
     padding: auto;
     margin-bottom: 10%;
-    border : 1px dotted #FF85B3;
-   	border-radius:20%;
+
   }
 
 .challenge-badge {
@@ -141,3 +149,5 @@
 h1, h4, p{
 	color:#fc5192;
 }
+
+

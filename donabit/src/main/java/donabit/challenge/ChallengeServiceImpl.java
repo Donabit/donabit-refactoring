@@ -106,5 +106,11 @@ public class ChallengeServiceImpl implements ChallengeService {
 	public int[] selectlevel() {
 		return dao.selectlevel();
 	}
+
+	@Override
+	public List<ChallengeDTO> selectbadge(String nickname) {
+		return dao.selectbadge(nickname);
+	}
+	
 	
 }

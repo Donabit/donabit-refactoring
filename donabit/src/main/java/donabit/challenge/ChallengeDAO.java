@@ -16,6 +16,7 @@ public interface ChallengeDAO {
 	public int challnickname(String nickname, int chnumdetail);
 	public List<ChallengeDTO> challengedetaillist(String chnumajax, String nickname);
 	public List<ChallengeDTO> challengedetaillist2(String chnumajax);
+	public List<ChallengeDTO> selectbadge(String nickname);
 	int selecttoggle(String nickname, String checkid);
 	int selectsingo(String nickname, String checkid);
 	int deleteChallengingAjax(String chnumajax, String nickname);

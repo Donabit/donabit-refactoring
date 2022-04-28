@@ -21,4 +21,5 @@ public interface ChallengeService {
 	int totalsingo(String checkid);
 	int[] selectexp(String nickname);
 	int[] selectlevel();
+	public List<ChallengeDTO> selectbadge(String nickname);
 }

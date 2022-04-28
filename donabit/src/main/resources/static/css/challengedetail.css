@@ -1,119 +1,373 @@
 @charset "UTF-8";
 
 .container {
-  -webkit-animation: color-change-3x 10s linear infinite alternate both;
-  animation: color-change-3x 10s linear infinite alternate both;
-  display: grid;
-  grid-template-columns: 200px 400px 300px 200px;
-  grid-template-rows: 100px 400px 413px 100px 10px;
-  gap: 0px 0px;
-  grid-auto-flow: row dense;
-  justify-content: center;
-  justify-items: stretch;
-  grid-template-areas:
-    "head head head head"
-    ". img info ."
-    ". description description ."
-    ". button button ."
-    ". footer footer .";
+	-webkit-animation: color-change-3x 10s linear infinite alternate both;
+	animation: color-change-3x 10s linear infinite alternate both;
+	display: grid;
+	grid-template-columns: 200px 400px 450px 200px;
+	grid-template-rows: 200px 400px 200px 100px 10px;
+	gap: 0px 0px;
+	grid-auto-flow: row dense;
+	justify-content: center;
+	justify-items: stretch;
+	grid-template-areas: ".head head ."". img info ."
+		". description description ."". button button ."". footer footer .";
 }
 
-
-
-
-
 .head {
-  background-color: rgb(247, 242, 173);
-  grid-area: head;
+	width: 850px;
+	height: 160px;
+	margin-top: 20px;
+	grid-area: head;
+	background-image: url('../img/challenge/detailtitle.svg');
+	grid-area: head;
 }
 
 .img {
-  background-color: rgb(196, 250, 183);
-  grid-area: img;
+	grid-area: img;
+}
+
+.imgin {
+	border-radius: 5px;
 }
 
 .info {
-  background-color: rgb(171, 233, 248);
-  grid-area: info;
+	grid-area: info;
+	position: relative;
+
+}
+
+.infoimg {
+	margin-left: 20px;
+	width: 430px;
+	height: 400px;
+	background: #e2e9e6;
+}
+
+
+.infotitle1 {
+	position: absolute;
+	left: 65px;
+	top: 80px;
+	font-size: 17px;
+}
+.infotitle2 {
+	position: absolute;
+	left: 65px;
+	top: 110px;
+	font-size: 17px;
+}
+.infotitle3 {
+	position: absolute;
+	left: 65px;
+	top: 140px;
+	font-size: 17px;
+}
+.infotitle4 {
+	position: absolute;
+	left: 65px;
+	top: 170px;
+	font-size: 17px;
+}
+.infotitle5 {
+	position: absolute;
+	left: 65px;
+	top: 200px;
+	font-size: 17px;
+}
+.infotitle6 {
+	position: absolute;
+	left: 65px;
+	top: 230px;
+	font-size: 17px;
+}
+.infotitle7 {
+	position: absolute;
+	left: 65px;
+	top: 260px;
+	font-size: 17px;
+}
+
+#text1 {
+	position: absolute;
+	left: 50px;
+	top: 25px;
+	font-size: 25px;
+}
+
+#text2 {
+	position: absolute;
+	left: 160px;
+	top: 230px;
+	font-size: 17px;
+}
+
+#text2-1 {
+	position: absolute;
+	left: 71px;
+	top: 5px;
+	width: 135px;
+	font-size: 17px;
+}
+
+#text3 {
+	position: absolute;
+	left: 160px;
+	top: 80px;
+	font-size: 17px;
+}
+
+#text4 {
+	position: absolute;
+	left: 160px;
+	top: 110px;
+	font-size: 17px;
+}
+
+#recruitdiv {
+	position: absolute;
+	left: 160px;
+	top: 140px;
+	font-size: 17px;
+}
+
+#divprog {
+	position: absolute;
+	left: 230px;
+	top: 135px;
+	width: 150px;
+	font-size: 17px;
+}
+
+#text5 {
+	position: absolute;
+	left: 160px;
+	top: 200px;
+	font-size: 17px;
+}
+
+#text6 {
+	position: absolute;
+	left: 160px;
+	top: 170px;
+	font-size: 17px;
+}
+
+#text8 {
+	position: absolute;
+	left: 160px;
+	top: 260px;
+	font-size: 17px;
 }
 
 .description {
-  background-color: rgb(198, 252, 249);
-  grid-area: description;
+	grid-area: description;
+	position: relative;
+
+}
+
+.descriptionin {
+	grid-area: description;
+	margin: 30px 30px 30px 30px;
+
+}
+
+.descimg {
+	position: absolute;
+	top: 20px;
+	width: 100%;
+	background: #e2e9e6;
 }
 
 .button {
-  background-color: rgb(247, 213, 173);
-  grid-area: button;
-  margin : 0 auto;
+	position: absolute;
+	left: 1110px;
+	top: 590px;
 }
 
 .footer {
-  grid-area: footer;
+	grid-area: footer;
 }
 
-
 /*버튼*/
+#participate {
+	position: absolute;
+	left: 180px;
+	top: 320px;
+}
+
 #participatebtn {
-  background: #f38e9f;
-  /*글자색*/
-  color: #fff;
-  border: none;
-  position: relative;
-  height: 30px;
-  font-size: 20px;
-  padding: 0 10px;
-  cursor: pointer;
-  transition: 400ms ease all;
-  outline: none;
-  text-shadow: 0.5px 0.5px 0.5px rgb(59, 59, 59);
+	background: #f38e9f;
+	/*글자색*/
+	color: #fff;
+	border: none;
+	position: relative;
+	height: 30px;
+	font-size: 20px;
+	padding: 0 10px;
+	cursor: pointer;
+	transition: 400ms ease all;
+	outline: none;
+	text-shadow: 0.5px 0.5px 0.5px rgb(59, 59, 59);
 }
 
 #participatebtn:hover {
-  background: rgb(255, 237, 237);
-  color: #ff8599;
+	background: rgb(255, 237, 237);
+	color: #ff8599;
 }
 
 #participatebtn:before,
 #participatebtn:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 2px;
-  width: 0;
-  background: #fdb3bf;
-  transition: 400ms ease all;
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2px;
+	width: 0;
+	background: #fdb3bf;
+	transition: 400ms ease all;
 }
 
 #participatebtn:after {
-  right: inherit;
-  top: inherit;
-  left: 0;
-  bottom: 0;
+	right: inherit;
+	top: inherit;
+	left: 0;
+	bottom: 0;
 }
 
-#participatebtn:hover:before,
-#participatebtn:hover:after {
-  width: 100%;
-  transition: 800ms ease all;
+/*버튼*/
+#participatebtnx {
+	background: #f38e9f;
+	/*글자색*/
+	color: #fff;
+	border: none;
+	position: relative;
+	height: 30px;
+	font-size: 20px;
+	padding: 0 10px;
+	cursor: pointer;
+	transition: 400ms ease all;
+	outline: none;
+	text-shadow: 0.5px 0.5px 0.5px rgb(59, 59, 59);
+}
+
+#participatebtnx:hover {
+	background: rgb(255, 237, 237);
+	color: #ff8599;
+}
+
+#participatebtnx:before,
+#participatebtnx:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2px;
+	width: 0;
+	background: #fdb3bf;
+	transition: 400ms ease all;
+}
+
+#participatebtnx:after {
+	right: inherit;
+	top: inherit;
+	left: 0;
+	bottom: 0;
+}
+
+/*버튼*/
+#cancelbtn {
+	background: #f38e9f;
+	/*글자색*/
+	color: #fff;
+	border: none;
+	position: relative;
+	height: 30px;
+	font-size: 20px;
+	padding: 0 10px;
+	cursor: pointer;
+	transition: 400ms ease all;
+	outline: none;
+	text-shadow: 0.5px 0.5px 0.5px rgb(59, 59, 59);
+}
+
+#cancelbtn:hover {
+	background: rgb(255, 237, 237);
+	color: #ff8599;
+}
+
+#cancelbtn:before,
+#cancelbtn:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2px;
+	width: 0;
+	background: #fdb3bf;
+	transition: 400ms ease all;
+}
+
+#cancelbtn:after {
+	right: inherit;
+	top: inherit;
+	left: 0;
+	bottom: 0;
+}
+
+/*버튼*/
+#login {
+	background: #f38e9f;
+	/*글자색*/
+	color: #fff;
+	border: none;
+	position: relative;
+	height: 30px;
+	font-size: 20px;
+	padding: 0 10px;
+	cursor: pointer;
+	transition: 400ms ease all;
+	outline: none;
+	text-shadow: 0.5px 0.5px 0.5px rgb(59, 59, 59);
+}
+
+#login:hover {
+	background: rgb(255, 237, 237);
+	color: #ff8599;
+}
+
+#login:before,
+#login:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2px;
+	width: 0;
+	background: #fdb3bf;
+	transition: 400ms ease all;
+}
+
+#login:after {
+	right: inherit;
+	top: inherit;
+	left: 0;
+	bottom: 0;
 }
 
 /*progress bar*/
 progress {
-    width: 90%;
-    height: 10px;
-    appearance: none;
+	width: 90%;
+	height: 10px;
+	appearance: none;
 }
 
 progress::-webkit-progress-bar {
-    background: #f0f0f0;
-    border-radius: 4px;
+	background: #f0f0f0;
+	border-radius: 4px;
 }
 
 progress::-webkit-progress-value {
-    border-radius: 4px;
-    background: #484a4c;
-
-
+	border-radius: 4px;
+	background: #484a4c;
 }
