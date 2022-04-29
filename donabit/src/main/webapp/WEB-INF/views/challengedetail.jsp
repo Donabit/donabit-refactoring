@@ -103,7 +103,6 @@
 					});// ready
 				</script>
 	</head>
-
 	<body>
 		<%@ include file="/WEB-INF/views/main_header.jsp" %>
 			<!-- 챌린지 테이블 + 참가자수(checknum) -->
@@ -116,10 +115,8 @@
 							<img class="imgin" src="/image/${dto.chimg }" height="400px" width="400px">
 						</div>
 						<div class="info">
-
 							<div class="infoimg">
 							</div>
-
 							<div class="infotitle1">성공조건</div>
 							<div class="infotitle2">경험치</div>
 							<div class="infotitle3">모집인원</div>
@@ -137,7 +134,7 @@
 							<div id="text3">${dto.chsuccess } 회</div>
 							<div id="text4">${dto.chexp} Point</div>
 							<div id="text5">
-								<fmt:formatNumber value="${dto.donatepay}" pattern="#,###" />원
+								<fmt:formatNumber value="${dto.donatepay}" pattern="#,###" /> 원
 							</div>
 
 							<div id="text6"> ${dto.donateco}</div>
@@ -221,20 +218,13 @@
 							</div> <!-- 참여하기 or 참여취소 -->
 						</div> <!-- info -->
 						<div class="description">
-						
 								<div class="descriptionin">${dto.chdesc }</div>
-						
-							
 						</div>
-
 						<div class="button" id="divbutton">
-
 						</div> <!-- button-->
-						
 						<div class="footer">
 						<div class="description2" ></div ></div>
 					</div> <!-- container -->
-				
 					<%@ include file="/WEB-INF/views/main_footer.jsp" %>
 				</c:if> <!-- 챌린지 번호와 챌린지페이지 번호가 같을때 -->
 			</c:forEach> <!-- 챌린지 테이블 + 참가자수(checknum) -->
