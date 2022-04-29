@@ -47,7 +47,7 @@
 										<img class="img" src="/image/${dto.chimg }">
 									</div>
 									<div class="chdetail">
-										<div class="text1">${dto.chname }</div>
+										<div class="text1">${dto.chname}</div>
 										<div class="text2">${dto.chsdate}~${dto.chedate}</div>
 										<div class="text3">
 											경험치
