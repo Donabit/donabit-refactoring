@@ -223,7 +223,7 @@
 						<div class="button" id="divbutton">
 						</div> <!-- button-->
 						<div class="footer">
-						<div class="description2" ></div ></div>
+						<div class="description2"></div ></div>
 					</div> <!-- container -->
 					<%@ include file="/WEB-INF/views/main_footer.jsp" %>
 				</c:if> <!-- 챌린지 번호와 챌린지페이지 번호가 같을때 -->

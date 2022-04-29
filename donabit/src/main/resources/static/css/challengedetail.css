@@ -186,11 +186,12 @@
 }
 
 .description2{
-	background-image: url('../img/challenge/detail2.svg');
+	background-image: url('../img/challenge/detail2.png');
+ background-size: 850px;
 	width :850px;
 	height: 1900px;
 	margin: 10px 0px 100px 0px;
-
+	object-fit:cover;
 }
 
 .button {
