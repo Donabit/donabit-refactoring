@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="joinlogin.MemberDAO" >
+<mapper namespace="com.donabit.demo.dao.MemberDAO" >
 
 
 <insert id="insertmember" parameterType="memberdto">
@@ -34,7 +34,7 @@ delete from member where email=#{email};
 </delete> 
 
 
-<select id="findByUsername" parameterType="String" resultType="joinlogin.MemberDTO">
+<select id="findByUsername" parameterType="String" resultType="memberdto">
 select * from member where email=#{email};
 </select>
 

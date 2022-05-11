@@ -91,13 +91,11 @@ jQuery(function($) {
 <hr class = "four">
 <div class = notice_body_table>
 		<c:forEach items="${list}" var="list" end = "4">
-		<c:set var="regdate" value="${list.regdate}"/>
-
 			
 			<div class = notice_body_row>   
                 <a class= notice_body_cell href='board/get?bno=${list.bno}'> ${list.title} </a>
 				<span class = notice_body_cell> ${list.writer} </span>
-				<span class = notice_body_cell> ${fn:substring(regdate, 0, 10) } </span>
+				<span class = notice_body_cell> ${fn:substring(list.regdate, 0, 10) } </span>
 			</div>
 			
 			

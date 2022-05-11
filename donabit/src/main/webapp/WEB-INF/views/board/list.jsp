@@ -78,18 +78,18 @@ $(document).ready(function(){
     function checkAlert(result){
         
         if(result === ''){
-            reutrn;
+            return;
         }
         
-        if(result === "enrol success"){
+        if(result === "enroll"){
             alert("등록이 완료되었습니다.");
         }
         
-        if(result === "modify success"){
+        if(result === "modify"){
             alert("수정이 완료되었습니다.");
         }
         
-        if(result === "delete success"){
+        if(result === "delete"){
             alert("삭제가 완료되었습니다.");
         }
         

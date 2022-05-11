@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
-  <!-- mybatis db 연결정보 세팅 파일 -->
+
 <configuration>
-<!-- 1. sql 실행 결과 XXXDTO 매핑 -->
-<typeAliases>
-	<typeAlias type="com.donabit.demo.challenge.ChallengeDTO2" alias="ChallengeDTO2"/>
-	<typeAlias type="donabit.challenge.ChallengeDTO" alias="challengedto"/>
-	<typeAlias type="check.CheckDTO" alias="checkdto"/>
-	<typeAlias type="joinlogin.MemberDTO" alias="memberdto"/>
-	<typeAlias type="com.donabit.board.BoardDTO" alias="boarddto"/>
-	<typeAlias type="com.donabit.demo.challenge.ChallengingDTO" alias="challengingdto"/>
-	<typeAlias type="com.donabit.demo.challenge.ReportDTO" alias="reportdto"/>
-	
-	
-</typeAliases>
-
-
+	<typeAliases>
+		<typeAlias type="com.donabit.demo.dto.ChallengeDTO2" alias="ChallengeDTO2"/>
+		<typeAlias type="com.donabit.demo.dto.ChallengeDTO" alias="challengedto"/>
+		<typeAlias type="com.donabit.demo.dto.CheckDTO" alias="checkdto"/>
+		<typeAlias type="com.donabit.demo.dto.MemberDTO" alias="memberdto"/>
+		<typeAlias type="com.donabit.demo.dto.BoardDTO" alias="boarddto"/>
+		<typeAlias type="com.donabit.demo.dto.ChallengingDTO" alias="challengingdto"/>
+		<typeAlias type="com.donabit.demo.dto.ReportDTO" alias="reportdto"/>
+	</typeAliases>
 </configuration>
 

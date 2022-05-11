@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="check.CheckDAO">
+<mapper namespace="com.donabit.demo.dao.CheckDAO">
 	<select id="checklist" resultType="checkdto" parameterType="String">
 		SELECT checkid, checktitle, checkdesc, checkimg AS checkimg2, checktime FROM checks WHERE nickname LIKE #{nickname} AND chnum=#{chnum} ORDER BY checktime DESC; 
 	</select>
