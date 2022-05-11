@@ -147,24 +147,26 @@
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
 						<c:forEach items="${badge}" var="dto2" varStatus="status">
-							<c:if test="${dto2.count == dto2.chsuccess}">
-								<div class="swiper-slide">
-									<div id="badgename">${dto2.chname}</div>
-									<img id="badgein" src="img/badge/badge${(status.index)%3}.png" width="150px" height="150px">
-								</div>
-							</c:if>
+							<c:choose>
+								<c:when test="${dto2.count == dto2.chsuccess}">
+									<div class="swiper-slide">
+									<div class="slidetext" style="cursor: pointer;" onclick="location.href='/checkmorning?chnum=${dto2.chnum}';">
+										<div id="badgename">${dto2.chname}</div>
+										<img id="badgein" src="img/badge/SUCCESS.png" width="150px" height="150px">
+									</div>
+									</div>
+								</c:when>
+								<c:when test="${dto2.count < dto2.chsuccess}">
+									<div class="swiper-slide">
+									<div class="slidetext" style="cursor: pointer;" onclick="location.href='/checkmorning?chnum=${dto2.chnum}';">
+										<div id="badgename">${dto2.chname}</div>
+										<img id="badgein" src="img/badge/FAIL.png" width="150px" height="150px">
+									</div>
+									</div>
+								</c:when>
+							</c:choose>
 						</c:forEach>
 					</div>
-					<!-- 네비게이션 -->
-					<div class="swiper-button-next"></div>
-					<!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-					<div class="swiper-button-prev"></div>
-					<!-- 이전 버튼 -->
-
-					<!-- 페이징 -->
-					<div class="swiper-pagination"></div>
-				</div>
-			</div>
 
 			<script>
 				new Swiper('.swiper-container', {
