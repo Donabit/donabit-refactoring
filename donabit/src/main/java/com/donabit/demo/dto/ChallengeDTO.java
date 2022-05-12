@@ -4,13 +4,13 @@ import lombok.Data;
 
 @Data
 public class ChallengeDTO {
-	String chnum, chnum2, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum, donatepay, donateco, nickname, nickname2, personalpf, checkid, like, report,checktitle, checkdesc, checkimg2, checktime, count;
+	String chnum, chnum2, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum, donatepay, donateco, nickname, nickname2, personalpf, checkid, like, likes, report,checktitle, checkdesc, checkimg2, checktime, count;
 	
 	public ChallengeDTO() {}
 
 	public ChallengeDTO(String chnum, String chnum2, String chname, String chdonate, String chdesc, String chimg, String chsuccess, String chexp, String chmaxp, String chsdate, String chedate,
 			String checknum, String donatepay, String donateco, String nickname, String nickname2, String personalpf, String checkid, String like, String report, String checktitle, String checkdesc,
-			String checkimg2, String checktime, String count) {
+			String checkimg2, String checktime, String count, String likes) {
 		super();
 		this.chnum = chnum;
 		this.chnum2 = chnum2;
@@ -31,6 +31,7 @@ public class ChallengeDTO {
 		this.personalpf = personalpf;
 		this.checkid = checkid;
 		this.like = like;
+		this.likes = likes;
 		this.report = report;
 		this.checktitle = checktitle;
 		this.checkdesc = checkdesc;

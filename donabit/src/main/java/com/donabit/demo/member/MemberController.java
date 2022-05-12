@@ -35,21 +35,6 @@ public class MemberController {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 
-/*	
-	@RequestMapping(value="/insertmember", method= RequestMethod.GET)
-	public String insertform() {
-		return "joinform";
-	}
-	@RequestMapping(value="/insertmember", method= RequestMethod.POST)
-	public ModelAndView insertresult(MemberDTO dto) {
-		//dto.setId(request.getParameter(id)
-		int result = service.insertmember(dto); //id, email, phone 중복 불가능
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("result", result); //int
-		mv.setViewName("joinresult");
-		return mv;
-	}
-*/	
 	
 	//회원가입 검증
 	// 이메일 중복 체크
@@ -148,9 +133,9 @@ public class MemberController {
 	}
 
 	@RequestMapping(value="/memberupdate", method= RequestMethod.POST)
-	public ModelAndView updateresult(MemberDTO dto) {//id(고정), name, address 입력
+	public ModelAndView updateresult(MemberDTO dto) {
 		
-		int result = service.updatemember(dto); //id, email, phone 중복 불가능
+		int result = service.updatemember(dto);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("result", result); //int
 		mv.setViewName("updateresult");

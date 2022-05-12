@@ -18,6 +18,7 @@ public interface ChallengeService {
 	int insertlikes(String nickname, String checkid);
 	int insertsingo(String nickname, String checkid);
 	public List<ChallengeDTO> checklist2();
+	public List<ChallengeDTO> likeslist();
 	int deletelikes(String nickname, String checkid);
 	int deletesingo(String nickname, String checkid);
 	int totallike(String checkid);
@@ -26,4 +27,5 @@ public interface ChallengeService {
 	List<Integer> selectlevel();
 	public List<ChallengeDTO> selectbadge(String nickname);
 	List<ReportDTO> selectReportCount(); 
+	
 }

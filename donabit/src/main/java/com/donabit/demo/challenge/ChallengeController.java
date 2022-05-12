@@ -178,11 +178,47 @@ public class ChallengeController {
 			return totalsingo;
 		}
 		
-	//인증 커뮤니티
-	@GetMapping("/checkcommunity")
-	public ModelAndView checkmorninglist(Authentication authentication) { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
+		
+	//정렬
+	@GetMapping("likeslist")	
+	public ModelAndView likeslist() {
 		ModelAndView mv = new ModelAndView(); 
-		List<ChallengeDTO> list = service.checklist2();
+		List<ChallengeDTO> likeslist = service.likeslist();
+		
+		mv.addObject("likeslist", likeslist);
+		mv.setViewName("/challenge/ch-community"); // 뷰 이름 지정, jsp 이름
+		return mv; // jsp 보냄
+		
+	}
+		
+	//정렬 order로 받아 넘기기
+	@GetMapping("/checkcommunity")	
+	public ModelAndView checkmorninglistorder(Authentication authentication, String order) {
+		return checkmorninglist(authentication, order);
+		
+	}	
+		
+		
+	//인증 커뮤니티
+	public ModelAndView checkmorninglist(Authentication authentication, String order) { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
+		ModelAndView mv = new ModelAndView();
+		
+		List<ChallengeDTO> list = new ArrayList<ChallengeDTO>();
+		
+		 System.out.println(order);
+		if(order == null) {
+			order="new";
+		}
+		if(order.equals("new")) {
+			list = service.checklist2();
+			
+		}else {
+			
+			list = service.likeslist();
+		}
+	
+		/////////////////정렬끝
+		
 		List<Integer> mylikeresult = new ArrayList<Integer>();
 		List<Integer> totallike = new ArrayList<Integer>();
 		List<Integer> singoresult = new ArrayList<Integer>();

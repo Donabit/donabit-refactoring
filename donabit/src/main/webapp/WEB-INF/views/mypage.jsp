@@ -122,6 +122,16 @@
 		
 		
 		
+		<div class="mychallengescore">
+		
+		참여중인 챌린지 수 : 
+		
+		총 기부금액 : 
+		
+		
+		</div>
+		
+		
 		
 			
 		

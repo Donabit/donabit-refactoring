@@ -80,6 +80,13 @@ public class ChallengeServiceImpl implements ChallengeService {
 	}
 
 	@Override
+	public List<ChallengeDTO> likeslist() {
+		return dao.likeslist();
+	}
+
+	
+	
+	@Override
 	public int deletelikes(String nickname, String checkid) {
 		return dao.deletelikes(nickname, checkid);
 	}

@@ -314,6 +314,9 @@
 											}// error
 										});//totalsingobefore ajax */
 								});// singoafterbtn 
+								
+								
+								
 					});// ready
 		</script>
 		<link rel="stylesheet" href="css/ch-community.css">
@@ -327,6 +330,17 @@
 		<%@ include file="/WEB-INF/views/main_header.jsp" %>
 			<img id="coimg" src="img/challenge/community.svg">
 			<div class="container">
+			
+			<!-- 카테고라이징 시작 -->
+				    
+			    <div class="containercategory" style="float : right">
+			        <a href="/checkcommunity?order=new">최신순 정렬</a>
+			        <a href="/checkcommunity?order=like">좋아요순 정렬</a>
+			    </div>
+			    
+			    
+			<!-- 카테고라이징 끝 -->    
+			    
 				<div class="containerflex">
 					<c:forEach items="${checklist}" var="check" varStatus="status">
 						<div class="item">
