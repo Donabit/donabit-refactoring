@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.donabit.demo.Criteria;
 import com.donabit.demo.dto.BoardDTO;
+import com.donabit.demo.dto.PageMakerDTO;
 import com.donabit.demo.security.PrincipalDetails;
 
 @Controller
@@ -21,11 +23,17 @@ public class BoardController {
 	
 	private static final Logger log = LoggerFactory.getLogger(BoardController.class);
 	
-	@GetMapping("/board/list")
-	public void boardListGET(Model model) {
-		log.info("게시물 목록 페이지 진입");
-		model.addAttribute("list", service.getList());
-	}
+	/*
+	 * @GetMapping("/board/list") public void boardListGET(Model model) {
+	 * log.info("게시물 목록 페이지 진입"); model.addAttribute("list", service.getList()); }
+	 */
+    
+    /* 게시판 목록 페이지 접속(페이징 적용) */
+    @GetMapping("board/list")
+    public void boardListGET(Model model, Criteria cri) {
+        log.info("boardListGET");
+        model.addAttribute("list", service.getListPaging(cri));
+    }
 	    
 	@GetMapping("/admin/board-enroll") // 관리자 페이지에서 등록 가능
 	public void boardEnrollGET(@AuthenticationPrincipal PrincipalDetails principaldetail, Model model) {

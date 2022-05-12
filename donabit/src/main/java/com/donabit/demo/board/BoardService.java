@@ -2,6 +2,7 @@ package com.donabit.demo.board;
 
 import java.util.List;
 
+import com.donabit.demo.Criteria;
 import com.donabit.demo.dto.BoardDTO;
 
 public interface BoardService {
@@ -11,6 +12,9 @@ public interface BoardService {
 
     /* 게시물 목록 */
     public List<BoardDTO> getList();
+    
+    /* 게시판 목록(페이징 적용) */
+    public List<BoardDTO> getListPaging(Criteria cri);
     
     /* 게시물 조회 */
     public BoardDTO getPage(int bno);

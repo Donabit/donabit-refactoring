@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.donabit.demo.Criteria;
 import com.donabit.demo.dao.BoardDAO;
 import com.donabit.demo.dto.BoardDTO;
 
@@ -30,6 +31,14 @@ public class BoardServicelmpl implements BoardService {
         
         return dao.getList();
     }
+    
+    /* 게시판 목록(페이징 적용) */
+    @Override
+    public List<BoardDTO> getListPaging(Criteria cri) {
+        
+        return dao.getListPaging(cri);
+    }    
+ 
     
     /* 게시물 조회 */
     @Override
