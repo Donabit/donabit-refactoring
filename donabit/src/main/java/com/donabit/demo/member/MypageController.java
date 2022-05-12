@@ -26,6 +26,7 @@ import com.donabit.demo.challenge.ControllerLibrary;
 import com.donabit.demo.check.CheckService;
 import com.donabit.demo.dto.ChallengeDTO;
 import com.donabit.demo.dto.ChallengeDTO2;
+import com.donabit.demo.dto.ChallengingDTO;
 import com.donabit.demo.dto.CheckDTO;
 import com.donabit.demo.security.PrincipalDetails;
 
@@ -58,9 +59,11 @@ public class MypageController {
 		String nickname = principaldetail.getMemberdto().getNickname();
 		System.out.println(lib.calcLevel(nickname) + "=" + nickname + "의 레벨");
 		List<ChallengeDTO> participate = checkinservice.mypagecheck(nickname);
+		List<ChallengeDTO> makepc = checkinservice.mypagempccheck(nickname);
 		List<ChallengeDTO> badge = service.selectbadge(nickname);
-		mv.addObject("badge", badge);
 		mv.addObject("participate", participate);
+		mv.addObject("makepc", makepc);
+		mv.addObject("badge", badge);
 		mv.addObject("level", lib.calcLevel(nickname));
 		mv.addObject("expsum", lib.sumExp(nickname));
 		mv.setViewName("mypage");
@@ -72,8 +75,11 @@ public class MypageController {
 	public void makepersonalchallenge() {}
 	
 	@PostMapping("/makepc")
-	public String makepesonalchallengeinsert(ChallengeDTO2 dto) throws IOException {
+	public String makepesonalchallengeinsert(ChallengeDTO2 dto, @AuthenticationPrincipal PrincipalDetails principaldetail) throws IOException {
+		String nickname = principaldetail.getMemberdto().getNickname();
 		challengeservice2.insertChallenge(dto);
+		int result = checkinservice.selectMaxchnum(nickname);
+		service.insertChallengingAjax(Integer.toString(result), nickname);
 		return "redirect:/mypage"; 
 	}
 	 

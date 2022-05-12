@@ -60,38 +60,27 @@ $(document).ajaxSend(function (e, xhr, options) {
 <body>
 <div class="wrapper">
   <div class="title"><h1 style="font-size: 30px;"> 회원정보수정 </h1></div>
-<hr/>
-<br>
-<form action="memberupdate" method="post">
-
-<div class="email">
- <h5>회원아이디</h5><input type=text name=email value="${principal.memberdto.email}" readonly="readonly"><br>
-</div>
-
- <div class="nickname">
- <h5>변경할 닉네임</h5><input type=text value="${principal.memberdto.nickname}" id=nickname name=nickname >
- <button name="nickchk" type="button" id="nickchk" onclick="fn_nickchk();" value="N" class="btn-gradient mini">중복확인</button>
- </div>
- <div class="phone">
- <h5>변경할 휴대폰번호</h5><input type=text value="${principal.memberdto.phone}" name=phone ><br>
- </div>
- <div class="avatar">
-<div class=quest>
- <div class=stext><h5>아바타 타입선택</h5></div>
- <div class="question">
- <img class=icon src="/img/question.jpg">	
- </div>
- 
- <div class="modal">
-  <div class="modal_content" 
-       title="클릭하면 창이 닫힙니다.">
-    <img src="/img/select1.png">
-  </div>
-</div>
- 
- </div>
- <input type="radio" id=avatar1 name="avatar" value="human"><label for="avatar1">인간</label>
- <input type="radio" id=avatar2 name="avatar" value="slime"><label for="avatar2">슬라임</label>
+	<hr/>
+	<br>
+	<form action="memberupdate" method="post">
+	
+	<div class="email">
+	 <h5>회원아이디</h5><input type=text name=email value="${principal.memberdto.email}" readonly="readonly"><br>
+	</div>
+	
+	 <div class="nickname">
+	 <h5>변경할 닉네임</h5><input type=text value="${principal.memberdto.nickname}" id=nickname name=nickname >
+	 <button name="nickchk" type="button" id="nickchk" onclick="fn_nickchk();" value="N" class="btn-gradient mini">중복확인</button>
+	 </div>
+	 <div class="phone">
+	 <h5>변경할 휴대폰번호</h5><input type=text value="${principal.memberdto.phone}" name=phone ><br>
+	 </div>
+	 <div class="avatarbox">
+		<input type = "radio" name ="avatar" value = "human" required> 사람 </input>
+		<img src="/img/human1.jpg" width=200px height=200px>
+		<input type = "radio" name ="avatar" value = "slime" required> 슬라임 </input>
+		<img src="/img/slime1.jpg" width=200px height=200px>
+	</div>
  </div>
  <br>
   <hr/>

@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.donabit.demo.dao.CheckDAO;
 import com.donabit.demo.dto.ChallengeDTO;
+import com.donabit.demo.dto.ChallengingDTO;
 import com.donabit.demo.dto.CheckDTO;
 
 @Service("checkservice")
@@ -96,6 +97,27 @@ public class CheckServiceImpl implements CheckService {
 	public List<ChallengeDTO> mypagecheck(String nickname) {
 		return dao.mypagecheck(nickname);
 	}
+
+	@Override
+	public int mypagempcnicknameconn(String nickname) {
+		return dao.mypagempcnicknameconn(nickname);
+	}
+
+	@Override
+	public List<ChallengeDTO> mypagempcchnumconn(int chnum) {
+		return dao.mypagempcchnumconn(chnum);
+	}
+
+	@Override
+	public List<ChallengeDTO> mypagempccheck(String nickname) {
+		return dao.mypagempccheck(nickname);
+	}
+
+	@Override
+	public int selectMaxchnum(String nickname) {
+		return dao.selectMaxchnum(nickname);
+	}
+
 
 	
 

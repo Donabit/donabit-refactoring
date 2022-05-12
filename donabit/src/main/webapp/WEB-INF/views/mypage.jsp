@@ -122,7 +122,10 @@
 		
 		
 		
-		<div class="challenge-box">
+		
+			
+		
+			<div class="challenge-box">
 			<p><b>참여중인 챌린지</b></p>
 			<div class="challenge-ing">
 				<div class="swiper-container">
@@ -152,7 +155,36 @@
 					<div class="swiper-pagination"></div>
 				</div>
 			</div>
-		
+			
+			<p><b>개설한 챌린지</b></p>
+			<div class="challenge-ing">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<c:set var="today" value="<%=new java.util.Date()%>" />
+						<c:forEach items="${makepc}" var="dto">
+							<fmt:parseDate var="edate" value="${dto.chedate}" pattern="yyyy-MM-dd" />
+							<!-- 오늘이 끝나는 날보다 앞일때 -->
+							<c:if test="${edate > today}">
+								<div class="swiper-slide">
+									<div class="slidetext" style="cursor: pointer;" onclick="location.href='/checkmorning?chnum=${dto.chnum}';">
+										<div class="slidename">${dto.chname}</div>
+										<img src="/checkimage/${dto.chimg}" class="slideimg" width="150px" height="150px">
+									</div>
+								</div>
+							</c:if>
+						</c:forEach>
+					</div>
+
+					<!-- 네비게이션 -->
+					<div class="swiper-button-next"></div>
+					<!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+					<div class="swiper-button-prev"></div>
+					<!-- 이전 버튼 -->
+
+					<!-- 페이징 -->
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
 
 			<p><b>획득한 뱃지</b></p>
 			<div class="challenge-ing">

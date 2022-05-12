@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.donabit.demo.dto.ChallengeDTO;
+import com.donabit.demo.dto.ChallengingDTO;
 import com.donabit.demo.dto.CheckDTO;
 
 public interface CheckService {
@@ -20,4 +21,9 @@ public interface CheckService {
 	 int mypagenicknameconn(String nickname);
 	 List<ChallengeDTO> mypagechnumconn(int chnum);
 	 List<ChallengeDTO> mypagecheck(String nickname);
+	 int mypagempcnicknameconn(String nickname);
+	 List<ChallengeDTO> mypagempcchnumconn(int chnum);
+	 List<ChallengeDTO> mypagempccheck(String nickname);
+	 int selectMaxchnum(String nickname);
+
 }

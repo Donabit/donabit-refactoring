@@ -189,6 +189,12 @@ $(document).ajaxSend(function (e, xhr, options) {
 <input type=text name=phone placeholder="휴대폰번호(선택입력)"><br>
 </div>
 
+<div class="avatarbox">
+<input type = "radio" name ="avatar" value = "human" required> 사람 </input>
+<img src="/img/human1.jpg" width=200px height=200px>
+<input type = "radio" name ="avatar" value = "slime" required> 슬라임 </input>
+<img src="/img/slime1.jpg" width=200px height=200px>
+</div>
 <br>
  <hr/>
 

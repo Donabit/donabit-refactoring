@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import com.donabit.demo.dto.ChallengeDTO;
+import com.donabit.demo.dto.ChallengingDTO;
 import com.donabit.demo.dto.CheckDTO;
 
 @Mapper //dao 인식 어노테이션
@@ -22,4 +23,9 @@ public interface CheckDAO {
 	 int mypagenicknameconn(String nickname);
 	 List<ChallengeDTO> mypagechnumconn(int chnum);
 	 List<ChallengeDTO> mypagecheck(String nickname);
+	 int mypagempcnicknameconn(String nickname);
+	 List<ChallengeDTO> mypagempcchnumconn(int chnum);
+	 List<ChallengeDTO> mypagempccheck(String nickname);
+	 int selectMaxchnum(String nickname);
+	 
 }

@@ -46,6 +46,26 @@
 	</select>	
 	
 	<select id="mypagecheck" resultType="challengedto" parameterType="String">
-		SELECT challenging.chnum, chname, chedate, chimg, challenging.personalpf From challenge join challenging on challenge.chnum=challenging.chnum WHERE challenging.nickname LIKE #{nickname} and personalpf=0;
+		SELECT challenging.chnum, chname, chedate, chimg, challenging.personalpf FROM challenge JOIN challenging ON challenge.chnum=challenging.chnum WHERE personalpf=0 AND (challenge.nickname NOT LIKE #{nickname} OR challenge.nickname IS NULL);
 	</select>
+	
+	<!-- mypage 개설한 챌린지 -->
+	<select id="mypagempcnicknameconn" resultType="int" parameterType="String">
+		SELECT chnum FROM challenge WHERE nickname LIKE #{nickname};
+	</select>
+	<select id="mypagempcchnumconn" resultType="challengedto" parameterType="int">
+		SELECT chimg, chedate FROM challenge WHERE chnum=#{chnum};
+	</select>	
+	
+	<select id="mypagempccheck" resultType="challengedto" parameterType="String">
+		SELECT challenge.chnum, chname, chedate, chimg From challenge WHERE challenge.nickname LIKE #{nickname};
+	</select>
+	
+	<!-- 챌린지 개설하면 자동으로 참여됨 -->
+	<select id="selectMaxchnum" resultType="int" parameterType="String">
+		SELECT max(chnum) AS chnum FROM challenge WHERE nickname LIKE #{nickname};
+	</select>
+	
+
+	
 </mapper>

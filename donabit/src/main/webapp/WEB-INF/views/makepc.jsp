@@ -23,7 +23,7 @@
             <br>
             <form class="admin_make_challenge_form" action="/makepc" method="post" enctype="multipart/form-data">
                 <div class="admin_make_challenge_table">
-                		<input type="text" id=nickname name="nickname" value="${principal.memberdto.nickname}"> 
+                		<input type="hidden" id=nickname name="nickname" value="${principal.memberdto.nickname}"> 
                     <div class="admin_make_challenge">
                         <label for="chname" class="admin_make_challenge_label">챌린지 이름</label>
                         <div class="admin_make_challenge_input">
