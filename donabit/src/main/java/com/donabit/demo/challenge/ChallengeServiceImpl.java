@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.donabit.demo.dao.ChallengeDAO;
 import com.donabit.demo.dto.ChallengeDTO;
+import com.donabit.demo.dto.ReportDTO;
 
 @Service("challengeservice")
 public class ChallengeServiceImpl implements ChallengeService {
@@ -114,6 +115,11 @@ public class ChallengeServiceImpl implements ChallengeService {
 	public List<ChallengeDTO> selectbadge(String nickname) {
 		return dao.selectbadge(nickname);
 	}
-	
+
+	@Override
+	public List<ReportDTO> selectReportCount() {
+		return dao.selectReportCount();
+	}
+
 	
 }

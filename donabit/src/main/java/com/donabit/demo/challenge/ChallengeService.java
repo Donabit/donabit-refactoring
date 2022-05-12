@@ -3,6 +3,7 @@ package com.donabit.demo.challenge;
 import java.util.List;
 
 import com.donabit.demo.dto.ChallengeDTO;
+import com.donabit.demo.dto.ReportDTO;
 
 public interface ChallengeService {
 	public List<ChallengeDTO> challengelist();
@@ -24,4 +25,5 @@ public interface ChallengeService {
 	List<Integer> selectexp(String nickname);
 	List<Integer> selectlevel();
 	public List<ChallengeDTO> selectbadge(String nickname);
+	List<ReportDTO> selectReportCount(); 
 }
