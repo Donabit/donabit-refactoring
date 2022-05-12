@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.donabit.demo.dto.ChallengeDTO;
 import com.donabit.demo.dto.ChallengeDTO2;
+import com.donabit.demo.dto.ReportDTO;
 
 
 @Mapper
@@ -31,4 +32,5 @@ public interface ChallengeDAO {
 	List<Integer> selectexp(String nickname);
 	List<Integer> selectlevel();
 	public List<ChallengeDTO> checklist2();
+	List<ReportDTO> selectReportCount(); 
 }

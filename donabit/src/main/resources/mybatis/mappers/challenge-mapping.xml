@@ -111,13 +111,13 @@
 	<!-- 좋아요 insert -->
 	<insert id="insertlikes" parameterType="String">
 		INSERT INTO toggle(likes,
-		checkid) VALUES(#{nickname}, #{checkid});
+		checkid, toggletime) VALUES(#{nickname}, #{checkid}, now());
 	</insert>
 
 	<!-- 신고 insert -->
 	<insert id="insertsingo" parameterType="String">
 		INSERT INTO
-		toggle(report, checkid) VALUES(#{nickname}, #{checkid});
+		toggle(report, checkid, toggletime) VALUES(#{nickname}, #{checkid}, now());
 	</insert>
 
 	<!-- 좋아요 delete -->
@@ -169,4 +169,9 @@
 		like #{nickname} 
 		GROUP BY checks.chnum;
 	</select>
+	
+	<select id="selectReportCount" resultType="reportdto">
+		SELECT checkid, MAX(toggletime) AS toggletime, COUNT(report) AS report FROM toggle GROUP BY checkid;
+	</select>
+	
 </mapper>

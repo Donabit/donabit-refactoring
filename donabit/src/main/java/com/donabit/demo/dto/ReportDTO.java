@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class ReportDTO {
 	
-	String nickname, checktime, checktitle, checkdesc, checkimg;
+	String nickname, checktime, checktitle, checkdesc, checkimg, toggletime;
 	int checkid, chnum, report;
 		
 }

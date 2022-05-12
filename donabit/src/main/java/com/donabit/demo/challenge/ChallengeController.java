@@ -29,6 +29,9 @@ public class ChallengeController {
 	@Autowired
 	CheckService service2;
 	
+	@Autowired
+	ControllerLibrary lib;
+	
 	//챌린지리스트 페이지
 	@RequestMapping("/challenge")
 	public ModelAndView challengelist() throws ParseException { // Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
@@ -137,9 +140,11 @@ public class ChallengeController {
 	public List<ChallengeDTO> singobefore(String nickname, String checkid) {
 		System.out.println(nickname + " 유저가" + checkid + "번 게시물의 신고를 누름");
 		service.insertsingo(nickname, checkid);
+		
 		List<ChallengeDTO> list2 = service.checklist2();
 		return list2;
 	}
+	
 	
 	//신고 해제 ajax
 	
