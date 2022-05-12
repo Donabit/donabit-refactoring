@@ -1,8 +1,12 @@
 package com.donabit.demo.member;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -10,13 +14,19 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.donabit.demo.admin.ChallengeService2;
 import com.donabit.demo.challenge.ChallengeService;
 import com.donabit.demo.challenge.ControllerLibrary;
 import com.donabit.demo.check.CheckService;
 import com.donabit.demo.dto.ChallengeDTO;
+import com.donabit.demo.dto.ChallengeDTO2;
+import com.donabit.demo.dto.CheckDTO;
 import com.donabit.demo.security.PrincipalDetails;
 
 @Controller
@@ -31,6 +41,10 @@ public class MypageController {
 
 	@Autowired
 	ControllerLibrary lib;
+	
+	@Autowired
+	@Qualifier("ChallengeService2")
+	ChallengeService2 challengeservice2;
 	
 	@RequestMapping("/mypage")
 	public String view() {
@@ -53,4 +67,14 @@ public class MypageController {
 		return mv;
 
 	}
+	
+	@GetMapping("/makepc")
+	public void makepersonalchallenge() {}
+	
+	@PostMapping("/makepc")
+	public String makepesonalchallengeinsert(ChallengeDTO2 dto) throws IOException {
+		challengeservice2.insertChallenge(dto);
+		return "redirect:/mypage"; 
+	}
+	 
 }

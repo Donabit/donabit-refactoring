@@ -46,6 +46,6 @@
 	</select>	
 	
 	<select id="mypagecheck" resultType="challengedto" parameterType="String">
-		SELECT challenging.chnum, chname, chedate, chimg, challenging.personalpf From challenge join challenging on challenge.chnum=challenging.chnum WHERE nickname LIKE #{nickname} and personalpf=0;
+		SELECT challenging.chnum, chname, chedate, chimg, challenging.personalpf From challenge join challenging on challenge.chnum=challenging.chnum WHERE challenging.nickname LIKE #{nickname} and personalpf=0;
 	</select>
 </mapper>

@@ -35,7 +35,8 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 	private void fileUpload(MultipartFile mpf, String renameFilename) {
 		String path = "/usr/mydir/donabit/chimages/";
 		String path2 = "D:\\donabitimage/";
-		File uploadFile = new File(path + renameFilename);
+		String path3 = "C:\\Users\\YooSeungAh\\Desktop\\ai_images";
+		File uploadFile = new File(path3 + renameFilename);
 		try {
 			mpf.transferTo(uploadFile);
 		} catch (IllegalStateException | IOException e) {

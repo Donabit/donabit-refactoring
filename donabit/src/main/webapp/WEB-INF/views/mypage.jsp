@@ -105,11 +105,23 @@
 						<img class="imgicon" src="/img/setting.jpg">
 					</div>
 				</a>
-
+				<a href="/makepc" class="setting">
+					<div class="sicon">
+						<img class="imgicon" src="/img/pig.svg">
+					</div>
+					<div class="stext">
+						<p>챌린지 만들기</p>
+						<span class="circle"></span>
+					</div>
+					<div class="sright">
+						<img class="imgicon" src="/img/setting.jpg">
+					</div>
+				</a>
 			</div>
-
 		</div>
-
+		
+		
+		
 		<div class="challenge-box">
 			<p><b>참여중인 챌린지</b></p>
 			<div class="challenge-ing">
@@ -167,6 +179,7 @@
 							</c:choose>
 						</c:forEach>
 					</div>
+					
 
 			<script>
 				new Swiper('.swiper-container', {
