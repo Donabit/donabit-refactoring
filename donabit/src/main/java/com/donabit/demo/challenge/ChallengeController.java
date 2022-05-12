@@ -42,7 +42,7 @@ public class ChallengeController {
 		 */
 		mv.addObject("challengelist", list); 
 		mv.addObject("challcount", list2);
-		mv.setViewName("challenge"); 
+		mv.setViewName("/challenge/challenge"); 
 		return mv; 
 	}
 	
@@ -68,7 +68,7 @@ public class ChallengeController {
 		mv.addObject("challengelist", list);
 		mv.addObject("challcount", list2);
 		mv.addObject("chnumdetail", chnumdetail);
-		mv.setViewName("challengedetail");
+		mv.setViewName("/challenge/challengedetail");
 		return mv;
 	}
 
@@ -224,7 +224,7 @@ public class ChallengeController {
 		mv.addObject("totalsingo", totalsingo);
 		mv.addObject("totallike", totallike);
 		mv.addObject("checklist", list);
-		mv.setViewName("ch-community"); // 뷰 이름 지정, jsp 이름
+		mv.setViewName("/challenge/ch-community"); // 뷰 이름 지정, jsp 이름
 		return mv; // jsp 보냄
 	}
 }
