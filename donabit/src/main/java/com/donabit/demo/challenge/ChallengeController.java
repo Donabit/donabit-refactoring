@@ -204,17 +204,22 @@ public class ChallengeController {
 		ModelAndView mv = new ModelAndView();
 		
 		List<ChallengeDTO> list = new ArrayList<ChallengeDTO>();
-		
+		List<Integer> levelList = new ArrayList<Integer>();
 		 System.out.println(order);
 		if(order == null) {
 			order="new";
 		}
 		if(order.equals("new")) {
 			list = service.checklist2();
-			
+			for(ChallengeDTO i : list) {
+				levelList.add(lib.calcLevel(i.getNickname()));
+			}
 		}else {
 			
 			list = service.likeslist();
+			for(ChallengeDTO i : list) {
+				levelList.add(lib.calcLevel(i.getNickname()));
+			}
 		}
 	
 		/////////////////정렬끝
@@ -261,7 +266,7 @@ public class ChallengeController {
 		for(Integer i : totalsingo) { 
 		    System.out.println(i+"= 각 인증게시물의 전체 신고 수");
 		}
-		
+		mv.addObject("level", levelList);
 		mv.addObject("totalsingo", totalsingo);
 		mv.addObject("totallike", totallike);
 		mv.addObject("checklist", list);

@@ -347,7 +347,7 @@
 							<!-- 닉네임 -->
 							<div class="nicknameout">
 								<div class="box" style="background: #ffffff;">
-									<img class="avatar" src="img/challenge/avatar.jpg" width="25px">
+									<img class="avatar" src="img/${check.avatar}${level[status.index]}.jpg" width="25px">
 								</div>
 								<div class="nickname">${check.nickname }</div>
 							</div>

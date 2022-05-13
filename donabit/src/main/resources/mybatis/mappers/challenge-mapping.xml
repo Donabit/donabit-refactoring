@@ -48,15 +48,15 @@
 <!-- 정렬 -->
 
 	<select id="checklist2" resultType="challengedto">
-		SELECT nickname, checkid,
-		checktitle, checkdesc, checkimg AS checkimg2, checktime FROM checks
-		ORDER BY checktime DESC
+		SELECT checks.nickname, checkid, checktitle, checkdesc, checkimg AS checkimg2, checktime, member.avatar
+		FROM checks JOIN member on checks.nickname = member.nickname ORDER BY checktime DESC
 	</select>
 	
 	<select id="likeslist" resultType="challengedto">
-		select nickname, chnum, checknum, checktime, checktitle, checkdesc, 
-		checkimg, checks.checkid, count(likes) as totallikes 
-		from checks left outer join toggle on checks.checkid = toggle.checkid 
+		select checks.nickname, chnum, checknum, checktime, checktitle, checkdesc, 
+		checkimg, checks.checkid, count(likes) as totallikes, member.avatar 
+		from checks left outer join toggle on checks.checkid = toggle.checkid
+        left outer join member on checks.nickname = member.nickname 
 		group by checkid order by totallikes desc;
 	</select>
 	
