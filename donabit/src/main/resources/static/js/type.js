@@ -46,8 +46,8 @@
 
 
 //타이핑할 문장
-    var result1  = "습관을 형성하고, 기부하세요.";
-    var result2  = "사회적 실천을 위해 노력하는 Donabit 입니다.";
+    var result1  = "습관을 기부하세요.";
+    var result2  = "건강한 습관을 만들고 누군가에게 도움이 되는 기쁨과 보람을 느껴보세요!";
     var typeing1=[], typeing2=[];;
     result1 = result1.split(''); // 한글자씩자름
     result2 = result2.split(''); // 한글자씩자름
