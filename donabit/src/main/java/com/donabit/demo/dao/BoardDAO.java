@@ -21,6 +21,9 @@ public interface BoardDAO {
     /* 게시판 목록(페이징 적용) */
     public List<BoardDTO> getListPaging(Criteria cri);
     
+    /* 게시판 총 갯수 */
+    public int getTotal();
+    
     /* 게시물 조회 */
     public BoardDTO getPage(int bno);
     

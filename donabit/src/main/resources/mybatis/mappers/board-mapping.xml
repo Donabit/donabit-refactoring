@@ -28,6 +28,14 @@
     
     </select>
     
+    <!-- 게시물 총 갯수 -->
+    <select id="getTotal" resultType="int">
+    
+        select count(*) from board
+    
+    </select>
+ 
+    
         <!-- 게시물 조회 -->
     <select id="getPage" resultType="boarddto">
     

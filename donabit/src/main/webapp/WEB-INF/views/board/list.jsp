@@ -60,8 +60,39 @@
         </c:forEach>
       </tbody>  
 	</table>
-	<form id="moveForm" method="get">    
+		
+	    <div class="pageInfo_wrap">
+       		<div class="pageInfo_area">
+       		
+       		<ul id="pageInfo" class="pageInfo">
+       		
+       	<!-- 이전페이지 버튼 -->
+                <c:if test="${pageMaker.prev}">
+                    <li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}">Previous</a></li>
+                </c:if>
+       		
+        <!-- 각 번호 페이지 버튼 -->
+                <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+                    <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
+                </c:forEach>
+
+                
+        <!-- 다음페이지 버튼 -->
+                <c:if test="${pageMaker.next}">
+                    <li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }">Next</a></li>
+                </c:if>
+                
+                </ul>
+                
+        	</div>
+		</div>
+		
+		
+	<form id="moveForm" method="get">
+		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+        <input type="hidden" name="amount" value="${pageMaker.cri.amount }">  
     </form>
+    
     </div>
 </div>
 </section>
@@ -106,6 +137,15 @@ $(document).ready(function(){
     	moveForm.attr("action", "/board/get");
     	moveForm.submit();
 	});
+	    	 
+	    $(".pageInfo a").on("click", function(e){
+	    e.preventDefault();
+	    
+	    moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+	    moveForm.attr("action", "/board/list");
+	    moveForm.submit();  
+	});
+	    
 </script>
 </body>
 <%@ include file="/WEB-INF/views/main_footer.jsp" %>
