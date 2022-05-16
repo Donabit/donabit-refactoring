@@ -31,7 +31,7 @@ public class BoardController {
 	/* 게시판 목록 페이지 접속(페이징 적용) */
 	 @GetMapping("board/list") public void boardListGET(Model model, Criteria cri)
 	 { log.info("boardListGET"); model.addAttribute("list", service.getListPaging(cri));
-	 int total = service.getTotal();
+	 int total = service.getTotal(cri);
      PageMakerDTO pageMake = new PageMakerDTO(cri, total);
      model.addAttribute("pageMaker", pageMake);
 	 }

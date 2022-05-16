@@ -60,11 +60,17 @@
         </c:forEach>
       </tbody>  
 	</table>
+	
+	    <div class="search_wrap">
+        <div class="search_area">
+            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
+            <button>Search</button>
+        </div>
+    </div>    
 		
 	    <div class="pageInfo_wrap">
        		<div class="pageInfo_area">
-       		
-       		<ul id="pageInfo" class="pageInfo">
+       			<ul id="pageInfo" class="pageInfo">
        		
        	<!-- 이전페이지 버튼 -->
                 <c:if test="${pageMaker.prev}">
@@ -90,7 +96,8 @@
 		
 	<form id="moveForm" method="get">
 		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
-        <input type="hidden" name="amount" value="${pageMaker.cri.amount }">  
+        <input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+        <input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
     </form>
     
     </div>
@@ -144,6 +151,14 @@ $(document).ready(function(){
 	    moveForm.find("input[name='pageNum']").val($(this).attr("href"));
 	    moveForm.attr("action", "/board/list");
 	    moveForm.submit();  
+	});
+	    
+	    $(".search_area button").on("click", function(e){
+	        e.preventDefault();
+	        let val = $("input[name='keyword']").val();
+	        moveForm.find("input[name='keyword']").val(val);
+	        moveForm.find("input[name='pageNum']").val(1);
+	        moveForm.submit();
 	});
 	    
 </script>

@@ -21,21 +21,28 @@
     
         <!-- 게시물 목록(페이징) -->
     <select id="getListPaging" resultType="boarddto">
-    
-        select bno, title, writer, regdate from board order by bno desc limit #{skip},#{amount}
-        <!-- limit ((${pageNum}-1)*${amount}), ${amount} -->
+    	
+        select * from (
+                select bno, title, writer, regdate
+                from board 
+                <if test="keyword != null">
+                    where title like concat('%',#{keyword},'%' )
+                </if>
+                order by bno desc) as T1
+        limit #{skip},#{amount}
         
-    
     </select>
     
     <!-- 게시물 총 갯수 -->
     <select id="getTotal" resultType="int">
     
         select count(*) from board
+        <if test="keyword != null">
+            where title like concat('%',#{keyword},'%')
+        </if>
     
     </select>
  
-    
         <!-- 게시물 조회 -->
     <select id="getPage" resultType="boarddto">
     

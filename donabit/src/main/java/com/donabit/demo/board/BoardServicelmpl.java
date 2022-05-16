@@ -49,9 +49,9 @@ public class BoardServicelmpl implements BoardService {
     
     /* 게시물 총 갯수 */
     @Override
-    public int getTotal() {
+    public int getTotal(Criteria cri) {
         
-        return dao.getTotal();
+        return dao.getTotal(cri);
     }
     
     /* 게시물 수정 */

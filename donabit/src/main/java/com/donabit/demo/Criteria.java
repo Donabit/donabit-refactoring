@@ -11,6 +11,9 @@ public class Criteria {
     /* 스킵 할 게시물 수( (pageNum-1) * amount ) */
     private int skip;
     
+    /* 검색 */
+    private String keyword;
+    
     /* 기본 생성자 -> 기본 세팅 : pageNum = 1, amount = 10 */
     public Criteria() {
     	this(1,10);
@@ -55,9 +58,17 @@ public class Criteria {
 	}
 
     @Override
-    public String toString() {
-    	return "Criteria [pageNum=" + pageNum + ", amount=" + amount + "]";
-    }
+	public String toString() {
+		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + ", keyword=" + keyword + "]";
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
     
 }
 
