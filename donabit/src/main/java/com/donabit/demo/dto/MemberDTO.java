@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class MemberDTO {
 	
-	private String email, nickname, password, phone, auth, avatar;
+	private String email, nickname, password, phone, auth, avatar, expsum;
 	private int enabled;
 
 	public MemberDTO(){}

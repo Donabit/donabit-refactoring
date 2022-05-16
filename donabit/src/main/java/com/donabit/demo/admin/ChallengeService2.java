@@ -29,5 +29,6 @@ public interface ChallengeService2 {
 	int selectEachCheckCountByNumber(String chnum, String nickname);
 	List<ReportDTO> selectReportDto();
 	List<ChallengeDTO> selectMainChallenge();
+	List<MemberDTO> selectRanker();
 
 }

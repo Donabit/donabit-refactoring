@@ -70,11 +70,14 @@
 			<div class="ranking_container">
 				<p class="contents_header">레벨</p>
 				<ul class="ranking_list">
-					<li>레벨1</li>
-					<li>레벨2</li>
-					<li>레벨3</li>
-					<li>레벨4</li>
-					<li>레벨5</li>
+					<c:forEach items="${ranklist}" var="ranklist" varStatus="status">
+						<li>
+							<span>${ranklist.avatar}</span>
+							<span>${ranklist.nickname}</span>
+							<span>${ranklist.expsum}</span>
+							<span>${level[status.index]}</span>
+						</li>	
+					</c:forEach>
 				</ul>
 			</div>
 			<div class="notice_container">

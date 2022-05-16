@@ -1,9 +1,0 @@
-diff a/donabit/src/main/java/com/donabit/demo/dto/ReportDTO.java b/donabit/src/main/java/com/donabit/demo/dto/ReportDTO.java	(rejected hunks)
-@@ -5,6 +5,7 @@
- @Data
- public class ReportDTO {
- 	
-+	String nickname, checktime, checktitle, checkdesc, checkimg, toggletime;
- 	int checkid, chnum, report;
- 		
- }

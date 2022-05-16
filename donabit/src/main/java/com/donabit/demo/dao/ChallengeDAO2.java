@@ -33,4 +33,5 @@ public interface ChallengeDAO2 {
 	int selectEachCheckCountByNumber(String chnum, String nickname);
 	List<ReportDTO> selectReportDto();
 	List<ChallengeDTO> selectMainChallenge();
+	List<MemberDTO> selectRanker(); 
 }
