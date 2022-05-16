@@ -34,4 +34,9 @@ public interface ChallengeDAO {
 	public List<ChallengeDTO> checklist2();	
 	public List<ChallengeDTO> likeslist();	
 	List<ReportDTO> selectReportCount(); 
+	
+	//mypage service
+	int selectMyChallengeCount(String chnum);
+	int myDonateCount(String nickname);
+	
 }

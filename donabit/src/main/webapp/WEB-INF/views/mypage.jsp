@@ -124,9 +124,11 @@
 		
 		<div class="mychallengescore">
 		
-		참여중인 챌린지 수 : 
+		참여중인 챌린지 수 : ${mychallengecount} 
 		
-		총 기부금액 : 
+		<br>
+		
+		총 기부금액 : ${mydonate }
 		
 		
 		</div>

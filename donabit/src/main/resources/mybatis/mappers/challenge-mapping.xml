@@ -63,6 +63,16 @@
 	
 <!-- 개인별 챌린지 참여정보 -->	
 	
+	<select id="selectMyChallengeCount" resultType="int">
+		select count(chnum) from challenging where nickname = #{nickname}; 
+	</select>
+	
+	
+	<select id="myDonateCount" resultType="int">
+		select sum(donatepay/chmaxp) as totaldonate 
+		from challenge join challenging on challenge.chnum = challenging.chnum
+		where personalpf=1 and challenging.nickname=#{nickname};  
+	</select>
 	
 	
 	

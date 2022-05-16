@@ -28,4 +28,8 @@ public interface ChallengeService {
 	public List<ChallengeDTO> selectbadge(String nickname);
 	List<ReportDTO> selectReportCount(); 
 	
+	//mypage service
+	int selectMyChallengeCount(String chnum);
+	int myDonateCount(String nickname);
+	
 }
