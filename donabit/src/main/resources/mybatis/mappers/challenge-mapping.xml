@@ -47,19 +47,36 @@
 
 <!-- 정렬 -->
 
-	<select id="checklist2" resultType="challengedto">
+<!-- 	<select id="checklist2" resultType="challengedto">
 		SELECT checks.nickname, checkid, checktitle, checkdesc, checkimg AS checkimg2, checktime, member.avatar
-		FROM checks JOIN member on checks.nickname = member.nickname ORDER BY checktime DESC
+		FROM checks JOIN member on checks.nickname = member.nickname ORDER BY #{order} DESC
+	</select> -->
+	
+	<select id="checklist2" parameterType="String" resultType="challengedto">
+		SELECT chname, checks.nickname, checks.checkid, checktitle, checkdesc, checkimg AS checkimg2, checktime, member.avatar, count(likes) as totallikes
+		FROM checks left outer join member on checks.nickname = member.nickname left outer JOIN challenge ON checks.chnum = challenge.chnum left outer join toggle on checks.checkid = toggle.checkid
+		<if test="keyword != null">
+		where chname like concat('%', #{keyword},'%')
+		</if>
+		group by checks.checkid
+		<choose>
+			<when test="order == null">
+			order BY checktime DESC
+			</when>
+			<otherwise>
+			order BY totallikes DESC
+			</otherwise>
+		</choose>
 	</select>
 	
-	<select id="likeslist" resultType="challengedto">
+<!-- 	<select id="likeslist" resultType="challengedto">
 		select checks.nickname, chnum, checknum, checktime, checktitle, checkdesc, 
 		checkimg, checks.checkid, count(likes) as totallikes, member.avatar 
 		from checks left outer join toggle on checks.checkid = toggle.checkid
         left outer join member on checks.nickname = member.nickname 
 		group by checkid order by totallikes desc;
 	</select>
-	
+	 -->
 	
 <!-- 개인별 챌린지 참여정보 -->	
 	
@@ -69,7 +86,7 @@
 	
 	
 	<select id="myDonateCount" resultType="int">
-		select sum(donatepay/chmaxp) as totaldonate 
+		select ifnull(ROUND(sum(donatepay/chmaxp)), 0) as totaldonate  
 		from challenge join challenging on challenge.chnum = challenging.chnum
 		where personalpf=1 and challenging.nickname=#{nickname};  
 	</select>

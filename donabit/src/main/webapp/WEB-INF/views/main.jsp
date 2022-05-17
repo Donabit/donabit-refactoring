@@ -69,16 +69,24 @@
 		<section class="main_contents ranking_notice">
 			<div class="ranking_container">
 				<p class="contents_header">레벨</p>
-				<ul class="ranking_list">
+				<ol class="ranking_list">
+					<li class="ranking_list_row">
+						<span class="ranking_list_cell">순위</span>
+						<span class="ranking_list_cell">아바타</span>
+						<span class="ranking_list_cell">닉네임</span>
+						<span class="ranking_list_cell">경험치</span>
+						<span class="ranking_list_cell">레벨 </span>
+					</li>
 					<c:forEach items="${ranklist}" var="ranklist" varStatus="status">
-						<li>
-							<span>${ranklist.avatar}</span>
-							<span>${ranklist.nickname}</span>
-							<span>${ranklist.expsum}</span>
-							<span>${level[status.index]}</span>
+						<li class="ranking_list_row">
+							<span class="ranking_list_cell">${status.index + 1}</span>
+							<span class="ranking_list_cell">${ranklist.avatar}</span>
+							<span class="ranking_list_cell">${ranklist.nickname}</span>
+							<span class="ranking_list_cell">${ranklist.expsum}</span>
+							<span class="ranking_list_cell">${level[status.index]}</span>
 						</li>	
 					</c:forEach>
-				</ul>
+				</ol>
 			</div>
 			<div class="notice_container">
 				<p class="contents_header">공지사항</p>

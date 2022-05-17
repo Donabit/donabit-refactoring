@@ -75,8 +75,8 @@ public class ChallengeServiceImpl implements ChallengeService {
 	}
 
 	@Override
-	public List<ChallengeDTO> checklist2() {
-		return dao.checklist2();
+	public List<ChallengeDTO> checklist2(String order, String keyword) {
+		return dao.checklist2(order, keyword);
 	}
 
 	@Override

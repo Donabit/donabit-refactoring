@@ -15,6 +15,11 @@
 	align-content: flex-start
 }
 
+.category_search_nav_bar {
+	display: flex;
+	justify-content: space-between;
+}
+
 .item {
 	border-radius: 10px;
 	width: 300px;

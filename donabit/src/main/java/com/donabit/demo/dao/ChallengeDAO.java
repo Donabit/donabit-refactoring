@@ -31,7 +31,7 @@ public interface ChallengeDAO {
 	int totalsingo(String checkid);
 	List<Integer> selectexp(String nickname);
 	List<Integer> selectlevel();
-	public List<ChallengeDTO> checklist2();	
+	public List<ChallengeDTO> checklist2(String order, String keyword);	
 	public List<ChallengeDTO> likeslist();	
 	List<ReportDTO> selectReportCount(); 
 	

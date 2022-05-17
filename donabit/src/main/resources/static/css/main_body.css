@@ -89,15 +89,14 @@ p.cursor {
 .contents_header {
 	font-size: 1.3em;
 	font-weight: 600;
-	text-indent: 1em;
 	margin-bottom: 1em;
 }
 
 .Ch_container_1 {  
 	display: grid;
+	gap: 2em;
 	grid-template-rows: repeat(2, 320px);
-	grid-template-columns: 250px 250px 250px 250px;
-	gap: 2.5em;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-auto-flow: row dense;
 	grid-auto-rows: 200px;
 	justify-content: center;
@@ -125,7 +124,27 @@ border-radius: 2%;
 }
 
 .ranking_container {
-	width: 500px;
+	width: 100%;
+}
+
+.ranking_list {
+	display: table;
+	width: 90%;
+	padding: 0;
+}
+
+.ranking_list_row{
+	display: table-row;
+}
+
+.ranking_list_cell {
+	padding: 6px 12px;
+	display: table-cell;
+	border: 1px solid black;
+}
+
+.notice_container {
+	width: 90%;
 }
 
 .notice {
@@ -144,8 +163,6 @@ h1.notice {
 .notice_body_table {
 	display: table;
 	margin: 0 auto;
-	width: 1110px;
-	right: -750px;
 }
 
 .notice_body_row {
@@ -154,6 +171,7 @@ h1.notice {
 	justify-content: space-between;
 	margin-top: 20px;
 	margin-bottom: 20px;
+	
 }
 
 .notice_body_cell, .notice_body_cell:active, .more, .more:active {
@@ -167,10 +185,7 @@ h1.notice {
 	padding-top: 25px;
 	padding-bottom: 25px;
 	padding-left: 20px;
-}
-
-.notice_body_cell:first-child{
-	padding-right: 20em;
+	width: 100%;
 }
 
 .notice_body_cell:first-child:hover {
@@ -180,12 +195,6 @@ h1.notice {
 .notice_body_cell:last-child {
 	text-align: right;
 	padding: 20px;
-}
-
-hr.notice_body {
-	width: 1110px;
-	margin:0 auto;
-	height: 1px;
 }
 
 /* 섹션 notice 끝 */

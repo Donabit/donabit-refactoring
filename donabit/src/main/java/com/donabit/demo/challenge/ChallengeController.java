@@ -10,12 +10,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.donabit.demo.admin.ChallengeService2;
 import com.donabit.demo.check.CheckService;
 import com.donabit.demo.dto.ChallengeDTO;
 import com.donabit.demo.security.PrincipalDetails;
@@ -25,6 +27,9 @@ public class ChallengeController {
 	
 	@Autowired
 	ChallengeService service;
+	
+	@Autowired
+	ChallengeService2 chservice;
 	
 	@Autowired
 	CheckService service2;
@@ -102,7 +107,7 @@ public class ChallengeController {
 	public List<ChallengeDTO> likesbefore(String nickname, String checkid) {
 		System.out.println(nickname + " 유저가" + checkid + "번 게시물의 좋아요를 누름");
 		service.insertlikes(nickname, checkid);
-		List<ChallengeDTO> list = service.checklist2();
+		List<ChallengeDTO> list = service.checklist2("totallikes", null);
 		return list;
 	}
 	
@@ -112,7 +117,7 @@ public class ChallengeController {
 	public List<ChallengeDTO> likesafter(String nickname, String checkid) {
 		System.out.println(nickname + " 유저가" + checkid + "번 게시물의 좋아요를 해제");
 		service.deletelikes(nickname, checkid);
-		List<ChallengeDTO> list = service.checklist2();
+		List<ChallengeDTO> list = service.checklist2("totallikes", null);
 		return list;
 	}
 	
@@ -141,7 +146,7 @@ public class ChallengeController {
 		System.out.println(nickname + " 유저가" + checkid + "번 게시물의 신고를 누름");
 		service.insertsingo(nickname, checkid);
 		
-		List<ChallengeDTO> list2 = service.checklist2();
+		List<ChallengeDTO> list2 = service.checklist2("totallikes", null);
 		return list2;
 	}
 	
@@ -153,7 +158,7 @@ public class ChallengeController {
 	public List<ChallengeDTO> singoafter(String nickname, String checkid) { 
 		System.out.println(nickname + " 유저가" + checkid + "번 게시물의 신고 해제");
 		service.deletesingo(nickname, checkid); 
-		List<ChallengeDTO> list2 = service.checklist2();
+		List<ChallengeDTO> list2 = service.checklist2("totallikes", null);
 		return list2; 
 	}
 	 
@@ -179,47 +184,40 @@ public class ChallengeController {
 		}
 		
 		
-	//정렬
-	@GetMapping("likeslist")	
-	public ModelAndView likeslist() {
-		ModelAndView mv = new ModelAndView(); 
-		List<ChallengeDTO> likeslist = service.likeslist();
+//	//정렬
+//	@GetMapping("likeslist")	
+//	public ModelAndView likeslist() {
+//		ModelAndView mv = new ModelAndView(); 
+//		List<ChallengeDTO> likeslist = service.likeslist();
+//		
+//		mv.addObject("likeslist", likeslist);
+//		mv.setViewName("/challenge/ch-community"); // 뷰 이름 지정, jsp 이름
+//		return mv; // jsp 보냄
+//		
+//	}
 		
-		mv.addObject("likeslist", likeslist);
-		mv.setViewName("/challenge/ch-community"); // 뷰 이름 지정, jsp 이름
-		return mv; // jsp 보냄
+//	//정렬 order로 받아 넘기기
+//	@GetMapping("/checkcommunity")	
+//	public ModelAndView checkmorninglistorder(Authentication authentication, String order) {
+//		return checkmorninglist(authentication, order);
+//		
+//	}	
 		
-	}
-		
-	//정렬 order로 받아 넘기기
-	@GetMapping("/checkcommunity")	
-	public ModelAndView checkmorninglistorder(Authentication authentication, String order) {
-		return checkmorninglist(authentication, order);
-		
-	}	
-		
-		
-	//인증 커뮤니티
-	public ModelAndView checkmorninglist(Authentication authentication, String order) { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
+	@Transactional	
+	@GetMapping("/checkcommunity")
+	public ModelAndView checkmorninglist(Authentication authentication, String order, String keyword) { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
 		ModelAndView mv = new ModelAndView();
-		
 		List<ChallengeDTO> list = new ArrayList<ChallengeDTO>();
-		List<Integer> levelList = new ArrayList<Integer>();
-		 System.out.println(order);
-		if(order == null) {
-			order="new";
+		List<Integer> levelList = new ArrayList<Integer>();		
+		if(order == null || order.equals("checktime") || order.equals("")) {
+			list = service.checklist2(null, keyword);
+		} else {
+			list = service.checklist2(order, keyword);
 		}
-		if(order.equals("new")) {
-			list = service.checklist2();
-			for(ChallengeDTO i : list) {
-				levelList.add(lib.calcLevel(i.getNickname()));
-			}
-		}else {
-			
-			list = service.likeslist();
-			for(ChallengeDTO i : list) {
-				levelList.add(lib.calcLevel(i.getNickname()));
-			}
+		
+		//레벨 부여
+		for(ChallengeDTO i : list) {
+			levelList.add(lib.calcLevel(i.getNickname()));
 		}
 	
 		/////////////////정렬끝
@@ -266,6 +264,9 @@ public class ChallengeController {
 		for(Integer i : totalsingo) { 
 		    System.out.println(i+"= 각 인증게시물의 전체 신고 수");
 		}
+		
+		//자동완성용 chname 전체조회
+		mv.addObject("chnamelist", chservice.selectChallengeName());
 		mv.addObject("level", levelList);
 		mv.addObject("totalsingo", totalsingo);
 		mv.addObject("totallike", totallike);
