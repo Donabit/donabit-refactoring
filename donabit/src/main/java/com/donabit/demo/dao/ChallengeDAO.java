@@ -41,4 +41,9 @@ public interface ChallengeDAO {
 	int selectMyChallengeCount(String chnum);
 	int myDonateCount(String nickname);
 	
+	
+	public int updateViewCount(int chnumint);
+	public int selectViewCountResult(int chnumint);
+	
+	
 }

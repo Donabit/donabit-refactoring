@@ -33,4 +33,6 @@ public interface ChallengeService {
 	int selectMyChallengeCount(String chnum);
 	int myDonateCount(String nickname);
 	
+	public int updateViewCount(int chnumint);
+	
 }
