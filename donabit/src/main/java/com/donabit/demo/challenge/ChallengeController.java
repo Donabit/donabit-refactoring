@@ -13,6 +13,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -58,8 +59,9 @@ public class ChallengeController {
 	
 	//챌린지리스트에서 챌린지상세페이지 클릭 시 각 chnum 별로 넘어감
 	@GetMapping("challenge/{chnum}")
-	public ModelAndView challengelistdatail(@RequestParam int chnumdetail, @AuthenticationPrincipal PrincipalDetails principaldetail) {
+	public ModelAndView challengelistdatail(@RequestParam int chnumdetail, @AuthenticationPrincipal PrincipalDetails principaldetail, @PathVariable String chnum) {
 		ModelAndView mv = new ModelAndView();
+		int chnumint = Integer.parseInt(chnum);
 		//닉네임 세션 가져오기
 		if(principaldetail != null) {
 			String nickname = principaldetail.getMemberdto().getNickname();
@@ -75,9 +77,13 @@ public class ChallengeController {
 		}
 		List<ChallengeDTO> list = service.challengelist();
 		List<ChallengeDTO> list2 = service.challcount();
+		//조회수
+		int updateviewcount = service.updateViewCount(chnumint);
+		
 		mv.addObject("challengelist", list);
 		mv.addObject("challcount", list2);
 		mv.addObject("chnumdetail", chnumdetail);
+		mv.addObject("updateViewCount", updateviewcount);
 		mv.setViewName("/challenge/challengedetail");
 		return mv;
 	}
