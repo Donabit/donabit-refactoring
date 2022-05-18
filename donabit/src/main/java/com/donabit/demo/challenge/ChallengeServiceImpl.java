@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.donabit.demo.Criteria;
 import com.donabit.demo.dao.ChallengeDAO;
@@ -11,7 +12,10 @@ import com.donabit.demo.dto.ChallengeDTO;
 import com.donabit.demo.dto.ReportDTO;
 
 @Service("challengeservice")
+@Transactional
 public class ChallengeServiceImpl implements ChallengeService {
+	
+
 	@Autowired
 	ChallengeDAO dao;
 
@@ -145,7 +149,18 @@ public class ChallengeServiceImpl implements ChallengeService {
 	}
 
 	
+	@Override
+	public int updateViewCount(int chnumint) {
+		
+		System.out.println(chnumint);
+		dao.updateViewCount(chnumint);
+		 
+		return dao.selectViewCountResult(chnumint);
+		
+	}
+
 	
+
 	
 	
 }

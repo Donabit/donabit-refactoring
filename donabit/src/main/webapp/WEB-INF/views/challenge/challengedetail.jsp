@@ -124,6 +124,9 @@
 							<div class="infotitle5">기부금액</div>
 							<div class="infotitle6">기부조건</div>
 							<div class="infotitle7">참여기간</div>
+							
+							<div class="infotitle8">조회수 : ${updateViewCount}</div>
+							
 							<div id="text1"> ${dto.chname }</div>
 							<div id="text2">
 								 ${dto.checknum } / ${dto.chdonate }

@@ -43,6 +43,21 @@
 		(#{nickname}) and
 		challenging.chnum like #{chnumdetail};
 	</select>
+	
+<!-- 조회수 -->
+	
+	<update id="updateViewCount" parameterType="int">
+	update challenge set viewcount=viewcount+1
+	where chnum = #{chnum};
+	
+	</update>	
+	
+	<select id="selectViewCountResult" resultType="int">
+	select viewcount from challenge
+	where chnum = #{chnum};
+	
+	</select>
+	
 
 
 <!-- 정렬 -->
