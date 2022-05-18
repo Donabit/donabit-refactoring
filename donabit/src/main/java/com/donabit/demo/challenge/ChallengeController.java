@@ -222,6 +222,11 @@ public class ChallengeController {
 			list = service.checklist2(order, keyword, mo2);
 		}
 		
+		for(ChallengeDTO i : list) {
+			i.setLevel2(lib.calcLevel(i.getNickname()));
+		}
+		
+		
 		return list;
 	}
 		

@@ -1,10 +1,15 @@
 package com.donabit.demo.dto;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.donabit.demo.challenge.ControllerLibrary;
+
 import lombok.Data;
 
 @Data
 public class ChallengeDTO {
 	String chnum, chnum2, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum, donatepay, donateco, nickname, nickname2, personalpf, checkid, like, likes, report,checktitle, checkdesc, checkimg2, checktime, count, avatar;
+	int level2;
 	
 	public ChallengeDTO() {}
 
@@ -54,5 +59,5 @@ public class ChallengeDTO {
 		
 		return  chnum + "/" + chsdate + "/" + chedate;
 	}
-
+	
 }

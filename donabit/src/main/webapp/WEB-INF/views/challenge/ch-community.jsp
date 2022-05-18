@@ -427,7 +427,7 @@
 						result += "<div class='item'>";
 						result += "<div class='nicknameout'>";
 						result += "<div class='box' style='background: #ffffff;'>";
-						result += "<img class='avatar' src='img/" + list[i].avatar + "${level[status.index]}.jpg' width='25px'>";
+						result += "<img class='avatar' src='img/" + list[i].avatar + list[i].level2 + ".jpg' width='25px'>";
 						result += "</div>";
 						result += "<div class='nickname'>" + list[i].nickname + "</div>";
 						result += "</div>";
