@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import com.donabit.demo.Criteria;
+import com.donabit.demo.challenge.MoreObject;
 import com.donabit.demo.dto.ChallengeDTO;
 import com.donabit.demo.dto.ChallengeDTO2;
 import com.donabit.demo.dto.ReportDTO;
@@ -31,7 +33,7 @@ public interface ChallengeDAO {
 	int totalsingo(String checkid);
 	List<Integer> selectexp(String nickname);
 	List<Integer> selectlevel();
-	public List<ChallengeDTO> checklist2(String order, String keyword);	
+	public List<ChallengeDTO> checklist2(String order, String keyword, MoreObject mo);	
 	public List<ChallengeDTO> likeslist();	
 	List<ReportDTO> selectReportCount(); 
 	

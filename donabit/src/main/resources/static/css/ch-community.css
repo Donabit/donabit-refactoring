@@ -232,3 +232,12 @@
 }
 
 /*↑스크롤바↑*/
+.moreBtn_container {
+	text-align: center;
+	margin-top: 3em;
+}
+
+#moreBtn{
+	width: 6em;
+	height: 3em;
+}

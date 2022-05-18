@@ -2,6 +2,7 @@ package com.donabit.demo.challenge;
 
 import java.util.List;
 
+import com.donabit.demo.Criteria;
 import com.donabit.demo.dto.ChallengeDTO;
 import com.donabit.demo.dto.ReportDTO;
 
@@ -17,7 +18,7 @@ public interface ChallengeService {
 	int selectsingo(String nickname, String checkid);
 	int insertlikes(String nickname, String checkid);
 	int insertsingo(String nickname, String checkid);
-	public List<ChallengeDTO> checklist2(String order, String keyword);
+	public List<ChallengeDTO> checklist2(String order, String keyword, MoreObject mo);
 	public List<ChallengeDTO> likeslist();
 	int deletelikes(String nickname, String checkid);
 	int deletesingo(String nickname, String checkid);

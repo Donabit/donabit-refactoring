@@ -382,11 +382,75 @@
 						<!-- item -->
 					</c:forEach>
 				</div>
+				<div class="moreBtn_container">
+					<button id="moreBtn">더보기</button>
+				</div>
 			</div>
 
 
 
 			<%@ include file="/WEB-INF/views/main_footer.jsp" %>
 	</body>
-
+	<script type="text/javascript">
+		let lastNumber = $(".item").length;	
+		
+		if(lastNumber < 8){
+			$(".moreBtn_container").remove();
+		}
+		console.log(lastNumber);
+		console.log("${param.order}");
+		console.log("${param.keyword}");
+		console.log("${param.mo}");
+		
+		
+		let pageNum = 1;
+		$("#moreBtn").on("click", function(){
+			pageNum++;
+			
+			$.ajax({
+				url: "/moreCommunity.do", // 호출할 주소
+				data: {
+					'order': "${param.order}",
+					'keyword': "${param.keyword}",
+					'pageNum': pageNum
+				}, // 넘길 데이터
+				type: 'get',
+				dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+				success: function(list) { // 결과 받기
+					console.log(list);
+					let length = list.length;
+					if(length < 8){
+						$(".moreBtn_container").remove();
+					}					
+					for(let i = 0; i < length; i++){
+						let result = "";
+						result += "<div class='item'>";
+						result += "<div class='nicknameout'>";
+						result += "<div class='box' style='background: #ffffff;'>";
+						result += "<img class='avatar' src='img/" + list[i].avatar + "${level[status.index]}.jpg' width='25px'>";
+						result += "</div>";
+						result += "<div class='nickname'>" + list[i].nickname + "</div>";
+						result += "</div>";
+						result += "<div class='chimg'>";
+						result += "<img src='/checkimage/" + list[i].checkimg + "height='300px' width='300px'><br>";
+						result += "</div>";
+						result += "<div class='detail'>";
+						result += "<div class='title'>" + list[i].checktitle + "</div>";
+						result += "<div class='checkdesc'>" + list[i].checkdesc + "</div>";
+						result += "<div class='time'>" + list[i].checktime + "</div>";
+						result += "</div>";
+						result += "</div>";
+						
+						$('.containerflex').append(result);	
+					}
+				},// success
+				error: function (jqXHR) {
+					alert("failed");
+				}// error
+			});//totallikebefore ajax
+			});
+		
+		console.log(lastNumber);
+	
+	</script>
 	</html>

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.donabit.demo.Criteria;
 import com.donabit.demo.admin.ChallengeService2;
 import com.donabit.demo.check.CheckService;
 import com.donabit.demo.dto.ChallengeDTO;
@@ -107,7 +109,8 @@ public class ChallengeController {
 	public List<ChallengeDTO> likesbefore(String nickname, String checkid) {
 		System.out.println(nickname + " 유저가" + checkid + "번 게시물의 좋아요를 누름");
 		service.insertlikes(nickname, checkid);
-		List<ChallengeDTO> list = service.checklist2("totallikes", null);
+		MoreObject mo = new MoreObject();
+		List<ChallengeDTO> list = service.checklist2("totallikes", null, mo);
 		return list;
 	}
 	
@@ -117,7 +120,9 @@ public class ChallengeController {
 	public List<ChallengeDTO> likesafter(String nickname, String checkid) {
 		System.out.println(nickname + " 유저가" + checkid + "번 게시물의 좋아요를 해제");
 		service.deletelikes(nickname, checkid);
-		List<ChallengeDTO> list = service.checklist2("totallikes", null);
+		Criteria cri = new Criteria();
+		MoreObject mo = new MoreObject();
+		List<ChallengeDTO> list = service.checklist2("totallikes", null, mo);
 		return list;
 	}
 	
@@ -145,8 +150,9 @@ public class ChallengeController {
 	public List<ChallengeDTO> singobefore(String nickname, String checkid) {
 		System.out.println(nickname + " 유저가" + checkid + "번 게시물의 신고를 누름");
 		service.insertsingo(nickname, checkid);
-		
-		List<ChallengeDTO> list2 = service.checklist2("totallikes", null);
+		Criteria cri = new Criteria();
+		MoreObject mo = new MoreObject();
+		List<ChallengeDTO> list2 = service.checklist2("totallikes", null, mo);
 		return list2;
 	}
 	
@@ -157,8 +163,10 @@ public class ChallengeController {
 	@ResponseBody 
 	public List<ChallengeDTO> singoafter(String nickname, String checkid) { 
 		System.out.println(nickname + " 유저가" + checkid + "번 게시물의 신고 해제");
-		service.deletesingo(nickname, checkid); 
-		List<ChallengeDTO> list2 = service.checklist2("totallikes", null);
+		service.deletesingo(nickname, checkid);
+		Criteria cri = new Criteria();
+		MoreObject mo = new MoreObject();
+		List<ChallengeDTO> list2 = service.checklist2("totallikes", null, mo);
 		return list2; 
 	}
 	 
@@ -202,17 +210,32 @@ public class ChallengeController {
 //		return checkmorninglist(authentication, order);
 //		
 //	}	
+	@GetMapping("/moreCommunity.do")
+	@ResponseBody
+	public List<ChallengeDTO> moreList(String order, String keyword, int pageNum){
+		MoreObject mo2 = new MoreObject(pageNum, 8);
+		List<ChallengeDTO> list = new ArrayList<ChallengeDTO>(); 
+		
+		if(order == null || order.equals("checktime") || order.equals("")) { //초기화면(/checkcommunity)
+			list = service.checklist2(null, keyword, mo2);
+		} else {
+			list = service.checklist2(order, keyword, mo2);
+		}
+		
+		return list;
+	}
 		
 	@Transactional	
 	@GetMapping("/checkcommunity")
-	public ModelAndView checkmorninglist(Authentication authentication, String order, String keyword) { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
+	public ModelAndView checkmorninglist(Authentication authentication, String order, String keyword, @Param("mo") MoreObject mo) { //Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
 		ModelAndView mv = new ModelAndView();
 		List<ChallengeDTO> list = new ArrayList<ChallengeDTO>();
-		List<Integer> levelList = new ArrayList<Integer>();		
-		if(order == null || order.equals("checktime") || order.equals("")) {
-			list = service.checklist2(null, keyword);
+		List<Integer> levelList = new ArrayList<Integer>();	
+		
+		if(order == null || order.equals("checktime") || order.equals("")) { //초기화면(/checkcommunity)
+			list = service.checklist2(null, keyword, mo);
 		} else {
-			list = service.checklist2(order, keyword);
+			list = service.checklist2(order, keyword, mo);
 		}
 		
 		//레벨 부여

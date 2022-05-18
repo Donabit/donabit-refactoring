@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.donabit.demo.Criteria;
 import com.donabit.demo.dao.ChallengeDAO;
 import com.donabit.demo.dto.ChallengeDTO;
 import com.donabit.demo.dto.ReportDTO;
@@ -75,8 +76,8 @@ public class ChallengeServiceImpl implements ChallengeService {
 	}
 
 	@Override
-	public List<ChallengeDTO> checklist2(String order, String keyword) {
-		return dao.checklist2(order, keyword);
+	public List<ChallengeDTO> checklist2(String order, String keyword, MoreObject mo) {
+		return dao.checklist2(order, keyword, mo);
 	}
 
 	@Override

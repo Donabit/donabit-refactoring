@@ -52,7 +52,7 @@
 		FROM checks JOIN member on checks.nickname = member.nickname ORDER BY #{order} DESC
 	</select> -->
 	
-	<select id="checklist2" parameterType="String" resultType="challengedto">
+	<select id="checklist2" resultType="challengedto">
 		SELECT chname, checks.nickname, checks.checkid, checktitle, checkdesc, checkimg AS checkimg2, checktime, member.avatar, count(likes) as totallikes
 		FROM checks left outer join member on checks.nickname = member.nickname left outer JOIN challenge ON checks.chnum = challenge.chnum left outer join toggle on checks.checkid = toggle.checkid
 		<if test="keyword != null">
@@ -67,6 +67,8 @@
 			order BY totallikes DESC
 			</otherwise>
 		</choose>
+		LIMIT #{mo.skip}, #{mo.amount}
+		
 	</select>
 	
 <!-- 	<select id="likeslist" resultType="challengedto">
