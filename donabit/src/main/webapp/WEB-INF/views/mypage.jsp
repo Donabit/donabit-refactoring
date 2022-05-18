@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%@ include file="/WEB-INF/views/main_header.jsp"%>
 <!DOCTYPE html>
 <html>
+<%@ include file="/WEB-INF/views/main_header.jsp"%>
 <head>
 <meta charset="UTF-8">
 <title>MyPage</title>
@@ -22,7 +22,10 @@
 <link rel="stylesheet" type="text/css" href="css/mypage.css">
 </head>
 <body>
-	<div class="boxes">
+<img class="mypagetitle" src="img/checktitle.svg">
+<hr>
+<div class="container">
+	<div class="leftbox">
 		<div class="profilebox">
 			<div class="profile-wrapper">
 				<c:choose>
@@ -63,83 +66,34 @@
 					</c:otherwise>
 				</c:choose>
 
-			</div>
-			<div class="nick-level">
-				<h1>${principal.memberdto.nickname}</h1>
-				<h3>Level : ${level}</h3>
-				<h4>Exp : ${expsum}</h4>
+				<div class="nick-level-exp">
+					<div class="nickname">${principal.memberdto.nickname}</div>
+					<div class="level">Level : ${level}</div>
+					<div class="exp">Exp : ${expsum}</div>
+				</div>
 			</div>
 
 			<div class="listContainer">
-				<a href="/updateform" class="setting">
-					<div class="sicon">
-						<img class="imgicon" src="/img/pig.svg">
-					</div>
-					<div class="stext">
-						<p>회원정보 수정하기</p>
-						<span class="circle"></span>
-					</div>
-					<div class="sright">
-						<img class="imgicon" src="/img/setting.jpg">
-					</div>
-				</a> <a href="/passwordmodifyform" class="setting">
-					<div class="sicon">
-						<img class="imgicon" src="/img/pig.svg">
-					</div>
-					<div class="stext">
-						<p>비밀번호 변경하기</p>
-						<span class="circle"></span>
-					</div>
-					<div class="sright">
-						<img class="imgicon" src="/img/setting.jpg">
-					</div>
-				</a> <a href="/deleteview" class="setting">
-					<div class="sicon">
-						<img class="imgicon" src="/img/pig.svg">
-					</div>
-					<div class="stext">
-						<p>회원 탈퇴하기</p>
-						<span class="circle"></span>
-					</div>
-					<div class="sright">
-						<img class="imgicon" src="/img/setting.jpg">
-					</div>
-				</a>
-				<a href="/makepc" class="setting">
-					<div class="sicon">
-						<img class="imgicon" src="/img/pig.svg">
-					</div>
-					<div class="stext">
-						<p>챌린지 만들기</p>
-						<span class="circle"></span>
-					</div>
-					<div class="sright">
-						<img class="imgicon" src="/img/setting.jpg">
-					</div>
-				</a>
+				<a href="/makepc" class="setting"> 챌린지 만들기 </a>
+				<a href="/updateform" class="setting"> 회원정보 수정하기	 </a> 
+				<a href="/passwordmodifyform" class="setting"> 비밀번호 변경하기 </a>
+				<a href="/deleteview" class="setting"> 회원 탈퇴하기 </a>
 			</div>
 		</div>
-		
-		
-		
-		<div class="mychallengescore">
-		
-		참여중인 챌린지 수 : ${mychallengecount} 
-		
-		<br>
-		
-		총 기부금액 : ${mydonate }
-		
-		
+	</div>
+	
+	<div class="rightbox">
+		<div class="scorebox">
+			<div class="nowchallenge_title">참여중인 챌린지</div>
+			<div class="nowchallenge_text">${mychallengecount}</div>
+			<div class="v-line"></div>
+			<div class="nowdonate_title">총<br>기부금액</div>
+			<div class="nowdonate_text">${mydonate }</div>
 		</div>
-		
-		
-		
-			
-		
-			<div class="challenge-box">
-			<p><b>참여중인 챌린지</b></p>
-			<div class="challenge-ing">
+
+	<div class="challengebox">
+		<div class="challengebox1">
+			<div class="challengebox_title"> 참여중인 챌린지 </div>
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
 						<c:set var="today" value="<%=new java.util.Date()%>" />
@@ -166,10 +120,10 @@
 					<!-- 페이징 -->
 					<div class="swiper-pagination"></div>
 				</div>
-			</div>
+		</div>
 			
-			<p><b>개설한 챌린지</b></p>
-			<div class="challenge-ing">
+		<div class="challengebox2">
+			<div class="challengebox_title"> 개설한 챌린지 </div>
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
 						<c:set var="today" value="<%=new java.util.Date()%>" />
@@ -196,10 +150,10 @@
 					<!-- 페이징 -->
 					<div class="swiper-pagination"></div>
 				</div>
-			</div>
-
-			<p><b>획득한 뱃지</b></p>
-			<div class="challenge-ing">
+		</div>
+		
+		<div class="challengebox3">
+			<div class="challengebox_title"> 획득한 챌린지 </div>
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
 						<c:forEach items="${badge}" var="dto2" varStatus="status">
@@ -223,6 +177,19 @@
 							</c:choose>
 						</c:forEach>
 					</div>
+					<!-- 네비게이션 -->
+					<div class="swiper-button-next"></div>
+					<!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+					<div class="swiper-button-prev"></div>
+					<!-- 이전 버튼 -->
+
+					<!-- 페이징 -->
+					<div class="swiper-pagination"></div>
+					</div>
+		</div>
+		</div> <!-- challengebox end -->
+	</div>
+</div>
 					
 
 			<script>
