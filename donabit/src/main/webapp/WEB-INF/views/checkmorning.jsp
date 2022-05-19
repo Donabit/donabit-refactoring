@@ -38,8 +38,8 @@
 			</div>
 			<br>
 		</div>
-		
-			<div class="containerflex">
+			<div class="listcontainerout">
+			<div class="listcontainer">
 				<div class="item">
 					<div class="plus_btn">
 						<a href="#" onclick="return false" id="newwin" type="button"> <span style="color: #2AC1BC"> <i class="fa fa-solid fa-plus fa-8x"></i></span>

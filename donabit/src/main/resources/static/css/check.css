@@ -83,7 +83,6 @@ textarea {
 }
 
 .chnamebox{
-	
 	display: inline-block;
 }
 
@@ -91,17 +90,20 @@ textarea {
 
 .checktitle {
     width: 100%;
+ 
 }
 
+.listcontainerout{
+	width: 1370px;
+	margin: auto;
+}
 
-.containerflex {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: start; 
-  align-content: flex-start;
-  width:1100px;
-	margin: 0 auto;
+.listcontainer {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: start;
+	align-content: flex-start
 }
 
 
@@ -122,25 +124,22 @@ textarea {
 	height: 470px;
 	margin: 20px;
 	position: relative;
-
 	border: solid #BDBDBD 1px;
 	box-shadow: 3px 8px 5px rgba(0, 0, 0, 0.3);
 	-webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 	-moz-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-
-
 	background-image: url('../img/challenge/back2.svg');
 }
 
 .img{
 	 text-align:center;
-	 margin:35px 10px 10px 0px;
+	 margin: 40px auto;
 }
 
 .imgin{
-	height : 280px; 
-	width : 300px;
-	object-fit:cover;
+	height : 300px; 
+	width : 100%;
+	
 }
 .detail {
 	align-items: center;
@@ -186,9 +185,6 @@ position: absolute;
 	
 }
 
-.imgin{ 
-	border-radius:20px;
-}
 
 /* main {
 	height: 1200px;

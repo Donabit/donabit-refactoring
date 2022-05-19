@@ -35,7 +35,7 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 	private void fileUpload(MultipartFile mpf, String renameFilename) {
 		String path = "/usr/mydir/donabit/chimages/";
 		String path2 = "D:\\donabitimage/";
-		String path3 = "C:\\challengeimage";
+		String path3 = "C:/challengeimage/";
 		File uploadFile = new File(path3 + renameFilename);
 		try {
 			mpf.transferTo(uploadFile);
