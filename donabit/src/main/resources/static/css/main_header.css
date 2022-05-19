@@ -38,7 +38,7 @@
 
  .header_container { 
 	 display: flex; 
-	 align-items: baseline; 
+	 align-items: center; 
 	 max-width: var(--global-max-width);
 	 margin: 0 auto; 
 	 justify-content: space-between; 
@@ -61,10 +61,13 @@
  .menu_container { 
  align-content: flex-start; 
  } 
- 
+
  .menu_container .menu, .login { 
  list-style: none; 
- display: flex; 
+ display: flex;
+ margin: 0;
+ padding: 0;
+ align-items: center; 
  } 
  
  .menu_title { 

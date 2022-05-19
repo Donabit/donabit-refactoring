@@ -1,9 +1,9 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
-
+/* 
 .chdetail, div, .text1 {
 	font-family: 'Poor Story', cursive;
-}
+} */
 
 .container {
     display: grid;
@@ -24,10 +24,10 @@
     }
 }
 
-.header {
+/* .header {
     grid-area: header;
 }
-
+ */
 .section {
     grid-area: section;
 
@@ -65,7 +65,15 @@
     -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
+.filter_bar_list {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+}
 
+.filter_bar_list li {
+	padding: 6px 14px;
+}
 
 .chimg {
     width: 220px;
