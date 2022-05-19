@@ -1,0 +1,132 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+    <script>
+
+        /*   $('[name=commentInsertBtn]').click(function () { //댓글 등록 버튼 클릭시 
+              var insertData = $('[name=commentInsertForm]').serialize(); //commentInsertForm의 내용을 가져옴
+              //serialize를 해주면 form안에 값들을 한 번에 전송 가능한 data로 만들 수 있음
+              console.log(insertData);
+              commentInsert(insertData); //Insert 함수호출(아래)
+          }); */
+
+        //팝업창 클릭 시
+        $(document).off('click').on("click", ".trigger", function () {
+            let checkid = $(this).attr('checkid');
+            commentList(checkid);
+        }
+        );
+
+        //댓글 목록 
+        function commentList(checkid) {
+            console.log(checkid + "리스트 아이디");
+            $.ajax({
+                url: '/commentlist',
+                type: 'get',
+                dataType: "json",
+                data: { 'checkid': checkid },
+                success: function (data) {
+                    var a = '';
+                    var b = '${ principal.memberdto.nickname}';
+                    $.each(data, function (key, value) {
+                        a += '<div class="commentArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
+                        a += '<div class="commentInfo' + value.cno + '">작성자 : ' + value.nickname + '</div>';
+                        if (b == value.nickname) {
+                            a += '<a onclick="commentUpdate(' + value.cno + ',\'' + value.content + '\',\'' + value.checkid + '\');"> [수정] </a>';
+                            a += '<a onclick="commentDelete(' + value.cno + ',\'' + value.checkid + '\');"> [삭제] </a>';
+                        }
+                        a += '<div class="commentContent' + value.cno + '"> <p> 내용 : ' + value.content + '</p>';
+                        a += '</div></div>';
+                        console.log(value.nickname);
+                        console.log('${ principal.memberdto.nickname } 현재로그인');
+                    });
+
+                    $(".commentlist").html(a);
+                }
+            });
+        }
+
+        //댓글등록
+        $(document).on("click", ".commentInsertBtn", function (event) {
+            let no = $(this).attr('idx');
+            let nickname = '${ principal.memberdto.nickname}';
+            $.ajax({
+                url: '/commentinsert',
+                data: {
+                    'nickname': nickname,
+                    'content': $("#content" + no).val(),
+                    'checkid': $(this).attr('checkid')
+                },
+                type: 'get',
+                dataType: "json",
+                success: function (data) {
+                    commentList(data); //댓글 작성 후 댓글 목록 reload
+                    //$('[name=content]').val('');
+                }
+            });
+        });
+
+
+        //댓글 수정 - 댓글 내용 출력을 input 폼으로 변경 
+        function commentUpdate(cno, content, checkid) {
+            var a = '';
+            a = '<div class="input-group"></div>';
+            $('.commentContent' + cno).append(a);
+            a = '<input type="text" class="form-control" id="update' + cno + '" value="111" onchange="commentUpdateProc2(this.value)" />';
+            $('.input-group').append(a);
+            //a += ' <textarea name="opinion" id="update2' + cno + '" cols="30" rows="5"></textarea>';
+            a = '<span class="input-group-btn"><button  id="test"  class="commentUpdateBtn" '
+                + 'type="button" onclick="commentUpdateProc(' + cno + ',' + checkid + ')">수정</button> </span>';
+            $('.input-group').append(a);
+        }
+
+        //강사 
+        var val = '';
+        function commentUpdateProc2(myval) {//수정글입
+            console.log("==>" + myval);
+            val = myval;
+        }
+        //강사 
+        //댓글 수정
+        function commentUpdateProc(cno, checkid) {
+            //let updateContent = $('[name=content_' + cno + ']').val();
+            //let content = $('#update' + cno).val();
+            //let contentarea = $('#update2' + cno).val();
+            //let content2 = document.getElementById("update" + cno).value;
+
+            console.log("==>강사 " + ":" + val);
+
+            let nickname = '${ principal.memberdto.nickname}';
+            //$('#update' + cno).on("change", alert(content));
+            //alert(content);//변경이
+            $.ajax({
+                url: '/commentupdate',
+                type: 'get',
+                data: {
+                    'nickname': nickname,
+                    'content': content,
+                    'checkid': checkid,
+                    'cno': cno
+                },
+                success: function (data) {
+                    commentList(data);
+                }
+            });
+        }
+
+
+        //댓글 삭제 
+        function commentDelete(cno, checkid) {
+            $.ajax({
+                url: '/commentdelete',
+                type: 'get',
+                data: {
+                    'checkid': checkid,
+                    'cno': cno
+                },
+                success: function (data) {
+                    commentList(data);
+                }
+            });
+        }
+
+    </script>
