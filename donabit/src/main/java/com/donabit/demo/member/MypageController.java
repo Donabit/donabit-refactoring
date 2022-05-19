@@ -61,6 +61,13 @@ public class MypageController {
 		List<ChallengeDTO> participate = checkinservice.mypagecheck(nickname);
 		List<ChallengeDTO> makepc = checkinservice.mypagempccheck(nickname);
 		List<ChallengeDTO> badge = service.selectbadge(nickname);
+		
+		int selectmychallengecount = service.selectMyChallengeCount(nickname);
+		int mydonatecount = service.myDonateCount(nickname);
+		
+		mv.addObject("mychallengecount", selectmychallengecount);
+		mv.addObject("mydonate", mydonatecount);
+		
 		mv.addObject("participate", participate);
 		mv.addObject("makepc", makepc);
 		mv.addObject("badge", badge);

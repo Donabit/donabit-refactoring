@@ -86,5 +86,14 @@
 		SELECT challenge.chnum, chname, count(challenging.nickname) AS nickname, chmaxp, chimg FROM challenge JOIN challenging ON challenge.chnum = challenging.chnum GROUP BY chnum;
 	</select>
 	
+	<select id="selectRanker" resultType="memberdto">
+		SELECT avatar, nickname, sum(multiple) as expsum FROM(
+			SELECT avatar, checks.nickname, checks.chnum, COUNT(checks.nickname) * chexp AS multiple
+			FROM checks JOIN challenge ON checks.chnum = challenge.chnum JOIN member ON checks.nickname = member.nickname GROUP BY checks.nickname, chnum) AS mainquery
+		GROUP BY nickname ORDER BY expsum DESC LIMIT 0, 4;
+	
+		</select>
+	
+	
 </mapper>
 	

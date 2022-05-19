@@ -4,6 +4,27 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.donabit.demo.dao.BoardDAO">
+  
+      <!-- 검색 조건문 -->
+    <sql id="criteria">
+        <trim prefix="where (" suffix=")" prefixOverrides="OR">
+            <foreach collection="typeArr" item="type">
+                <trim prefix="OR">
+                    <choose>
+                        <when test="type == 'T'.toString()">
+                            title like concat('%',#{keyword},'%') 
+                        </when>
+                        <when test="type == 'C'.toString()">
+                            content like concat('%',#{keyword},'%') 
+                        </when>
+                        <when test="type == 'W'.toString()">
+                            writer like concat('%',#{keyword},'%' )
+                        </when>
+                    </choose>
+                </trim>
+            </foreach>
+        </trim>
+    </sql>
  
      <!-- 게시물 등록 -->
     <insert id="enroll" parameterType="boarddto">
@@ -19,15 +40,31 @@
     
     </select>
     
-        <!-- 게시물 목록(페이징) -->
+    <!-- 게시물 목록(페이징) -->
     <select id="getListPaging" resultType="boarddto">
     
-        select bno, title, writer, regdate from board order by bno desc limit #{skip},#{amount}
-        <!-- limit ((${pageNum}-1)*${amount}), ${amount} -->
+        select * from (
+                select bno, title, writer, regdate
+                from board 
+                <if test="keyword != null">
+                    <include refid="criteria"></include>
+                </if>
+                order by bno desc) as T1
+        limit #{skip},#{amount}
         
-    
     </select>
     
+    <!-- 게시물 총 갯수 -->
+    <select id="getTotal" resultType="int">
+    
+        select count(*) from board
+        
+        <if test="keyword != null">
+            <include refid="criteria"></include>
+        </if>    
+    
+    </select>
+ 
         <!-- 게시물 조회 -->
     <select id="getPage" resultType="boarddto">
     

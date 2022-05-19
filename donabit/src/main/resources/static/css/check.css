@@ -33,7 +33,7 @@ textarea {
 
 
 .upload_btn {
-    background-color: #94DAFF;
+    background-color: #2AC1BC;
     color: white;
     padding: 0.8em 1.6em;
     margin: 2em 1em;
@@ -43,10 +43,11 @@ textarea {
     box-shadow: 2px 2px rgb(176, 176, 176);
     position: absolute;
 	left: 40%;
+  opacity: 0.5;
 }
 
 .upload_btn:hover {
-    background-color: #7BD1FF;
+     opacity: 1.0;
 }
 
 #uploadImage {
@@ -75,7 +76,7 @@ textarea {
 }
 .chname{
 	text-align: center;
-	color: #94DAFF;
+	color: #2AC1BC;
 	font-size:40px;
 	width: 800px;
 	margin: 0 auto;
@@ -104,7 +105,7 @@ textarea {
 }
 
 
-.item {
+/* .item {
 	 width:320px;
 	 height:450px;
 	 margin:20px;
@@ -113,11 +114,27 @@ textarea {
 	 border-radius:20px;
 	background-color: #f0faff;
 
+} */
+
+.item {
+	border-radius: 10px;
+	width: 300px;
+	height: 470px;
+	margin: 20px;
+	position: relative;
+
+	border: solid #BDBDBD 1px;
+	box-shadow: 3px 8px 5px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+
+
+	background-image: url('../img/challenge/back2.svg');
 }
 
 .img{
 	 text-align:center;
-	 margin:35px 10px 10px 10px;
+	 margin:35px 10px 10px 0px;
 }
 
 .imgin{
@@ -138,7 +155,7 @@ textarea {
 
 .delete_btn{
 	position: absolute;
-  	top: 2%;
+  	top: 10%;
   	left: 90%;
 	border: 0;
 	outline: 0;
@@ -173,7 +190,7 @@ position: absolute;
 	border-radius:20px;
 }
 
-main {
+/* main {
 	height: 1200px;
 	
-}
+} */

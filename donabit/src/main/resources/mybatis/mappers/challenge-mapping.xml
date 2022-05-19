@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.donabit.demo.dao.ChallengeDAO">
 
@@ -44,24 +42,69 @@
 		challenging.chnum like #{chnumdetail};
 	</select>
 
+	<!-- 조회수 -->
 
-<!-- 정렬 -->
+	<update id="updateViewCount" parameterType="int">
+	update challenge set viewcount=viewcount+1
+	where chnum = #{chnum};
+	
+	</update>
+
+	<select id="selectViewCountResult" resultType="int">
+	select viewcount from challenge
+	where chnum = #{chnum};
+	
+	</select>
+
+
+	<!-- 정렬 -->
+
+	<!-- 	<select id="checklist2" resultType="challengedto">
+		SELECT checks.nickname, checkid, checktitle, checkdesc, checkimg AS checkimg2, checktime, member.avatar
+		FROM checks JOIN member on checks.nickname = member.nickname ORDER BY #{order} DESC
+	</select> -->
 
 	<select id="checklist2" resultType="challengedto">
-		SELECT nickname, checkid,
-		checktitle, checkdesc, checkimg AS checkimg2, checktime FROM checks
-		ORDER BY checktime DESC
+		SELECT chname, checks.nickname, checks.checkid, checktitle, checkdesc, checkimg AS checkimg2, checktime, member.avatar, count(likes) as totallikes
+		FROM checks left outer join member on checks.nickname = member.nickname left outer JOIN challenge ON checks.chnum = challenge.chnum left outer join toggle on checks.checkid = toggle.checkid
+		<if test="keyword != null">
+		where chname like concat('%', #{keyword},'%')
+		</if>
+		group by checks.checkid
+		<choose>
+			<when test="order == null">
+			order BY checktime DESC
+			</when>
+			<otherwise>
+			order BY totallikes DESC
+			</otherwise>
+		</choose>
+		LIMIT #{mo.skip}, #{mo.amount}
 	</select>
-	
-	<select id="likeslist" resultType="challengedto">
-		select nickname, chnum, checknum, checktime, checktitle, checkdesc, 
-		checkimg, checks.checkid, count(likes) as totallikes 
-		from checks left outer join toggle on checks.checkid = toggle.checkid 
+
+	<!-- 	<select id="likeslist" resultType="challengedto">
+		select checks.nickname, chnum, checknum, checktime, checktitle, checkdesc, 
+		checkimg, checks.checkid, count(likes) as totallikes, member.avatar 
+		from checks left outer join toggle on checks.checkid = toggle.checkid
+        left outer join member on checks.nickname = member.nickname 
 		group by checkid order by totallikes desc;
 	</select>
-	
-	
-<!-- 개인별 챌린지 참여정보 -->	
+	 -->
+
+	<!-- 개인별 챌린지 참여정보 -->
+
+	<select id="selectMyChallengeCount" resultType="int">
+		select count(chnum) from challenging where nickname = #{nickname}; 
+	</select>
+
+
+	<select id="myDonateCount" resultType="int">
+		select ifnull(ROUND(sum(donatepay/chmaxp)), 0) as totaldonate  
+		from challenge join challenging on challenge.chnum = challenging.chnum
+		where personalpf=1 and challenging.nickname=#{nickname};  
+	</select>
+
+
 	<select id="challengedetaillist" resultType="challengedto">
 		SELECT
 		challenging.nickname, challenging.chnum, challenge.chmaxp,
@@ -108,8 +151,7 @@
 	</delete>
 
 	<!-- 좋아요 select -->
-	<select id="selecttoggle" parameterType="String"
-		resultType="int">
+	<select id="selecttoggle" parameterType="String" resultType="int">
 		SELECT count(*) FROM donabit.toggle where likes like
 		#{nickname} and checkid like #{checkid};
 	</select>
@@ -167,11 +209,11 @@
 		where checks.nickname like #{nickname}
 		GROUP BY checks.chnum;
 	</select>
-	
+
 	<select id="selectlevel" resultType="int">
 		SELECT exp FROM donabit.level;
 	</select>
-	
+
 	<select id="selectbadge" resultType="challengedto">
 		select checks.chnum, count(checks.chnum) as 'count', challenge.chsuccess,  challenge.chname 
 		from donabit.checks 
@@ -181,25 +223,25 @@
 		like #{nickname} 
 		GROUP BY checks.chnum;
 	</select>
-	
+
 	<select id="selectReportCount" resultType="reportdto">
 		SELECT checkid, MAX(toggletime) AS toggletime, COUNT(report) AS report FROM toggle GROUP BY checkid;
 	</select>
-	
+
 	<select id="commentlist" resultType="challengedto">
 		SELECT * FROM donabit.comment where checkid like #{checkid};
 	</select>
-	
+
 	<insert id="insertcomment" parameterType="String">
 		insert into comment(checkid, nickname, content, cdate) values(#{checkid}, #{nickname}, #{content}, now());
 	</insert>
-	
+
 	<update id="updatecomment" parameterType="String">
 		update comment set content = #{content} where cno = #{cno};
 	</update>
-	
+
 	<delete id="deletecomment" parameterType="String">
 		delete from comment where cno = #{cno};
 	</delete>
-	
+
 </mapper>

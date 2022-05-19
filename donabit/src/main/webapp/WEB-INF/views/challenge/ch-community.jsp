@@ -321,14 +321,28 @@
 			<img id="coimg" src="img/challenge/community.svg">
 			<div class="container">
 
-				<!-- 카테고라이징 시작 -->
-
-				<div class="containercategory" style="float: right">
-					<a href="/checkcommunity?order=new">최신순 정렬</a> <a href="/checkcommunity?order=like">좋아요순 정렬</a>
-				</div>
 
 
 				<!-- 카테고라이징 끝 -->
+				<div class="category_search_nav_bar">
+					<div class="containercategory" style="float : right">
+						<a href="/checkcommunity?order=checktime&keyword=${param.keyword}">최신순 정렬</a>
+						<a href="/checkcommunity?order=totallikes&keyword=${param.keyword}">좋아요순 정렬</a>
+					</div>
+					<div class="search_bar">
+						<form class="search_bar_keyword" action="/checkcommunity">
+							<input type="text" name="keyword" placeholder="챌린지명 자동완성" list="challenge-name"
+								value="${param.keyword}" />
+							<datalist id="challenge-name">
+								<c:forEach items="${chnamelist}" var="list">
+									<option value="${list.chname}">
+								</c:forEach>
+							</datalist>
+							<input type="hidden" name="order" value="${param.order}" />
+							<button type="submit">검색</button>
+						</form>
+					</div>
+				</div>
 
 				<div class="containerflex">
 					<c:forEach items="${checklist}" var="check" varStatus="status">
@@ -336,7 +350,8 @@
 							<!-- 닉네임 -->
 							<div class="nicknameout">
 								<div class="box" style="background: #ffffff;">
-									<img class="avatar" src="img/challenge/avatar.jpg" width="25px">
+									<img class="avatar" src="img/${check.avatar}${level[status.index]}.jpg"
+										width="25px">
 								</div>
 								<div class="nickname">${check.nickname }</div>
 							</div>
@@ -363,11 +378,76 @@
 						<!-- item -->
 					</c:forEach>
 				</div>
+				<div class="moreBtn_container">
+					<button id="moreBtn">더보기</button>
+				</div>
 			</div>
 
 
 
 			<%@ include file="/WEB-INF/views/main_footer.jsp" %>
 	</body>
+	<script type="text/javascript">
+		let lastNumber = $(".item").length;
+
+		if (lastNumber < 8) {
+			$(".moreBtn_container").remove();
+		}
+		console.log(lastNumber);
+		console.log("${param.order}");
+		console.log("${param.keyword}");
+		console.log("${param.mo}");
+
+
+		let pageNum = 1;
+		$("#moreBtn").on("click", function () {
+			pageNum++;
+
+			$.ajax({
+				url: "/moreCommunity.do", // 호출할 주소
+				data: {
+					'order': "${param.order}",
+					'keyword': "${param.keyword}",
+					'pageNum': pageNum
+				}, // 넘길 데이터
+				type: 'get',
+				dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+				success: function (list) { // 결과 받기
+					console.log(list);
+					let length = list.length;
+					if (length < 8) {
+						$(".moreBtn_container").remove();
+					}
+					for (let i = 0; i < length; i++) {
+						let result = "";
+						result += "<div class='item'>";
+						result += "<div class='nicknameout'>";
+						result += "<div class='box' style='background: #ffffff;'>";
+						result += "<img class='avatar' src='img/" + list[i].avatar + list[i].level2 + ".jpg' width='25px'>";
+						result += "</div>";
+						result += "<div class='nickname'>" + list[i].nickname + "</div>";
+						result += "</div>";
+						result += "<div class='chimg'>";
+						result += "<img src='/checkimage/" + list[i].checkimg + "height='300px' width='300px'><br>";
+						result += "</div>";
+						result += "<div class='detail'>";
+						result += "<div class='title'>" + list[i].checktitle + "</div>";
+						result += "<div class='checkdesc'>" + list[i].checkdesc + "</div>";
+						result += "<div class='time'>" + list[i].checktime + "</div>";
+						result += "</div>";
+						result += "</div>";
+
+						$('.containerflex').append(result);
+					}
+				},// success
+				error: function (jqXHR) {
+					alert("failed");
+				}// error
+			});//totallikebefore ajax
+		});
+
+		console.log(lastNumber);
+
+	</script>
 
 	</html>

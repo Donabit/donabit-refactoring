@@ -29,7 +29,6 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/main_header.jsp"%>
-	<main>
 	<img class="checktitle" src="img/checktitle.svg">
 	<div class="containerflexbox">	
 		<div class="chname">
@@ -43,7 +42,7 @@
 			<div class="containerflex">
 				<div class="item">
 					<div class="plus_btn">
-						<a href="#" onclick="return false" id="newwin" type="button"> <span style="color: #94DAFF"> <i class="fa fa-solid fa-plus fa-8x"></i></span>
+						<a href="#" onclick="return false" id="newwin" type="button"> <span style="color: #2AC1BC"> <i class="fa fa-solid fa-plus fa-8x"></i></span>
 						</a>
 					</div>
 				</div>
@@ -57,7 +56,7 @@
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 								
 								<button class="delete_btn" id="delete_btn" type="submit" onclick="if(!confirm('정말 삭제하시겠습니까?')){return false;}">
-									<span style="color: #94DAFF"> <i class="fa fa-solid fa-xmark fa-2x" ></i></span>
+									<span style="color: #2AC1BC"> <i class="fa fa-solid fa-xmark fa-2x" ></i></span>
 								</button>
 								
 							</form>	
@@ -79,7 +78,8 @@
 				
 				</div>
 			</div>
-		</main>
-	<%@ include file="/WEB-INF/views/main_footer.jsp"%>
+		<footer>
+			<%@ include file="/WEB-INF/views/main_footer.jsp"%>
+		</footer>
 </body>
 </html>

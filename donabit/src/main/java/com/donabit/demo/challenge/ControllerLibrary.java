@@ -33,11 +33,11 @@ public class ControllerLibrary {
 		int levelresult = 1;
 		// 경험치가 구간이 level 1초과 일때
 		for (int i = 0, size = level.size(); i < size; i++) {
-			if (level.get(i) < sumExp(nickname) && sumExp(nickname) <= level.get(i+1)) {
+			if (level.get(i) < sumExp(nickname)) {
 				levelresult++;
 			}
 		}
-		return levelresult;
+		return levelresult > 3 ? 3 : levelresult;
 	}
 	
 	@Scheduled(cron = "0 0 0 * * *") //초 분 시 일 월 요일

@@ -15,6 +15,11 @@
 	align-content: flex-start
 }
 
+.category_search_nav_bar {
+	display: flex;
+	justify-content: space-between;
+}
+
 .item {
 	border-radius: 10px;
 	width: 300px;
@@ -242,4 +247,14 @@
 .modalcomment {
 	height: 450px;
 	overflow-y: scroll;
+}
+
+.moreBtn_container {
+	text-align: center;
+	margin-top: 3em;
+}
+
+#moreBtn {
+	width: 6em;
+	height: 3em;
 }

@@ -158,4 +158,10 @@ public class ChallengeServiceImpl2 implements ChallengeService2 {
 		return dao.selectMainChallenge();
 	}
 
+
+	@Override
+	public List<MemberDTO> selectRanker() {
+		return dao.selectRanker();
+	}
+
 }

@@ -4,13 +4,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.donabit.demo.Criteria;
 import com.donabit.demo.dao.ChallengeDAO;
 import com.donabit.demo.dto.ChallengeDTO;
 import com.donabit.demo.dto.ReportDTO;
 
 @Service("challengeservice")
+@Transactional
 public class ChallengeServiceImpl implements ChallengeService {
+	
+
 	@Autowired
 	ChallengeDAO dao;
 
@@ -75,8 +80,8 @@ public class ChallengeServiceImpl implements ChallengeService {
 	}
 
 	@Override
-	public List<ChallengeDTO> checklist2() {
-		return dao.checklist2();
+	public List<ChallengeDTO> checklist2(String order, String keyword, MoreObject mo) {
+		return dao.checklist2(order, keyword, mo);
 	}
 
 	@Override
@@ -151,6 +156,64 @@ public class ChallengeServiceImpl implements ChallengeService {
 	
 
 		
+	
+	
+	//mypage service
+	@Override
+	public int selectMyChallengeCount(String chnum) {
+
+		return dao.selectMyChallengeCount(chnum);
+	}
+
+	@Override
+	public int myDonateCount(String nickname) {
+		
+		return dao.myDonateCount(nickname);
+		
+	}
+
+	
+	@Override
+	public int updateViewCount(int chnumint) {
+		
+		System.out.println(chnumint);
+		dao.updateViewCount(chnumint);
+		 
+		return dao.selectViewCountResult(chnumint);
+		
+	}
+
+	
+
+	
+	
+	//mypage service
+	@Override
+	public int selectMyChallengeCount(String chnum) {
+
+		return dao.selectMyChallengeCount(chnum);
+	}
+
+	@Override
+	public int myDonateCount(String nickname) {
+		
+		return dao.myDonateCount(nickname);
+		
+	}
+
+	
+	@Override
+	public int updateViewCount(int chnumint) {
+		
+		System.out.println(chnumint);
+		dao.updateViewCount(chnumint);
+		 
+		return dao.selectViewCountResult(chnumint);
+		
+	}
+
+	
+
 	
 	
 }

@@ -47,6 +47,13 @@ public class BoardServicelmpl implements BoardService {
         return dao.getPage(bno);
     }
     
+    /* 게시물 총 갯수 */
+    @Override
+    public int getTotal(Criteria cri) {
+        
+        return dao.getTotal(cri);
+    }
+    
     /* 게시물 수정 */
     @Override
     public int modify(BoardDTO dto) {
