@@ -12,7 +12,7 @@ public class MyWebConfig implements WebMvcConfigurer {
 		
 		registry
 		.addResourceHandler("/image/**") //아래의 경로를 부를때 사용
-		.addResourceLocations("file:\\C:\\Users\\YooSeungAh\\Desktop\\ai_images\\"); //경로지정
+		.addResourceLocations("file:/C:/challengeimage/"); //경로지정
 		
 		registry
 		.addResourceHandler("/checkimage/**") //아래의 경로를 부를때 사용
@@ -20,7 +20,7 @@ public class MyWebConfig implements WebMvcConfigurer {
 		
 		registry
 		.addResourceHandler("/images/**") //아래의 경로를 부를때 사용
-		.addResourceLocations("file:\\C:\\Users\\YooSeungAh\\Desktop\\ai_images\\"); //경로지정
+		.addResourceLocations("file:/C:/challengeimage/"); //경로지정
 		
 	}
 

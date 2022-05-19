@@ -84,11 +84,10 @@
 	
 	<div class="rightbox">
 		<div class="scorebox">
-			<div class="nowchallenge_title">참여중인 챌린지</div>
-			<div class="nowchallenge_text">${mychallengecount}</div>
-			<div class="v-line"></div>
-			<div class="nowdonate_title">총<br>기부금액</div>
-			<div class="nowdonate_text">${mydonate }</div>
+			<span class="nowchallenge_title">참여중인 챌린지</span>
+			<span class="nowchallenge_text">${mychallengecount}</span>
+			<span class="nowdonate_title">총 기부금액</span>
+			<span class="nowdonate_text">${mydonate }</span>
 		</div>
 
 	<div class="challengebox">

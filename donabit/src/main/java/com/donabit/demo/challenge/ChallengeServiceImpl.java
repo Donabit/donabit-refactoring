@@ -183,37 +183,4 @@ public class ChallengeServiceImpl implements ChallengeService {
 		
 	}
 
-	
-
-	
-	
-	//mypage service
-	@Override
-	public int selectMyChallengeCount(String chnum) {
-
-		return dao.selectMyChallengeCount(chnum);
-	}
-
-	@Override
-	public int myDonateCount(String nickname) {
-		
-		return dao.myDonateCount(nickname);
-		
-	}
-
-	
-	@Override
-	public int updateViewCount(int chnumint) {
-		
-		System.out.println(chnumint);
-		dao.updateViewCount(chnumint);
-		 
-		return dao.selectViewCountResult(chnumint);
-		
-	}
-
-	
-
-	
-	
 }
