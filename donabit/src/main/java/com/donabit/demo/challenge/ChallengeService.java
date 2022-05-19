@@ -26,6 +26,10 @@ public interface ChallengeService {
 	List<Integer> selectexp(String nickname);
 	List<Integer> selectlevel();
 	public List<ChallengeDTO> selectbadge(String nickname);
-	List<ReportDTO> selectReportCount(); 
-	
+	List<ReportDTO> selectReportCount();
+	//댓글
+	public List<ChallengeDTO> commentlist(String checkid);
+	int insertcomment(String checkid, String nickname, String content);
+	int updatecomment(String cno, String content);	
+	int deletecomment(String cno);
 }

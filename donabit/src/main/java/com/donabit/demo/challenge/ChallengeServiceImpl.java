@@ -128,5 +128,29 @@ public class ChallengeServiceImpl implements ChallengeService {
 		return dao.selectReportCount();
 	}
 
+	@Override
+	public List<ChallengeDTO> commentlist(String checkid) {
+		return dao.commentlist(checkid);
+	}
+
+	@Override
+	public int insertcomment(String checkid, String nickname, String content) {
+		return dao.insertcomment(checkid, nickname, content);
+	}
+
+	@Override
+	public int updatecomment(String cno, String content) {	
+		return dao.updatecomment(cno, content);
+	}
+
+	@Override
+	public int deletecomment(String cno) {
+		return dao.deletecomment(cno);
+	}
+	
+	
+
+		
+	
 	
 }

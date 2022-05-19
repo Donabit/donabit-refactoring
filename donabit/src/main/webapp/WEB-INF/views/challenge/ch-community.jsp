@@ -10,20 +10,34 @@
 		<link rel="shorcut icon" type="image/x-icon" sizes="32x32" href="/img/favicon-32x32.png">
 		<script src="../jquery-3.6.0.min.js"></script>
 		<script type="text/javascript">
-			$(document).ready(function () {
-				//팝업창 열기
-				$('.trigger').click(function () {
-					var idx = $(this).attr("idx");
-					document.getElementById('modal' + idx).classList.toggle("show-modal");
-					$('body').css({ overflow: 'hidden' });
+			$(document).ready(
+				function () {
+					//팝업창 열기
+					$('.trigger').click(
+						function () {
+							var idx = $(this).attr("idx");
+							document.getElementById('modal' + idx).classList
+								.toggle("show-modal");
+							$('body').css({
+								overflow: 'hidden'
+							});
+
+							console.log('댓글 리스트 불러오기');
+
+							//console.log(checkid);
+							commentList(); //페이지 로딩시 댓글 목록 출력
+						});
+					//팝업창 닫기
+					$('.close-button').click(
+						function () {
+							var idx = $(this).attr("idx");
+							document.getElementById('modal' + idx).classList
+								.toggle("show-modal");
+							$('body').css({
+								overflow: 'visible'
+							});
+						});
 				});
-				//팝업창 닫기
-				$('.close-button').click(function () {
-					var idx = $(this).attr("idx");
-					document.getElementById('modal' + idx).classList.toggle("show-modal");
-					$('body').css({ overflow: 'visible' });
-				});
-			});
 		</script>
 		<script type="text/javascript">
 			//spring security - ajax post 방식으로 요청시 추가
@@ -33,291 +47,267 @@
 				xhr.setRequestHeader(header, token);
 			});
 
-			$(document)
-				.ready(
-					function () {
-						/* 좋아요 클릭시 이벤트 */
-						$(document)
-							.on(
-								"click",
-								".likebeforebtn",
-								function (event) {
-									let no = $(this).attr('idx');
-									console.log(no);
-									/* 좋아요 아이콘 ajax */
-									$
-										.ajax({
-											url: "/likesbefore", // 호출할 주소
-											data: {
-												'nickname': $(
-													"#nickname")
-													.val(),
-												'checkid': $(
-													"#checkid"
-													+ no)
-													.val()
-											}, // 넘길 데이터
-											type: 'get',
-											dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
-											success: function (list) { // 결과 받기
-												console
-													.log(list[no].checkid);
-												var checkid = list[no].checkid;
-												$(
-													'#likebefore'
-													+ no)
-													.remove();
-												$(
-													"#likeafterbtn"
-													+ no)
-													.prepend(
-														"<img id='likeafter" + no + "' src = 'img/like11.png' width = '25px'>");
+			$(document).ready(
+				function () {
+					/* 좋아요 클릭시 이벤트 */
+					$(document).on("click", ".likebeforebtn", function (event) {
+						let no = $(this).attr('idx');
+						console.log(no);
+						/* 좋아요 아이콘 ajax */
+						$.ajax({
+							url: "/likesbefore", // 호출할 주소
+							data: {
+								'nickname': $("#nickname").val(),
+								'checkid': $("#checkid" + no).val()
+							}, // 넘길 데이터
+							type: 'get',
+							dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+							success: function (list) { // 결과 받기
+								console
+									.log(list[no].checkid);
+								var checkid = list[no].checkid;
+								$('#likebefore' + no).remove();
+								$("#likeafterbtn" + no).prepend(
+									"<img id='likeafter" + no + "' src = 'img/like11.png' width = '25px'>");
+							},// success
+							error: function (jqXHR) {
+								alert("failed");
+							}// error
+						});//likesbefore ajax
 
-											},// success
-											error: function (jqXHR) {
-												alert("failed");
-											}// error
-										});//likesbefore ajax
+						/* 좋아요 수 ajax */
+						$.ajax({
+							url: "/totallikebefore", // 호출할 주소
+							data: {
+								'checkid': $(
+									"#checkid"
+									+ no)
+									.val()
+							}, // 넘길 데이터
+							type: 'get',
+							dataType: "text", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+							success: function (list) { // 결과 받기
+								$('#totallike' + no)
+									.remove();
+								$('#likes' + no)
+									.append(
+										"<span class='likesu' id='totallike" + no + "'>"
+										+ list
+										+ "</span>");
+							},// success
+							error: function (jqXHR) {
+								alert("failed");
+							}// error
+						});//totallikebefore ajax
+					});// likebeforebtn
 
-									/* 좋아요 수 ajax */
-									$
-										.ajax({
-											url: "/totallikebefore", // 호출할 주소
-											data: {
-												'checkid': $(
-													"#checkid"
-													+ no)
-													.val()
-											}, // 넘길 데이터
-											type: 'get',
-											dataType: "text", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
-											success: function (list) { // 결과 받기
-												$('#totallike' + no)
-													.remove();
-												$('#likes' + no)
-													.append(
-														"<span class='likesu' id='totallike" + no + "'>"
-														+ list
-														+ "</span>");
-											},// success
-											error: function (jqXHR) {
-												alert("failed");
-											}// error
-										});//totallikebefore ajax
-								});// likebeforebtn
+					/* 좋아요 해제시 이벤트 */
+					$(document)
+						.on(
+							"click",
+							".likeafterbtn",
+							function (event) {
+								let no = $(this).attr('idx');
+								console.log(no);
+								/* 좋아요 아이콘 ajax */
+								$.ajax({
+									url: "/likesafter", // 호출할 주소
+									data: {
+										'nickname': $(
+											"#nickname")
+											.val(),
+										'checkid': $(
+											"#checkid"
+											+ no)
+											.val()
+									}, // 넘길 데이터
+									type: 'get',
+									dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+									success: function (list) { // 결과 받기
+										console.log(list);
+										var checkid = list[no].checkid;
 
-						/* 좋아요 해제시 이벤트 */
-						$(document)
-							.on(
-								"click",
-								".likeafterbtn",
-								function (event) {
-									let no = $(this).attr('idx');
-									console.log(no);
-									/* 좋아요 아이콘 ajax */
-									$
-										.ajax({
-											url: "/likesafter", // 호출할 주소
-											data: {
-												'nickname': $(
-													"#nickname")
-													.val(),
-												'checkid': $(
-													"#checkid"
-													+ no)
-													.val()
-											}, // 넘길 데이터
-											type: 'get',
-											dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
-											success: function (list) { // 결과 받기
-												console.log(list);
-												var checkid = list[no].checkid;
+										$("#likeafter" + no)
+											.remove();
+										$(
+											"#likebeforebtn"
+											+ no)
+											.prepend(
+												"<img id='likebefore" + no + "' src = 'img/like22.png' width = '25px'>");
+									},// success
+									error: function (jqXHR) {
+										alert("failed");
+									}// error
+								});// ajax 
 
-												$("#likeafter" + no)
-													.remove();
-												$(
-													"#likebeforebtn"
-													+ no)
-													.prepend(
-														"<img id='likebefore" + no + "' src = 'img/like22.png' width = '25px'>");
-											},// success
-											error: function (jqXHR) {
-												alert("failed");
-											}// error
-										});// ajax 
+								/* 좋아요 수 ajax */
+								$.ajax({
+									url: "/totallikeafter", // 호출할 주소
+									data: {
+										'checkid': $(
+											"#checkid"
+											+ no)
+											.val()
+									}, // 넘길 데이터
+									type: 'get',
+									dataType: "text", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+									success: function (list) { // 결과 받기
+										$('#totallike' + no)
+											.remove();
+										$('#likes' + no)
+											.append(
+												"<span class='likesu' id='totallike" + no + "'>"
+												+ list
+												+ "</span>");
+									},// success
+									error: function (jqXHR) {
+										alert("failed");
+									}// error
+								});//totallikebefore ajax
+							});// likeafterbtn 
+					/* ====================================================================================== */
+					/* 신고 클릭시 이벤트 */
+					$(document).on(
+						"click",
+						".singobeforebtn",
+						function (event) {
+							let no = $(this).attr('idx');
+							console.log(no);
+							/* 신고 아이콘 ajax */
+							$
+								.ajax({
+									url: "/singobefore", // 호출할 주소
+									data: {
+										'nickname': $(
+											"#nickname")
+											.val(),
+										'checkid': $(
+											"#checkid"
+											+ no)
+											.val()
+									}, // 넘길 데이터
+									type: 'get',
+									dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+									success: function (list) { // 결과 받기
+										console
+											.log(list[no].checkid);
+										var checkid = list[no].checkid;
+										$(
+											'#singobefore'
+											+ no)
+											.remove();
+										$(
+											"#singoafterbtn"
+											+ no)
+											.prepend(
+												"<img id='singoafter" + no + "' src = 'img/singo11.png' width = '30px'>");
+									},// success
+									error: function (jqXHR) {
+										alert("failed");
+									}// error
+								});//likesbefore ajax
 
-									/* 좋아요 수 ajax */
-									$
-										.ajax({
-											url: "/totallikeafter", // 호출할 주소
-											data: {
-												'checkid': $(
-													"#checkid"
-													+ no)
-													.val()
-											}, // 넘길 데이터
-											type: 'get',
-											dataType: "text", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
-											success: function (list) { // 결과 받기
-												$('#totallike' + no)
-													.remove();
-												$('#likes' + no)
-													.append(
-														"<span class='likesu' id='totallike" + no + "'>"
-														+ list
-														+ "</span>");
-											},// success
-											error: function (jqXHR) {
-												alert("failed");
-											}// error
-										});//totallikebefore ajax
-								});// likeafterbtn 
-						/* ====================================================================================== */
-						/* 신고 클릭시 이벤트 */
-						$(document)
-							.on(
-								"click",
-								".singobeforebtn",
-								function (event) {
-									let no = $(this).attr('idx');
-									console.log(no);
-									/* 신고 아이콘 ajax */
-									$
-										.ajax({
-											url: "/singobefore", // 호출할 주소
-											data: {
-												'nickname': $(
-													"#nickname")
-													.val(),
-												'checkid': $(
-													"#checkid"
-													+ no)
-													.val()
-											}, // 넘길 데이터
-											type: 'get',
-											dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
-											success: function (list) { // 결과 받기
-												console
-													.log(list[no].checkid);
-												var checkid = list[no].checkid;
-												$(
-													'#singobefore'
-													+ no)
-													.remove();
-												$(
-													"#singoafterbtn"
-													+ no)
-													.prepend(
-														"<img id='singoafter" + no + "' src = 'img/singo11.png' width = '30px'>");
-											},// success
-											error: function (jqXHR) {
-												alert("failed");
-											}// error
-										});//likesbefore ajax
+							/* 신고 수 ajax */
+							$
+								.ajax({
+									url: "/totalsingobefore", // 호출할 주소
+									data: {
+										'checkid': $(
+											"#checkid"
+											+ no)
+											.val()
+									}, // 넘길 데이터
+									type: 'get',
+									dataType: "text", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+									success: function (list) { // 결과 받기
+										$(
+											'#totalsingo'
+											+ no)
+											.remove();
+										$('#singo' + no)
+											.append(
+												"<span class='singosu' id='totalsingo" + no + "'>"
+												+ list
+												+ "</span>");
+									},// success
+									error: function (jqXHR) {
+										alert("failed");
+									}// error
+								});//totalsingobefore ajax
+						});// singobeforebtn
 
-									/* 신고 수 ajax */
-									$
-										.ajax({
-											url: "/totalsingobefore", // 호출할 주소
-											data: {
-												'checkid': $(
-													"#checkid"
-													+ no)
-													.val()
-											}, // 넘길 데이터
-											type: 'get',
-											dataType: "text", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
-											success: function (list) { // 결과 받기
-												$(
-													'#totalsingo'
-													+ no)
-													.remove();
-												$('#singo' + no)
-													.append(
-														"<span class='singosu' id='totalsingo" + no + "'>"
-														+ list
-														+ "</span>");
-											},// success
-											error: function (jqXHR) {
-												alert("failed");
-											}// error
-										});//totalsingobefore ajax
-								});// singobeforebtn
+					/* 신고 해제시 이벤트 */
+					$(document)
+						.on(
+							"click",
+							".singoafterbtn",
+							function (event) {
+								let no = $(this).attr('idx');
+								console.log(no);
+								/* 신고 아이콘 ajax */
+								$
+									.ajax({
+										url: "/singoafter", // 호출할 주소
+										data: {
+											'nickname': $(
+												"#nickname")
+												.val(),
+											'checkid': $(
+												"#checkid"
+												+ no)
+												.val()
+										}, // 넘길 데이터
+										type: 'get',
+										dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+										success: function (list) { // 결과 받기
+											console.log(list);
+											var checkid = list[no].checkid;
 
-						/* 신고 해제시 이벤트 */
-						$(document)
-							.on(
-								"click",
-								".singoafterbtn",
-								function (event) {
-									let no = $(this).attr('idx');
-									console.log(no);
-									/* 신고 아이콘 ajax */
-									$
-										.ajax({
-											url: "/singoafter", // 호출할 주소
-											data: {
-												'nickname': $(
-													"#nickname")
-													.val(),
-												'checkid': $(
-													"#checkid"
-													+ no)
-													.val()
-											}, // 넘길 데이터
-											type: 'get',
-											dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
-											success: function (list) { // 결과 받기
-												console.log(list);
-												var checkid = list[no].checkid;
+											$(
+												"#singoafter"
+												+ no)
+												.remove();
+											$(
+												"#singobeforebtn"
+												+ no)
+												.prepend(
+													"<img id='singobefore" + no + "' src = 'img/singo22.png' width = '30px'>");
+										},// success
+										error: function (jqXHR) {
+											alert("failed");
+										}// error
+									});// ajax 
 
-												$(
-													"#singoafter"
-													+ no)
-													.remove();
-												$(
-													"#singobeforebtn"
-													+ no)
-													.prepend(
-														"<img id='singobefore" + no + "' src = 'img/singo22.png' width = '30px'>");
-											},// success
-											error: function (jqXHR) {
-												alert("failed");
-											}// error
-										});// ajax 
+								/* 신고 수 ajax */
+								$
+									.ajax({
+										url: "/totalsingoafter", // 호출할 주소
+										data: {
+											'checkid': $(
+												"#checkid"
+												+ no)
+												.val()
+										}, // 넘길 데이터
+										type: 'get',
+										dataType: "text", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+										success: function (list) { // 결과 받기
+											$(
+												'#totalsingo'
+												+ no)
+												.remove();
+											$('#singo' + no)
+												.append(
+													"<span class='singosu' id='totalsingo" + no + "'>"
+													+ list
+													+ "</span>");
+										},// success
+										error: function (jqXHR) {
+											alert("failed");
+										}// error
+									});//totalsingobefore ajax */
+							});// singoafterbtn 
 
-									/* 신고 수 ajax */
-									$
-										.ajax({
-											url: "/totalsingoafter", // 호출할 주소
-											data: {
-												'checkid': $(
-													"#checkid"
-													+ no)
-													.val()
-											}, // 넘길 데이터
-											type: 'get',
-											dataType: "text", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
-											success: function (list) { // 결과 받기
-												$(
-													'#totalsingo'
-													+ no)
-													.remove();
-												$('#singo' + no)
-													.append(
-														"<span class='singosu' id='totalsingo" + no + "'>"
-														+ list
-														+ "</span>");
-											},// success
-											error: function (jqXHR) {
-												alert("failed");
-											}// error
-										});//totalsingobefore ajax */
-								});// singoafterbtn 
-								
-								
-								
-					});// ready
+				});// ready
 		</script>
 		<link rel="stylesheet" href="css/ch-community.css">
 		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -330,17 +320,16 @@
 		<%@ include file="/WEB-INF/views/main_header.jsp" %>
 			<img id="coimg" src="img/challenge/community.svg">
 			<div class="container">
-			
-			<!-- 카테고라이징 시작 -->
-				    
-			    <div class="containercategory" style="float : right">
-			        <a href="/checkcommunity?order=new">최신순 정렬</a>
-			        <a href="/checkcommunity?order=like">좋아요순 정렬</a>
-			    </div>
-			    
-			    
-			<!-- 카테고라이징 끝 -->    
-			    
+
+				<!-- 카테고라이징 시작 -->
+
+				<div class="containercategory" style="float: right">
+					<a href="/checkcommunity?order=new">최신순 정렬</a> <a href="/checkcommunity?order=like">좋아요순 정렬</a>
+				</div>
+
+
+				<!-- 카테고라이징 끝 -->
+
 				<div class="containerflex">
 					<c:forEach items="${checklist}" var="check" varStatus="status">
 						<div class="item">

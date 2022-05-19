@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class ChallengeDTO {
-	String chnum, chnum2, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum, donatepay, donateco, nickname, nickname2, personalpf, checkid, like, likes, report,checktitle, checkdesc, checkimg2, checktime, count;
+	String chnum, chnum2, chname, chdonate, chdesc, chimg, chsuccess, chexp, chmaxp, chsdate, chedate, checknum, donatepay, donateco, nickname, nickname2, personalpf, checkid, like, likes, report,checktitle, checkdesc, checkimg2, checktime, count, cno, content, cdate;
 	
 	public ChallengeDTO() {}
 

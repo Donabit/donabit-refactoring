@@ -62,11 +62,6 @@
 	
 	
 <!-- 개인별 챌린지 참여정보 -->	
-	
-	
-	
-	
-
 	<select id="challengedetaillist" resultType="challengedto">
 		SELECT
 		challenging.nickname, challenging.chnum, challenge.chmaxp,
@@ -190,5 +185,21 @@
 	<select id="selectReportCount" resultType="reportdto">
 		SELECT checkid, MAX(toggletime) AS toggletime, COUNT(report) AS report FROM toggle GROUP BY checkid;
 	</select>
+	
+	<select id="commentlist" resultType="challengedto">
+		SELECT * FROM donabit.comment where checkid like #{checkid};
+	</select>
+	
+	<insert id="insertcomment" parameterType="String">
+		insert into comment(checkid, nickname, content, cdate) values(#{checkid}, #{nickname}, #{content}, now());
+	</insert>
+	
+	<update id="updatecomment" parameterType="String">
+		update comment set content = #{content} where cno = #{cno};
+	</update>
+	
+	<delete id="deletecomment" parameterType="String">
+		delete from comment where cno = #{cno};
+	</delete>
 	
 </mapper>

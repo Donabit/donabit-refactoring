@@ -34,4 +34,8 @@ public interface ChallengeDAO {
 	public List<ChallengeDTO> checklist2();	
 	public List<ChallengeDTO> likeslist();	
 	List<ReportDTO> selectReportCount(); 
+	public List<ChallengeDTO> commentlist(String checkid);
+	int insertcomment(String checkid, String nickname, String content);
+	int updatecomment(String cno, String content);
+	int deletecomment(String cno);
 }

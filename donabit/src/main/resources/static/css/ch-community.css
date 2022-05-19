@@ -173,10 +173,9 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background-color: white;
-	padding: 1rem 1.5rem;
-	width: 700px;
-	height: 350px;
-	border-radius: 0.5rem;
+	width: 950px;
+	height: 450px;
+	border-radius: 10px;
 }
 
 .close-button {
@@ -200,19 +199,26 @@
 	transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
-.modaldiv {
+.modalcomment {
 	background-color: rgb(218, 221, 221);
+	width: 100%;
 }
+
+.modalimgcomment {
+	display: flex;
+}
+
+.modalimg {}
 
 /*↑팝업↑*/
 
 /*↓스크롤바↓*/
-.modaldiv::-webkit-scrollbar {
+.modalcomment::-webkit-scrollbar {
 	width: 8px;
 	/* 스크롤바의 너비 */
 }
 
-.modaldiv::-webkit-scrollbar-thumb {
+.modalcomment::-webkit-scrollbar-thumb {
 	height: 30%;
 	/* 스크롤바의 길이 */
 	background: #85f0e1;
@@ -221,9 +227,19 @@
 	border-radius: 10px;
 }
 
-.modaldiv::-webkit-scrollbar-track {
+.modalcomment::-webkit-scrollbar-track {
 	background: rgba(33, 122, 244, .1);
 	/*스크롤바 뒷 배경 색상*/
 }
 
 /*↑스크롤바↑*/
+
+.commentlist {
+	background-color: rgb(170, 201, 241);
+	width: 100%;
+}
+
+.modalcomment {
+	height: 450px;
+	overflow-y: scroll;
+}
