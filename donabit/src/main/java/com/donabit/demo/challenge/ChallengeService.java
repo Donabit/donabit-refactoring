@@ -8,6 +8,8 @@ import com.donabit.demo.dto.ReportDTO;
 public interface ChallengeService {
 	public List<ChallengeDTO> challengelist(String order, String keyword, MoreObject mo);
 
+	public ChallengeDTO selectChallengeByChnum(String chnum);
+	
 	public int challnickname(String nickname, int chnumdetail);
 
 	public List<ChallengeDTO> challengedetaillist(String chnumajax, String nickname);

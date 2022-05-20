@@ -14,6 +14,8 @@ import com.donabit.demo.dto.ReportDTO;
 public interface ChallengeDAO {
 	public List<ChallengeDTO> challengelist(String order, String keyword, MoreObject mo);
 
+	public ChallengeDTO selectChallengeByChnum(String chnum);
+	
 	public int challcount(String chnum);
 
 	public int challnickname(String nickname, int chnumdetail);

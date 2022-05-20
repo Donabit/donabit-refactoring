@@ -91,12 +91,12 @@ public class ChallengeController {
 			System.out.println("로그아웃 상태");
 			mv.addObject("challnickname", result);
 		}
-		List<ChallengeDTO> list = service.challengelist("ing", "", new MoreObject());
+		ChallengeDTO dto = service.selectChallengeByChnum(Integer.toString(chnum));
 
 		// 조회수
 		int updateviewcount = service.updateViewCount(chnum);
 
-		mv.addObject("challengelist", list);
+		mv.addObject("dto", dto);
 		mv.addObject("chnumdetail", chnum);
 		mv.addObject("updateViewCount", updateviewcount);
 		mv.setViewName("/challenge/challengedetail");

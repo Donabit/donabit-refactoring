@@ -30,6 +30,13 @@ public class ChallengeServiceImpl implements ChallengeService {
 	}
 
 	@Override
+	public ChallengeDTO selectChallengeByChnum(String chnum) {
+		ChallengeDTO dto = dao.selectChallengeByChnum(chnum);
+		dto.setCount(Integer.toString(dao.challcount(chnum)));
+		return dto;
+	}
+	
+	@Override
 	public int challnickname(String nickname, int chnumdetail) {
 		
 		return dao.challnickname(nickname, chnumdetail);
@@ -182,5 +189,7 @@ public class ChallengeServiceImpl implements ChallengeService {
 		return dao.selectViewCountResult(chnumint);
 		
 	}
+
+
 
 }
