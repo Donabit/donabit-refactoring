@@ -334,7 +334,7 @@
 
 				<!-- 카테고라이징 끝 -->
 				<div class="category_search_nav_bar">
-					<div class="containercategory" style="float : right">
+					<div class="containercategory">
 						<a href="/checkcommunity?order=checktime&keyword=${param.keyword}">최신순 정렬</a>
 						<a href="/checkcommunity?order=totallikes&keyword=${param.keyword}">좋아요순 정렬</a>
 					</div>

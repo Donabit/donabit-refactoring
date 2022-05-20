@@ -41,32 +41,48 @@ public class ChallengeController {
 
 	// 챌린지리스트 페이지
 	@RequestMapping("/challenge")
-	public ModelAndView challengelist() throws ParseException { // Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
+	public ModelAndView challengelist(String order, String keyword, @Param("mo") MoreObject mo) throws ParseException { // Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
 		ModelAndView mv = new ModelAndView();
-		List<ChallengeDTO> list = service.challengelist();
-		List<ChallengeDTO> list2 = service.challcount();
+		if(order == null || order == "") {
+			order = "ing";
+		}
+		System.out.println(order);
+		MoreObject mo2 = new MoreObject(1, 6);
+		List<ChallengeDTO> list = service.challengelist(order, keyword, mo2);
+		
+//		List<ChallengeDTO> list2 = service.challcount();
 		/*
 		 * SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); Date date =
 		 * formatter.parse("2022-04-24"); for(ChallengeDTO data: list) {
 		 * System.out.println(data.getChedate()); } System.out.println(date);
 		 */
 		mv.addObject("challengelist", list);
-		mv.addObject("challcount", list2);
+		mv.addObject("chnamelist", chservice.selectChallengeName());
+//		mv.addObject("challcount", list2);
 		mv.setViewName("/challenge/challenge");
 		return mv;
 	}
 
+	@GetMapping("/moreChallenge.do")
+	@ResponseBody
+	public List<ChallengeDTO> moreChallengeList(String order, String keyword, int pageNum) {
+		MoreObject mo2 = new MoreObject(pageNum, 6);
+		if(order == null || order == "") {
+			order = "ing";
+		}
+		List<ChallengeDTO> list = service.challengelist(order, keyword, mo2);
+		return list;
+	}
+	
 	// 챌린지리스트에서 챌린지상세페이지 클릭 시 각 chnum 별로 넘어감
 	@GetMapping("challenge/{chnum}")
-	public ModelAndView challengelistdatail(@RequestParam int chnumdetail,
-			@AuthenticationPrincipal PrincipalDetails principaldetail, @PathVariable String chnum) {
+	public ModelAndView challengelistdatail(@AuthenticationPrincipal PrincipalDetails principaldetail, @PathVariable("chnum") int chnum) {
 		ModelAndView mv = new ModelAndView();
-		int chnumint = Integer.parseInt(chnum);
 		// 닉네임 세션 가져오기
 		if (principaldetail != null) {
 			String nickname = principaldetail.getMemberdto().getNickname();
 			System.out.println(nickname + "가 로그인 중");
-			int result = service.challnickname(nickname, chnumdetail);
+			int result = service.challnickname(nickname, chnum);
 			System.out.println(result + " = " + nickname + "(이)가 해당챌린지에 참여하고 있는다면 1 아니면 0");
 			mv.addObject("challnickname", result);
 			mv.addObject("nickname", nickname);
@@ -75,14 +91,13 @@ public class ChallengeController {
 			System.out.println("로그아웃 상태");
 			mv.addObject("challnickname", result);
 		}
-		List<ChallengeDTO> list = service.challengelist();
-		List<ChallengeDTO> list2 = service.challcount();
+		List<ChallengeDTO> list = service.challengelist("ing", "", new MoreObject());
+
 		// 조회수
-		int updateviewcount = service.updateViewCount(chnumint);
+		int updateviewcount = service.updateViewCount(chnum);
 
 		mv.addObject("challengelist", list);
-		mv.addObject("challcount", list2);
-		mv.addObject("chnumdetail", chnumdetail);
+		mv.addObject("chnumdetail", chnum);
 		mv.addObject("updateViewCount", updateviewcount);
 		mv.setViewName("/challenge/challengedetail");
 		return mv;
@@ -226,6 +241,7 @@ public class ChallengeController {
 	// return checkmorninglist(authentication, order);
 	//
 	// }
+	
 	@GetMapping("/moreCommunity.do")
 	@ResponseBody
 	public List<ChallengeDTO> moreList(String order, String keyword, int pageNum) {

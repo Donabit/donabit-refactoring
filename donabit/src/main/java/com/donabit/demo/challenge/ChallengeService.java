@@ -6,9 +6,7 @@ import com.donabit.demo.dto.ChallengeDTO;
 import com.donabit.demo.dto.ReportDTO;
 
 public interface ChallengeService {
-	public List<ChallengeDTO> challengelist();
-
-	public List<ChallengeDTO> challcount();
+	public List<ChallengeDTO> challengelist(String order, String keyword, MoreObject mo);
 
 	public int challnickname(String nickname, int chnumdetail);
 

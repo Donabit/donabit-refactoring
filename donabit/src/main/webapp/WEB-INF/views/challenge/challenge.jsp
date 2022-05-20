@@ -34,101 +34,166 @@
 					<!-- 챌린지 리스트 -->
 					<div class="filter_bar">
 						<ul class="filter_bar_list">
-							<li>진행중</li>
-							<li>오픈예정</li>
-							<li>완료</li>
+							<li>
+								<a href="/challenge?order=ing">진행중</a>
+							</li>
+							<li>
+								<a href="/challenge?order=coming">오픈예정</a>
+							</li>
+							<li>
+								<a href="/challenge?order=end">완료</a>
+							</li>
 						</ul>
 					</div>
-					<img class="titlesvg" src="img/challenge/title1.svg">
+					<form class="search_bar_keyword" action="/challenge">
+						<input type="text" name="keyword" placeholder="챌린지명 자동완성" list="challenge-name"
+							value="${param.keyword}" />
+						<datalist id="challenge-name">
+							<c:forEach items="${chnamelist}" var="list">
+								<option value="${list.chname}">
+							</c:forEach>
+						</datalist>
+						<input type="hidden" name="order" value="${param.order}" />
+						<button type="submit">검색</button>
+					</form>
 					<div class="containerflex">
 						<c:forEach items="${challengelist }" var="dto">
-							<!-- String을 date로 변환 -->
-							<fmt:parseDate var="sdate" value="${dto.chsdate}" pattern="yyyy-MM-dd" />
-							<fmt:parseDate var="edate" value="${dto.chedate}" pattern="yyyy-MM-dd" />
-							<!-- 기부조건에 도달하지 않았을때 -->
-							<c:if test="${dto.checknum != dto.chdonate}">
-								<c:if test="${sdate < today}">
-									<c:if test="${edate > today}">
-										<div class="item">
-											<div class="chimg">
-												<img class="img" src="/image/${dto.chimg }">
-											</div>
-											<div class="chdetail">
-												<div class="text1">${dto.chname}</div>
-												<div class="text2">${dto.chsdate}~${dto.chedate}</div>
-												<div class="text3">
-													경험치
-													<div class="text7">${dto.chexp} Point</div>
-												</div>
-												<div class="text4">
-													성공조건
-													<div class="text7">${dto.chsuccess} 회</div>
-												</div>
-												<div class="text5">
-													기부금액
-													<div class="text7">
-														<fmt:formatNumber value="${dto.donatepay}" pattern="#,###" />
-														원
-													</div>
-												</div>
-												<div class="text6">
-													후원기업
-													<div class="text7">${dto.donateco}</div>
-												</div>
-											</div>
-											<!-- chdetail -->
-											<div class="chdetail2">
-
-												<div>
-													기부조건 : ${dto.checknum } / ${dto.chdonate }
-													<div>
-														<progress value="${dto.checknum }"
-															max="${dto.chdonate }"></progress>
-													</div>
-												</div>
-												<c:forEach items="${challcount }" var="dto2">
-													<c:if test="${dto.chnum == dto2.chnum}">
-														<div>
-															최대모집 : ${dto2.nickname }/ ${dto.chmaxp}
-															<div>
-																<progress value="${dto2.nickname }"
-																	max="${dto.chmaxp}"></progress>
-															</div>
-														</div>
-
-														<fmt:parseNumber value="${dto2.nickname}" var="num" />
-														<c:if test="${num < dto.chmaxp}">
-															<form class="buttonout" action="/challenge/${dto.chnum }"
-																method="get">
-																<input class="button" type="submit" value="상세보기"> <input
-																	type="hidden" name="chnumdetail"
-																	value="${dto.chnum }">
-															</form>
-														</c:if>
-														<c:if test="${dto2.nickname == dto.chmaxp}">
-															<form class="buttonout" action="/challenge/${dto.chnum }"
-																method="get">
-																<input class="button2" type="submit" value="최대인원">
-																<input type="hidden" name="chnumdetail"
-																	value="${dto.chnum }">
-															</form>
-														</c:if>
-													</c:if>
-												</c:forEach>
-											</div>
-											<!-- chdetail2 -->
+							<div class="item">
+								<div class="chimg">
+									<img class="img" src="/image/${dto.chimg }">
+								</div>
+								<div class="chdetail">
+									<div class="text1">${dto.chname}</div>
+									<div class="text2">${dto.chsdate}~${dto.chedate}</div>
+									<div class="text3">
+										경험치
+										<div class="text7">${dto.chexp} Point</div>
+									</div>
+									<div class="text4">
+										성공조건
+										<div class="text7">${dto.chsuccess} 회</div>
+									</div>
+									<div class="text5">
+										기부금액
+										<div class="text7">
+											<fmt:formatNumber value="${dto.donatepay}" pattern="#,###" />
+											원
 										</div>
-										<!-- item -->
+									</div>
+									<div class="text6">
+										후원기업
+										<div class="text7">${dto.donateco}</div>
+									</div>
+								</div>
+								<!-- chdetail -->
+								<div class="chdetail2">
+
+									<div>
+										기부조건 : ${dto.checknum } / ${dto.chdonate }
+										<div>
+											<progress value="${dto.checknum }"
+												max="${dto.chdonate }"></progress>
+										</div>
+									</div>
+										<div>
+										최대모집 : ${dto.count }/ ${dto.chmaxp}
+										<div>
+											<progress value="${dto.count}"
+												max="${dto.chmaxp}"></progress>
+										</div>
+									</div>
+
+									<fmt:parseNumber value="${dto.count}" var="num" />
+									<c:if test="${num < dto.chmaxp}">
+										<div class="buttonout">
+											<a href="/challenge/${dto.chnum}">
+												<button class="button">상세보기</button>
+											</a>
+										</div>
 									</c:if>
-								</c:if>
-							</c:if>
+									<c:if test="${dto.count == dto.chmaxp}">
+										<form class="buttonout" action="/challenge/${dto.chnum }" method="get">
+											<input class="button2" type="submit" value="최대인원">
+											<input type="hidden" name="chnumdetail" value="${dto.chnum }">
+										</form>
+									</c:if>
+								</div>
+								<!-- chdetail2 -->
+							</div>
 						</c:forEach>
 					</div>
-
+					<div class="moreBtn_container">
+						<button id="moreBtn">더보기</button>
+					</div>
 				</div>
 			</div>
 			<%@ include file="/WEB-INF/views/main_footer.jsp" %>
 
 	</body>
+	<script type="text/javascript">
+		let lastNumber = $(".item").length;
+		let objCount = 6;
+		if (lastNumber < objCount) {
+			$(".moreBtn_container").remove();
+		}
+		console.log(lastNumber);
+		console.log("${param.order}");
+		console.log("${param.keyword}");
+		console.log("${param.mo}");
 
+
+		let pageNum = 1;
+		$("#moreBtn").on("click", function () {
+			pageNum++;
+
+			$.ajax({
+				url: "/moreChallenge.do", // 호출할 주소
+				data: {
+					'order': "${param.order}",
+					'keyword': "${param.keyword}",
+					'pageNum': pageNum
+				}, // 넘길 데이터
+				type: 'get',
+				dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+				success: function (list) { // 결과 받기
+					console.log(list);
+					let length = list.length;
+					if (length < objCount) {
+						$(".moreBtn_container").remove();
+					}
+					for (let i = 0; i < length; i++) {
+						let result = "";
+						result += "<div class='item'>";
+						result += "<div class='chimg'>"
+						+ "<img class='img' src='/image/" + list[i].chimg + "'></div>";
+						result += "<div class='chdetail'>"
+						+ "<div class='text1'>" + list[i].chname + "</div>"
+						+ "<div class='text2'>" + list[i].chsdate + "~" + list[i].chedate + "</div>"
+						+ "<div class='text3'>경험치<div class='text7'>" + list[i].chexp + " Point</div></div>";
+						result += "<div class='text4'>성공조건	<div class='text7'>"+list[i].chsuccess+ " 회</div></div>";
+						result += "<div class='text5'>기부금액	<div class='text7'>"+list[i].donatepay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " 원</div></div>";	
+						result += "<div class='text6'>후원기업	<div class='text7'>"+list[i].donateco+ "</div></div>";
+						result += "</div>";
+						result += "<div class='chdetail2'>"
+						+ "<div>기부조건 : " + list[i].checknum + " / " + list[i].chdonate + "<div><progress value='" + list[i].checknum + "' max='" + list[i].chdonate + "'></progress></div></div>";
+						result += "<div>최대모집 : " + list[i].count + " / " + list[i].chmaxp + "<div><progress value='" + list[i].count + "' max='" + list[i].chmaxp + "'></progress></div></div>";
+						if(list[i].count == list[i].chmaxp){
+							result += "<div class='buttonout'><a href='/challenge/" + list[i].chnum + "'><button class='button2'>최대인원</button></a></div>"
+						} else{
+							result += "<div class='buttonout'><a href='/challenge/" + list[i].chnum + "'><button class='button'>상세보기</button></a></div>"
+						}
+						result += "</div>";
+
+					$('.containerflex').append(result);
+					}
+				},// success
+				error: function (jqXHR) {
+					alert("failed");
+				}// error
+			});//totallikebefore ajax
+		});
+
+		console.log(lastNumber);
+
+	</script>
 	</html>

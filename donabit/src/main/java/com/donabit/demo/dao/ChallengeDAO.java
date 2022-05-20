@@ -12,9 +12,9 @@ import com.donabit.demo.dto.ReportDTO;
 @Mapper
 @Repository("challengedao")
 public interface ChallengeDAO {
-	public List<ChallengeDTO> challengelist();
+	public List<ChallengeDTO> challengelist(String order, String keyword, MoreObject mo);
 
-	public List<ChallengeDTO> challcount();
+	public int challcount(String chnum);
 
 	public int challnickname(String nickname, int chnumdetail);
 
