@@ -1,5 +1,37 @@
 @charset "UTF-8";
 
+.titleArea h2 {
+    position: relative;
+    float: none !important;
+    text-align: center;
+    margin-top: 30px;
+    padding: 7px 50px 7px;
+    line-height: 24px;
+    font-family: 'NanumSquareBold','나눔고딕','Nanum Gothic',sans-serif;
+    font-size: 22px;
+    color: #111;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    text-transform: capitalize;
+    background: none !important;
+}
+
+.ptitle h1 {
+  font-size: 14px;
+  color: #555555;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* section.notice {
+  rgb(192, 192, 192): 80px;
+  height: 800px;
+}
+
+.ptitle {
+  marginrgb(192, 192, 192): 60px;
+  margin-bottom: 30px;
+} */
 
 section.notice {
   	padding: 50px 0;
@@ -8,17 +40,18 @@ section.notice {
 	margin: 0 auto;
    	height:800px;   
 	width: 45%;
+  	height: 800px;
   
 }
 
-.wrapper {
+./* wrapper {
 	padding-top: 30px;
 	margin: 0 auto;	
 	
 	
-	border: 2px dotted #FF85B3;
+	border: 0px dotted #FAFAFA;
 	border-radius:2%;   
-	background-color:#ffccdf;
+	background-color:#FAFAFA;
 	
 }
 
@@ -31,7 +64,7 @@ section.notice {
 }
 .ptitle h3 {
   font-size: 28px;
-  color: #fc5192;
+  color: black;
   font-weight: 400;
   text-align: center;
 }
@@ -50,12 +83,12 @@ section.notice {
 
 .binfo {
 	border-top : 1px dashed #ddd;
-	border-bottom : 1px dashed #fc5192;
+	border-bottom : 1px dashed black;
 	font-size: 0;
 }
 
 .bcontents{
-	border-bottom : 1px dashed #fc5192;
+	border-bottom : 1px dashed black;
 }
 
 .bcontents textarea {
@@ -121,7 +154,7 @@ section.notice {
 
 
 .tname {
-  color: #fc5192;
+  color: black;
   font-weight: bold;
 }
 
@@ -140,7 +173,7 @@ div {
 
 input {
 	
-    border: 1px dotted pink;
+    border: 1px dotted black;
     border-radius: 3px;
     line-height: 20px;
     font-size: 12px;
@@ -159,17 +192,7 @@ input {
 	position: relative;
 	border: 1px solid rgba(0,0,0,0.21);
 	border-bottom: 4px solid rgba(0,0,0,0.21);
-	border-radius: 4px;
 	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
-	
-	background: rgba(255,133,179,1);
-	background: -moz-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,133,179,1)), color-stop(100%, rgba(235, 134, 171, 1)));
-	background: -webkit-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: -o-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: -ms-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: linear-gradient(to bottom, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF85B3', endColorstr='#FF85B3', GradientType=0 );
 }
 
 
@@ -207,7 +230,7 @@ input {
 	display: inline-block;
     margin-left: 10px;
     
-}
+} */
 
 
 
@@ -248,4 +271,4 @@ textarea{
 .btn_wrap{
 	padding-left : 80px;
 	margin-top : 50px;
-} */
+}

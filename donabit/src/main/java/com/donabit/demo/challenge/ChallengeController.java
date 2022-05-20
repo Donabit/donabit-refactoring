@@ -359,9 +359,9 @@ public class ChallengeController {
 
 	@RequestMapping("/commentupdate") // 댓글 작성
 	@ResponseBody
-	private int CommentServiceUpdate(@RequestParam String checkid, String nickname, String content, String cno)
+	private int CommentServiceUpdate(@RequestParam String checkid, String content, String cno)
 			throws Exception {
-		System.out.println(checkid + nickname + content + cno);
+		System.out.println(checkid + content + cno);
 		service.updatecomment(cno, content);
 		int id = Integer.parseInt(checkid);
 		return id;

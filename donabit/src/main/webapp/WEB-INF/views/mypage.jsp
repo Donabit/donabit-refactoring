@@ -74,19 +74,19 @@
 			</div>
 
 			<div class="listContainer">
-				<a href="/makepc" class="setting"> 챌린지 만들기 </a>
-				<a href="/updateform" class="setting"> 회원정보 수정하기	 </a> 
-				<a href="/passwordmodifyform" class="setting"> 비밀번호 변경하기 </a>
-				<a href="/deleteview" class="setting"> 회원 탈퇴하기 </a>
+					<div class="listContainerText"><a href="/makepc" class="setting"> 챌린지 만들기 </a></div>
+					<div class="listContainerText"><a href="/updateform" class="setting"> 회원정보 수정하기 </a></div> 
+					<div class="listContainerText"><a href="/passwordmodifyform" class="setting"> 비밀번호 변경하기 </a></div>
+					<div class="listContainerText"><a href="/deleteview" class="setting"> 회원 탈퇴하기 </a></div>
 			</div>
 		</div>
 	</div>
 	
 	<div class="rightbox">
 		<div class="scorebox">
-			<span class="nowchallenge_title">참여중인 챌린지</span>
+			<span class="nowchallenge_title">내가 참여한 챌린지</span>
 			<span class="nowchallenge_text">${mychallengecount}</span>
-			<span class="nowdonate_title">총 기부금액</span>
+			<span class="nowdonate_title">총 기부 금액</span>
 			<span class="nowdonate_text">${mydonate }</span>
 		</div>
 

@@ -69,41 +69,28 @@
         //댓글 수정 - 댓글 내용 출력을 input 폼으로 변경 
         function commentUpdate(cno, content, checkid) {
             var a = '';
-            a = '<div class="input-group"></div>';
-            $('.commentContent' + cno).append(a);
-            a = '<input type="text" class="form-control" id="update' + cno + '" value="111" onchange="commentUpdateProc2(this.value)" />';
-            $('.input-group').append(a);
-            //a += ' <textarea name="opinion" id="update2' + cno + '" cols="30" rows="5"></textarea>';
-            a = '<span class="input-group-btn"><button  id="test"  class="commentUpdateBtn" '
-                + 'type="button" onclick="commentUpdateProc(' + cno + ',' + checkid + ')">수정</button> </span>';
-            $('.input-group').append(a);
+            a += '<div class="input-group">';
+            a += '<input type="text" class="form-control" id="update' + cno + '" value="' + content + '" onchange="commentUpdateProc2(this.value)" />';
+            a += '<span class="input-group-btn"><button  id="test"  class="commentUpdateBtn" type="button" onclick="commentUpdateProc(' + cno + ',' + checkid + ')">수정</button> </span> ';
+            a += '</div>'
+            $('.commentContent' + cno).html(a);
         }
 
-        //강사 
+        //onchange
         var val = '';
         function commentUpdateProc2(myval) {//수정글입
             console.log("==>" + myval);
             val = myval;
         }
-        //강사 
+
         //댓글 수정
         function commentUpdateProc(cno, checkid) {
-            //let updateContent = $('[name=content_' + cno + ']').val();
-            //let content = $('#update' + cno).val();
-            //let contentarea = $('#update2' + cno).val();
-            //let content2 = document.getElementById("update" + cno).value;
-
             console.log("==>강사 " + ":" + val);
-
-            let nickname = '${ principal.memberdto.nickname}';
-            //$('#update' + cno).on("change", alert(content));
-            //alert(content);//변경이
             $.ajax({
                 url: '/commentupdate',
                 type: 'get',
                 data: {
-                    'nickname': nickname,
-                    'content': content,
+                    'content': val,
                     'checkid': checkid,
                     'cno': cno
                 },
@@ -112,7 +99,6 @@
                 }
             });
         }
-
 
         //댓글 삭제 
         function commentDelete(cno, checkid) {

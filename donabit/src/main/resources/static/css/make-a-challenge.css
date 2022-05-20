@@ -81,12 +81,14 @@ input[type=date]:first-child {
 }
 
 .admin_make_challenge_btn:first-child {
-    background-color: #FFD36E;
+    background-color: #2AC1BC;
     color: white;
+     opacity: 1.0;
 }
 
 .admin_make_challenge_btn:first-child:hover {
-    background-color: rgb(226, 193, 114);
+    background-color: #2AC1BC;
+    opacity: 0.8;
 }
 
 .admin_make_challenge_btn:last-child:hover {
@@ -101,7 +103,7 @@ input[type=date]:first-child {
 }
 
 .admin_sidebar_list:nth-child(2) {
-	background-color: #FFD36E;
+	background-color: #2AC1BC;
 }
 
 a[href="make-a-challenge"] {
@@ -110,5 +112,5 @@ a[href="make-a-challenge"] {
 }
 
 input {
-	accent-color: #FFD36E;
+	accent-color: #2AC1BC;
 }

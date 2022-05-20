@@ -35,7 +35,7 @@
 				<div class=check>
 					<label for=checkdesc class=check_label>설명</label>
 					<div class="check_input">
-						<textarea id=checkdesc name="checkdesc" maxlength='60'  placeholder="최대 60글자(공백포함)"></textarea>
+						<textarea id=checkdesc name="checkdesc" maxlength='30'  placeholder="최대 30글자(공백포함)"></textarea>
 					</div>
 				</div>
 					
