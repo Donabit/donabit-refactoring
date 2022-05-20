@@ -26,7 +26,7 @@
 
 	<body>
 		<%@ include file="/WEB-INF/views/main_header.jsp" %>
-			<img id="challenge1" src="img/challenge/challenge11.svg">
+			<img id="challenge1" src="img/challenge/community.svg">
 			<div class="container">
 				<div class="header"></div>
 				<div class="section">

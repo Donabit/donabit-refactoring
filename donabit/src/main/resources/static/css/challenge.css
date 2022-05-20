@@ -170,7 +170,7 @@
 
 /*버튼*/
 .button {
-    background: #f38e9f;
+    background: #2bc1bc;
     /*글자색*/
     color: #fff;
     border: none;
@@ -185,8 +185,8 @@
 }
 
 .button:hover {
-    background: rgb(255, 237, 237);
-    color: #ff8599;
+    background: #fff;
+    color: #2bc1bc;
 }
 
 .button:before,
@@ -197,7 +197,7 @@
     right: 0;
     height: 2px;
     width: 0;
-    background: #fdb3bf;
+    background: #2bc1bc;
     transition: 400ms ease all;
 }
 

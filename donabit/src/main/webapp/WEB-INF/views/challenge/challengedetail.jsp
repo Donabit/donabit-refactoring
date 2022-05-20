@@ -104,6 +104,7 @@
 	</head>
 		<body>
 		<%@ include file="/WEB-INF/views/main_header.jsp" %>
+		<img id="challenge1" src="../img/challenge/community.svg">
 			<!-- 챌린지 테이블 + 참가자수(checknum) -->
 			<c:forEach items="${challengelist }" var="dto">
 				<!-- 챌린지 번호와 챌린지페이지 번호가 같을때 -->

@@ -45,7 +45,7 @@
 	margin-left: 20px;
 	width: 430px;
 	height: 400px;
-	background: #e2e9e6;
+	background: #daf0ef;
 }
 
 
@@ -195,7 +195,7 @@
 .descriptionin {
 	grid-area: description;
 	margin: 20px 0px 10px 0px;
-	background: #e2e9e6;
+	background: #daf0ef;
 	padding : 30px 30px 30px 30px;
 
 }
@@ -227,7 +227,7 @@
 }
 
 #participatebtn {
-	background: #f38e9f;
+	background: #2bc1bc;
 	/*글자색*/
 	color: #fff;
 	border: none;
@@ -242,8 +242,8 @@
 }
 
 #participatebtn:hover {
-	background: rgb(255, 237, 237);
-	color: #ff8599;
+	background: #fff;
+	color: #2bc1bc;
 }
 
 #participatebtn:before,
@@ -254,7 +254,7 @@
 	right: 0;
 	height: 2px;
 	width: 0;
-	background: #fdb3bf;
+	background: #2bc1bc;
 	transition: 400ms ease all;
 }
 
@@ -267,7 +267,7 @@
 
 /*버튼*/
 #participatebtnx {
-	background: #f38e9f;
+	background: #2bc1bc;
 	/*글자색*/
 	color: #fff;
 	border: none;
@@ -282,8 +282,8 @@
 }
 
 #participatebtnx:hover {
-	background: rgb(255, 237, 237);
-	color: #ff8599;
+	background: #fff;
+	color: #2bc1bc;
 }
 
 #participatebtnx:before,
@@ -294,7 +294,7 @@
 	right: 0;
 	height: 2px;
 	width: 0;
-	background: #fdb3bf;
+	background: #2bc1bc;
 	transition: 400ms ease all;
 }
 
@@ -307,7 +307,7 @@
 
 /*버튼*/
 #cancelbtn {
-	background: #f38e9f;
+	background: #2bc1bc;
 	/*글자색*/
 	color: #fff;
 	border: none;
@@ -322,8 +322,8 @@
 }
 
 #cancelbtn:hover {
-	background: rgb(255, 237, 237);
-	color: #ff8599;
+	background: #fff;
+	color: #2bc1bc;
 }
 
 #cancelbtn:before,
@@ -334,7 +334,7 @@
 	right: 0;
 	height: 2px;
 	width: 0;
-	background: #fdb3bf;
+	background: #2bc1bc;
 	transition: 400ms ease all;
 }
 
@@ -347,7 +347,7 @@
 
 /*버튼*/
 #login {
-	background: #f38e9f;
+	background: #2bc1bc;
 	/*글자색*/
 	color: #fff;
 	border: none;
@@ -362,8 +362,8 @@
 }
 
 #login:hover {
-	background: rgb(255, 237, 237);
-	color: #ff8599;
+	background: #fff;
+	color: #2bc1bc;
 }
 
 #login:before,
@@ -374,7 +374,7 @@
 	right: 0;
 	height: 2px;
 	width: 0;
-	background: #fdb3bf;
+	background: #2bc1bc;
 	transition: 400ms ease all;
 }
 
@@ -440,5 +440,10 @@ border-radius: 2%;
 	font-size: 0.8em;
 	padding: 0.2em 0;
 	
+}
+
+
+#challenge1 {
+    width: 100%;
 }
 

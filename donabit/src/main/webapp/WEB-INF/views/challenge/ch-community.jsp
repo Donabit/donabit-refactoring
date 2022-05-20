@@ -327,7 +327,7 @@
 
 	<body>
 		<%@ include file="/WEB-INF/views/main_header.jsp" %>
-			<img id="coimg" src="img/challenge/community.svg">
+			<img id="coimg" src="img/challenge/challenge11.svg">
 			<div class="container">
 
 
