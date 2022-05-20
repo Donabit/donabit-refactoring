@@ -349,10 +349,9 @@ public class ChallengeController {
 		return commentlist;
 	}
 
-	
-	@GetMapping("/commentinsert") // 댓글 작성
+	@RequestMapping("/commentinsert") // 댓글 작성
 	@ResponseBody
-	private int CommentServiceInsert(@RequestParam String checkid, String nickname, String content) {
+	private int CommentServiceInsert(@RequestParam String checkid, String nickname, String content) throws Exception {
 		service.insertcomment(checkid, nickname, content);
 		int id = Integer.parseInt(checkid);
 		return id;
