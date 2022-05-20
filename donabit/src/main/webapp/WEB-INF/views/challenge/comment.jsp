@@ -48,7 +48,7 @@
         //댓글등록
         $(document).on("click", ".commentInsertBtn", function (event) {
             let no = $(this).attr('idx');
-            let nickname = '${ principal.memberdto.nickname}';
+            let nickname = '${principal.memberdto.nickname}';
             $.ajax({
                 url: '/commentinsert',
                 data: {

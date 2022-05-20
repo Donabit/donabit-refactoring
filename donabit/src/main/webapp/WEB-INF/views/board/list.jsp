@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
- <%@ include file="/WEB-INF/views/main_header.jsp" %>  
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>게시판 목록 페이지</title>
 
-<script src="mybatis_spring.js" defer></script>
+<script src="mybatis_spring.js"></script>
  
 <link rel="stylesheet" type="text/css" href="../css/boardlist.css">
+ <%@ include file="/WEB-INF/views/main_header.jsp" %>  
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
@@ -20,7 +20,7 @@
 
   
 </head>
-
+<body>
 <section class="notice">
 <div class="ptitle">
 <div class="ncontainer">

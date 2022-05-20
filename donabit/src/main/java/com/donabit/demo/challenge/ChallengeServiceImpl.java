@@ -20,13 +20,13 @@ public class ChallengeServiceImpl implements ChallengeService {
 	ChallengeDAO dao;
 
 	@Override
-	public List<ChallengeDTO> challengelist() {
-		return dao.challengelist();
-	}
-
-	@Override
-	public List<ChallengeDTO> challcount() {
-		return dao.challcount();
+	public List<ChallengeDTO> challengelist(String order, String keyword, MoreObject mo) {
+		List<ChallengeDTO> list = dao.challengelist(order, keyword, mo);
+		for(int i = 0, size = list.size(); i < size; i++) {
+			int count = dao.challcount(list.get(i).getChnum());
+			list.get(i).setCount(Integer.toString(count));
+		}
+		return list;
 	}
 
 	@Override

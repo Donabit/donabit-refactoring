@@ -280,3 +280,18 @@ progress::-webkit-progress-value {
 
 
 }
+
+.search_bar_keyword {
+	margin: 1em auto;
+	text-align: center;
+}
+
+.moreBtn_container {
+	text-align: center;
+	margin: 3em auto;
+}
+
+#moreBtn {
+	width: 6em;
+	height: 3em;
+}
