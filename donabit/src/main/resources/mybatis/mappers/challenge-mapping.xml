@@ -20,6 +20,11 @@
 		LIMIT #{mo.skip}, #{mo.amount}
 	</select>
 
+	<select id="selectChallengeByChnum" resultType="challengedto">
+		select challenge.chnum, chname, chdonate, chdesc, chimg, chsuccess, chexp,
+		chmaxp, chsdate, chedate, count(checknum) AS checknum, donatepay, donateco from challenge LEFT JOIN donabit.checks ON challenge.chnum = checks.chnum where challenge.chnum = #{chnum};
+	</select>
+
 	<select id="challcount" resultType="int">
 		select count(nickname) from challenging where chnum = #{chnum};
 	</select>
@@ -237,4 +242,10 @@
 		delete from comment where cno = #{cno};
 	</delete>
 
+
+<!-- 챌린지 디테일 페이지 가져가기 -->
+	<select id="selectCheckInfo" resultType="challengedto">
+	select checkimg, nickname, checktime from checks where chnum=#{chnum} order by checktime desc;
+	</select>
+	
 </mapper>

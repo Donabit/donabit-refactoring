@@ -93,15 +93,21 @@ public class ChallengeController {
 		}
 		List<ChallengeDTO> list = service.challengelist("ing", "", new MoreObject());
 
+		String chnumst = String.valueOf(chnum);
+		
+		List<ChallengeDTO> infolist = service.selectCheckInfo(chnumst);
 		// 조회수
 		int updateviewcount = service.updateViewCount(chnum);
 
 		mv.addObject("challengelist", list);
 		mv.addObject("chnumdetail", chnum);
 		mv.addObject("updateViewCount", updateviewcount);
+		mv.addObject("checklst",infolist);
+		
 		mv.setViewName("/challenge/challengedetail");
 		return mv;
 	}
+
 
 	// 챌린지 상세페이지에서 ajax 요청(참여하기)
 	@GetMapping("participate")

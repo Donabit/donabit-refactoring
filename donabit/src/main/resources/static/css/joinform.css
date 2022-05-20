@@ -28,12 +28,16 @@ input{
 	font-weight: bold;	
 }
 
-.email input, select{
-	width: 43%;
+.email input {
+	width: 30%;
+}
+
+.email select{
+	width: 20%;
 }
 
 .email button {
-	width: 95%;
+	width: 94%;
 	margin-top: 10px;
 }
 
@@ -42,7 +46,7 @@ input{
 }
 
 .nickname input {
-    width: 75%;
+    width: 73%;
 }
 
 

@@ -16,17 +16,101 @@
 		<script src="js/challenge.js" type="text/javascript"></script>
 		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 		<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-		<script src="js/jquery-3.6.0.min.js"></script>
-		<script src="js/challengedetail.js"></script>
+		<script src="../jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+		//spring security - ajax post 방식으로 요청시 추가
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
+		$(document).ajaxSend(function (e, xhr, options) {
+			xhr.setRequestHeader(header, token);
+		});
+
+
+		$(document).ready(function () {
+			//참여하기 버튼 클릭시
+			$(document).on("click", "#participatebtn", function () {
+				//$("#participatebtn").click(function () {
+				$.ajax({
+					url: "/participate", // 호출할 주소
+					data: { 'chnumajax': $("#chnumajax").val(), 'nickname': $("#nicknameajax").val() }, // 넘길 데이터
+					type: 'get',
+					dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+					success: function (list) { // 결과 받기
+						console.log(list);
+						console.log(list[0].chnum);
+						console.log(list[0].nickname);
+						var chmaxp = list[0].chmaxp;
+						var nickname2 = list[0].nickname2;
+						$('#participatebtn').remove();
+						$('#recruitprog').remove();
+						$('#recruitdivin').remove();
+						$("#participate").prepend("<button id ='cancelbtn' type='button'>참가취소</button>");
+						$("#divprog").prepend("<progress id='recruitprog2' value='" + nickname2 + "' max='" + chmaxp + "'></progress>");
+						$("#recruitdiv").prepend("<div id = recruitdivin2 > " + nickname2 + " / " + chmaxp + "</div>");
+						$("#zzz").load("/challengedetail.jsp");
+						alert("참가완료");
+
+					},// success
+					error: function (jqXHR) {
+						alert("failed");
+					}// error
+				});// ajax
+			});//participatebtn click
+
+			//취소하기 버튼 클릭시
+			$(document).on("click", "#cancelbtn", function () {
+				var con_test = confirm("주의, 해당 챌린지의 경험치와 인증 정보가 리셋됩니다. \n취소하시겠습니까?");
+				if (con_test == true) {
+					$.ajax({
+						url: "/cancel", // 호출할 주소
+						data: { 'chnumajax': $("#chnumajax").val(), 'nickname': $("#nicknameajax").val() }, // 넘길 데이터
+						type: 'get',
+						dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
+						success: function (list) { // 결과 받기
+							console.log('취소');
+							console.log(list);
+							console.log(list[0].chnum);
+							var chnum = list[0].chnum;
+							var chmaxp = list[0].chmaxp;
+							var nickname2 = list[0].nickname2;
+
+							$('#cancelbtn').remove();
+							$('#recruitprog2').remove();
+							$('#recruitdivin2').remove();
+							$('#chnumajax').remove();
+							$("#participate").prepend("<button id='participatebtn' type='button'>참가하기</button>");
+							if (nickname2 == null) {
+								$("#recruitdiv").prepend("<div id = recruitdivin > 0 / " + chmaxp + "</div>");
+							} else {
+								$("#recruitdiv").prepend("<div id = recruitdivin >  " + nickname2 + " / " + chmaxp + "</div>");
+							}
+							$("#divprog").prepend("<progress id='recruitprog' value='" + nickname2 + "' max='" + chmaxp + "'></progress>");
+							$("#participate").prepend("<input type='hidden' id='chnumajax' name='chnumajax' value='" + chnum + "'>");
+							// 
+							alert("취소완료");
+						},// success
+						error: function (jqXHR) {
+							alert("failed");
+						}// error
+					});// ajax
+				}// confirm true
+				else if (con_test == false) {
+				}// confirm false
+			});// cancelbtn click
+		});// ready
+		
+		
+		</script>
 	</head>
-	<body>
+		<body>
 		<%@ include file="/WEB-INF/views/main_header.jsp" %>
+		<img id="challenge1" src="../img/challenge/community.svg">
 			<!-- 챌린지 테이블 + 참가자수(checknum) -->
 			<c:forEach items="${challengelist }" var="dto">
 				<!-- 챌린지 번호와 챌린지페이지 번호가 같을때 -->
 				<c:if test="${dto.chnum == chnumdetail}">
 					<div class="container">
-						<div class="head"></div>
+						
 						<div class="img">
 							<img class="imgin" src="/image/${dto.chimg }" height="400px" width="400px">
 						</div>
@@ -41,7 +125,7 @@
 							<div class="infotitle6">기부조건</div>
 							<div class="infotitle7">참여기간</div>
 							
-							<div class="infotitle8">조회수 : ${updateViewCount}</div>
+							<div class="infotitle8">조회수</div>
 							
 							<div id="text1"> ${dto.chname }</div>
 							<div id="text2">
@@ -95,6 +179,7 @@
 									</div>
 								</div>
 							<div id="text8">${dto.chsdate} ~ ${dto.chedate}</div>
+							<div id="text9">${updateViewCount}</div>
 							<!-- 참여하기 or 참여취소 -->
 							<div id="participate">
 								<!-- 로그아웃 상태 -->
@@ -130,7 +215,31 @@
 						<div class="button" id="divbutton">
 						</div> <!-- button-->
 						<div class="footer">
-						<div class="description2"></div ></div>
+						
+						
+						
+						
+	<section class="chcommu-info">
+		<p class="chcommu_header">참여자 인증 목록</p>
+		<div class="chcommu_container">
+		  <c:forEach items="${checklst}" var="checkdto" end="7">
+		  	<div style="cursor: pointer;" onclick="location.href='/checkcommunity'">
+				<img src="/checkimage/${checkdto.checkimg}" class="chcommu-img" width="180px" height="180px" />
+			  	<p class="chcommu_detailinfo"><b>닉네임 :</b> ${checkdto.nickname}</p>
+			  	<p class="chcommu_detailinfo"><b>등록시간 :</b> ${checkdto.checktime}</p>
+			</div>
+		  </c:forEach>
+		</div>
+	
+	</section>
+						
+						
+						
+						
+						
+						
+						
+						</div>
 					</div> <!-- container -->
 					<%@ include file="/WEB-INF/views/main_footer.jsp" %>
 				</c:if> <!-- 챌린지 번호와 챌린지페이지 번호가 같을때 -->

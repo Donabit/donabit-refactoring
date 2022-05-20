@@ -103,7 +103,7 @@
 								<div class="swiper-slide">
 									<div class="slidetext" style="cursor: pointer;" onclick="location.href='/checkmorning?chnum=${dto.chnum}';">
 										<div class="slidename">${dto.chname}</div>
-										<img src="/checkimage/${dto.chimg}" class="slideimg" width="150px" height="150px">
+										<img src="/checkimage/${dto.chimg}" class="slideimg" width="130px" height="130px">
 									</div>
 								</div>
 							</c:if>
@@ -133,7 +133,7 @@
 								<div class="swiper-slide">
 									<div class="slidetext" style="cursor: pointer;" onclick="location.href='/checkmorning?chnum=${dto.chnum}';">
 										<div class="slidename">${dto.chname}</div>
-										<img src="/checkimage/${dto.chimg}" class="slideimg" width="150px" height="150px">
+										<img src="/images/${dto.chimg}" class="slideimg" width="130px" height="130px">
 									</div>
 								</div>
 							</c:if>
@@ -152,7 +152,7 @@
 		</div>
 		
 		<div class="challengebox3">
-			<div class="challengebox_title"> 획득한 챌린지 </div>
+			<div class="challengebox_title"> 획득한 뱃지 </div>
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
 						<c:forEach items="${badge}" var="dto2" varStatus="status">
@@ -161,7 +161,7 @@
 									<div class="swiper-slide">
 									<div class="slidetext" style="cursor: pointer;" onclick="location.href='/checkmorning?chnum=${dto2.chnum}';">
 										<div id="badgename">${dto2.chname}</div>
-										<img id="badgein" src="img/badge/SUCCESS.png" width="150px" height="150px">
+										<img id="badgein" src="img/badge/SUCCESS.png" width="130px" height="130px">
 									</div>
 									</div>
 								</c:when>
@@ -169,7 +169,7 @@
 									<div class="swiper-slide">
 									<div class="slidetext" style="cursor: pointer;" onclick="location.href='/checkmorning?chnum=${dto2.chnum}';">
 										<div id="badgename">${dto2.chname}</div>
-										<img id="badgein" src="img/badge/FAIL.png" width="150px" height="150px">
+										<img id="badgein" src="img/badge/FAIL.png" width="150px" height="130px">
 									</div>
 									</div>
 								</c:when>

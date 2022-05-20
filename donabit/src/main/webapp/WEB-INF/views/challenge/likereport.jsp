@@ -5,7 +5,7 @@
 			<!-- 로그인은 하지 않은 좋아요 상태 -->
 			<span class="btn1">
 				<c:if test="${empty principal.memberdto.nickname}">
-					<img src="img/like11.png" width="25px">
+					<img src="img/like22.png" width="25px">
 				</c:if>
 			</span>
 			<!-- 좋아요 누른상태 -->
@@ -31,7 +31,7 @@
 			<!-- 로그인은 하지 않은 신고 상태 -->
 			<span class="btn2">
 				<c:if test="${empty principal.memberdto.nickname}">
-					<img src="img/singo11.png" width="30px">
+					<img src="img/singo22.png" width="30px">
 				</c:if>
 			</span>
 			<!-- 신고 후 -->

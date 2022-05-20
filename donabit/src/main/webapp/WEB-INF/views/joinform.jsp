@@ -139,7 +139,18 @@ $(document).ajaxSend(function (e, xhr, options) {
 		    })
 		  };
 
-
+		  $(function(){
+		      //직접입력 인풋박스 기존에는 숨어있다가
+		$("#selboxDirect").hide();
+		$("#selbox").change(function() {
+		                //직접입력을 누를 때 나타남
+				if($("#selbox").val() == "direct") {
+					$("#selboxDirect").show();
+				}  else {
+					$("#selboxDirect").hide();
+				}
+			}) 
+		});	
 			
 		  
 		
@@ -157,8 +168,8 @@ $(document).ajaxSend(function (e, xhr, options) {
 	<div class="email">
 	<div class="emailtitle">이메일</div>
 	<input type="text" id="email_id" title="이메일 아이디" placeholder="아이디(E-mail)" maxlength="18" value="" required /> @ 
-	<!-- <input type="text" id="email_domain" name="email_domain" title="이메일 도메인" placeholder="이메일 도메인" value="" maxlength="18" required/>  -->
-	<select name="select_email" onChange="selectEmail(this)" required>
+	<input type="text" id="email_domain" name="email_domain" title="이메일 도메인" placeholder="이메일 도메인" value="" maxlength="18" required/>
+	<select name="select_email" onChange="selectEmail(this)">
 	    <option value="">-선택-</option>
 	    <option value="naver.com">naver.com</option>
 	    <option value="gmail.com">gmail.com</option>
@@ -168,7 +179,7 @@ $(document).ajaxSend(function (e, xhr, options) {
 	</select>
 	  <input type="hidden" id="email" name="email" >
 	    
-	  <button name="emailchk" type="button" id="emailchk" onclick="fn_emailchk();" value="N" class="btn-gradient">중복확인</button>  
+	  <button name="emailchk" type="button" id="emailchk" onclick="fn_emailchk();" value="N" class="btn-gradient mini">중복확인</button>  
 	 
 	</div>
 	

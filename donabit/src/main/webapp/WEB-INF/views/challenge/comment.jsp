@@ -1,21 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
     <script>
-
-        /*   $('[name=commentInsertBtn]').click(function () { //댓글 등록 버튼 클릭시 
-              var insertData = $('[name=commentInsertForm]').serialize(); //commentInsertForm의 내용을 가져옴
-              //serialize를 해주면 form안에 값들을 한 번에 전송 가능한 data로 만들 수 있음
-              console.log(insertData);
-              commentInsert(insertData); //Insert 함수호출(아래)
-          }); */
-
-        //팝업창 클릭 시
-        $(document).off('click').on("click", ".trigger", function () {
-            let checkid = $(this).attr('checkid');
-            commentList(checkid);
-        }
-        );
-
         //댓글 목록 
         function commentList(checkid) {
             console.log(checkid + "리스트 아이디");
@@ -28,7 +13,7 @@
                     var a = '';
                     var b = '${ principal.memberdto.nickname}';
                     $.each(data, function (key, value) {
-                        a += '<div class="commentArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
+                        a += '<div class="commentArea" >';
                         a += '<div class="commentInfo' + value.cno + '">작성자 : ' + value.nickname + '</div>';
                         if (b == value.nickname) {
                             a += '<a onclick="commentUpdate(' + value.cno + ',\'' + value.content + '\',\'' + value.checkid + '\');"> [수정] </a>';
@@ -46,7 +31,7 @@
         }
 
         //댓글등록
-        $(document).on("click", ".commentInsertBtn", function (event) {
+        $(document).off("click").on("click", ".commentInsertBtn", function (event) {
             let no = $(this).attr('idx');
             let nickname = '${principal.memberdto.nickname}';
             $.ajax({

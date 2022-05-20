@@ -21,11 +21,12 @@
 				<style>
 					@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Source+Sans+Pro&display=swap');
 				</style>
+		<script src="https://kit.fontawesome.com/392c986039.js" crossorigin="anonymous"></script>
 	</head>
 
 	<body>
 		<%@ include file="/WEB-INF/views/main_header.jsp" %>
-			<img id="challenge1" src="img/challenge/challenge11.svg">
+			<img id="challenge1" src="img/challenge/community.svg">
 			<div class="container">
 				<div class="header"></div>
 				<div class="section">
@@ -63,7 +64,16 @@
 									<img class="img" src="/image/${dto.chimg }">
 								</div>
 								<div class="chdetail">
-									<div class="text1">${dto.chname}</div>
+									<div class="text1">
+										<span>${dto.chname}</span>
+										<c:if test="${dto.nickname == null}"><!-- 공식챌린지 -->
+											<span>
+												<i class="fa-solid fa-circle-check tooltip" id="admin_challenge">
+													<span class="tooltiptext tooltip-top">공식 챌린지</span>
+												</i>												
+											</span>
+										</c:if>
+									</div>
 									<div class="text2">${dto.chsdate}~${dto.chedate}</div>
 									<div class="text3">
 										경험치
@@ -73,17 +83,27 @@
 										성공조건
 										<div class="text7">${dto.chsuccess} 회</div>
 									</div>
-									<div class="text5">
-										기부금액
-										<div class="text7">
-											<fmt:formatNumber value="${dto.donatepay}" pattern="#,###" />
-											원
+									<c:if test="${dto.nickname == null}"><!-- 공식챌린지 -->
+										<div class="text5">
+											기부금액
+											<div class="text7">
+												<fmt:formatNumber value="${dto.donatepay}" pattern="#,###" />
+												원
+											</div>
 										</div>
-									</div>
-									<div class="text6">
-										후원기업
-										<div class="text7">${dto.donateco}</div>
-									</div>
+										<div class="text6">
+											후원기업
+											<div class="text7">${dto.donateco}</div>
+										</div>
+									</c:if>
+									<c:if test="${dto.nickname != null}">
+										<div class="text5">
+											만든이
+											<div class="text7">
+												${dto.nickname}
+											</div>
+										</div>
+									</c:if>
 								</div>
 								<!-- chdetail -->
 								<div class="chdetail2">
@@ -167,7 +187,12 @@
 						result += "<div class='chimg'>"
 						+ "<img class='img' src='/image/" + list[i].chimg + "'></div>";
 						result += "<div class='chdetail'>"
-						+ "<div class='text1'>" + list[i].chname + "</div>"
+						+ "<div class='text1'><span>" + list[i].chname + "</span>";
+						if (list[i].nickname == null){
+							result += "<span><i class='fa-solid fa-circle-check tooltip' id='admin_challenge'>"
+							+ "<span class='tooltiptext tooltip-top'>공식 챌린지</span></i></span>";
+						}
+						result += "</div>"
 						+ "<div class='text2'>" + list[i].chsdate + "~" + list[i].chedate + "</div>"
 						+ "<div class='text3'>경험치<div class='text7'>" + list[i].chexp + " Point</div></div>";
 						result += "<div class='text4'>성공조건	<div class='text7'>"+list[i].chsuccess+ " 회</div></div>";
