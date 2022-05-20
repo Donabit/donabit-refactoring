@@ -14,6 +14,12 @@
 <link rel="stylesheet" type="text/css" href="../css/boardget.css">
 <script src="mybatis_spring.js" defer></script>
 
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous">
+</script>
+
 <script src="../js/main_header.js" defer></script>
 
 <script
@@ -31,44 +37,35 @@
 		
 <section class="notice">
 <div class="ptitle">
-
 <div class="titleArea firstTitleArea">
 <h2><font color="#555555">공지사항</font></h2>
+<h1><font color="#555555">Donabit 최신 소식을 읽어보세요!</font></h1>
 </div>
-
-<div class="ncontainer">
-	<h1><font color="#555555">Donabit 최신 소식을 읽어보세요!</font></h1>
-</div>
-
 </div>
 
 <div class="wrapper">
 
 	<div class="btitle">
 		<dl>
-		<dt class="tname">제목</dt>
-		<dd style="width:80%"><input type=text name="title" readonly="readonly" value='${pageInfo.title}' ></dd>
+		<dt class="tname">제목</dt><dd style="width:80%"><input type=text name="title" readonly="readonly" value='${pageInfo.title}' ></dd>
 		</dl>
 	</div>
 	<div class="bwriter">
 	<dl>
-		<dt class="tname">작성자</dt>
-		<dd style="width:80%"><input type=text name="writer" readonly="readonly" value='${pageInfo.writer}' ></dd>
+		<dt class="tname">작성자</dt><dd style="width:80%"><input type=text name="writer" readonly="readonly" value='${pageInfo.writer}' ></dd>
 	</dl>
 	</div>
 	<div class="binfo">
 		<dl>
-		<dt class="tname">번호</dt>
-		<dd><input name="bno" readonly="readonly" value='${pageInfo.bno}' ></dd>
+		<dt class="tname">번호</dt><dd><input name="bno" readonly="readonly" value='${pageInfo.bno}' ></dd>
 		</dl>
 		<dl>
-		<dt class="tname">등록일</dt>
-		<dd><input name="regdater" readonly="readonly" value='${pageInfo.regdate}' ></dd>
+		<dt class="tname">등록일</dt><dd><input name="regdater" readonly="readonly" value='${pageInfo.regdate}' ></dd>
 		</dl>
 	</div>
 	<div class="bcontents">
 	
-		<textarea rows="3" name="content" readonly="readonly">${pageInfo.content}</textarea>
+		<textarea rows="6" name="content" readonly="readonly">${pageInfo.content}</textarea>
 	
 	</div>
 	
