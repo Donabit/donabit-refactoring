@@ -75,16 +75,6 @@ body {
     width: 75%;
 }
 
-.buttons-right {
-	display: flex;
-	justify-content: center;
-}
-
-.buttons-left {
-	display: flex;
-	justify-content: center;
-}
-
 	#btn_group {
 	display: flex;
 	justify-content: center;
@@ -125,17 +115,13 @@ body {
 .btn-gradient {
 	padding: 1em auto;
 	height: 75px;
-    width: 75%;
+    width: 75% !important;
 }
 
-.gradieny {
+btn-gradient2 {
 	padding: 1em auto;
 	height: 75px;
-    width: 75%;
-}
-	#buttons-wrapper {
-	margin: 0 auto;
-	width: 600px;
+    width: 100%;
 }
 
 .btn-gradient {
@@ -147,7 +133,7 @@ body {
   	border: 1px solid #2AC1BC;
 }
 
-.gradieny {
+.btn-gradient2 {
 	background-color: #FAFAFA;
   	font-size: 20px;
   	font-weight: bold;
@@ -160,7 +146,7 @@ body {
 	opacity: 0.8;
 }
 
-.gradieny:hover{
+.btn-gradient2:hover{
 	opacity: 0.8;
 }
 

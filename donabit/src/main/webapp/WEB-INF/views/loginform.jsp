@@ -51,12 +51,10 @@
 		<br>
 		
 		<div class="buttons-wrapper">
-		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
-		
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 	
 		<div class="buttons-left"><button id="btn_submit" type=submit class="btn-gradient" >로그인</button> </div> <br>
-		<div class="buttons-right"><a href="/joinform"><button id="join" type="button" class="gradieny"
-		style= "padding: 1em auto; height: 75px; width: 75%;">회원가입</button></a></div>
 		</div>
+		<div class="buttons-left"><a href="/joinform"><button id="join" type="button" class="btn-gradient">회원가입</button></a></div>
 	</form>
 	</div>
 	<div class="login2">

@@ -14,7 +14,7 @@
 		<section id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="img/main_img_1.png" class="d-block w-100" alt="Danabit_MainImg_Character" height="400px">
+					<img src="img/main_img_7.png" class="d-block w-100" alt="Danabit_MainImg_Character" height="400px">
 				</div>
 				<div class="carousel-item">
 					<img src="img/main_img_2.png" class="d-block w-100" alt="Donabit_MainImg_Textlogo" height="400px">

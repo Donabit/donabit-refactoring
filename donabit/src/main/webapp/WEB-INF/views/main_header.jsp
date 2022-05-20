@@ -18,7 +18,7 @@
 		<div class="header_container">
 			<div class="logo_container">
 				<a href="/main">
-					<img src="/img/logo_m.png" height="65px">
+					<img src="/img/logo_m1.png" height="65px">
 				</a>
 			</div>
 			<div class="menu_container">
