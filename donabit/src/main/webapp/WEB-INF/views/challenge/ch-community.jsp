@@ -21,11 +21,20 @@
 							$('body').css({
 								overflow: 'hidden'
 							});
+							let checkid = $(this).attr('checkid');
+							commentList(checkid); //페이지 로딩시 댓글 목록 출력
 
-							console.log('댓글 리스트 불러오기');
-
-							//console.log(checkid);
-							commentList(); //페이지 로딩시 댓글 목록 출력
+						});
+					$('.chimg').click(
+						function () {
+							var idx = $(this).attr("idx");
+							document.getElementById('modal' + idx).classList
+								.toggle("show-modal");
+							$('body').css({
+								overflow: 'hidden'
+							});
+							let checkid = $(this).attr('checkid');
+							commentList(checkid);
 						});
 					//팝업창 닫기
 					$('.close-button').click(
@@ -356,8 +365,9 @@
 								<div class="nickname">${check.nickname }</div>
 							</div>
 							<!-- 인증 이미지 -->
-							<div class="chimg">
-								<img src="/checkimage/${check.checkimg2}" height="300px" width="300px"><br>
+							<div class="chimg" idx="${status.index}" checkid="${check.checkid}">
+								<img class="chimgin" src="/checkimage/${check.checkimg2}" height="300px"
+									width="300px"><br>
 							</div>
 							<!-- detail -->
 							<div class="detail">

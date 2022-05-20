@@ -36,11 +36,25 @@
 	background-image: url('../img/challenge/back2.svg');
 }
 
+
+.chimgin {
+	cursor: pointer;
+}
+
+.nickname {
+	/*글자색*/
+	color: #ffffff;
+	/*bold*/
+	font-weight: bold;
+	/*글자크기*/
+}
+
+
 .checkdesc {
 	position: absolute;
 	left: 15px;
 	top: 410px;
-	font-size: 17px;
+	font-size: 15px;
 	margin-right: 13px;
 }
 
@@ -49,6 +63,7 @@
 	left: 15px;
 	top: 380px;
 	font-size: 17px;
+	font-weight: bold;
 	margin-right: 13px;
 }
 
@@ -68,71 +83,86 @@
 .nickname {
 	position: absolute;
 	left: 50px;
-	top: 8px;
-	font-size: 18px;
+	top: 5px;
+	font-size: 20px;
 }
 
 .nicknameout {
 	height: 40px;
 }
 
+:root {
+	--singo_left: 54px;
+	--singo_top: -1px;
+	--like_left: 10px;
+	--like_top: 2px;
+	--trigger_left: 105px;
+	--trigger_top: 347px;
+	--su_top: 0px;
+}
+
+/*↓좋아요 신고↓*/
 .singosu {
 	position: absolute;
 	left: 87px;
-	top: -1px;
+	top: var(--su_top);
 	font-size: 18px;
 }
 
 .singoafterbtn {
 	position: absolute;
-	left: 54px;
-	top: -3px;
+	left: var(--singo_left);
+	top: var(--singo_top);
 	font-size: 18px;
+	cursor: pointer;
 }
 
 .singobeforebtn {
 	position: absolute;
-	left: 54px;
-	top: -3px;
+	left: var(--singo_left);
+	top: var(--singo_top);
 	font-size: 18px;
+	cursor: pointer;
 }
 
 .likesu {
 	position: absolute;
 	left: 40px;
-	top: -1px;
+	top: var(--su_top);
 	font-size: 18px;
 }
 
 .likeafterbtn {
 	position: absolute;
-	left: 10px;
-	top: 0px;
+	left: var(--like_left);
+	top: var(--like_top);
 	font-size: 18px;
+	cursor: pointer;
 }
 
 .likebeforebtn {
 	position: absolute;
-	left: 10px;
-	top: 0px;
+	left: var(--like_left);
+	top: var(--like_top);
 	font-size: 18px;
+	cursor: pointer;
 }
 
 .btn1 {
 	position: absolute;
-	left: 10px;
-	top: 0px;
+	left: var(--like_left);
+	top: var(--like_top);
 	font-size: 18px;
 }
-
 
 .btn2 {
 	position: absolute;
-	left: 54px;
-	top: -3px;
+	left: var(--singo_left);
+	top: var(--singo_top);
 	font-size: 18px;
 }
 
+/*↑좋아요 신고↑*/
 
 .avatar {
 	position: absolute;
@@ -153,10 +183,19 @@
 
 #coimg {
 	width: 100%;
+	cursor: pointer;
 }
 
 
 /*↓팝업↓*/
+.trigger {
+	position: absolute;
+	left: var(--trigger_left);
+	top: var(--trigger_top);
+	cursor: pointer;
+}
+
+
 .modal {
 	position: fixed;
 	left: 0;
@@ -184,13 +223,16 @@
 }
 
 .close-button {
+	position: absolute;
 	float: right;
-	width: 1.5rem;
-	line-height: 1.5rem;
+	width: 1.7rem;
+	line-height: 1.7rem;
+	top: -50px;
+	left: 100px;
 	text-align: center;
 	cursor: pointer;
 	border-radius: 0.25rem;
-	background-color: lightgray;
+	background-color: #2AC1BC;
 }
 
 .close-button:hover {

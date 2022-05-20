@@ -2,11 +2,10 @@
 
     <!-- 버튼 -->
     <br>
-    <button class="trigger" idx="${status.index}" checkid="${check.checkid}">
-        ______________팝업${status.index}, id:${check.checkid}</button>
+    <img class="trigger" idx="${status.index}" checkid="${check.checkid}" src="img/challenge/sns.svg" width="30px">
 
     <!-- 팝업 될 레이어 -->
-    <div class=" modal" id="modal${status.index}">
+    <div class="modal" id="modal${status.index}">
         <div class="modal-content">
             <!-- 닫기버튼 -->
             <div class="close-button" idx="${status.index}">&times;</div>
