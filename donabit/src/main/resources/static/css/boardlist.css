@@ -1,43 +1,60 @@
 @charset "UTF-8";
 
+.titleArea h2 {
+    position: relative;
+    float: none !important;
+    text-align: center;
+    margin-top: 30px;
+    padding: 7px 50px 7px;
+    line-height: 24px;
+    font-family: 'NanumSquareBold','나눔고딕','Nanum Gothic',sans-serif;
+    font-size: 22px;
+    color: #111;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    text-transform: capitalize;
+    background: none !important;
+}
+
 table {
   border-collapse: collapse;
- 
   border-spacing: 0;
 }
-section.notice {
-  padding: 80px 0;
+/* section.notice {
+  rgb(192, 192, 192): 80px;
   height: 800px;
 }
 
 .ptitle {
-  margin-bottom: 60px;
-}
-.ptitle h3 {
-  font-size: 28px;
-  color: #fc5192;
+  marginrgb(192, 192, 192): 60px;
+  margin-bottom: 30px;
+} */
+
+.ptitle h1 {
+  font-size: 14px;
+  color: #555555;
   font-weight: 400;
   text-align: center;
 }
 
 .bno_width {
-  background-color:#FF85B3; 
-  color:white;
+  background-color:#FAFAFA; 
+  color:black;
 }
 
 .title_width {
-  background-color:#FF85B3; 
-  color:white;
+  background-color:#FAFAFA; 
+  color:black;
 }
 
 .writer_width {
-	background-color:#FF85B3;
-	color:white;
+	background-color:#FAFAFA;
+	color:black;
 }
 
 .regdate_width {
-  background-color:#FF85B3; 
-  color:white;
+  background-color:#FAFAFA; 
+  color:black;
 }
 
 
@@ -65,7 +82,7 @@ section.notice {
 }
 
 .board-table .bno_width {
-  width: 100px;
+  width: 80px;
   text-align: center;
 }
 
@@ -102,7 +119,7 @@ section.notice {
 .pageInfo{
     list-style : none;
     display: inline-block;
-    margin: 50px 0 0 300px;
+    margin: 50px 0 0 450px;
   }
 .pageInfo li{
     float: left;
@@ -113,12 +130,26 @@ section.notice {
   }
   
 .active{
-    background-color: #cdd5ec;
+    background-color: #2AC1BC;
   }
   
  a:link {color:black; text-decoration: none;}
  a:visited {color:black; text-decoration: none;}
  a:hover {color:black; text-decoration: underline;}
+ 
+  .search_area{
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 500px;
+  }
+  .search_area input{
+    height: 30px;
+    width: 200px;
+  }
+  .search_area button{
+    height: 25px;
+    width: 70px;
+  }
 
 
 /* reset */
@@ -136,7 +167,7 @@ section.notice {
   clear: both;
 }
 .ncontainer {
-  width: 1100px;
+  width: 1400px;
   margin: 0 auto;
 }
 .blind {

@@ -1,16 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
- <%@ include file="/WEB-INF/views/main_header.jsp" %>  
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판 목록 페이지</title>
-
-<script src="mybatis_spring.js" defer></script>
- 
+<title>Donabit 습관을 기부하세요</title>
+<link rel="shorcut icon" type="image/x-icon" sizes="32x32" href="/img/favicon-32x32.png">
+<link rel="stylesheet" type="text/css" href="../css/main_header.css">
+<link rel="stylesheet" href="../css/ch-community.css">
 <link rel="stylesheet" type="text/css" href="../css/boardlist.css">
+<script src="mybatis_spring.js" defer></script>
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
@@ -18,14 +17,35 @@
   crossorigin="anonymous">
 </script>
 
-  
+<script src="../js/main_header.js" defer></script>
+
 </head>
 
+<!-- .upload_btn {
+  opacity: 1.0;
+}
+
+.upload_btn:hover {
+     opacity: 0.8;
+}
+ -->
+
+<body>
+
+		<%@ include file="/WEB-INF/views/main_header.jsp" %>
+		<img id="coimg" src="../img/challenge/community.svg">
+		
 <section class="notice">
 <div class="ptitle">
-<div class="ncontainer">
-	<h3>Donabit Notice</h3>
+
+<div class="titleArea firstTitleArea">
+<h2><font color="#555555">공지사항</font></h2>
 </div>
+
+<div class="ncontainer">
+	<h1><font color="#555555">Donabit 최신 소식을 읽어보세요!</font></h1>
+</div>
+
 </div>
 
 <div class="table_wrap">
@@ -63,7 +83,7 @@
 	    <div class="search_wrap">
         <div class="search_area">
              <select name="type">
-                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
+                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>검색 조건 선택</option>
                 <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
                 <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
                 <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
@@ -72,7 +92,7 @@
                 <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
             </select> 
             <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
-            <button>Search</button>
+            <button>검색</button>
         </div>
     </div>    
 		
@@ -114,6 +134,7 @@
 </section>
 <br>
 <br>
+</body>
 
 <script>
 $(document).ready(function(){
