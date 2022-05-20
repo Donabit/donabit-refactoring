@@ -245,7 +245,7 @@ public class ChallengeController {
 		return list;
 	}
 
-	@Transactional
+	
 	@GetMapping("/checkcommunity")
 	public ModelAndView checkmorninglist(Authentication authentication, String order, String keyword,
 			@Param("mo") MoreObject mo) { // Controller 처리 결과 후 응답할 view와 view에 전달할 값을 저장
@@ -343,9 +343,9 @@ public class ChallengeController {
 
 	@RequestMapping("/commentupdate") // 댓글 작성
 	@ResponseBody
-	private int CommentServiceUpdate(@RequestParam String checkid, String nickname, String content, String cno)
+	private int CommentServiceUpdate(@RequestParam String checkid, String content, String cno)
 			throws Exception {
-		System.out.println(checkid + nickname + content + cno);
+		System.out.println(checkid + content + cno);
 		service.updatecomment(cno, content);
 		int id = Integer.parseInt(checkid);
 		return id;
