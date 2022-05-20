@@ -6,6 +6,7 @@
    margin: 0 auto;
    padding-top:100px;
    align-items: center;
+   justify-content: center;
 }
 
 
@@ -14,32 +15,52 @@ div {
     padding-bottom: 8px;
 }
 
-.title {
-    text-align: center;
-    font-weight: 700;
-}
-
 
 input{
-	
-    border: 1px dotted pink;
-    border-radius: 3px;
+    border: 1px solid darkgray;
     line-height: 35px;
     font-size: 12px;
     padding-left: 10px;
     padding-right: 10px;
 }
 
-.email input {
-	width: 20%;
+.emailtitle, .nicknametitle, .passwordtitle, .phonetitle, .avatartitle {
+	font-weight: bold;	
+}
+
+.email input, select{
+	width: 43%;
+}
+
+.email button {
+	width: 95%;
+	margin-top: 10px;
+}
+
+.nickname {
+	margin-top: 30px;
 }
 
 .nickname input {
     width: 75%;
 }
 
-.password input {
+
+.password {
+	margin-top: 30px;
+}	
+
+#password {
     width: 90%;
+}
+
+#password2 {
+    width: 90%;
+    margin-top: 10px;
+}
+
+.phone{
+	margin-top: 30px;
 }
 
 .phone input{
@@ -51,8 +72,93 @@ input{
 	vertical-align:middle
 }
 
+.avatarbox{
+	margin-top: 30px;
+}
 
-.btn-gradient { 
+/* .btn-gradient small {
+    background-color: #2AC1BC;
+    color: white;
+    padding: 0.8em 1.6em;
+    margin: 2em 1em;
+    border-radius: 0.5em;
+    border: 0;
+    cursor: pointer;
+    box-shadow: 2px 2px rgb(176, 176, 176);
+    position: absolute;
+	left: 40%;
+  opacity: 0.5;
+} */
+
+
+
+
+.btn-gradient {
+	background-color: #2AC1BC;
+	padding: 8px 18px;  
+  	font-size: 14px;
+  	opacity: 1.0;
+  	border: 1px solid #2AC1BC;
+}
+
+.btn-gradient:hover{
+	opacity: 0.8;
+}
+
+.buttons-wrapper {
+	margin: 0 auto;
+	width: 230px;
+}
+
+.buttons-left {
+	width:100px;
+	height:50px;
+	float: left;	
+	margin: auto;
+}
+
+.buttons-right{
+	width:100px;
+	height:50px;
+	display: inline-block;
+    margin-left: 10px;
+    
+}
+
+.btn_submit, .btn_cancel {
+	background-color: #2AC1BC;
+	padding: 8px 18px;  
+  	font-size: 14px;
+  	opacity: 1.0;
+  	border: 1px solid #2AC1BC;
+}
+
+.btn_submit:hover {
+	opacity: 0.8;
+}
+
+.btn_cancel:hover {
+  	opacity: 0.8;
+}
+/* .btn-gradient small:hover {
+     opacity: 1.0;
+}
+
+
+.btn-gradient small {
+	background-color: #2AC1BC;
+	padding: 8px 18px;  
+  	font-size: 14px;
+  	opacity: 0.5;
+}
+
+.btn-gradient.mini {
+	padding: 4px 12px;  
+  	font-size: 12px;
+  	 background-color: #2AC1BC;
+} */
+
+/* .btn-gradient { 
 	
 	text-decoration: none;
 	color: white;
@@ -64,55 +170,12 @@ input{
 	border-radius: 4px;
 	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
 	
-	background: rgba(255,133,179,1);
-	background: -moz-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,133,179,1)), color-stop(100%, rgba(235, 134, 171, 1)));
-	background: -webkit-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
+	background: #2AC1BC;
+	background: -moz-linear-gradient(top, #2AC1BC 0%, #2AC1BC 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, #2AC1BC), color-stop(100%, #2AC1BC));
+	background: -webkit-linear-gradient(top,  #2AC1BC 0%, #2AC1BC 100%);
 	background: -o-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
 	background: -ms-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
 	background: linear-gradient(to bottom, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF85B3', endColorstr='#FF85B3', GradientType=0 );
-}
-
-
-
-.btn-gradient.small {
-	
-	padding: 8px 18px;  
-  	font-size: 14px;
-}
-
-.btn-gradient.mini {
-	padding: 4px 12px;  
-  	font-size: 12px;
-}
-
-
-.buttons-wrapper {
-	margin: 0 auto;
-	width: 230px;
-}
-
-.buttons-left {
-	width:100px;
-	height:50px;
-	float: left;	
-	margin: 0 10px;
-}
-
-.buttons-right{
-	width:100px;
-	height:50px;
-	display: inline-block;
-    margin-left: 10px;
-    
-}
-
-.wrapper hr {
-	border-top: 1.5px dotted #FF85B3;
-	border-bottom : white;
-}
-
-h1{
-	color:#fc5192;
-}
+} */

@@ -43,11 +43,11 @@ textarea {
     box-shadow: 2px 2px rgb(176, 176, 176);
     position: absolute;
 	left: 40%;
-  opacity: 0.5;
+  opacity: 1.0;
 }
 
 .upload_btn:hover {
-     opacity: 1.0;
+     opacity: 0.8;
 }
 
 #uploadImage {
@@ -133,7 +133,7 @@ textarea {
 
 .img{
 	 text-align:center;
-	 margin: 40px auto;
+	 margin: 40px 0px 0px 0px;
 }
 
 .imgin{
@@ -154,19 +154,19 @@ textarea {
 
 .delete_btn{
 	position: absolute;
-  	top: 10%;
+  	top: 2%;
   	left: 90%;
 	border: 0;
 	outline: 0;
 	background-color: transparent;
-	opacity: 0.5;
+	opacity: 1.0;
 	cursor: pointer;
 }
 
 .delete_btn:hover{
 	border: 0;
 	outline: 0;
-	opacity: 1.0;
+	opacity: 0.5;
 }
 
 
@@ -176,12 +176,12 @@ position: absolute;
   top: 45%;
   left: 50%;
  margin: -50px 0 0 -50px;
-  opacity: 0.5;
+  opacity: 1.0;
 	
 }
 
 .plus_btn:hover{
-	 opacity: 1.0;
+	 opacity: 0.8;
 	
 }
 

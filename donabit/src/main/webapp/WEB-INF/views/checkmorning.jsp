@@ -56,7 +56,7 @@
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 								
 								<button class="delete_btn" id="delete_btn" type="submit" onclick="if(!confirm('정말 삭제하시겠습니까?')){return false;}">
-									<span style="color: #2AC1BC"> <i class="fa fa-solid fa-xmark fa-2x" ></i></span>
+									<span style="color: white"> <i class="fa fa-solid fa-xmark fa-2x" ></i></span>
 								</button>
 								
 							</form>	
@@ -67,7 +67,8 @@
 							
 							<div class="detail">
 								<div class="detail_first">
-									<b>${check.checktitle}</b>&nbsp;<small>${check.checktime}</small>
+									<small>${check.checktime}</small><br>
+									<b>${check.checktitle}</b>
 								</div>
 								<div class="detail_second">
 									${check.checkdesc}
