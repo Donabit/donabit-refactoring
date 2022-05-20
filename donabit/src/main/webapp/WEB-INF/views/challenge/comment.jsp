@@ -13,7 +13,7 @@
                     var a = '';
                     var b = '${ principal.memberdto.nickname}';
                     $.each(data, function (key, value) {
-                        a += '<div class="commentArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
+                        a += '<div class="commentArea" >';
                         a += '<div class="commentInfo' + value.cno + '">작성자 : ' + value.nickname + '</div>';
                         if (b == value.nickname) {
                             a += '<a onclick="commentUpdate(' + value.cno + ',\'' + value.content + '\',\'' + value.checkid + '\');"> [수정] </a>';

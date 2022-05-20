@@ -52,17 +52,17 @@
 
 .checkdesc {
 	position: absolute;
-	left: 15px;
-	top: 410px;
-	font-size: 15px;
+	left: 18px;
+	top: 415px;
+	font-size: 13px;
 	margin-right: 13px;
 }
 
 .title {
 	position: absolute;
 	left: 15px;
-	top: 380px;
-	font-size: 17px;
+	top: 385px;
+	font-size: 16px;
 	font-weight: bold;
 	margin-right: 13px;
 }
@@ -96,7 +96,7 @@
 	--singo_top: -1px;
 	--like_left: 10px;
 	--like_top: 2px;
-	--trigger_left: 105px;
+	--trigger_left: 107px;
 	--trigger_top: 347px;
 	--su_top: 0px;
 }
@@ -219,24 +219,24 @@
 	background-color: white;
 	width: 950px;
 	height: 450px;
-	border-radius: 10px;
 }
 
 .close-button {
 	position: absolute;
 	float: right;
-	width: 1.7rem;
-	line-height: 1.7rem;
+	width: 2.3rem;
+	line-height: 2.3rem;
 	top: -50px;
-	left: 100px;
+	left: 914px;
 	text-align: center;
 	cursor: pointer;
 	border-radius: 0.25rem;
-	background-color: #2AC1BC;
+	background-color: darkgray;
+	font-size: 20px;
 }
 
 .close-button:hover {
-	background-color: darkgray;
+	background-color: #2AC1BC;
 }
 
 .show-modal {
@@ -247,7 +247,7 @@
 }
 
 .modalcomment {
-	background-color: rgb(218, 221, 221);
+	background-color: rgb(247, 247, 247);
 	width: 100%;
 }
 
@@ -255,7 +255,47 @@
 	display: flex;
 }
 
-.modalimg {}
+.input-group {
+	position: absolute;
+	top: 400px;
+	left: 470px;
+}
+
+.modalimgout {
+	width: 100%;
+	height: 450px;
+	max-width: 450px;
+	max-height: 450px;
+	background-color: #000000;
+	display: flex;
+
+}
+
+.modalimg {
+	width: 100%;
+}
+
+.content {
+	width: 300px;
+	/* 원하는 너비 설정 */
+	height: auto;
+	/* 높이값 초기화 */
+	line-height: normal;
+	/* line-height 초기화 */
+	padding: .8em .5em;
+	/* 원하는 여백 설정, 상하단 여백으로 높이를 조절 */
+	font-family: inherit;
+	/* 폰트 상속 */
+	border: 1px solid #999;
+	border-radius: 0;
+	/* iSO 둥근모서리 제거 */
+	outline-style: none;
+	/* 포커스시 발생하는 효과 제거를 원한다면 */
+	-webkit-appearance: none;
+	/* 브라우저별 기본 스타일링 제거 */
+	-moz-appearance: none;
+	appearance: none;
+}
 
 /*↑팝업↑*/
 
@@ -268,7 +308,7 @@
 .modalcomment::-webkit-scrollbar-thumb {
 	height: 30%;
 	/* 스크롤바의 길이 */
-	background: #85f0e1;
+	background: #2AC1BC;
 	/* 스크롤바의 색상 */
 
 	border-radius: 10px;
@@ -279,17 +319,18 @@
 	/*스크롤바 뒷 배경 색상*/
 }
 
-/*↑스크롤바↑*/
-
 .commentlist {
-	background-color: rgb(170, 201, 241);
 	width: 100%;
 }
 
 .modalcomment {
-	height: 450px;
+	height: 350px;
 	overflow-y: scroll;
 }
+
+/*↑스크롤바↑*/
+
+
 
 .moreBtn_container {
 	text-align: center;
