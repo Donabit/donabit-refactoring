@@ -79,15 +79,27 @@ public class MypageController {
 	}
 	
 	@GetMapping("/makepc")
-	public void makepersonalchallenge() {}
-	
-	@PostMapping("/makepc")
-	public String makepesonalchallengeinsert(ChallengeDTO2 dto, @AuthenticationPrincipal PrincipalDetails principaldetail) throws IOException {
+	public ModelAndView makepersonalchallenge(@AuthenticationPrincipal PrincipalDetails principaldetail) {
+		ModelAndView mv = new ModelAndView();
 		String nickname = principaldetail.getMemberdto().getNickname();
-		challengeservice2.insertChallenge(dto);
-		int result = checkinservice.selectMaxchnum(nickname);
-		service.insertChallengingAjax(Integer.toString(result), nickname);
-		return "redirect:/mypage"; 
+		System.out.println(lib.calcLevel(nickname) + "=" + nickname + "의 레벨");
+		mv.addObject("level", lib.calcLevel(nickname));
+		mv.addObject("expsum", lib.sumExp(nickname));
+		mv.setViewName("/makepc");
+		return mv;
+	}	
+	
+	
+	
+		  @PostMapping("/makepc") 
+		  public String makepesonalchallengeinsert(ChallengeDTO2 dto, @AuthenticationPrincipal PrincipalDetails principaldetail) throws IOException {
+			  String nickname = principaldetail.getMemberdto().getNickname();
+			  challengeservice2.insertChallenge(dto); int result = checkinservice.selectMaxchnum(nickname);
+			  service.insertChallengingAjax(Integer.toString(result), nickname); 
+			  return "redirect:/mypage"; 
+		  
+		  }
+		 
 	}
 	 
-}
+

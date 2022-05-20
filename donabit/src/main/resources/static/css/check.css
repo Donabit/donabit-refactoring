@@ -107,16 +107,6 @@ textarea {
 }
 
 
-/* .item {
-	 width:320px;
-	 height:450px;
-	 margin:20px;
-	 position: relative;
-	 border:2px solid #94DAFF;
-	 border-radius:20px;
-	background-color: #f0faff;
-
-} */
 
 .item {
 	border-radius: 10px;
@@ -141,6 +131,7 @@ textarea {
 	width : 100%;
 	
 }
+
 .detail {
 	align-items: center;
 	position:relative;

@@ -12,12 +12,6 @@
   margin: 0 auto;
   justify-content: space-between;
   padding-top:50px;
- /*  grid-template-columns: 40% 60%;
-  grid-auto-columns: 300px;
-  grid-auto-rows: 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row dense;
-  padding-top:50px; */
 } 
 
 .leftbox { 
@@ -45,10 +39,8 @@
   grid-template-areas: 
     ". . . ."; 
   grid-area: scorebox; 
-  /* width: 700px; */
-  border: 1px solid darkgray;
   align-items: center;
-  background-color: #FAFAFA;
+  border-bottom: 2px solid darkgray;
   } 
   
  
@@ -85,7 +77,6 @@
     justify-content: center;
     align-items: center;
     height: 900px;
-   /*  width: 700px; */
     top: 100px;
     left: 0;
     right: 0;
@@ -119,28 +110,6 @@
 	
 }
 
-/* .boxes{
-	position : absolute;
-	left:25%; 
-	top:25%;
-	margin: 0 auto;
-	
-	justify-content: center;
-    align-items: center;
-
-    height: 800px;
-    width: 1200px;
-    top: 100px;
-    left: 0;
-    right: 0;
-    padding-left : 20px;
-    padding-right : 20px;
-     
-    display: inline-flex;
-    
-	border: 2px solid #ffccdf;
-	border-radius:10%;
-} */
 
 .profilebox {
     width: 280px;
@@ -167,10 +136,6 @@
 	font-weight:bold;
 }
 
-/* .imgicon {
-	width:30px;
-	height:30px;
-} */
 
 .listContainer{  
   padding: 0;
@@ -190,18 +155,6 @@
 .listContainerText:hover {
 	text-decoration:underline;
 }
-/* .listContainer .sicon{  
-  margin-right: 10px;
-}
-.listContainer .stext{
-  font-size: 15px;
-  position: relative;
-  
-}
-.listContainer .sright{
-  margin-left: auto;
-}  */
-
 
 
 .challengebox1, .challengebox2, .challengebox3{
@@ -210,22 +163,11 @@
  
 .challengebox_title{
 	font-weight: bold;
+	font-size: 20px;
 	color: #2AC1BC;
 }
 
-/* .challenge-ing {
-    margin-top: 20px;
-    width: 100%;
-    height: 40%;
-    margin: auto;
-    padding: auto;
-    margin-bottom: 10%;
-    background:pink;
 
-  } */
-
-
-  
   .go-challenge, .badge {
     all: unset;
     background-color: transparent;
@@ -250,10 +192,10 @@
 
 /* Swiper */
 .swiper-container {
+	display: flex;
 	height: 250px;
 	width: 700px;
 	border: 1px solid darkgray;
-	
 }
 
 .swiper-slide {
@@ -266,8 +208,7 @@
 	top:20px;
 	}
 
-.slidetext{
-	background-color: white;	
+.slidetext{	
 	width:200px;
 }
 
@@ -275,13 +216,15 @@
 .slidename{
 	position:absolute;
 	width: 50%;
-	top: 170px;
+	top: 150px;
 	left: 50px;
 }
 
 .swiper-slide img {
 	max-width: 100%;
 }
+
+
 
 .swiper-button-next {
   background: url(/img/arrow_right.png) no-repeat;
@@ -300,11 +243,12 @@
   display: none;
 }
 
-/* .swiper-button-next, .swiper-button-prev {
-	display: none;
-} */
+
 
 .swiper-pagination-bullet {
 	background:#2AC1BC;
 }
+
+
+
 
