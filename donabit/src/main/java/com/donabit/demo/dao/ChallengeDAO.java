@@ -72,5 +72,9 @@ public interface ChallengeDAO {
 	public int updateViewCount(int chnumint);
 
 	public int selectViewCountResult(int chnumint);
+	
+	
+	public List<ChallengeDTO> selectCheckInfo(String chnum);
+
 
 }

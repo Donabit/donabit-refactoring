@@ -190,6 +190,12 @@ public class ChallengeServiceImpl implements ChallengeService {
 		
 	}
 
+	//챌린지 디테일 페이지
+	
+	@Override
+	public List<ChallengeDTO> selectCheckInfo(String chnumst) {
+		return dao.selectCheckInfo(chnumst);
+	}	
 
 
 }

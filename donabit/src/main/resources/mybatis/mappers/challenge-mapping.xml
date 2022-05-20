@@ -242,4 +242,10 @@
 		delete from comment where cno = #{cno};
 	</delete>
 
+
+<!-- 챌린지 디테일 페이지 가져가기 -->
+	<select id="selectCheckInfo" resultType="challengedto">
+	select checkimg, nickname, checktime from checks where chnum=#{chnum} order by checktime desc;
+	</select>
+	
 </mapper>

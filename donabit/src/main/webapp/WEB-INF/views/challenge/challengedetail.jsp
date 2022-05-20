@@ -102,11 +102,14 @@
 		
 		</script>
 	</head>
-	<body>
+		<body>
 		<%@ include file="/WEB-INF/views/main_header.jsp" %>
-					
+			<!-- 챌린지 테이블 + 참가자수(checknum) -->
+			<c:forEach items="${challengelist }" var="dto">
+				<!-- 챌린지 번호와 챌린지페이지 번호가 같을때 -->
+				<c:if test="${dto.chnum == chnumdetail}">
 					<div class="container">
-						<div class="head"></div>
+						
 						<div class="img">
 							<img class="imgin" src="/image/${dto.chimg }" height="400px" width="400px">
 						</div>
@@ -120,8 +123,8 @@
 							<div class="infotitle5">기부금액</div>
 							<div class="infotitle6">기부조건</div>
 							<div class="infotitle7">참여기간</div>
-							<div class="infotitle8">조회수 : ${updateViewCount}</div>
 							
+							<div class="infotitle8">조회수</div>
 							
 							<div id="text1"> ${dto.chname }</div>
 							<div id="text2">
@@ -137,10 +140,8 @@
 							</div>
 
 							<div id="text6"> ${dto.donateco}</div>
-							
 								<div>
 									<!--모집 인원-->
-									
 									<div id=recruitdiv>
 										<!-- ajax 적용하기 위해 2가지 경우로 나눠 놓음 -->
 										<!-- 로그인 유저가 해당챌린지에 참가 했다면 -->
@@ -166,17 +167,18 @@
 										</c:if>
 										<!-- 로그인 유저가 해당챌린지에 참가 하지 않았다면 -->
 										<c:if test="${challnickname == 0}">
-											<progress id="recruitprog" value="${dto.count}"
+											<progress id="recruitprog" value="${dto2.count}"
 												max="${dto.chmaxp}"></progress>
 										</c:if>
 										<!-- 로그아웃 상태 -->
 										<c:if test="${challnickname == 2}">
-											<progress id="recruitprog" value="${dto.count}"
+											<progress id="recruitprog" value="${dto2.count}"
 												max="${dto.chmaxp}"></progress>
 										</c:if>
 									</div>
 								</div>
 							<div id="text8">${dto.chsdate} ~ ${dto.chedate}</div>
+							<div id="text9">${updateViewCount}</div>
 							<!-- 참여하기 or 참여취소 -->
 							<div id="participate">
 								<!-- 로그아웃 상태 -->
@@ -212,9 +214,34 @@
 						<div class="button" id="divbutton">
 						</div> <!-- button-->
 						<div class="footer">
-						<div class="description2"></div ></div>
+						
+						
+						
+						
+	<section class="chcommu-info">
+		<p class="chcommu_header">참여자 인증 목록</p>
+		<div class="chcommu_container">
+		  <c:forEach items="${checklst}" var="checkdto" end="7">
+		  	<div style="cursor: pointer;" onclick="location.href='/checkcommunity'">
+				<img src="/checkimage/${checkdto.checkimg}" class="chcommu-img" width="180px" height="180px" />
+			  	<p class="chcommu_detailinfo"><b>닉네임 :</b> ${checkdto.nickname}</p>
+			  	<p class="chcommu_detailinfo"><b>등록시간 :</b> ${checkdto.checktime}</p>
+			</div>
+		  </c:forEach>
+		</div>
+	
+	</section>
+						
+						
+						
+						
+						
+						
+						
+						</div>
 					</div> <!-- container -->
 					<%@ include file="/WEB-INF/views/main_footer.jsp" %>
-
+				</c:if> <!-- 챌린지 번호와 챌린지페이지 번호가 같을때 -->
+			</c:forEach> <!-- 챌린지 테이블 + 참가자수(checknum) -->
 
 	</html>

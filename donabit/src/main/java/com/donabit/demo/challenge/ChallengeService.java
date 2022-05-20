@@ -63,5 +63,8 @@ public interface ChallengeService {
 	int myDonateCount(String nickname);
 
 	public int updateViewCount(int chnumint);
+	
+	public List<ChallengeDTO> selectCheckInfo(String chnumst);
+
 
 }
