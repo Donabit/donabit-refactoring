@@ -57,6 +57,6 @@
 
 
 		<!--------------------------------------------------->
-		<input type="hidden" id="nickname" name="nickname" value="${principal.memberdto.nickname}">
+		<input type="hidden" id="nickname" name="nickname" value="${principal.memberdto.email}">
 		<input type="hidden" idx="${status.index}" id="checkid${status.index}" name="checkid" value="${check.checkid}">
 	</div> <!-- 좋아요, 신고 버튼 -->

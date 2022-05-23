@@ -247,38 +247,52 @@
             }
         }
     </style>
+    <div class="slidebox">
+        <input type="radio" name="slide" id="slide01" checked>
+        <input type="radio" name="slide" id="slide02">
+        <input type="radio" name="slide" id="slide03">
+        <input type="radio" name="slide" id="slide04">
+        <ul class="slidelist">
+            <li class="slideitem">
+                <div>
+                    <a id="alogo1"></a>
+                </div>
+            </li>
+            <li class="slideitem">
+                <div>
+                    <a id="alogo2"></a>
+                </div>
+            </li>
+            <li class="slideitem">
+                <div>
+                    <a id="alogo3"></a>
+                </div>
+            </li>
+            <li class="slideitem">
+                <div>
+                    <a id="alogo4"></a>
+                </div>
+            </li>
+        </ul>
 
-    <%! int num1=(int) (Math.random() * 12) + 1; %>
-        <%! int num2=(int) (Math.random() * 12) + 1; %>
-            <%! int num3=(int) (Math.random() * 12) + 1; %>
-                <%! int num4=(int) (Math.random() * 12) + 1; %>
+    </div>
 
-                    <div class="slidebox">
-                        <input type="radio" name="slide" id="slide01" checked>
-                        <input type="radio" name="slide" id="slide02">
-                        <input type="radio" name="slide" id="slide03">
-                        <input type="radio" name="slide" id="slide04">
-                        <ul class="slidelist">
-                            <li class="slideitem">
-                                <div>
-                                    <a><img src="../img/logo_<%= num1 %>.png"></a>
-                                </div>
-                            </li>
-                            <li class="slideitem">
-                                <div>
-                                    <a><img src="../img/logo_<%= num2 %>.png"></a>
-                                </div>
-                            </li>
-                            <li class="slideitem">
-                                <div>
-                                    <a><img src="../img/logo_<%= num3 %>.png"></a>
-                                </div>
-                            </li>
-                            <li class="slideitem">
-                                <div>
-                                    <a><img src="../img/logo_<%= num4 %>.png"></a>
-                                </div>
-                            </li>
-                        </ul>
+    <script>
+        $(document).ready(function () {
+            var alogo1 = document.getElementById("alogo1");
+            var alogo2 = document.getElementById("alogo2");
+            var alogo3 = document.getElementById("alogo3");
+            var alogo4 = document.getElementById("alogo4");
+            var num1 = Math.floor(Math.random() * 12) + 1;
+            var num2 = Math.floor(Math.random() * 12) + 1;
+            var num3 = Math.floor(Math.random() * 12) + 1;
+            var num4 = Math.floor(Math.random() * 12) + 1;
+            $("#alogo1").prepend("<img src='../img/logo_" + num1 + ".png'>");
+            $("#alogo2").prepend("<img src='../img/logo_" + num2 + ".png'>");
+            $("#alogo3").prepend("<img src='../img/logo_" + num3 + ".png'>");
+            $("#alogo4").prepend("<img src='../img/logo_" + num4 + ".png'>");
+            /*1~12 랜덤 숫자*/
+        });
 
-                    </div>
+
+    </script>
