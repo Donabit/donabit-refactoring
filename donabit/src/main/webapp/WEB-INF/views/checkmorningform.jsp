@@ -16,7 +16,7 @@
 <link rel="shorcut icon" type="image/x-icon" sizes="32x32" href="/img/favicon-32x32.png">
 </head>
 <body>
-<img class="checktitle" src="img/logo_m.png">
+<img class="checktitle" src="img/logo_m1.png">
 <hr>
 	<div class="check_container">
 				<form action="/checkmorningform" method="post" enctype="multipart/form-data" id="checkmorningform" name="checkmorningform">		

@@ -18,7 +18,7 @@
 <body>
 
 <div class="title"><a href="/main">
-<img src="/img/logo.png" height="150px"></a></div>
+<img src="/img/logo_m1.png" height="150px"></a></div>
 
 <div class="login0">
 	<div class="login1">
