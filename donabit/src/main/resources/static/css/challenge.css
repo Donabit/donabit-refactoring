@@ -5,6 +5,47 @@
 	font-family: 'Poor Story', cursive;
 } */
 
+a, a:hover, a:active {color: inherit; text-decoration: none;}
+
+.filter_bar_list_item {
+	border-right: 1px solid gray;
+}
+
+.filter_bar_anchor {
+	font-size: 1.2em;
+	padding: 8px 14px;
+	margin-bottom: 2em;
+}
+
+.filter_bar_list li:last-child {
+	border: 0;
+}
+
+.filter_bar_anchor:hover {
+	color: #2bc1bc;
+}
+
+.search_bar_keyword input{
+	width: 250px;
+	height: 35px;
+}
+
+#search_btn, #moreBtn {
+	font-size: 1.05em;
+	color: white;
+	width: 4em;
+	height: 39px;
+	background-color: #2bc1bc;
+	border: none;
+	border-radius: 15%;
+}
+
+#search_btn:hover, #moreBtn:hover {
+	cursor: pointer;
+	opacity: 0.8;
+		border-radius: 15%;
+}
+
 .container {
     display: grid;
     grid-template-columns: 100px 1390px 100px;
@@ -69,10 +110,11 @@
 	display: flex;
 	justify-content: center;
 	list-style: none;
+	margin-bottom: 2em;
 }
 
 .filter_bar_list li {
-	padding: 6px 14px;
+	padding: 8px 16px;
 }
 
 .chimg {
