@@ -35,19 +35,19 @@
 					<!-- 챌린지 리스트 -->
 					<div class="filter_bar">
 						<ul class="filter_bar_list">
-							<li>
-								<a href="/challenge?order=ing">진행중</a>
+							<li class="filter_bar_list_item">
+								<a class="filter_bar_anchor" href="/challenge?order=ing">진행중</a>
 							</li>
-							<li>
-								<a href="/challenge?order=coming">오픈예정</a>
+							<li class="filter_bar_list_item">
+								<a class="filter_bar_anchor" href="/challenge?order=coming">오픈예정</a>
 							</li>
-							<li>
-								<a href="/challenge?order=end">완료</a>
+							<li class="filter_bar_list_item">
+								<a class="filter_bar_anchor" href="/challenge?order=end">완료</a>
 							</li>
 						</ul>
 					</div>
 					<form class="search_bar_keyword" action="/challenge">
-						<input type="text" name="keyword" placeholder="챌린지명 자동완성" list="challenge-name"
+						<input type="text" name="keyword" placeholder=" 챌린지명 자동완성" list="challenge-name"
 							value="${param.keyword}" />
 						<datalist id="challenge-name">
 							<c:forEach items="${chnamelist}" var="list">
@@ -55,7 +55,7 @@
 							</c:forEach>
 						</datalist>
 						<input type="hidden" name="order" value="${param.order}" />
-						<button type="submit">검색</button>
+						<button id="search_btn" type="submit">검색</button>
 					</form>
 					<div class="containerflex">
 						<c:forEach items="${challengelist }" var="dto">
