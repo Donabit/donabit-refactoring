@@ -267,6 +267,15 @@ public class ChallengeController {
 		return list;
 	}
 
+	/* DTO = isReport, isLikes, reportCnt, LikesCnt를 만들어서
+	 * 해당 DTO를 ChallengeDTO 안에 넣어서 Ajax를 통해서 갖고 온다.
+	 * 
+	 * <- 이미 서비스는 만들어져 있음
+	 * 
+	 * 댓글돗 같은 방법으로 갖고 온다.
+	 * */
+	
+	
 	
 	@GetMapping("/checkcommunity")
 	public ModelAndView checkmorninglist(Authentication authentication, String order, String keyword,

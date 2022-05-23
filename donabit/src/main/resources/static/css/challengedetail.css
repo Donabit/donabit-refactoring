@@ -46,7 +46,7 @@
 	margin-left: 20px;
 	width: 430px;
 	height: 400px;
-	background: #daf0ef;
+	background: #b6edeb;
 }
 
 
@@ -200,7 +200,7 @@
 .descriptionin {
 	grid-area: description;
 	margin: 20px 0px 10px 0px;
-	background: #daf0ef;
+	background: #b6edeb;
 	padding: 30px 30px 30px 30px;
 
 }

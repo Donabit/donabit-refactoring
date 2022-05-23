@@ -46,6 +46,7 @@
                 dataType: "json",
                 success: function (data) {
                     commentList(data); //댓글 작성 후 댓글 목록 reload
+                    $("#content" + no).val('');
                     //$('[name=content]').val('');
                 }
             });

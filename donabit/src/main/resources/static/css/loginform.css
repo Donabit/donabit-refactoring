@@ -112,16 +112,15 @@ body {
 	justify-content: center;  
 }
 
+.join_href {
+	width: 100%;
+	text-align: center;
+}
+
 .btn-gradient {
 	padding: 1em auto;
 	height: 75px;
     width: 75% !important;
-}
-
-btn-gradient2 {
-	padding: 1em auto;
-	height: 75px;
-    width: 100%;
 }
 
 .btn-gradient {

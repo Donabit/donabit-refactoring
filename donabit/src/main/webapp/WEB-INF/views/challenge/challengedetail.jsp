@@ -17,6 +17,7 @@
 		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 			<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 				<script src="../jquery-3.6.0.min.js"></script>
+		<script src="../js/main_header.js" type="text/javascript"></script>
 				<script type="text/javascript">
 					//spring security - ajax post 방식으로 요청시 추가
 					var token = $("meta[name='_csrf']").attr("content");
