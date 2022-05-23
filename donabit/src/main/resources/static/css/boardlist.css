@@ -4,7 +4,7 @@
     position: relative;
     float: none !important;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 7px 50px 7px;
     line-height: 24px;
     font-family: 'NanumSquareBold','나눔고딕','Nanum Gothic',sans-serif;
@@ -151,6 +151,32 @@ table {
     width: 70px;
   }
 
+.btn-gradient {
+	background-color: #2AC1BC;
+	padding: 8px 18px;  
+  	font-size: 14px;
+  	opacity: 1.0;
+  	border: 1px solid #2AC1BC;
+}
+
+.btn-gradient:hover{
+	opacity: 0.8;
+}
+
+.sbtn{
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	margin-right:-4px;
+	background-color: #2AC1BC;
+	padding: 8px 18px;  
+  	font-size: 14px;
+  	opacity: 1.0;
+  	border: 1px solid #2AC1BC;
+	}
+
+.sbtn:hover{
+	opacity: 0.8;
+}
 
 /* reset */
 
@@ -169,6 +195,7 @@ table {
 .ncontainer {
   width: 1400px;
   margin: 0 auto;
+  margin-top: 20px;
 }
 .blind {
   position: absolute;
@@ -202,9 +229,6 @@ table {
   }
   thead{
   	font-weight: 700;
-  }
-  .table_wrap{
-  	margin : 50px 0 0 50px;
   }
   .bno_width{
   	width: 12%;

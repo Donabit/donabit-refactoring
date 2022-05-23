@@ -1,61 +1,70 @@
 @charset "UTF-8";
 
+.titleArea h2 {
+    position: relative;
+    float: none !important;
+    text-align: center;
+    margin-top: 20px;
+    padding: 7px 50px 7px;
+    line-height: 24px;
+    font-family: 'NanumSquareBold','나눔고딕','Nanum Gothic',sans-serif;
+    font-size: 22px;
+    color: #111;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    text-transform: capitalize;
+    background: none !important;
+}
+
+.ptitle h1 {
+  font-size: 14px;
+  color: darkgray;
+  font-weight: 400;
+  text-align: center;
+}
 
 section.notice {
-  	padding: 50px 0;
 	left:25%; 
-	top:25%;
 	margin: 0 auto;
    	height:800px;   
-	width: 45%;
+	width: 60%;
   
 }
 
 .wrapper {
-	padding-top: 30px;
 	margin: 0 auto;	
-	
-	
-	border: 2px dotted #FF85B3;
-	border-radius:2%;   
-	background-color:#ffccdf;
-	
 }
 
 
 
 
 .ptitle {
-  margin-bottom: 60px;
-  justify-content: center;
-}
-.ptitle h3 {
-  font-size: 28px;
-  color: #fc5192;
-  font-weight: 400;
-  text-align: center;
+  margin-bottom: 20px;
 }
 
 
 .btitle,
 .bwriter,
 .binfo {
-	
-	padding: 15px;
+	padding: 10px;
+}
+
+.btitle{
+	border-top : 1px solid darkgray;
 }
 
 .bwriter{
-	border-top : 1px dashed #ddd;
+	border-top : 1px solid darkgray;
 }
 
 .binfo {
-	border-top : 1px dashed #ddd;
-	border-bottom : 1px dashed #fc5192;
+	border-top : 1px solid darkgray;
+	border-bottom : 1px solid darkgray;
 	font-size: 0;
 }
 
 .bcontents{
-	border-bottom : 1px dashed #fc5192;
+	border-bottom : 1px solid darkgray;
 }
 
 .bcontents textarea {
@@ -121,15 +130,9 @@ section.notice {
 
 
 .tname {
-  color: #fc5192;
+  color: darkgray;
   font-weight: bold;
 }
-
-
-
-
-
-
 
 div {
     padding-top: 4px;
@@ -138,11 +141,10 @@ div {
 
 
 
-input {
-	
-    border: 1px dotted pink;
-    border-radius: 3px;
-    line-height: 20px;
+input {	
+    border: 1px white;
+    border-radius: 1px;
+    line-height: 1px;
     font-size: 12px;
     padding-left: 10px;
     padding-right: 10px;
@@ -161,15 +163,15 @@ input {
 	border-bottom: 4px solid rgba(0,0,0,0.21);
 	border-radius: 4px;
 	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
-	
-	background: rgba(255,133,179,1);
-	background: -moz-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,133,179,1)), color-stop(100%, rgba(235, 134, 171, 1)));
-	background: -webkit-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: -o-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: -ms-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: linear-gradient(to bottom, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF85B3', endColorstr='#FF85B3', GradientType=0 );
+	background-color: #2AC1BC;
+	padding: 8px 18px;  
+  	font-size: 14px;
+  	opacity: 1.0;
+  	border: 1px solid #2AC1BC;
+}
+
+.btn-gradient:hover{
+	opacity: 0.8;
 }
 
 
@@ -192,7 +194,6 @@ input {
 	margin: 0 auto;
 	width: 230px;
 	height: 50px;
-
 }
 
 .buttons-first {
@@ -214,7 +215,6 @@ input {
 	height:50px;
 	display: inline-block;
     margin-left: 10px;
-    
 }
 
 

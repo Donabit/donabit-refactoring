@@ -37,15 +37,12 @@
 		
 <section class="notice">
 <div class="ptitle">
-
 <div class="titleArea firstTitleArea">
 <h2><font color="#555555">공지사항</font></h2>
 </div>
-
-<div class="ncontainer">
+<div class="secondt">
 	<h1><font color="#555555">Donabit 최신 소식을 읽어보세요!</font></h1>
 </div>
-
 </div>
 
 <div class="table_wrap">
@@ -92,7 +89,7 @@
                 <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
             </select> 
             <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
-            <button>검색</button>
+            <button id="sbtn">검색</button>
         </div>
     </div>    
 		

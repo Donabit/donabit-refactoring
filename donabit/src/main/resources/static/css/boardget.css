@@ -4,7 +4,7 @@
     position: relative;
     float: none !important;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 7px 50px 7px;
     line-height: 24px;
     font-family: 'NanumSquareBold','나눔고딕','Nanum Gothic',sans-serif;
@@ -18,77 +18,53 @@
 
 .ptitle h1 {
   font-size: 14px;
-  color: #555555;
+  color: darkgray;
   font-weight: 400;
   text-align: center;
 }
 
-/* section.notice {
-  rgb(192, 192, 192): 80px;
-  height: 800px;
-}
-
-.ptitle {
-  marginrgb(192, 192, 192): 60px;
-  margin-bottom: 30px;
-} */
-
 section.notice {
-  	padding: 50px 0;
 	left:25%; 
-	top:25%;
 	margin: 0 auto;
    	height:800px;   
-	width: 45%;
-  	height: 800px;
+	width: 60%;
   
 }
 
-./* wrapper {
-	padding-top: 30px;
+.wrapper {
 	margin: 0 auto;	
-	
-	
-	border: 0px dotted #FAFAFA;
-	border-radius:2%;   
-	background-color:#FAFAFA;
-	
 }
 
 
 
 
 .ptitle {
-  margin-bottom: 60px;
-  justify-content: center;
-}
-.ptitle h3 {
-  font-size: 28px;
-  color: black;
-  font-weight: 400;
-  text-align: center;
+  margin-bottom: 20px;
 }
 
 
 .btitle,
 .bwriter,
 .binfo {
-	
-	padding: 15px;
+	padding: 10px;
+}
+
+.btitle{
+	border-top : 1px solid darkgray;
 }
 
 .bwriter{
-	border-top : 1px dashed #ddd;
+	border-top : 1px solid darkgray;
 }
 
 .binfo {
-	border-top : 1px dashed #ddd;
-	border-bottom : 1px dashed black;
+	border-top : 1px solid darkgray;
+	border-bottom : 1px solid darkgray;
 	font-size: 0;
 }
 
 .bcontents{
-	border-bottom : 1px dashed black;
+	border-bottom : 1px solid darkgray;
 }
 
 .bcontents textarea {
@@ -154,15 +130,9 @@ section.notice {
 
 
 .tname {
-  color: black;
+  color: darkgray;
   font-weight: bold;
 }
-
-
-
-
-
-
 
 div {
     padding-top: 4px;
@@ -171,11 +141,10 @@ div {
 
 
 
-input {
-	
-    border: 1px dotted black;
-    border-radius: 3px;
-    line-height: 20px;
+input {	
+    border: 1px white;
+    border-radius: 1px;
+    line-height: 1px;
     font-size: 12px;
     padding-left: 10px;
     padding-right: 10px;
@@ -192,7 +161,17 @@ input {
 	position: relative;
 	border: 1px solid rgba(0,0,0,0.21);
 	border-bottom: 4px solid rgba(0,0,0,0.21);
+	border-radius: 4px;
 	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+	background-color: #2AC1BC;
+	padding: 8px 18px;  
+  	font-size: 14px;
+  	opacity: 1.0;
+  	border: 1px solid #2AC1BC;
+}
+
+.btn-gradient:hover{
+	opacity: 0.8;
 }
 
 
@@ -230,45 +209,4 @@ input {
 	display: inline-block;
     margin-left: 10px;
     
-} */
-
-
-
-
-
-/*  .input_wrap{
-	padding: 5px 20px;
-}
-label{
-    display: block;
-    margin: 10px 0;
-    font-size: 20px;	
-}
-input{
-	padding: 5px;
-    font-size: 17px;
-}
-textarea{
-	width: 800px;
-    height: 200px;
-    font-size: 15px;
-    padding: 10px;
-}
-.btn{
-  	display: inline-block;
-    font-size: 22px;
-    padding: 6px 12px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    font-weight: 600;
-    width: 140px;
-    height: 41px;
-    line-height: 39px;
-    text-align : center;
-    margin-left : 30px;
-    cursor : pointer;
-}
-.btn_wrap{
-	padding-left : 80px;
-	margin-top : 50px;
 }

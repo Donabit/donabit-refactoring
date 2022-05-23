@@ -1,14 +1,19 @@
 @charset "UTF-8";
 
 body {
-	background-color: gray;
+	background-color: #FAFAFA;
+}
+
+.title {
+	display: flex;
+	justify-content: center;
 }
 
 .login0 {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 600px;
 }
 
 .login1 {
@@ -18,7 +23,7 @@ body {
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:".";
-  background-color: red;
+  background-color: white;
   float: left;
 }
 
@@ -31,6 +36,118 @@ body {
   grid-template-areas:".";
   background-color: blue;
   float: left;
+}
+
+.loginf {
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	font-size: 5px;
+}
+
+.login1 h2 {
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.email {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+}
+
+#email {
+	height: 50px;
+	width: 75%;
+}
+
+.password {
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+}	
+
+#password {
+	height: 50px;
+    width: 75%;
+}
+
+	#btn_group {
+	display: flex;
+	justify-content: center;
+}
+
+	#test_btn1{ 
+	height: 40px;
+	width: 40%;
+	} 
+	
+	#test_btn2{ 
+	height: 40px;
+	width: 40%; 
+	}
+	
+	#btn_group button{ 
+	border: 1px solid skyblue; 
+	background-color: rgba(0,0,0,0); 
+	color: #2AC1BC;
+	padding: 5px; 
+	}
+	
+	#btn_group button:hover{
+	color:white; 
+	background-color: #2AC1BC; 
+	}
+	
+	.buttons-left {
+	display: flex;
+	justify-content: center;
+}
+
+	.buttons-right{
+	display: flex;
+	justify-content: center;  
+}
+
+.btn-gradient {
+	padding: 1em auto;
+	height: 75px;
+    width: 75% !important;
+}
+
+btn-gradient2 {
+	padding: 1em auto;
+	height: 75px;
+    width: 100%;
+}
+
+.btn-gradient {
+	background-color: #2AC1BC; 
+  	font-size: 20px;
+  	font-weight: bold;
+  	color: dark gray;
+  	opacity: 1.0;
+  	border: 1px solid #2AC1BC;
+}
+
+.btn-gradient2 {
+	background-color: #FAFAFA;
+  	font-size: 20px;
+  	font-weight: bold;
+  	color: dark gray;
+  	opacity: 1.0;
+  	border: 1px solid #2AC1BC;
+}
+
+.btn-gradient:hover{
+	opacity: 0.8;
+}
+
+.btn-gradient2:hover{
+	opacity: 0.8;
 }
 
 /* .wrapper {

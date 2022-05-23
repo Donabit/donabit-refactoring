@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
- <%@ include file="/WEB-INF/views/main_header.jsp" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>  
 <!DOCTYPE html>
 <html>
 <head>
 <head>
 <meta charset="UTF-8">
-<title>게시물 조회 페이지</title>
-
-<script src="mybatis_spring.js" defer></script>
- 
+<title>Donabit 습관을 기부하세요</title>
+<link rel="shorcut icon" type="image/x-icon" sizes="32x32" href="/img/favicon-32x32.png">
+<link rel="stylesheet" type="text/css" href="../css/main_header.css">
+<link rel="stylesheet" href="../css/ch-community.css">
 <link rel="stylesheet" type="text/css" href="../css/boardmodify.css">
+<script src="mybatis_spring.js" defer></script>
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
@@ -20,12 +20,21 @@
   crossorigin="anonymous">
 </script>
 
+<script src="../js/main_header.js" defer></script>
+
 </head>
 
 <body>
+
+		<%@ include file="/WEB-INF/views/main_header.jsp" %>
+		<img id="coimg" src="../img/challenge/community.svg">
+
 <section class="notice">
 <div class="ptitle">
-<h3>Donabit Notice</h3>
+<div class="titleArea firstTitleArea">
+<h2><font color="#555555">수정 페이지</font></h2>
+<h1><font color="#555555">관리자만 수정이 가능합니다.</font></h1>
+</div>
 </div>
 
 <div class="wrapper">
@@ -55,11 +64,9 @@
 	</div>
 	<div class="bcontents">
 	
-		<textarea rows="3" name="content">${pageInfo.content}</textarea>
+		<textarea rows="6" name="content">${pageInfo.content}</textarea>
 	
 	</div>
-	
-
 	
 	<div class="buttons-wrapper">
 		
@@ -68,7 +75,6 @@
 		
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" id="list" />
         <div class="buttons-second"><button class="btn-gradient small" id="modify_btn">수정</button></div>
-        
 		</form>
         
         <form id="deleteForm" action="/board/delete" method="post">
@@ -88,7 +94,7 @@
 	<input type="hidden" id="bno" name="bno" value='${pageInfo.bno}'>
 	</form>
 	
-</div>
+			</div>
 </section>	
 	
 <!-- 	<form action="/modfiy" method="GET"> 
