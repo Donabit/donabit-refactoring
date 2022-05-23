@@ -63,8 +63,8 @@
 	</select> -->
 
 	<select id="checklist2" resultType="challengedto">
-		SELECT chname, checks.nickname, checks.checkid, checktitle, checkdesc, checkimg AS checkimg2, checktime, member.avatar, count(likes) as totallikes
-		FROM checks left outer join member on checks.nickname = member.nickname left outer JOIN challenge ON checks.chnum = challenge.chnum left outer join toggle on checks.checkid = toggle.checkid
+		SELECT chname, checks.nickname, checks.checkid, checktitle, checkdesc, checkimg AS checkimg2, checktime, donabit.member.avatar, count(likes) as totallikes
+		FROM checks left outer join donabit.member on checks.nickname = donabit.member.nickname left outer JOIN challenge ON checks.chnum = challenge.chnum left outer join toggle on checks.checkid = toggle.checkid
 		<if test="keyword != null">
 		where chname like concat('%', #{keyword},'%')
 		</if>
