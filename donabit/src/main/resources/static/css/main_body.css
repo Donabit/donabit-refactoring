@@ -140,8 +140,8 @@ border-radius: 2%;
 .ranking_list_cell {
 	padding: 6px 12px;
 	display: table-cell;
-	border-left: 1px solid rgba(0,0,0,0.2);      
-	border-right: 1px solid rgba(0,0,0,0.2);
+	border-left: 0px solid rgba(0,0,0,0);      
+	border-right: 0px solid rgba(0,0,0,0);
 	border-top: 1px solid rgba(0,0,0,0.5);
 	border-bottom: 1px solid rgba(0,0,0,0.5);
 }
@@ -158,7 +158,6 @@ h1.notice {
 	text-align: center;
 	margin-bottom: 5px;
 	font-size: 40px;
-	
 	position: relative;
 	right: 395px;
 }
@@ -185,11 +184,11 @@ h1.notice {
 .notice_body_cell {
 	display: table-cell;
 	border-bottom: 1px solid black;
-	padding-top: 25px;
-	padding-bottom: 25px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	padding-left: 10px;
-	padding-right: 150px;
-	width: 100%;
+	padding-right: 100px;
+	width: 40%;
 	opacity: 0.8;
 }
 

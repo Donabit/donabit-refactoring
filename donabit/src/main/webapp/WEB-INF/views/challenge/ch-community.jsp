@@ -335,12 +335,19 @@
 				<!-- 카테고라이징 끝 -->
 				<div class="category_search_nav_bar">
 					<div class="containercategory">
-						<a href="/checkcommunity?order=checktime&keyword=${param.keyword}">최신순 정렬</a>
-						<a href="/checkcommunity?order=totallikes&keyword=${param.keyword}">좋아요순 정렬</a>
-					</div>
-					<div class="search_bar">
-						<form class="search_bar_keyword" action="/checkcommunity">
-							<input type="text" name="keyword" placeholder="챌린지명 자동완성" list="challenge-name"
+						<%-- <a href="/checkcommunity?order=checktime&keyword=${param.keyword}">최신순 정렬</a>
+						<a href="/checkcommunity?order=totallikes&keyword=${param.keyword}">좋아요순 정렬</a> --%>
+				<ul class="filter_bar_list">
+						<li class="filter_bar_list_item">
+							<a class="filter_bar_anchor" href="/checkcommunity?order=checktime&keyword=${param.keyword}">최신순 정렬</a>
+						</li>
+						<li class="filter_bar_list_item">
+							<a class="filter_bar_anchor" href="/checkcommunity?order=totallikes&keyword=${param.keyword}">좋아요순 정렬</a>
+						</li>
+					</ul>
+				</div>
+					<form class="search_bar_keyword" action="/checkcommunity">
+							<input type="text" name="keyword" placeholder=" 챌린지명 자동완성" list="challenge-name"
 								value="${param.keyword}" />
 							<datalist id="challenge-name">
 								<c:forEach items="${chnamelist}" var="list">
@@ -348,11 +355,9 @@
 								</c:forEach>
 							</datalist>
 							<input type="hidden" name="order" value="${param.order}" />
-							<button type="submit">검색</button>
-						</form>
-					</div>
+							<button id="search_btn" type="submit">검색</button>
+					</form>
 				</div>
-
 				<div class="containerflex">
 					<c:forEach items="${checklist}" var="check" varStatus="status">
 						<div class="item">
