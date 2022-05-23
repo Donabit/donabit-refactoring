@@ -76,6 +76,7 @@
 						<span class="ranking_list_cell">닉네임</span>
 						<span class="ranking_list_cell">경험치</span>
 						<span class="ranking_list_cell">레벨 </span>
+						
 					</li>
 					<c:forEach items="${ranklist}" var="ranklist" varStatus="status">
 						<li class="ranking_list_row">

@@ -140,7 +140,10 @@ border-radius: 2%;
 .ranking_list_cell {
 	padding: 6px 12px;
 	display: table-cell;
-	border: 1px solid black;
+	border-left: 1px solid rgba(0,0,0,0.2);      
+	border-right: 1px solid rgba(0,0,0,0.2);
+	border-top: 1px solid rgba(0,0,0,0.5);
+	border-bottom: 1px solid rgba(0,0,0,0.5);
 }
 
 .notice_container {
@@ -184,17 +187,24 @@ h1.notice {
 	border-bottom: 1px solid black;
 	padding-top: 25px;
 	padding-bottom: 25px;
-	padding-left: 20px;
+	padding-left: 10px;
+	padding-right: 150px;
 	width: 100%;
+	opacity: 0.8;
 }
 
 .notice_body_cell:first-child:hover {
-	color: #fc5192;
+	color: #2AC1BC;
+}
+
+.notice_body_cell:second-child {
+	text-align: center;
+	padding: 0px;
 }
 
 .notice_body_cell:last-child {
 	text-align: right;
-	padding: 20px;
+	padding: 0px;
 }
 
 /* 섹션 notice 끝 */
