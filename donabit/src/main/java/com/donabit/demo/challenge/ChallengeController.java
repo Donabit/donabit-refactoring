@@ -22,6 +22,7 @@ import com.donabit.demo.Criteria;
 import com.donabit.demo.admin.ChallengeService2;
 import com.donabit.demo.check.CheckService;
 import com.donabit.demo.dto.ChallengeDTO;
+import com.donabit.demo.dto.ToggleDTO;
 import com.donabit.demo.security.PrincipalDetails;
 
 @Controller
@@ -250,16 +251,15 @@ public class ChallengeController {
 	
 	@GetMapping("/moreCommunity.do")
 	@ResponseBody
-	public List<ChallengeDTO> moreList(String order, String keyword, int pageNum) {
+	public List<ChallengeDTO> moreList(String nickname, String order, String keyword, int pageNum) {
 		MoreObject mo2 = new MoreObject(pageNum, 8);
 		List<ChallengeDTO> list = new ArrayList<ChallengeDTO>();
-
 		if (order == null || order.equals("checktime") || order.equals("")) { // 초기화면(/checkcommunity)
 			list = service.checklist2(null, keyword, mo2);
 		} else {
 			list = service.checklist2(order, keyword, mo2);
 		}
-
+		selectToggle(nickname, list);
 		for (ChallengeDTO i : list) {
 			i.setLevel2(lib.calcLevel(i.getNickname()));
 		}
@@ -267,6 +267,71 @@ public class ChallengeController {
 		return list;
 	}
 
+	private void selectToggle(String nickname, List<ChallengeDTO> list) {
+		for(int i = 0, size = list.size(); i < size; i++) {
+			ToggleDTO tdto = new ToggleDTO();
+			tdto.setLikes(service.selecttoggle(nickname, list.get(i).getCheckid())); //좋아요결과, likes / 0 or 1
+			tdto.setSingo(service.selectsingo(nickname, list.get(i).getCheckid())); //신고결과, singo / 0 or 1
+			tdto.setTotallikes(service.totallike(list.get(i).getCheckid())); //객체별 좋아요 수
+			tdto.setTotalsingo(service.totalsingo(list.get(i).getCheckid())); //객체별 신고 수
+			list.get(i).setToggleDTO(tdto);
+		}
+
+	}
+	/*
+	 * 
+		List<Integer> mylikeresult = new ArrayList<Integer>();
+		List<Integer> totallike = new ArrayList<Integer>();
+		List<Integer> singoresult = new ArrayList<Integer>();
+		List<Integer> totalsingo = new ArrayList<Integer>();
+
+		// if문 내부는 로그인을 한 상태일때
+		if (authentication != null) {
+			// 닉네임 세션 가져오기
+			PrincipalDetails userDetails = (PrincipalDetails) authentication.getPrincipal();
+			String nickname = userDetails.getMemberdto().getNickname();
+			System.out.println(nickname);
+			// 좋아요가 있다면 1 아니면 0 => 리스트에 저장
+			for (ChallengeDTO data : list) {
+				mylikeresult.add(service.selecttoggle(nickname, data.getCheckid()));
+				System.out.println(nickname + "가 로그인 중/" + data.getCheckid() + "=챌린지인증고유번호");
+			}
+			// 좋아요 콘솔창 출력테스트
+			for (Integer i : mylikeresult) {
+				System.out.println(nickname + "가  " + i + "= 하트누려면 1/ 아니면0");
+			}
+			//////////////////////////////////////////////////////////////////////////////////////
+			// 신고가 있다면 1 아니면 0 => 리스트에 저장
+			for (ChallengeDTO data : list) {
+				singoresult.add(service.selectsingo(nickname, data.getCheckid()));
+				System.out.println(nickname + "가 로그인 중/" + data.getCheckid() + "=챌린지인증고유번호");
+			}
+			mv.addObject("singo", singoresult);
+			mv.addObject("toggle", mylikeresult);
+		}
+
+		for (ChallengeDTO data : list) {
+			totallike.add(service.totallike(data.getCheckid()));
+		}
+		for (Integer i : totallike) {
+			System.out.println(i + "= 각 인증게시물의 전체 좋아요 수");
+		}
+		for (ChallengeDTO data : list) {
+			totalsingo.add(service.totalsingo(data.getCheckid()));
+		}
+		for (Integer i : totalsingo) {
+			System.out.println(i + "= 각 인증게시물의 전체 신고 수");
+		}
+
+		// 자동완성용 chname 전체조회
+		mv.addObject("chnamelist", chservice.selectChallengeName());
+		mv.addObject("level", levelList);
+		mv.addObject("totalsingo", totalsingo);
+		mv.addObject("totallike", totallike);
+		mv.addObject("checklist", list);
+		mv.setViewName("/challenge/ch-community"); // 뷰 이름 지정, jsp 이름
+		return mv; // jsp 보냄
+	 */
 	/* DTO = isReport, isLikes, reportCnt, LikesCnt를 만들어서
 	 * 해당 DTO를 ChallengeDTO 안에 넣어서 Ajax를 통해서 갖고 온다.
 	 * 

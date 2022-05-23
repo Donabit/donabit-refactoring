@@ -9,7 +9,8 @@ public class ChallengeDTO {
 			checkimg2, checktime, count, avatar, cno, content, cdate;
 	int viewcount;
 	int level2;
-
+	ToggleDTO toggleDTO;
+	
 	public ChallengeDTO() {
 	}
 

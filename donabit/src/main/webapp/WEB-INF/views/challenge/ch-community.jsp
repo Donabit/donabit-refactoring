@@ -407,8 +407,6 @@
 		console.log("${param.order}");
 		console.log("${param.keyword}");
 		console.log("${param.mo}");
-
-
 		let pageNum = 1;
 		$("#moreBtn").on("click", function () {
 			pageNum++;
@@ -418,7 +416,8 @@
 				data: {
 					'order': "${param.order}",
 					'keyword': "${param.keyword}",
-					'pageNum': pageNum
+					'pageNum': pageNum,
+					'nickname': "${principal.memberdto.nickname}"
 				}, // 넘길 데이터
 				type: 'get',
 				dataType: "json", // 데이터 타입 json으로 설정 <- 이걸 안하면 밑에 처럼 JSON.parse를 해야함
@@ -447,6 +446,47 @@
 						result += "</div>";
 						result += "</div>";
 
+						// 좋아요
+						result += "<div class='divbtn'>";
+						result += "<span id='likes" + i + "'>";
+						result += "<span class='btn1'>";
+						if(nickname == null){
+							result += "<img src='img/like22.png' width='25px'></span>";
+						}
+						result += "<span class='likeafterbtn' id='likeafterbtn" + i +"' idx='" + i + "'>";
+						if(list[i].toggleDTO.likes == 1){
+							result += "<img id='likeafter" + i + "' src='img/like11.png' width='25px'></span>";
+						}
+						
+						result += "<span class='likebeforebtn' id='likebeforebtn" + i +"' idx='" + i + "'>";
+						if(list[i].toggleDTO.likes == 0){
+							result += "<img id='likebefore" + i + "' src='img/like22.png' width='25px'></span>";
+						}
+						result += "<span class='likesu' id='totallike" + i + "'>" + list[i].toggleDTO.totallikes + "</span></span>";
+						
+						// 신고
+						result += "<span id='singo" + i + "'>";
+						result += "<span class='btn2'>";
+						if(nickname == null){
+							result += "<img src='img/singo22.png' width='30px'></span>";
+						}
+						result += "<span class='singoafterbtn' id='singoafterbtn" + i +"' idx='" + i + "'>";
+						if(list[i].toggleDTO.singo == 1){
+							result += "<img id='singoafter" + i + "' src='img/singo11.png' width='30px'></span>";
+						}
+						
+						result += "<span class='singobeforebtn' id='singobeforebtn" + i +"' idx='" + i + "'>";
+						if(list[i].toggleDTO.singo == 0){
+							result += "<img id='singobefore" + i + "' src='img/singo22.png' width='30px'></span>";
+						}
+
+						result += "<span class='singosu' id='totalsingo" + i + "'>" + list[i].toggleDTO.totalsingo + "</span></span>";
+						
+						
+						result += "<input type='hidden' id='nickname' name='nickname' value='" + nickname + "'>";
+						result += "<input type='hidden' idx='" + i + "' id='checkid" + i + "' name='checkid' value='" + list[i].checkid + "'></div>";
+						
+						
 						$('.containerflex').append(result);
 					}
 				},// success
