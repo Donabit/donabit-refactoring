@@ -81,7 +81,6 @@ $(document).ajaxSend(function (e, xhr, options) {
 		<input type = "radio" name ="avatar" value = "slime" required> 슬라임 </input>
 		<img src="/img/slime1.jpg" width=200px height=200px>
 	</div>
- </div>
  <br>
   <hr/>
   <br>
