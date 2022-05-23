@@ -50,11 +50,11 @@
 	</select>
 	
 	<select id="selectMember" resultType="memberdto">
-		SELECT * FROM member ORDER BY auth
+		SELECT * FROM donabit.member ORDER BY auth
 	</select>
 	
 	<select id="selectMemberCount" resultType="int">
-		SELECT count(*) FROM member
+		SELECT count(*) FROM donabit.member
 	</select>
 	
 	<delete id="deleteChallenge" parameterType="int">
@@ -66,7 +66,7 @@
 	</select>
 	
 	<select id="selectMemberInfoByNumber" parameterType="int" resultType="challengingdto">
-		SELECT member.nickname AS nickname, member.email, challenging.personalpf AS personalpf FROM donabit.member LEFT JOIN challenging ON member.nickname = challenging.nickname WHERE challenging.chnum = #{chnum};
+		SELECT donabit.member.nickname AS nickname, donabit.member.email, challenging.personalpf AS personalpf FROM donabit.member LEFT JOIN challenging ON donabit.member.nickname = challenging.nickname WHERE challenging.chnum = #{chnum};
 	</select>
 	
 	<select id="selectEachReportCountByNumber" parameterType="String" resultType="int">
@@ -89,7 +89,7 @@
 	<select id="selectRanker" resultType="memberdto">
 		SELECT avatar, nickname, sum(multiple) as expsum FROM(
 			SELECT avatar, checks.nickname, checks.chnum, COUNT(checks.nickname) * chexp AS multiple
-			FROM checks JOIN challenge ON checks.chnum = challenge.chnum JOIN member ON checks.nickname = member.nickname GROUP BY checks.nickname, chnum) AS mainquery
+			FROM checks JOIN challenge ON checks.chnum = challenge.chnum JOIN donabit.member ON checks.nickname = donabit.member.nickname GROUP BY checks.nickname, chnum) AS mainquery
 		GROUP BY nickname ORDER BY expsum DESC LIMIT 0, 4;
 	
 		</select>
