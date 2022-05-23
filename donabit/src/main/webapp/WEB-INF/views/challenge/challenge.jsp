@@ -21,12 +21,12 @@
 				<style>
 					@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Source+Sans+Pro&display=swap');
 				</style>
-		<script src="https://kit.fontawesome.com/392c986039.js" crossorigin="anonymous"></script>
+				<script src="https://kit.fontawesome.com/392c986039.js" crossorigin="anonymous"></script>
 	</head>
 
 	<body>
 		<%@ include file="/WEB-INF/views/main_header.jsp" %>
-			<img id="challenge1" src="img/challenge/community.svg">
+			<img id="challenge1" src="img/challenge/challenge11.svg">
 			<div class="container">
 				<div class="header"></div>
 				<div class="section">
@@ -66,11 +66,12 @@
 								<div class="chdetail">
 									<div class="text1">
 										<span>${dto.chname}</span>
-										<c:if test="${dto.nickname == null}"><!-- 공식챌린지 -->
+										<c:if test="${dto.nickname == null}">
+											<!-- 공식챌린지 -->
 											<span>
 												<i class="fa-solid fa-circle-check tooltip" id="admin_challenge">
 													<span class="tooltiptext tooltip-top">공식 챌린지</span>
-												</i>												
+												</i>
 											</span>
 										</c:if>
 									</div>
@@ -83,7 +84,8 @@
 										성공조건
 										<div class="text7">${dto.chsuccess} 회</div>
 									</div>
-									<c:if test="${dto.nickname == null}"><!-- 공식챌린지 -->
+									<c:if test="${dto.nickname == null}">
+										<!-- 공식챌린지 -->
 										<div class="text5">
 											기부금액
 											<div class="text7">
@@ -111,15 +113,13 @@
 									<div>
 										기부조건 : ${dto.checknum } / ${dto.chdonate }
 										<div>
-											<progress value="${dto.checknum }"
-												max="${dto.chdonate }"></progress>
+											<progress value="${dto.checknum }" max="${dto.chdonate }"></progress>
 										</div>
 									</div>
-										<div>
+									<div>
 										최대모집 : ${dto.count }/ ${dto.chmaxp}
 										<div>
-											<progress value="${dto.count}"
-												max="${dto.chmaxp}"></progress>
+											<progress value="${dto.count}" max="${dto.chmaxp}"></progress>
 										</div>
 									</div>
 
@@ -185,31 +185,31 @@
 						let result = "";
 						result += "<div class='item'>";
 						result += "<div class='chimg'>"
-						+ "<img class='img' src='/image/" + list[i].chimg + "'></div>";
+							+ "<img class='img' src='/image/" + list[i].chimg + "'></div>";
 						result += "<div class='chdetail'>"
-						+ "<div class='text1'><span>" + list[i].chname + "</span>";
-						if (list[i].nickname == null){
+							+ "<div class='text1'><span>" + list[i].chname + "</span>";
+						if (list[i].nickname == null) {
 							result += "<span><i class='fa-solid fa-circle-check tooltip' id='admin_challenge'>"
-							+ "<span class='tooltiptext tooltip-top'>공식 챌린지</span></i></span>";
+								+ "<span class='tooltiptext tooltip-top'>공식 챌린지</span></i></span>";
 						}
 						result += "</div>"
-						+ "<div class='text2'>" + list[i].chsdate + "~" + list[i].chedate + "</div>"
-						+ "<div class='text3'>경험치<div class='text7'>" + list[i].chexp + " Point</div></div>";
-						result += "<div class='text4'>성공조건	<div class='text7'>"+list[i].chsuccess+ " 회</div></div>";
-						result += "<div class='text5'>기부금액	<div class='text7'>"+list[i].donatepay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " 원</div></div>";	
-						result += "<div class='text6'>후원기업	<div class='text7'>"+list[i].donateco+ "</div></div>";
+							+ "<div class='text2'>" + list[i].chsdate + "~" + list[i].chedate + "</div>"
+							+ "<div class='text3'>경험치<div class='text7'>" + list[i].chexp + " Point</div></div>";
+						result += "<div class='text4'>성공조건	<div class='text7'>" + list[i].chsuccess + " 회</div></div>";
+						result += "<div class='text5'>기부금액	<div class='text7'>" + list[i].donatepay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " 원</div></div>";
+						result += "<div class='text6'>후원기업	<div class='text7'>" + list[i].donateco + "</div></div>";
 						result += "</div>";
 						result += "<div class='chdetail2'>"
-						+ "<div>기부조건 : " + list[i].checknum + " / " + list[i].chdonate + "<div><progress value='" + list[i].checknum + "' max='" + list[i].chdonate + "'></progress></div></div>";
+							+ "<div>기부조건 : " + list[i].checknum + " / " + list[i].chdonate + "<div><progress value='" + list[i].checknum + "' max='" + list[i].chdonate + "'></progress></div></div>";
 						result += "<div>최대모집 : " + list[i].count + " / " + list[i].chmaxp + "<div><progress value='" + list[i].count + "' max='" + list[i].chmaxp + "'></progress></div></div>";
-						if(list[i].count == list[i].chmaxp){
+						if (list[i].count == list[i].chmaxp) {
 							result += "<div class='buttonout'><a href='/challenge/" + list[i].chnum + "'><button class='button2'>최대인원</button></a></div>"
-						} else{
+						} else {
 							result += "<div class='buttonout'><a href='/challenge/" + list[i].chnum + "'><button class='button'>상세보기</button></a></div>"
 						}
 						result += "</div>";
 
-					$('.containerflex').append(result);
+						$('.containerflex').append(result);
 					}
 				},// success
 				error: function (jqXHR) {
@@ -221,4 +221,5 @@
 		console.log(lastNumber);
 
 	</script>
+
 	</html>

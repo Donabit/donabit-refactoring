@@ -1,6 +1,14 @@
 @charset "UTF-8";
 
+
 /*업로드리스트*/
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
 
 .container {
 	width: 1370px;
@@ -181,6 +189,20 @@
 	border: solid #BDBDBD 1px;
 }
 
+.avatar1 {
+	margin-left: 3px;
+	top: 0px;
+}
+
+.box2 {
+	background-color: #ffffff;
+	width: 30px;
+	height: 30px;
+	border-radius: 70%;
+	overflow: hidden;
+	border: solid #BDBDBD 1px;
+}
+
 #coimg {
 	width: 100%;
 	cursor: pointer;
@@ -202,8 +224,8 @@
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-	backdrop-filter: blur(2px);
+	background-color: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(3px);
 	opacity: 0;
 	visibility: hidden;
 	transform: scale(1.1);
@@ -255,11 +277,7 @@
 	display: flex;
 }
 
-.input-group {
-	position: absolute;
-	top: 400px;
-	left: 470px;
-}
+
 
 .modalimgout {
 	width: 100%;
@@ -275,10 +293,18 @@
 	width: 100%;
 }
 
-.content {
-	width: 300px;
+.input-group {
+	position: absolute;
+	top: 380px;
+	left: 470px;
+}
+
+.content,
+.form-control {
+
+	width: 340px;
 	/* 원하는 너비 설정 */
-	height: auto;
+	height: 20px;
 	/* 높이값 초기화 */
 	line-height: normal;
 	/* line-height 초기화 */
@@ -287,7 +313,7 @@
 	font-family: inherit;
 	/* 폰트 상속 */
 	border: 1px solid #999;
-	border-radius: 0;
+	border-radius: 10px;
 	/* iSO 둥근모서리 제거 */
 	outline-style: none;
 	/* 포커스시 발생하는 효과 제거를 원한다면 */
@@ -295,6 +321,64 @@
 	/* 브라우저별 기본 스타일링 제거 */
 	-moz-appearance: none;
 	appearance: none;
+}
+
+.updateinput {
+	width: 300px;
+	/* 원하는 너비 설정 */
+	height: 20px;
+	/* 높이값 초기화 */
+	line-height: normal;
+	/* line-height 초기화 */
+	padding: .5em .5em;
+	/* 원하는 여백 설정, 상하단 여백으로 높이를 조절 */
+	font-family: inherit;
+	/* 폰트 상속 */
+	border: 1px solid #999;
+	border-radius: 10px;
+	/* iSO 둥근모서리 제거 */
+	outline-style: none;
+	/* 포커스시 발생하는 효과 제거를 원한다면 */
+	-webkit-appearance: none;
+	/* 브라우저별 기본 스타일링 제거 */
+	-moz-appearance: none;
+	appearance: none;
+}
+
+#commentContentid {
+	position: relative;
+	top: -15px;
+	left: 45px;
+	width: 400px;
+	word-break: break-all;
+}
+
+.commentArea {
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.upde {
+	position: relative;
+	left: 40px;
+	top: -33px;
+	width: 250px;
+}
+
+.update,
+.delete {
+	/*글씨 굵게*/
+	font-weight: bold;
+	/*글자 색깔*/
+	color: #2AC1BC;
+	/*폰트 사이즈*/
+	font-size: 13px;
+	/*마우스 호버*/
+	cursor: pointer;
+}
+
+#conickname {
+	font-size: 21px;
 }
 
 /*↑팝업↑*/
@@ -340,4 +424,84 @@
 #moreBtn {
 	width: 6em;
 	height: 3em;
+}
+
+
+/*등록버튼*/
+.commentInsertBtn {
+	width: 80px;
+	height: 30px;
+	color: #fff;
+	background: #2AC1BC;
+	font-size: 16px;
+	border: none;
+	border-radius: 10px;
+	transition: 0.3s;
+	position: absolute;
+	left: 410px;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.commentInsertBtn:focus {
+	outline: 0;
+}
+
+.commentInsertBtn:hover {
+	background: #32beba;
+	cursor: pointer;
+	box-shadow: 0 2px 4px #32beba;
+}
+
+
+/*로그인버튼*/
+.commentLoginBtn {
+	width: 80px;
+	height: 30px;
+	color: #fff;
+	background: #2AC1BC;
+	font-size: 16px;
+	border: none;
+	border-radius: 10px;
+	transition: 0.3s;
+	position: absolute;
+	left: 410px;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.commentLoginBtn:focus {
+	outline: 0;
+}
+
+.commentLoginBtn:hover {
+	background: #32beba;
+	cursor: pointer;
+	box-shadow: 0 2px 4px #32beba;
+}
+
+/*수정버튼*/
+.commentUpdateBtn {
+	width: 80px;
+	height: 30px;
+	color: #fff;
+	background: #2AC1BC;
+	font-size: 16px;
+	border: none;
+	border-radius: 10px;
+	transition: 0.3s;
+	position: absolute;
+	left: 375px;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.commentUpdateBtn:focus {
+	outline: 0;
+}
+
+.commentUpdateBtn:hover {
+	background: #32beba;
+	cursor: pointer;
+	box-shadow: 0 2px 4px #32beba;
 }

@@ -14,15 +14,16 @@
                     var b = '${ principal.memberdto.nickname}';
                     $.each(data, function (key, value) {
                         a += '<div class="commentArea" >';
-                        a += '<div class="commentInfo' + value.cno + '">작성자 : ' + value.nickname + '</div>';
+                        a += '<div class="box2"><img class="avatar1" src="img/${check.avatar}${level[status.index]}.jpg" width="25px"></div>';
+                        a += '<div class="upde">'
+                        a += '<span float: left; id="conickname" class="commentInfo' + value.cno + '"> ' + value.nickname + '</span>';
                         if (b == value.nickname) {
-                            a += '<a onclick="commentUpdate(' + value.cno + ',\'' + value.content + '\',\'' + value.checkid + '\');"> [수정] </a>';
-                            a += '<a onclick="commentDelete(' + value.cno + ',\'' + value.checkid + '\');"> [삭제] </a>';
+                            a += '<a class="update" onclick="commentUpdate(' + value.cno + ',\'' + value.content + '\',\'' + value.checkid + '\');"> [수정] </a>';
+                            a += '<a class="delete" onclick="commentDelete(' + value.cno + ',\'' + value.checkid + '\');"> [삭제] </a>';
                         }
-                        a += '<div class="commentContent' + value.cno + '"> <p> 내용 : ' + value.content + '</p>';
+                        a += '</div>'
+                        a += '<div  id="commentContentid" class="commentContent' + value.cno + '"> <p class="contenttext">  ' + value.content + '</p>';
                         a += '</div></div>';
-                        console.log(value.nickname);
-                        console.log('${ principal.memberdto.nickname } 현재로그인');
                     });
 
                     $(".commentlist").html(a);
@@ -54,10 +55,8 @@
         //댓글 수정 - 댓글 내용 출력을 input 폼으로 변경 
         function commentUpdate(cno, content, checkid) {
             var a = '';
-            a += '<div class="input-group">';
-            a += '<input type="text" class="form-control" id="update' + cno + '" value="' + content + '" onchange="commentUpdateProc2(this.value)" />';
-            a += '<span class="input-group-btn"><button  id="test"  class="commentUpdateBtn" type="button" onclick="commentUpdateProc(' + cno + ',' + checkid + ')">수정</button> </span> ';
-            a += '</div>'
+            a += '<input type="text" class="updateinput"  id="update' + cno + ' " onchange="commentUpdateProc2(this.value)" />';
+            a += '<span class="input-group-btn"><button class="commentUpdateBtn" type="button" onclick="commentUpdateProc(' + cno + ',' + checkid + ')">수정</button> </span> ';
             $('.commentContent' + cno).html(a);
         }
 

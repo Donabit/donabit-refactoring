@@ -5,17 +5,18 @@
 	animation: color-change-3x 10s linear infinite alternate both;
 	display: grid;
 	grid-template-columns: 200px 400px 450px 200px;
-	grid-template-rows: 200px 400px auto auto auto;
+	grid-template-rows: 50px 400px 200px auto auto auto;
 	gap: 0px 0px;
 	grid-auto-flow: row dense;
 	justify-content: center;
 	justify-items: stretch;
-	grid-template-areas: 
-	".head head ."
-	". img info ."
-	". description description ."
-	". button button ."
-	". footer footer .";
+	grid-template-areas:
+		".head head ."
+		". img info ."
+		". slide slide ."
+		". description description ."
+		". button button ."
+		". footer footer .";
 }
 
 .head {
@@ -186,6 +187,10 @@
 	font-size: 17px;
 }
 
+.slide {
+	grid-area: slide;
+}
+
 .description {
 	grid-area: description;
 	position: relative;
@@ -196,17 +201,17 @@
 	grid-area: description;
 	margin: 20px 0px 10px 0px;
 	background: #daf0ef;
-	padding : 30px 30px 30px 30px;
+	padding: 30px 30px 30px 30px;
 
 }
 
-.description2{
+.description2 {
 	background-image: url('../img/challenge/detail2.png');
- background-size: 850px;
-	width :850px;
+	background-size: 850px;
+	width: 850px;
 	height: 1900px;
 	margin: 10px 0px 100px 0px;
-	object-fit:cover;
+	object-fit: cover;
 }
 
 .button {
@@ -407,7 +412,7 @@ progress::-webkit-progress-value {
 
 .chcommu-info {
 	margin: var(--main-contents-margin) auto;
-	max-width: var(--global-max-width);	
+	max-width: var(--global-max-width);
 }
 
 .chcommu_header {
@@ -416,7 +421,7 @@ progress::-webkit-progress-value {
 	margin-bottom: 1em;
 }
 
-.chcommu_container {  
+.chcommu_container {
 	display: grid;
 	margin-left: 0.8em;
 	gap: 2em;
@@ -429,21 +434,21 @@ progress::-webkit-progress-value {
 	justify-items: stretch;
 	align-items: stretch;
 	grid-template-areas:
-	  "chcommu-img chcommu-img chcommu-img chcommu-img";
+		"chcommu-img chcommu-img chcommu-img chcommu-img";
 }
 
-.chcommu-img { grid-area: chcommu-img;
-border-radius: 2%;
+.chcommu-img {
+	grid-area: chcommu-img;
+	border-radius: 2%;
 }
 
 .chcommu_detailinfo {
 	font-size: 0.8em;
 	padding: 0.2em 0;
-	
+
 }
 
 
 #challenge1 {
-    width: 100%;
+	width: 100%;
 }
-

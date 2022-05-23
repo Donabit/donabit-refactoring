@@ -28,24 +28,26 @@
                     <div class="input-group">
                         <!-- 댓글작성 -->
                         <input type="text" class="content" id="content${status.index}" name="content"
-                            placeholder="댓글 달기 ... " autocomplete="off">
+                            placeholder="댓글 달기 ... " autocomplete="off" maxlength='200'>
                         <!-- 댓글등록 -->
                         <span class="input-group-btn">
                             <button class="commentInsertBtn" type="button" checkid="${check.checkid}"
                                 idx="${status.index}">등록</button>
                         </span>
                     </div>
+
+
                 </c:if>
                 <!-- 로그인을 안 했을때 -->
                 <c:if test="${empty principal.memberdto.nickname}">
                     <div class="input-group">
                         <!-- 댓글작성 -->
                         <input type="text" class="form-control" id="content" name="content"
-                            placeholder="댓글을 작성하려면 로그인 해주세요">
+                            placeholder="댓글을 작성하려면 로그인 해주세요" autocomplete="off" readonly>
                         <!-- 댓글등록 -->
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" name="commentInsertBtn"
-                                checkid="${check.checkid}">로그인</button>
+                            <button class="commentLoginBtn" type="button"
+                                onclick="location.href='http://localhost:8089/loginform' ">로그인</button>
                         </span>
                     </div>
                 </c:if>

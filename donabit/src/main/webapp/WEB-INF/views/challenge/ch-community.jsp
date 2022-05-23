@@ -318,7 +318,7 @@
 
 				});// ready
 		</script>
-		<link rel="stylesheet" href="css/ch-community.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/ch-community.css">
 		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 			<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 				<script src="js/ch-community.js" type="text/javascript"></script>
@@ -327,7 +327,7 @@
 
 	<body>
 		<%@ include file="/WEB-INF/views/main_header.jsp" %>
-			<img id="coimg" src="img/challenge/challenge11.svg">
+			<img id="coimg" src="img/challenge/community.svg" style="margin:0;padding:0;border:0;">
 			<div class="container">
 
 
