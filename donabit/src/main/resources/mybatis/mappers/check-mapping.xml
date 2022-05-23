@@ -46,7 +46,7 @@
 	</select>	
 	
 	<select id="mypagecheck" resultType="challengedto" parameterType="String">
-		SELECT challenging.chnum, chname, chedate, chimg, challenging.personalpf FROM challenge JOIN challenging ON challenge.chnum=challenging.chnum WHERE personalpf=0 AND (challenge.nickname NOT LIKE #{nickname} OR challenge.nickname IS NULL);
+		SELECT challenging.chnum, chname, chedate, chimg, challenging.personalpf FROM challenge JOIN challenging ON challenge.chnum=challenging.chnum WHERE personalpf = 0 AND challenging.nickname LIKE #{nickname} AND (challenge.nickname NOT LIKE #{nickname} OR challenge.nickname IS NULL) group by chnum;
 	</select>
 	
 	<!-- mypage 개설한 챌린지 -->
