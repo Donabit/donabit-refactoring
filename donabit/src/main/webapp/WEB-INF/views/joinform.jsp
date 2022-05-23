@@ -213,7 +213,7 @@ $(document).ajaxSend(function (e, xhr, options) {
 	<div class="buttons-wrapper">
 	 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
 	 <div class="buttons-left"><button id="btn_submit" type=submit class="btn_submit" >회원가입</button> </div>
-	 <div class="buttons-right"><a href="/main"><button id="btn_cancel" type="button" class="btn_cancel">취소</button></a></div>
+	 <div class="buttons-right"><a href="/main"><button id="btn_cancel" type="button" class="btn_cancel">취&nbsp&nbsp&nbsp&nbsp&nbsp소</button></a></div>
 	</div> 
 	 
 	 </form>

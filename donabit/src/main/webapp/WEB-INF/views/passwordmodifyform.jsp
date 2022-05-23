@@ -75,14 +75,12 @@ $(document).ajaxSend(function (e, xhr, options) {
 </head>
 <body>
 <div class="wrapper">
-  <div class="title"><h1 style="font-size: 30px;"> 비밀번호변경 </h1></div>
+  <div class="title"><h1 style="font-size: 30px;"> 비밀번호 변경 </h1></div>
 <hr/>
 <br>
 <form action="passwordmodify" method="post" id="passwordmodifyForm" name="passwordmodifyForm">
  
-<div class="email">
- <h5>회원아이디</h5><input type=text name=email value="${principal.memberdto.email}" readonly="readonly"><br>
-</div>
+ <input type=hidden name=email value="${principal.memberdto.email}" readonly="readonly">
 <div class="password"> 
  <h5>기존 비밀번호</h5><input type=password id=memberPw name=memberPw required><br>
  </div>
@@ -99,7 +97,7 @@ $(document).ajaxSend(function (e, xhr, options) {
  <div class="buttons-wrapper">
  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
 
- <div class="buttons-left"><button type="button" id="passwordmodify" name="passwordmodify" class="btn-gradient small">수정하기</button> </div>
+ <div class="buttons-left"><button type="button" id="passwordmodify" name="passwordmodify" class="btn-gradient small">변경</button> </div>
  <div class="buttons-right"><a href="/mypage"><button id="cancle" type="button" class="btn-gradient small">취소</button></a></div>
  </div>
  

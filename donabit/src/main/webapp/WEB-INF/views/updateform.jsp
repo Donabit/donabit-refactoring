@@ -65,7 +65,7 @@ $(document).ajaxSend(function (e, xhr, options) {
 	<form action="memberupdate" method="post">
 	
 	<div class="email">
-	 <h5>회원아이디</h5><input type=text name=email value="${principal.memberdto.email}" readonly="readonly"><br>
+	 <h5>아이디 (변경 불가능)</h5><input type=text name=email value="${principal.memberdto.email}" readonly="readonly"><br>
 	</div>
 	
 	 <div class="nickname">
@@ -76,6 +76,7 @@ $(document).ajaxSend(function (e, xhr, options) {
 	 <h5>변경할 휴대폰번호</h5><input type=text value="${principal.memberdto.phone}" name=phone ><br>
 	 </div>
 	 <div class="avatarbox">
+	 	<h5>변경할 아바타</h5>
 		<input type = "radio" name ="avatar" value = "human" required> 사람 </input>
 		<img src="/img/human1.jpg" width=200px height=200px>
 		<input type = "radio" name ="avatar" value = "slime" required> 슬라임 </input>
@@ -86,8 +87,8 @@ $(document).ajaxSend(function (e, xhr, options) {
   <br>
  <div class="buttons-wrapper">
  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
- <div class="buttons-left"><button id="btn_submit" type=submit class="btn-gradient small" >수정하기</button> </div>
- <div class="buttons-right"><a href="/mypage"><button id="cancle" type="button" class="btn-gradient small">취소</button></a></div>
+ <div class="buttons-left"><button id="btn_submit" type=submit class="btn-gradient small" >수정</button> </div>
+ <div class="buttons-right"><a href="/mypage" class="right_cancel"><button id="cancel" type="button" class="btn-gradient small">취소</button></a></div>
  </div>
  
  </form>

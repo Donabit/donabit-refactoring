@@ -80,21 +80,6 @@ input{
 	margin-top: 30px;
 }
 
-/* .btn-gradient small {
-    background-color: #2AC1BC;
-    color: white;
-    padding: 0.8em 1.6em;
-    margin: 2em 1em;
-    border-radius: 0.5em;
-    border: 0;
-    cursor: pointer;
-    box-shadow: 2px 2px rgb(176, 176, 176);
-    position: absolute;
-	left: 40%;
-  opacity: 0.5;
-} */
-
-
 
 
 .btn-gradient {
@@ -144,42 +129,3 @@ input{
 .btn_cancel:hover {
   	opacity: 0.8;
 }
-/* .btn-gradient small:hover {
-     opacity: 1.0;
-}
-
-
-.btn-gradient small {
-	background-color: #2AC1BC;
-	padding: 8px 18px;  
-  	font-size: 14px;
-  	opacity: 0.5;
-}
-
-.btn-gradient.mini {
-	padding: 4px 12px;  
-  	font-size: 12px;
-  	 background-color: #2AC1BC;
-} */
-
-/* .btn-gradient { 
-	
-	text-decoration: none;
-	color: white;
-	padding: 10px 30px;
-	display: inline-block;
-	position: relative;
-	border: 1px solid rgba(0,0,0,0.21);
-	border-bottom: 4px solid rgba(0,0,0,0.21);
-	border-radius: 4px;
-	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
-	
-	background: #2AC1BC;
-	background: -moz-linear-gradient(top, #2AC1BC 0%, #2AC1BC 100%);
-	background: -webkit-gradient(left top, left bottom, color-stop(0%, #2AC1BC), color-stop(100%, #2AC1BC));
-	background: -webkit-linear-gradient(top,  #2AC1BC 0%, #2AC1BC 100%);
-	background: -o-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: -ms-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: linear-gradient(to bottom, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF85B3', endColorstr='#FF85B3', GradientType=0 );
-} */

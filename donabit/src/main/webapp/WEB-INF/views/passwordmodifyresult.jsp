@@ -15,13 +15,13 @@
 
 </head>
  <style>
-      body {
+   body {
         text-align: center;
         padding: 40px 0;
-        background: #faf2f9;
+        background: #b6edeb;
       }
         h1 {
-          color: #fc5192;
+          color: #2AC1BC;
           font-weight: 900;
           font-size: 40px;
           margin-bottom: 10px;
@@ -32,7 +32,7 @@
           margin: 0;
         }
       i {
-        color: #fc5192;
+        color: #2AC1BC;
         font-size: 100px;
         line-height: 200px;
         margin-left:-15px;
@@ -48,7 +48,7 @@
    
 button.success{
   position:relative;
-  background:#FF85B3;
+  background:#2AC1BC;
   color:#fff;
   border:none;
   height:40px;
@@ -57,12 +57,14 @@ button.success{
   cursor:pointer;
   transition:800ms ease all;
   outline:none;
+   opacity: 1.0;
 }
 button.success:hover{
   background:#fff;
   color:#1AAB8A;
+   opacity: 0.8;
 }
-button.success:before,button.success:after{
+ button.success:before,button.success:after{
   content:'';
   position:absolute;
   top:0;
@@ -81,14 +83,13 @@ button.success:after{
 button.success:hover:before,button.success:hover:after{
   width:100%;
   transition:800ms ease all;
-}
-
+} 
 </style>
  
 <body>
 <c:if test="${result == 1}">
 	<div class="card">
-      <div style="border-radius:200px; height:200px; width:200px; background: #ffe8f1; margin:0 auto;">
+      <div style="border-radius:200px; height:200px; width:200px; background: #b6edeb; margin:0 auto;">
         <i class="checkmark">✓</i>
       </div>
         <h1> Success ! </h1> 

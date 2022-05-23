@@ -59,12 +59,12 @@ $(document).ajaxSend(function (e, xhr, options) {
 </head>
 <body>
 <div class="wrapper">
-  <div class="title"><h1 style="font-size: 30px;"> 회원탈퇴 </h1></div>
+  <div class="title"><h1 style="font-size: 30px;"> 회원 탈퇴 </h1></div>
 <hr/>
 <br>
   <form action="/deletemember" method="post" id="deleteForm" name="deleteForm">
   <input type="hidden" id="email" name="email" value="${principal.memberdto.email}">
-                <h3>회원탈퇴를 하려면 비밀번호를 입력해주세요.</h3>
+                <h3>회원 탈퇴를 위해 비밀번호를 입력해주세요.</h3>
                <br>
                 <div class="password"> 
                     <input type="password" id = "memberPw" name="memberPw" placeholder="비밀번호 입력" />
@@ -74,8 +74,8 @@ $(document).ajaxSend(function (e, xhr, options) {
 				  <br>
 				 <div class="buttons-wrapper">
                  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
-                <div class="buttons-left"><button type="button" id="deletemember" name="deletemember" class="btn-gradient small" >회원탈퇴</button></div>
-                 <div class="buttons-right"><a href="/mypage"><button id="cancle" type="button" class="btn-gradient small">취소</button></a></div>
+                <div class="buttons-left"><button type="button" id="deletemember" name="deletemember" class="btn-gradient small" >탈퇴</button></div>
+                 <div class="buttons-right"><a href="/mypage"><button id="cancel" type="button" class="btn-gradient small">취소</button></a></div>
   		</div>
   		
     </form>

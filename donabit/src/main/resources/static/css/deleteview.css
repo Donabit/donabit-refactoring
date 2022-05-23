@@ -8,9 +8,6 @@
     justify-content: center;
     padding: 10px;
 	width: 45%;
-	
-	border: 2px dotted #FF85B3;
-	border-radius:10%;
    
 }
 
@@ -27,91 +24,60 @@ div {
 
 input{
 	
-    border: 1px dotted pink;
-    border-radius: 3px;
+	border : 1px solid darkgray;
     line-height: 35px;
     font-size: 12px;
     padding-left: 10px;
     padding-right: 10px;
 }
 
-.email input {
-	width: 95%;
-}
 
 
 .password input {
-    width: 95%;
+    width: 100%;
     text-align:center;
 }
 
 
 
 
-.btn-gradient { 
-	
-	text-decoration: none;
-	color: white;
-	padding: 10px 30px;
-	display: inline-block;
-	position: relative;
-	border: 1px solid rgba(0,0,0,0.21);
-	border-bottom: 4px solid rgba(0,0,0,0.21);
-	border-radius: 4px;
-	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
-	
-	background: rgba(255,133,179,1);
-	background: -moz-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,133,179,1)), color-stop(100%, rgba(235, 134, 171, 1)));
-	background: -webkit-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: -o-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: -ms-linear-gradient(top, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	background: linear-gradient(to bottom, rgba(255,133,179,1) 0%, rgba(235, 134, 171, 1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF85B3', endColorstr='#FF85B3', GradientType=0 );
-}
-
-
-
-.btn-gradient.small {
-	
+.btn-gradient {
+	background-color: #2AC1BC;
 	padding: 8px 18px;  
   	font-size: 14px;
+  	opacity: 1.0;
+  	border: 1px solid #2AC1BC;
 }
 
-.btn-gradient.mini {
-	padding: 4px 12px;  
-  	font-size: 12px;
+.btn-gradient:hover{
+	opacity: 0.8;
 }
-
 
 .buttons-wrapper {
 	margin: 0 auto;
-	width: 230px;
+	width:260px;
 }
 
 .buttons-left {
 	width:100px;
 	height:50px;
 	float: left;	
-	margin: 0 10px;
+	margin-left:50px;
 }
 
 .buttons-right{
 	width:100px;
-	height:50px;
+	height:50px;	
 	display: inline-block;
-    margin-left: 10px;
-    
 }
 
 .wrapper hr {
-	border-top: 1.5px dotted #FF85B3;
-	border-bottom : white;
+	color: darkgray;
 }
 
 h1, h3, h5{
 	
-	color:#fc5192;
+	color: #2AC1BC;
 }
 
 h3{
